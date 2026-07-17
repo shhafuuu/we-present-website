@@ -45,11 +45,17 @@ To add a 5th resort: add curated images to `public/images/resorts/<slug>/` (see 
 
 **Known CSS gotcha**: don't let an element with `position: fixed` live inside an ancestor that has `backdrop-filter`/`filter`/`transform` — it changes the fixed element's containing block from the viewport to that ancestor's box, which can silently zero out its size. This bit the mobile nav overlay (it was a child of `<header>`, which has `backdrop-blur-sm`); fixed by rendering the overlay as a sibling of `<header>` instead of a descendant (see `src/components/Header.tsx`).
 
+## Forms
+
+`InquiryForm` and `ContactForm` POST to `src/app/api/inquiry/route.ts` and `src/app/api/contact/route.ts`, which both call `sendSubmission()` in `src/lib/mailer.ts`. That function always appends the submission to `.submissions/submissions.log` (gitignored) — a local stand-in for the spec's "append every submission to a Google Sheet" backup (Section 9.1) — then, if `GMAIL_USER`/`GMAIL_APP_PASSWORD` env vars are set, sends a real email via Gmail SMTP (Nodemailer) to `NOTIFY_EMAIL` (defaults to `wepresentproject@gmail.com`, a temporary test inbox — will change before real launch). Without those env vars it degrades gracefully: submission still succeeds and logs locally, no email sent. See `.env.local.example` for the exact vars; `GMAIL_APP_PASSWORD` requires 2-Step Verification enabled on the Gmail account first (myaccount.google.com/apppasswords).
+
+There's no file upload handling yet (spec Sections 8.1/8.3 need it for the registration and partnership forms, which aren't built) and no honeypot/rate-limiting anti-spam (spec Section 8.4).
+
 ## Current scope / not yet implemented
 
-- **Bilingual RU/EN**: spec requires `/ru` and `/en` locales; only English exists right now. Verify Cyrillic glyph coverage for both Google Fonts before wiring this up — Manrope's Cyrillic support is not guaranteed despite the spec assuming it.
-- **Forms**: `InquiryForm` is UI-only (local React state, no network call) — the serverless backend, email routing, and file uploads from spec Section 8–9 aren't built.
-- **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted.
+- **Bilingual RU/EN**: spec requires `/ru` and `/en` locales; only English exists right now. Cyrillic glyph coverage for both Playfair Display and Manrope was verified via a throwaway test route (build + visual check) — safe to build i18n on the current font choices.
+- **Register Interest / Become a Partner forms**: retained by spec but not built as standalone pages yet (file upload fields needed).
+- **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 
 ## Visual verification
 
