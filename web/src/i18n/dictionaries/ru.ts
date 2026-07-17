@@ -18,6 +18,7 @@ export const ru: Dictionary = {
     howItWas: "Как это было",
     contact: "Контакты",
     register: "Оставить заявку",
+    becomePartner: "Стать партнёром",
     byCoatiTravel: "ОТ COATI TRAVEL",
   },
   footer: {

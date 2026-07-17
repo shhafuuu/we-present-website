@@ -43,18 +43,16 @@ export default async function PartnersPage({
               <Reveal key={resort.slug} delay={i * 0.08}>
                 <div className="flex gap-6 rounded-2xl bg-lavender-mist/40 p-6">
                   <div
-                    className={`flex h-20 w-32 shrink-0 items-center justify-center rounded-xl p-4 ${
-                      resort.logoBg === "dark" ? "bg-aubergine" : "bg-ivory"
+                    className={`relative h-16 w-24 shrink-0 ${
+                      resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-2" : ""
                     }`}
                   >
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={resort.logo}
-                        alt={resort.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
+                    <Image
+                      src={resort.logo}
+                      alt={resort.name}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="font-display text-lg text-aubergine">

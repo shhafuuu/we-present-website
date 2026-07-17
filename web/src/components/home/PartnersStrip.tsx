@@ -20,24 +20,20 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-6">
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
             {resorts.map((resort) => (
               <div
                 key={resort.slug}
-                className={`flex h-28 w-44 items-center justify-center rounded-2xl p-6 shadow-sm ring-1 transition-all duration-500 hover:-translate-y-1 hover:shadow-md ${
-                  resort.logoBg === "dark"
-                    ? "bg-aubergine ring-aubergine/20"
-                    : "bg-ivory ring-aubergine/5"
+                className={`relative h-14 w-32 shrink-0 transition-transform duration-500 hover:-translate-y-1 sm:h-16 sm:w-36 ${
+                  resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-2" : ""
                 }`}
               >
-                <div className="relative h-full w-full">
-                  <Image
-                    src={resort.logo}
-                    alt={resort.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                <Image
+                  src={resort.logo}
+                  alt={resort.name}
+                  fill
+                  className={`object-contain ${resort.logoBg === "none" ? "opacity-80 hover:opacity-100" : ""}`}
+                />
               </div>
             ))}
           </div>

@@ -16,6 +16,7 @@ export const en = {
     howItWas: "How It Was",
     contact: "Contact",
     register: "Register Interest",
+    becomePartner: "Become a Partner",
     byCoatiTravel: "BY COATI TRAVEL",
   },
   footer: {

@@ -38,13 +38,26 @@ export default async function ResortPage({
   return (
     <>
       <section className="relative flex h-[75vh] min-h-[560px] w-full items-end overflow-hidden">
-        <Image
-          src={resort.heroImage}
-          alt={resort.name}
-          fill
-          priority
-          className="object-cover"
-        />
+        {resort.heroVideo ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={resort.heroImage}
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src={resort.heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={resort.heroImage}
+            alt={resort.name}
+            fill
+            priority
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>

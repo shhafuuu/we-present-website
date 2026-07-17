@@ -10,8 +10,10 @@ export type Resort = {
   tagline: LocalizedString;
   cardImage: string;
   heroImage: string;
+  heroVideo?: string;
   logo: string;
-  logoBg: "light" | "dark";
+  /** "none" = logo is self-contained (transparent art or its own baked-in background) and renders with no wrapper. "dark" = logo needs a dark backdrop to be visible (light-on-transparent art). */
+  logoBg: "none" | "dark";
   built: boolean;
   stayDates: LocalizedString;
   story: LocalizedList;
@@ -34,8 +36,9 @@ export const resorts: Resort[] = [
     },
     cardImage: "/images/resorts/so-maldives/card.jpg",
     heroImage: "/images/resorts/so-maldives/hero.jpg",
+    heroVideo: "/videos/so-maldives-hero.mp4",
     logo: "/images/logos/so-maldives.png",
-    logoBg: "light",
+    logoBg: "none",
     built: true,
     stayDates: {
       en: "17–19 Aug 2026 · Tour 1, stop 1 (2 nights)",
@@ -86,8 +89,9 @@ export const resorts: Resort[] = [
     },
     cardImage: "/images/resorts/fushifaru/card.jpg",
     heroImage: "/images/resorts/fushifaru/hero.jpg",
+    heroVideo: "/videos/fushifaru-hero.mp4",
     logo: "/images/logos/fushifaru.png",
-    logoBg: "light",
+    logoBg: "none",
     built: true,
     stayDates: {
       en: "19–21 Aug 2026 · Tour 1, stop 2 (2 nights)",
@@ -138,8 +142,9 @@ export const resorts: Resort[] = [
     },
     cardImage: "/images/resorts/meyyafushi/card.jpg",
     heroImage: "/images/resorts/meyyafushi/hero.jpg",
+    heroVideo: "/videos/meyyafushi-hero.mp4",
     logo: "/images/logos/meyyafushi.png",
-    logoBg: "light",
+    logoBg: "none",
     built: true,
     stayDates: {
       en: "21–23 Aug 2026 · Tour 1, stop 3 (2 nights)",
@@ -190,6 +195,7 @@ export const resorts: Resort[] = [
     },
     cardImage: "/images/resorts/madifushi/card.jpg",
     heroImage: "/images/resorts/madifushi/hero.jpg",
+    heroVideo: "/videos/madifushi-hero.mp4",
     logo: "/images/logos/madifushi.png",
     logoBg: "dark",
     built: true,
