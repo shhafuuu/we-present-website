@@ -11,31 +11,6 @@ export function generateStaticParams() {
   return resorts.filter((r) => r.built).map((r) => ({ slug: r.slug }));
 }
 
-const GALLERY: Record<string, { src: string; alt: string }[]> = {
-  fushifaru: [
-    { src: "/images/resorts/fushifaru/lifestyle.jpg", alt: "Fushifaru beach deck at sunset" },
-    { src: "/images/resorts/fushifaru/villa.jpg", alt: "Beach Villa Sunrise interior" },
-    { src: "/images/resorts/fushifaru/dining.jpg", alt: "Dining at Fushifaru" },
-    { src: "/images/resorts/fushifaru/spa.jpg", alt: "Heylhi Spa treatment room" },
-    { src: "/images/resorts/fushifaru/sandbank.jpg", alt: "Fushifaru sandbank" },
-    { src: "/images/resorts/fushifaru/dive.jpg", alt: "Diving with a sea turtle" },
-    { src: "/images/resorts/fushifaru/island.jpg", alt: "Aerial view around the island" },
-    { src: "/images/resorts/fushifaru/yoga.jpg", alt: "Yoga session at Fushifaru" },
-  ],
-};
-
-const KEY_FACTS: Record<
-  string,
-  { location: string; villas: string; facilities: string; stayDates: string }
-> = {
-  fushifaru: {
-    location: "Lhaviyani Atoll, Maldives — 35 min seaplane from Malé",
-    villas: "Beach Villas, Water Villas & Sunset Water Villas",
-    facilities: "Heylhi Spa, PADI dive centre, Greenfushi sustainability hub, kids club",
-    stayDates: "19–21 Aug 2026 · Tour 1, stop 2 (2 nights)",
-  },
-};
-
 export default async function ResortPage({
   params,
 }: {
@@ -48,14 +23,16 @@ export default async function ResortPage({
     notFound();
   }
 
-  const gallery = GALLERY[slug] ?? [];
-  const facts = KEY_FACTS[slug];
+  const builtResorts = resorts.filter((r) => r.built);
+  const index = builtResorts.findIndex((r) => r.slug === slug);
+  const previous = builtResorts[(index - 1 + builtResorts.length) % builtResorts.length];
+  const next = builtResorts[(index + 1) % builtResorts.length];
 
   return (
     <>
       <section className="relative flex h-[75vh] min-h-[560px] w-full items-end overflow-hidden">
         <Image
-          src="/images/resorts/fushifaru/hero.jpg"
+          src={resort.heroImage}
           alt={resort.name}
           fill
           priority
@@ -68,9 +45,7 @@ export default async function ResortPage({
             <h1 className="font-display mt-4 text-5xl text-ivory sm:text-6xl">
               {resort.name}
             </h1>
-            {facts && (
-              <p className="mt-4 text-sm text-ivory/70">{facts.stayDates}</p>
-            )}
+            <p className="mt-4 text-sm text-ivory/70">{resort.stayDates}</p>
           </Reveal>
         </div>
       </section>
@@ -80,52 +55,42 @@ export default async function ResortPage({
           <Reveal>
             <Kicker>The Story</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-              An intimate reef island in Lhaviyani Atoll
+              {resort.tagline}
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-ink/70">
-              Fushifaru sits on its own private reef, a short seaplane hop
-              from Malé, where mornings begin with the tide and the days
-              slow to the pace of the lagoon. Overwater and beach villas
-              face an uninterrupted horizon; the house reef, reachable by a
-              short swim from most villas, is among the most accessible in
-              the atoll.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink/70">
-              For the We Present tour, Fushifaru is the second stop &mdash;
-              two nights to dive the house reef, unwind at Heylhi Spa, and
-              experience the island&rsquo;s understated, barefoot-luxury
-              hospitality first-hand.
-            </p>
+            {resort.story.map((paragraph, i) => (
+              <p
+                key={i}
+                className={`text-base leading-relaxed text-ink/70 ${i === 0 ? "mt-6" : "mt-4"}`}
+              >
+                {paragraph}
+              </p>
+            ))}
           </Reveal>
 
           <Reveal delay={0.15}>
-            {facts && (
-              <div className="rounded-2xl bg-soft-lilac/40 p-8">
-                <Kicker>Key Facts</Kicker>
-                <dl className="mt-6 space-y-5 text-sm">
-                  <div>
-                    <dt className="kicker text-amethyst/70">Location</dt>
-                    <dd className="mt-1 text-ink/70">{facts.location}</dd>
-                  </div>
-                  <div>
-                    <dt className="kicker text-amethyst/70">Villas</dt>
-                    <dd className="mt-1 text-ink/70">{facts.villas}</dd>
-                  </div>
-                  <div>
-                    <dt className="kicker text-amethyst/70">Facilities</dt>
-                    <dd className="mt-1 text-ink/70">{facts.facilities}</dd>
-                  </div>
-                  <div>
-                    <dt className="kicker text-amethyst/70">
-                      Official Website
-                    </dt>
-                    <dd className="mt-1 text-ink/40">
-                      To be confirmed by resort partner
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            )}
+            <div className="rounded-2xl bg-soft-lilac/40 p-8">
+              <Kicker>Key Facts</Kicker>
+              <dl className="mt-6 space-y-5 text-sm">
+                <div>
+                  <dt className="kicker text-amethyst/70">Location</dt>
+                  <dd className="mt-1 text-ink/70">{resort.keyFacts.location}</dd>
+                </div>
+                <div>
+                  <dt className="kicker text-amethyst/70">Villas</dt>
+                  <dd className="mt-1 text-ink/70">{resort.keyFacts.villas}</dd>
+                </div>
+                <div>
+                  <dt className="kicker text-amethyst/70">Facilities</dt>
+                  <dd className="mt-1 text-ink/70">{resort.keyFacts.facilities}</dd>
+                </div>
+                <div>
+                  <dt className="kicker text-amethyst/70">Official Website</dt>
+                  <dd className="mt-1 text-ink/40">
+                    To be confirmed by resort partner
+                  </dd>
+                </div>
+              </dl>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -135,11 +100,11 @@ export default async function ResortPage({
           <Reveal>
             <Kicker>Gallery</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-              Life at Fushifaru
+              Life at {resort.name}
             </h2>
           </Reveal>
           <Reveal delay={0.15} className="mt-10">
-            <Gallery images={gallery} />
+            <Gallery images={resort.gallery} />
           </Reveal>
         </div>
       </section>
@@ -153,11 +118,22 @@ export default async function ResortPage({
       </section>
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
-        <div className="mx-auto flex max-w-6xl justify-between text-sm">
-          <Link href="/#resorts" className="text-amethyst hover:text-aubergine">
-            ← All Resorts
+        <div className="mx-auto flex max-w-6xl items-center justify-between text-sm">
+          <Link
+            href={`/resorts/${previous.slug}`}
+            className="text-amethyst hover:text-aubergine"
+          >
+            ← {previous.name}
           </Link>
-          <span className="text-ink/30">More resort pages coming soon</span>
+          <Link href="/#resorts" className="kicker text-ink/40 hover:text-amethyst">
+            All Resorts
+          </Link>
+          <Link
+            href={`/resorts/${next.slug}`}
+            className="text-amethyst hover:text-aubergine"
+          >
+            {next.name} →
+          </Link>
         </div>
       </section>
     </>

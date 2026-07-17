@@ -26,7 +26,7 @@ export function ConceptSection() {
           <span className="h-px w-16 bg-gold" />
         </Reveal>
         <Reveal delay={0.3} className="mt-10">
-          <Button href="/#tours" variant="ghost">
+          <Button href="/about" variant="ghost">
             Explore the Programme
           </Button>
         </Reveal>

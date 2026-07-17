@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "About", href: "/#concept" },
-  { label: "Tours", href: "/#tours" },
+  { label: "About", href: "/about" },
+  { label: "Tours", href: "/tours" },
   { label: "Resorts", href: "/#resorts" },
-  { label: "Partners", href: "/#partners" },
+  { label: "Partners", href: "/partners" },
   { label: "How It Was", href: "/#how-it-was" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {

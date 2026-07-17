@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
+import { Button } from "@/components/Button";
 import { resorts } from "@/lib/resorts";
 
 export function PartnersStrip() {
@@ -36,6 +37,12 @@ export function PartnersStrip() {
               </div>
             ))}
           </div>
+        </Reveal>
+
+        <Reveal delay={0.25} className="mt-14">
+          <Button href="/partners" variant="ghost">
+            View All Partners
+          </Button>
         </Reveal>
       </div>
     </section>

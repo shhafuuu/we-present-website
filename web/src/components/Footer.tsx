@@ -23,10 +23,10 @@ export function Footer() {
           <div>
             <p className="kicker text-gold">Explore</p>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
-              <li><Link href="/#concept" className="hover:text-ivory">About</Link></li>
-              <li><Link href="/#tours" className="hover:text-ivory">Tours</Link></li>
+              <li><Link href="/about" className="hover:text-ivory">About</Link></li>
+              <li><Link href="/tours" className="hover:text-ivory">Tours</Link></li>
               <li><Link href="/#resorts" className="hover:text-ivory">Resorts</Link></li>
-              <li><Link href="/#partners" className="hover:text-ivory">Partners</Link></li>
+              <li><Link href="/partners" className="hover:text-ivory">Partners</Link></li>
               <li><Link href="/#how-it-was" className="hover:text-ivory">How It Was</Link></li>
             </ul>
           </div>

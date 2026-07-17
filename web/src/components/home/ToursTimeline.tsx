@@ -1,37 +1,8 @@
+import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Kicker } from "@/components/Kicker";
-
-const TOURS = [
-  {
-    year: "2026",
-    name: "Maldives · Tour 1",
-    dates: "17–23 August 2026",
-    note: "SO/ · Fushifaru · Meyyafushi",
-    status: "confirmed" as const,
-  },
-  {
-    year: "2026",
-    name: "Maldives + TTM · Tour 2",
-    dates: "28 August – 3 September 2026",
-    note: "TTM Maldives 2026 · Fushifaru · Meyyafushi · SO/",
-    status: "confirmed" as const,
-  },
-  {
-    year: "2026",
-    name: "Oman",
-    dates: "December 2026",
-    note: "Dates coming soon",
-    status: "pending" as const,
-  },
-  {
-    year: "2027",
-    name: "Coming Soon",
-    dates: "To be announced",
-    note: "Further destinations planned",
-    status: "pending" as const,
-  },
-];
+import { tours } from "@/lib/tours";
 
 export function ToursTimeline() {
   return (
@@ -45,9 +16,9 @@ export function ToursTimeline() {
         </Reveal>
 
         <div className="mt-16 space-y-4">
-          {TOURS.map((tour, i) => (
-            <Reveal key={tour.name} delay={i * 0.08}>
-              <div className="flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/70 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          {tours.map((tour, i) => {
+            const card = (
+              <div className="flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/70 p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-md sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <div className="flex items-start gap-5 sm:items-center">
                   <span className="font-display text-sm text-gold">
                     {tour.year}
@@ -57,7 +28,11 @@ export function ToursTimeline() {
                     <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                       {tour.name}
                     </h3>
-                    <p className="mt-1 text-sm text-ink/60">{tour.note}</p>
+                    <p className="mt-1 text-sm text-ink/60">
+                      {tour.stops.length > 0
+                        ? tour.stops.map((s) => s.label).join(" · ")
+                        : "Dates coming soon"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 pl-[3.25rem] sm:pl-0">
@@ -72,11 +47,26 @@ export function ToursTimeline() {
                   </span>
                 </div>
               </div>
-            </Reveal>
-          ))}
+            );
+
+            return (
+              <Reveal key={tour.slug} delay={i * 0.08}>
+                {tour.status === "confirmed" ? (
+                  <Link href={`/tours/${tour.slug}`} className="block">
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
-        <Reveal delay={0.3} className="mt-14 text-center">
+        <Reveal delay={0.3} className="mt-14 flex flex-wrap justify-center gap-4">
+          <Button href="/tours" variant="ghost">
+            View Full Calendar
+          </Button>
           <Button href="/#resorts" variant="ghost">
             See the Resorts on Tour
           </Button>

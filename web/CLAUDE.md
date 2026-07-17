@@ -29,15 +29,17 @@ The raw resort photo/video/logo libraries (e.g. `../Fushifaru Images and Videos/
 
 ## Architecture
 
-Next.js 16 App Router + TypeScript + Tailwind v4 + Framer Motion. Only two routes exist so far: `/` (home) and `/resorts/fushifaru`. Most of the spec's sitemap (About, Tours, Partners, Contact, Register, Become a Partner as standalone pages) is not yet built — header/footer nav links point to `/#section-id` anchors on the home page instead of separate routes.
+Next.js 16 App Router + TypeScript + Tailwind v4 + Framer Motion. Routes: `/`, `/about`, `/tours`, `/tours/[slug]`, `/partners`, `/contact`, `/resorts/[slug]` — all 4 resorts and both confirmed 2026 tours are built out. Not yet built: Register Interest, Become a Partner, How It Was, and Legal as standalone pages — header/footer nav links to these still point to `/#section-id` anchors on the home page (`Resorts` and `How It Was` are anchors by design, since there's no standalone listing page for either in the spec).
 
 **Design tokens** live in `src/app/globals.css` as CSS custom properties (`--color-ivory`, `--color-aubergine`, `--color-gold`, etc., matching the spec's palette exactly) re-exposed to Tailwind via `@theme inline`, giving utilities like `bg-ivory`, `text-amethyst`, `bg-aubergine`. Fonts are Playfair Display (`font-display` class, headings) and Manrope (default body sans), both loaded through `next/font/google` in `src/app/layout.tsx`.
 
-**Resort data model** (`src/lib/resorts.ts`) is the single source of truth for the 4 resorts. Each entry has a `built: boolean` and `logoBg: "light" | "dark"` flag:
-- `built: false` resorts render as non-linked "Coming Soon" cards in `ResortsGrid` — no detail page exists for them, and `generateStaticParams` in `src/app/resorts/[slug]/page.tsx` only generates params for `built: true` slugs (others 404 via `notFound()`).
-- `logoBg` exists because the delivered logo files are inconsistent — some are transparent wordmarks meant for a light background, others (Meyyafushi, Madifushi) are opaque badges or light-on-transparent art meant for a dark background. `PartnersStrip` reads this flag to pick the right card background per logo. Check a new resort's actual logo file (transparency, foreground color) before assuming a default.
+**Resort data model** (`src/lib/resorts.ts`) is the single source of truth for the 4 resorts — including `heroImage`, `story` paragraphs, `keyFacts`, and `gallery` array, so `src/app/resorts/[slug]/page.tsx` is fully generic with no per-resort hardcoding. Each entry also has a `built: boolean` and `logoBg: "light" | "dark"` flag:
+- `built: false` would render as a non-linked "Coming Soon" card in `ResortsGrid` and skip `generateStaticParams` (404 via `notFound()`) — all 4 are currently `true`, but the flag stays live for adding a 5th resort later without a code change.
+- `logoBg` exists because the delivered logo files are inconsistent — some are transparent wordmarks meant for a light background, others (Meyyafushi, Madifushi) are opaque badges or light-on-transparent art meant for a dark background. `PartnersStrip` and the `/partners` page both read this flag. Check a new resort's actual logo file (transparency, foreground color) before assuming a default.
 
-To add a new resort page: add gallery images to `public/images/resorts/<slug>/`, add its `GALLERY` and `KEY_FACTS` entries in `src/app/resorts/[slug]/page.tsx`, flip `built: true` in `resorts.ts`. The `ResortPage` component is written generically but currently hardcodes the hero image path to Fushifaru's — update that when a second resort goes live.
+**Tour data model** (`src/lib/tours.ts`) mirrors this pattern for `/tours` and `/tours/[slug]` — `status: "pending"` tours (Oman, 2027) render as non-linked cards; `generateStaticParams` only builds detail pages for `"confirmed"` tours. Tour stops optionally reference a `resortSlug` to link into the resort pages. The home page's `ToursTimeline` reads from this same file rather than duplicating tour data — always add new tours here, not inline in a component.
+
+To add a 5th resort: add curated images to `public/images/resorts/<slug>/` (see the `sips` pattern below), add its full entry to `resorts.ts` (`heroImage`, `story`, `keyFacts`, `gallery`), done — no page code changes needed.
 
 **`Reveal`** (`src/components/Reveal.tsx`) wraps Framer Motion's `whileInView` fade/slide-up and is the standard scroll animation used across every section — reuse it rather than hand-rolling `motion.div` calls, to keep the "slow, refined" motion feel consistent.
 
