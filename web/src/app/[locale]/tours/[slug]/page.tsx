@@ -68,7 +68,7 @@ export default async function TourDetailPage({
             {tour.stops.map((stop, i) => (
               <Reveal key={i} delay={i * 0.08} className="relative">
                 <span className="absolute -left-[2.55rem] top-1.5 h-3 w-3 rounded-full bg-gold" />
-                <p className="kicker text-gold">{t(stop.dates, locale)}</p>
+                <p className="kicker text-amethyst">{t(stop.dates, locale)}</p>
                 <h3 className="font-display mt-2 text-xl text-aubergine">
                   {stop.resortSlug ? (
                     <Link
@@ -81,7 +81,7 @@ export default async function TourDetailPage({
                     stop.label
                   )}
                 </h3>
-                <p className="mt-1 text-sm text-ink/60">{t(stop.note, locale)}</p>
+                <p className="mt-1 text-sm text-ink/70">{t(stop.note, locale)}</p>
               </Reveal>
             ))}
           </div>

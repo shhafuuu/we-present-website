@@ -38,7 +38,7 @@ export default async function ToursPage({
           {Object.entries(byYear).map(([year, yearTours]) => (
             <div key={year}>
               <Reveal>
-                <p className="font-display text-2xl text-gold">{year}</p>
+                <p className="font-display text-2xl text-amethyst">{year}</p>
               </Reveal>
               <div className="mt-6 space-y-4">
                 {yearTours.map((tour, i) => {
@@ -48,7 +48,7 @@ export default async function ToursPage({
                         <h2 className="font-display text-xl text-aubergine sm:text-2xl">
                           {t(tour.name, locale)}
                         </h2>
-                        <p className="mt-1 max-w-xl text-sm text-ink/60">
+                        <p className="mt-1 max-w-xl text-sm text-ink/70">
                           {t(tour.summary, locale)}
                         </p>
                       </div>
@@ -56,7 +56,7 @@ export default async function ToursPage({
                         className={`kicker inline-block shrink-0 rounded-full px-4 py-1.5 text-[0.65rem] ${
                           tour.status === "confirmed"
                             ? "bg-amethyst/10 text-amethyst"
-                            : "bg-gold/15 text-gold"
+                            : "bg-gold/15 text-amethyst"
                         }`}
                       >
                         {t(tour.dates, locale)}
@@ -82,7 +82,7 @@ export default async function ToursPage({
 
           <div>
             <Reveal>
-              <p className="font-display text-2xl text-gold">2027</p>
+              <p className="font-display text-2xl text-amethyst">2027</p>
             </Reveal>
             <Reveal delay={0.08} className="mt-6">
               <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-amethyst/15 bg-ivory/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
@@ -90,11 +90,11 @@ export default async function ToursPage({
                   <h2 className="font-display text-xl text-aubergine sm:text-2xl">
                     {dict.toursPage.comingSoon2027.title}
                   </h2>
-                  <p className="mt-1 text-sm text-ink/60">
+                  <p className="mt-1 text-sm text-ink/70">
                     {dict.toursPage.comingSoon2027.body}
                   </p>
                 </div>
-                <span className="kicker inline-block shrink-0 rounded-full bg-gold/15 px-4 py-1.5 text-[0.65rem] text-gold">
+                <span className="kicker inline-block shrink-0 rounded-full bg-gold/15 px-4 py-1.5 text-[0.65rem] text-amethyst">
                   {dict.toursPage.comingSoon2027.badge}
                 </span>
               </div>
