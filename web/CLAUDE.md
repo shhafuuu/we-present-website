@@ -91,6 +91,15 @@ The P2/P3s are fixed too:
 
 All fixes verified live in a real browser (computed styles, bounding boxes, ARIA attribute values, heading outline via `document.querySelectorAll`), not just code review.
 
+## Impeccable audit (resort pages, 2026-07-18)
+
+Ran the same `impeccable` audit flow against the shared resort template (`app/[locale]/resorts/[slug]/page.tsx`, covers all built resorts, scored against `fushifaru`: 11/20). The three P1s are fixed:
+- **Hero video ignored `prefers-reduced-motion`**: the autoplay/loop hero video played regardless of the visitor's motion preference. Extracted the video-vs-image branching out of the page into a new `ResortHeroMedia.tsx` client component that subscribes to `matchMedia("(prefers-reduced-motion: reduce)")` via `useSyncExternalStore` (not a `useEffect` + `setState`, which the lint rule flags as a cascading-render risk) and renders the static `heroImage` instead of `<video>` when motion is reduced. Verified with a real `reducedMotion: "reduce"` Playwright context showing no `<video>` element in the DOM at all, vs. a normal context where it renders and autoplays.
+- **`text-ink/40` contrast failure**: found on the Key Facts "Official Website" value, and — not caught in the original audit pass, found via a follow-up grep once fixing the first — the bottom "All Resorts" nav link too. Same defect, same fix: both bumped to `text-ink/70`. If you see `text-ink/40` anywhere else in the codebase, treat it as the same known-bad pattern.
+- **`Gallery.tsx` missing `sizes` prop** on both `fill` images (grid thumbnails and the lightbox) — same class of bug as the homepage audit's `sizes` finding, just missed there since `Gallery` isn't rendered on the homepage. Added `sizes="(min-width: 640px) 33vw, 50vw"` for grid thumbnails, `sizes="90vw"` for the lightbox. Verified both attributes are present on the actual rendered `<img>` elements, including inside the opened lightbox.
+
+P2/P3 findings from this pass (not yet fixed — only do these if asked, following the same pattern as the homepage audit): Gallery lightbox close button tap target (~14.6×36px, below the 44×44px target), Prev/Next resort nav links (~20px tall), Key Facts panel has no heading of its own (relies on visual proximity only), and `InquiryForm`'s internal `h3` has no parent `h2` in the page's heading outline.
+
 ## Current scope / not yet implemented
 
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.

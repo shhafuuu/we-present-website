@@ -27,6 +27,7 @@ export function Gallery({
               src={image.src}
               alt={image.alt}
               fill
+              sizes="(min-width: 640px) 33vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-aubergine/0 transition-colors duration-300 group-hover:bg-aubergine/10" />
@@ -54,6 +55,7 @@ export function Gallery({
                 src={images[active].src}
                 alt={images[active].alt}
                 fill
+                sizes="90vw"
                 className="object-contain"
               />
             </motion.div>

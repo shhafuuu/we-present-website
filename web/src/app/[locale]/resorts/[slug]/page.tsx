@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { Gallery } from "@/components/Gallery";
 import { InquiryForm } from "@/components/InquiryForm";
+import { ResortHeroMedia } from "@/components/ResortHeroMedia";
 import { getResort, resorts, t, tl } from "@/lib/resorts";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -38,26 +38,11 @@ export default async function ResortPage({
   return (
     <>
       <section className="relative flex h-[75vh] min-h-[560px] w-full items-end overflow-hidden">
-        {resort.heroVideo ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={resort.heroImage}
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src={resort.heroVideo} type="video/mp4" />
-          </video>
-        ) : (
-          <Image
-            src={resort.heroImage}
-            alt={resort.name}
-            fill
-            priority
-            className="object-cover"
-          />
-        )}
+        <ResortHeroMedia
+          heroVideo={resort.heroVideo}
+          heroImage={resort.heroImage}
+          alt={resort.name}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>
@@ -105,7 +90,7 @@ export default async function ResortPage({
                 </div>
                 <div>
                   <dt className="kicker text-amethyst/70">{dict.resortPage.officialWebsite}</dt>
-                  <dd className="mt-1 text-ink/40">{dict.resortPage.officialWebsiteTbc}</dd>
+                  <dd className="mt-1 text-ink/70">{dict.resortPage.officialWebsiteTbc}</dd>
                 </div>
               </dl>
             </div>
@@ -143,7 +128,7 @@ export default async function ResortPage({
           >
             ← {previous.name}
           </Link>
-          <Link href={href(locale, "/#resorts")} className="kicker text-ink/40 hover:text-amethyst">
+          <Link href={href(locale, "/#resorts")} className="kicker text-ink/70 hover:text-amethyst">
             {dict.resortPage.allResorts}
           </Link>
           <Link
