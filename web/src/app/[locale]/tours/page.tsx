@@ -38,16 +38,20 @@ export default async function ToursPage({
           {Object.entries(byYear).map(([year, yearTours]) => (
             <div key={year}>
               <Reveal>
-                <p className="font-display text-2xl text-amethyst">{year}</p>
+                <h2 className="font-display text-2xl text-amethyst">{year}</h2>
               </Reveal>
               <div className="mt-6 space-y-4">
                 {yearTours.map((tour, i) => {
                   const card = (
-                    <div className="flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/80 p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-md sm:flex-row sm:items-center sm:justify-between sm:p-8">
+                    <div
+                      className={`flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/80 p-6 transition-all duration-500 sm:flex-row sm:items-center sm:justify-between sm:p-8 ${
+                        tour.status === "confirmed" ? "hover:-translate-y-1 hover:shadow-md" : ""
+                      }`}
+                    >
                       <div>
-                        <h2 className="font-display text-xl text-aubergine sm:text-2xl">
+                        <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                           {t(tour.name, locale)}
-                        </h2>
+                        </h3>
                         <p className="mt-1 max-w-xl text-sm text-ink/70">
                           {t(tour.summary, locale)}
                         </p>
@@ -82,14 +86,14 @@ export default async function ToursPage({
 
           <div>
             <Reveal>
-              <p className="font-display text-2xl text-amethyst">2027</p>
+              <h2 className="font-display text-2xl text-amethyst">2027</h2>
             </Reveal>
             <Reveal delay={0.08} className="mt-6">
               <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-amethyst/15 bg-ivory/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <div>
-                  <h2 className="font-display text-xl text-aubergine sm:text-2xl">
+                  <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                     {dict.toursPage.comingSoon2027.title}
-                  </h2>
+                  </h3>
                   <p className="mt-1 text-sm text-ink/70">
                     {dict.toursPage.comingSoon2027.body}
                   </p>

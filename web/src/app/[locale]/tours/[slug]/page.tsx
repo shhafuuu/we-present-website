@@ -46,6 +46,7 @@ export default async function TourDetailPage({
         <section className="bg-soft-lilac/40 px-6 py-16 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
+              <h2 className="sr-only">{dict.tourDetail.ttmKicker}</h2>
               <Kicker>{dict.tourDetail.ttmKicker}</Kicker>
               <p className="mt-5 text-base leading-relaxed text-ink/70">
                 {t(tour.ttmOverview, locale)}
@@ -90,7 +91,10 @@ export default async function TourDetailPage({
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
         <div className="mx-auto max-w-3xl">
-          <Link href={href(locale, "/tours")} className="text-sm text-amethyst hover:text-aubergine">
+          <Link
+            href={href(locale, "/tours")}
+            className="inline-flex min-h-11 items-center text-sm text-amethyst hover:text-aubergine"
+          >
             {dict.tourDetail.backToAll}
           </Link>
         </div>

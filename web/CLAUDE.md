@@ -115,6 +115,14 @@ Ran the same audit against `tours/page.tsx` and `tours/[slug]/page.tsx` (16/20, 
 
 Two P2 findings from this pass are **not yet fixed** (only do if asked): the "2026"/"2027" year groupings are `<p>` tags rather than headings (no way to jump to a specific year via heading navigation), and the TTM overview section on the Tour 2 detail page has no heading at all (confirmed via live heading-outline check: H1 jumps straight to H2 "The full itinerary", skipping that whole block). Also one P3: the non-interactive "Oman" (pending-status) card still gets the same `hover:-translate-y-1 hover:shadow-md` as the clickable confirmed-tour cards, implying interactivity it doesn't have.
 
+The P2/P3s are fixed too:
+- **Year groupings weren't real headings**: `<p>` → `<h2>` for "2026"/"2027". Since the year now outranks the tour cards it groups, each tour's own name heading was demoted `<h2>` → `<h3>` (and the "Coming Soon" 2027 placeholder title, too) so the outline nests correctly instead of having year and tour-name at the same level. Verified live: full outline is now H1 → H2 (2026) → H3 (each tour) → H2 (2027) → H3 (Coming Soon), no siblings-that-should-be-parent-child.
+- **TTM overview section had no heading**: added a `sr-only` `<h2>` reusing the existing `dict.tourDetail.ttmKicker` string ("TTM Maldives 2026") — no new dictionary key needed, same pattern as the Key Facts panel fix on the resort pages.
+- **"Back to All Tours" link tap target**: was 71×19px; now `inline-flex min-h-11 items-center` gets a verified 44px-tall target.
+- **Oman card's misleading hover affordance**: `hover:-translate-y-1 hover:shadow-md` is now applied conditionally (`tour.status === "confirmed"`) instead of unconditionally on the shared `card` JSX, so the non-clickable pending-status card no longer invites a click that does nothing. Verified live by diffing the Oman card's class list against a confirmed tour's — only the confirmed one carries the hover classes now.
+
+All fixes verified live in a real browser (full heading outlines via `document.querySelectorAll`, class-list diffing for the hover-affordance fix, a bounding-box check for the tap target), not just code review.
+
 Verified live: computed text colors for all six changed elements now resolve to `rgb(110, 79, 163)` (`#6e4fa3`, amethyst) or `ink` at 0.7 alpha as expected. No images on these two page types, so there was no `sizes`-prop class of bug to find here — a genuine difference from the homepage/resort audits.
 
 ## Current scope / not yet implemented
