@@ -99,7 +99,7 @@ export default async function PartnersPage({
             <p className="mt-6 text-ink/70">{dict.partnersPage.forHotels.body}</p>
           </Reveal>
           <Reveal delay={0.15} className="mt-10">
-            <Button href={href(locale, "/contact")} variant="primary">
+            <Button href={href(locale, "/become-a-partner")} variant="primary">
               {dict.partnersPage.forHotels.cta}
             </Button>
           </Reveal>

@@ -1,0 +1,58 @@
+import { NextResponse } from "next/server";
+import { sendSubmission } from "@/lib/mailer";
+import { validateUpload, toAttachment } from "@/lib/uploads";
+import type { Attachment } from "@/lib/mailer";
+
+export async function POST(request: Request) {
+  const form = await request.formData().catch(() => null);
+  if (!form) {
+    return NextResponse.json({ ok: false, error: "Invalid request body" }, { status: 400 });
+  }
+
+  // Honeypot: real users never fill this hidden field (spec Section 8.4 anti-spam).
+  if (form.get("company_website")) {
+    return NextResponse.json({ ok: true, delivered: false });
+  }
+
+  const hotelName = form.get("hotelName");
+  const contactPerson = form.get("contactPerson");
+  const email = form.get("email");
+  const phone = form.get("phone");
+  const website = form.get("website");
+  const message = form.get("message");
+  const files = form.getAll("files").filter((f): f is File => f instanceof File);
+
+  if (
+    typeof hotelName !== "string" || !hotelName ||
+    typeof contactPerson !== "string" || !contactPerson ||
+    typeof email !== "string" || !email
+  ) {
+    return NextResponse.json(
+      { ok: false, error: "Hotel name, contact person and email are required." },
+      { status: 400 }
+    );
+  }
+
+  for (const file of files) {
+    const error = validateUpload(file);
+    if (error) return NextResponse.json({ ok: false, error }, { status: 400 });
+  }
+
+  const attachments: Attachment[] = await Promise.all(files.map(toAttachment));
+
+  const result = await sendSubmission({
+    subject: `We Present — partnership request from ${hotelName}`,
+    replyTo: email,
+    fields: {
+      "Hotel / Company": hotelName,
+      "Contact Person": contactPerson,
+      Email: email,
+      Phone: typeof phone === "string" ? phone : "",
+      Website: typeof website === "string" ? website : "",
+      Message: typeof message === "string" ? message : "",
+    },
+    attachments,
+  });
+
+  return NextResponse.json({ ok: true, delivered: result.delivered });
+}

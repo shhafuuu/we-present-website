@@ -4,6 +4,10 @@ export const en = {
     description:
       "We Present is a curated tour programme by Coati Travel bringing travel-agency partners to experience the Maldives' finest resorts first-hand.",
   },
+  common: {
+    chooseFile: "Choose file",
+    noFileSelected: "No file selected",
+  },
   nav: {
     about: "About",
     tours: "Tours",
@@ -169,7 +173,7 @@ export const en = {
       kicker: "For Hotels",
       title: "Interested in partnering with We Present?",
       body: "Resorts interested in joining a future edition can request partnership — including images and brochures for review.",
-      cta: "Get in Touch",
+      cta: "Request Partnership",
     },
   },
   contactPage: {
@@ -202,6 +206,20 @@ export const en = {
     lifeAt: "Life at",
     allResorts: "All Resorts",
   },
+  registerPage: {
+    banner: {
+      kicker: "We Present 2027",
+      title: "Register your interest for the next edition",
+      body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2027 calendar takes shape.",
+    },
+  },
+  partnerPage: {
+    banner: {
+      kicker: "Become a Partner",
+      title: "Request partnership with We Present",
+      body: "Resorts interested in joining a future edition can submit their details below, along with images or brochures for our team to review.",
+    },
+  },
   forms: {
     inquiry: {
       title: "I’m interested — request price/availability",
@@ -230,6 +248,42 @@ export const en = {
       submitting: "Sending…",
       thankYouTitle: "Thank you.",
       thankYouBody: "Your message has been noted. Our team will be in touch shortly.",
+    },
+    register: {
+      title: "Agent Registration",
+      fullName: "Full Name (First & Last)",
+      agency: "Agency / Company Name",
+      phone: "Phone (WhatsApp/Telegram)",
+      phoneHint: "Include your country code and note which messenger you use.",
+      email: "Email Address",
+      comments: "Comments / Additional Info",
+      statsUpload: "Upload Statistics (2025–2026)",
+      statsUploadHint: "PDF, XLS(X), DOC(X), JPG or PNG — up to 15MB.",
+      cardUpload: "Upload Business Card",
+      cardUploadHint: "JPG, PNG or PDF — up to 15MB.",
+      consent: "I consent to my data being processed as described in the",
+      consentLink: "privacy policy",
+      submit: "Submit Registration",
+      submitting: "Submitting…",
+      thankYouTitle: "Thank you for registering.",
+      thankYouBody: "Your registration has been received. Our team will review your details and be in touch as the 2027 calendar takes shape.",
+    },
+    partner: {
+      title: "Hotel Partnership Request",
+      hotelName: "Hotel / Company Name",
+      contactPerson: "Contact Person",
+      email: "Email",
+      phone: "Phone",
+      website: "Website",
+      message: "Message",
+      upload: "Images / Brochure",
+      uploadHint: "PDF, JPG, PNG, DOC(X) or XLS(X) — up to 15MB per file.",
+      consent: "I consent to my data being processed as described in the",
+      consentLink: "privacy policy",
+      submit: "Submit Request",
+      submitting: "Submitting…",
+      thankYouTitle: "Thank you.",
+      thankYouBody: "Your partnership request has been received. Our team will be in touch shortly.",
     },
   },
 };
