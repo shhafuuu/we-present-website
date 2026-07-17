@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --color-ivory: #fcfaf6;
+  --color-lavender-mist: #f3ecfb;
+  --color-soft-lilac: #dcc9f0;
+  --color-lilac: #c3a5e6;
+  --color-amethyst: #6e4fa3;
+  --color-aubergine: #3e2c55;
+  --color-gold: #c9a24b;
+  --color-soft-gold: #ebdcb4;
+  --color-ink: #2b2338;
+}
+
+@theme inline {
+  --color-ivory: var(--color-ivory);
+  --color-lavender-mist: var(--color-lavender-mist);
+  --color-soft-lilac: var(--color-soft-lilac);
+  --color-lilac: var(--color-lilac);
+  --color-amethyst: var(--color-amethyst);
+  --color-aubergine: var(--color-aubergine);
+  --color-gold: var(--color-gold);
+  --color-soft-gold: var(--color-soft-gold);
+  --color-ink: var(--color-ink);
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-manrope);
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-lilac);
+  color: var(--color-aubergine);
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
