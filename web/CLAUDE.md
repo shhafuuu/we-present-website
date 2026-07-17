@@ -75,6 +75,15 @@ All four forms (`InquiryForm`, `ContactForm`, `RegisterForm`, `PartnerForm`) POS
 
 **Anti-spam**: `register` and `partner` routes both check a hidden `company_website` honeypot field (rendered off-screen in the form, named plausibly so bots fill it) — if present, the route returns a normal-looking `{ok: true, delivered: false}` without logging or emailing, so bots get no signal they were caught. `inquiry` and `contact` don't have this yet. No rate-limiting anywhere yet (spec Section 8.4 also asks for this).
 
+## Impeccable audit (homepage, 2026-07-18)
+
+Ran the `impeccable` skill's `audit` flow manually against the homepage (13/20, "Acceptable" band — full report in conversation history, not duplicated here). The three P1s are fixed:
+- **Gold text on light backgrounds** (`ToursTimeline.tsx` year label, `ResortsGrid.tsx` "Explore →" label) measured 2.3:1 contrast, failing WCAG AA — swapped to `text-amethyst` (6.09:1). This also matches the spec's own Section 4.1, which reserves gold for fills/dividers/rules, never small text on light backgrounds — don't reintroduce `text-gold` for body-sized text anywhere.
+- **`Reveal` shipped invisible without JS**: every `Reveal`-wrapped element (nearly all homepage content) starts at `opacity: 0` in the server-rendered HTML and only becomes visible once JS hydrates and `whileInView` fires — a no-JS or failed-hydration visitor saw a blank page. Fixed with a `<noscript>` override in `app/[locale]/layout.tsx` targeting a `data-reveal` attribute now set on every `Reveal` instance (`[data-reveal] { opacity: 1 !important; transform: none !important; }`). Verified with a real JS-disabled Playwright context, not just code review — keep that verification method if you touch `Reveal` again, since a visual check with JS on won't catch this class of bug.
+- **Missing `sizes` prop** on every `fill` image on the homepage (Hero, `ResortsGrid` ×4, `PartnersStrip` ×4) — Next.js was serving the largest breakpoint image regardless of actual rendered size. Added per-component: `sizes="100vw"` for the full-bleed hero, `sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"` for the 4-column resort grid, `sizes="144px"` for the small fixed-size partner logos. Any new `fill` image needs a `sizes` prop matching its actual responsive rendered width — this was flagged by a real dev-server console warning, not just the audit.
+
+Remaining P2/P3 from that audit (not yet fixed): undersized mobile hamburger tap target (~28×15px vs. 44×44px minimum), missing `aria-expanded`/`<nav>` landmark on the mobile menu, marginal contrast on `text-ink/60` and `text-soft-lilac/60` body text (4.06:1 / 3.96:1, just under the 4.5:1 minimum), `ConceptSection` has no heading element, and resort card alt text is generic (just the property name).
+
 ## Current scope / not yet implemented
 
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.

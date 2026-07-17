@@ -14,6 +14,7 @@ export function Hero({ locale }: { locale: Locale }) {
         alt="Aerial view of an overwater villa in the Maldives"
         fill
         priority
+        sizes="100vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/20 to-aubergine/10" />

@@ -62,6 +62,9 @@ export default async function LocaleLayout({
       className={`${playfair.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ivory text-ink">
+        <noscript>
+          <style>{`[data-reveal] { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <Header locale={locale} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale} />

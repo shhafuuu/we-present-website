@@ -28,6 +28,7 @@ export function ResortsGrid({ locale }: { locale: Locale }) {
                     src={resort.cardImage}
                     alt={resort.name}
                     fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-aubergine/50 to-transparent" />
@@ -43,7 +44,7 @@ export function ResortsGrid({ locale }: { locale: Locale }) {
                   <span
                     className={`kicker mt-5 inline-flex items-center gap-2 text-[0.7rem] ${
                       resort.built
-                        ? "text-gold"
+                        ? "text-amethyst"
                         : "text-ink/35"
                     }`}
                   >

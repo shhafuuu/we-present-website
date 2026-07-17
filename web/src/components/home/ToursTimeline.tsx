@@ -24,7 +24,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
             const card = (
               <div className="flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/70 p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-md sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <div className="flex items-start gap-5 sm:items-center">
-                  <span className="font-display text-sm text-gold">
+                  <span className="font-display text-sm text-amethyst">
                     {tour.year}
                   </span>
                   <div className="h-10 w-px bg-amethyst/15" />

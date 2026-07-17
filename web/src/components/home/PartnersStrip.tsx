@@ -32,6 +32,7 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
                   src={resort.logo}
                   alt={resort.name}
                   fill
+                  sizes="144px"
                   className={`object-contain ${resort.logoBg === "none" ? "opacity-80 hover:opacity-100" : ""}`}
                 />
               </div>
