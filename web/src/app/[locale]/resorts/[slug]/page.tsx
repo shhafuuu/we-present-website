@@ -74,6 +74,7 @@ export default async function ResortPage({
 
           <Reveal delay={0.15}>
             <div className="rounded-2xl bg-soft-lilac/40 p-8">
+              <h2 className="sr-only">{dict.resortPage.keyFacts}</h2>
               <Kicker>{dict.resortPage.keyFacts}</Kicker>
               <dl className="mt-6 space-y-5 text-sm">
                 <div>
@@ -124,16 +125,19 @@ export default async function ResortPage({
         <div className="mx-auto flex max-w-6xl items-center justify-between text-sm">
           <Link
             href={href(locale, `/resorts/${previous.slug}`)}
-            className="text-amethyst hover:text-aubergine"
+            className="inline-flex min-h-11 items-center text-amethyst hover:text-aubergine"
           >
             ← {previous.name}
           </Link>
-          <Link href={href(locale, "/#resorts")} className="kicker text-ink/70 hover:text-amethyst">
+          <Link
+            href={href(locale, "/#resorts")}
+            className="kicker inline-flex min-h-11 items-center text-ink/70 hover:text-amethyst"
+          >
             {dict.resortPage.allResorts}
           </Link>
           <Link
             href={href(locale, `/resorts/${next.slug}`)}
-            className="text-amethyst hover:text-aubergine"
+            className="inline-flex min-h-11 items-center text-amethyst hover:text-aubergine"
           >
             {next.name} →
           </Link>

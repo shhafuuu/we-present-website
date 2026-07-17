@@ -62,7 +62,7 @@ export function Gallery({
             <button
               onClick={() => setActive(null)}
               aria-label="Close gallery"
-              className="absolute right-6 top-6 text-3xl font-light text-ivory/80 hover:text-ivory"
+              className="absolute right-4 top-4 flex min-h-11 min-w-11 items-center justify-center text-3xl font-light text-ivory/80 hover:text-ivory"
             >
               &times;
             </button>

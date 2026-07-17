@@ -98,7 +98,13 @@ Ran the same `impeccable` audit flow against the shared resort template (`app/[l
 - **`text-ink/40` contrast failure**: found on the Key Facts "Official Website" value, and — not caught in the original audit pass, found via a follow-up grep once fixing the first — the bottom "All Resorts" nav link too. Same defect, same fix: both bumped to `text-ink/70`. If you see `text-ink/40` anywhere else in the codebase, treat it as the same known-bad pattern.
 - **`Gallery.tsx` missing `sizes` prop** on both `fill` images (grid thumbnails and the lightbox) — same class of bug as the homepage audit's `sizes` finding, just missed there since `Gallery` isn't rendered on the homepage. Added `sizes="(min-width: 640px) 33vw, 50vw"` for grid thumbnails, `sizes="90vw"` for the lightbox. Verified both attributes are present on the actual rendered `<img>` elements, including inside the opened lightbox.
 
-P2/P3 findings from this pass (not yet fixed — only do these if asked, following the same pattern as the homepage audit): Gallery lightbox close button tap target (~14.6×36px, below the 44×44px target), Prev/Next resort nav links (~20px tall), Key Facts panel has no heading of its own (relies on visual proximity only), and `InquiryForm`'s internal `h3` has no parent `h2` in the page's heading outline.
+The P2/P3s are fixed too:
+- **Gallery lightbox close button tap target**: was ~14.6×36px; now `flex min-h-11 min-w-11 items-center justify-center` gets it to a verified 44×44px (repositioned slightly from `right-6 top-6` to `right-4 top-4` so the glyph still sits close to the same visual corner).
+- **Prev/Next resort nav links + "All Resorts" link**: were ~20px tall text-only links; all three now use `inline-flex min-h-11 items-center`, verified at a real 44px bounding-box height.
+- **Key Facts panel had no heading of its own**: added a `sr-only` `<h2>` (`dict.resortPage.keyFacts`, already existed as a string — no new dictionary key needed) right before the existing `Kicker`, same pattern as the homepage's `ConceptSection` fix.
+- **`InquiryForm`'s heading was an orphaned `h3`**: promoted to `h2` since it's the only heading in its section and `InquiryForm` is only ever rendered here. Confirmed via grep it isn't used anywhere else, so this doesn't create a hierarchy problem elsewhere. Verified page's full heading outline is now a clean H1 → H2 (Story) → H2 (Key Facts) → H2 (Gallery) → H2 (Inquiry), no skipped or orphaned levels.
+
+All fixes verified live in a real browser (heading outline via `document.querySelectorAll`, bounding boxes for tap targets, a lightbox screenshot to confirm the larger close button didn't look visually off), not just code review.
 
 ## Current scope / not yet implemented
 
