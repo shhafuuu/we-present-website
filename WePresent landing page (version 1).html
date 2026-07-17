@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" class="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Present by Coati Travel — Familiarization Journeys for the Travel Trade</title>
+<meta name="description" content="We Present by Coati Travel: curated familiarization journeys introducing leading travel agencies from Russia & CIS to the world's finest hotels. Inaugural journey — Maldives, August 2026.">
+<style>
+/* ============================================================
+   WE PRESENT by Coati Travel — Global Stylesheet
+   No external dependencies. Self-host fonts before launch
+   (see HANDOVER.md) and update the font-family stacks below.
+   ============================================================ */
+
+:root{
+  --ink:      #16241f;   /* deep green-black */
+  --ink-soft: #2c3d36;
+  --paper:    #faf7f1;   /* warm white */
+  --sand:     #ece4d4;
+  --sand-2:   #e0d5bf;
+  --sea:      #1d4e5f;
+  --sea-soft: #35657a;
+  --gold:     #b3924f;
+  --gold-soft:#cbb27e;
+  --line:     rgba(22,36,31,.14);
+  --serif: "Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:  "Jost","Futura","Avenir Next","Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-weight:300;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- language toggle ---------- */
+html.en .ru{display:none !important}
+html.ru .en{display:none !important}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;line-height:1.15}
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:.72rem;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.4rem;
+}
+.center{text-align:center}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
+.wrap-narrow{max-width:820px;margin:0 auto;padding:0 6vw}
+
+section{padding:7rem 0}
+@media(max-width:700px){section{padding:4.5rem 0}}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s,box-shadow .4s;
+  color:#fff;
+}
+header.solid{
+  background:rgba(250,247,241,.96);
+  color:var(--ink);
+  box-shadow:0 1px 0 var(--line);
+  backdrop-filter:blur(8px);
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 4vw;
+}
+.logo{line-height:1.1;text-align:left}
+.logo .logo-main{
+  font-family:var(--serif);
+  font-size:1.35rem;letter-spacing:.28em;text-transform:uppercase;
+}
+.logo .logo-sub{
+  font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;opacity:.75;
+}
+nav.primary{display:flex;align-items:center;gap:2.2rem}
+nav.primary a{
+  font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:.4rem 0;position:relative;white-space:nowrap;
+}
+nav.primary a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:currentColor;transition:width .3s;
+}
+nav.primary a:hover::after,nav.primary a.active::after{width:100%}
+.nav-cta{
+  border:1px solid currentColor;padding:.55rem 1.4rem !important;
+}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff !important}
+
+.lang-switch{
+  display:flex;gap:.15rem;align-items:center;
+  font-size:.74rem;letter-spacing:.14em;
+}
+.lang-switch button{
+  background:none;border:none;color:inherit;cursor:pointer;
+  font:inherit;padding:.2rem .35rem;opacity:.55;
+}
+.lang-switch button.on{opacity:1;border-bottom:1px solid var(--gold)}
+
+/* mobile nav */
+.burger{display:none;background:none;border:none;color:inherit;cursor:pointer;font-size:1.5rem;line-height:1}
+@media(max-width:1000px){
+  nav.primary{
+    display:none;position:fixed;inset:0;background:var(--ink);color:#fff;
+    flex-direction:column;justify-content:center;gap:1.6rem;text-align:center;
+  }
+  nav.primary.open{display:flex}
+  nav.primary a{font-size:1rem}
+  .burger{display:block;z-index:101}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#fff;overflow:hidden;
+}
+.hero-inner{position:relative;z-index:2;padding:8rem 6vw 4rem;max-width:900px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:.04em;margin-bottom:1.6rem}
+.hero p.lead{font-size:1.05rem;font-weight:300;letter-spacing:.06em;max-width:620px;margin:0 auto 2.8rem;opacity:.92}
+.hero .eyebrow{color:var(--gold-soft)}
+.hero-scroll{
+  position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
+  font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;opacity:.7;z-index:2;
+}
+.hero-sub{min-height:72vh}
+
+/* page hero (interior pages) */
+.page-hero{
+  position:relative;min-height:56vh;display:flex;align-items:flex-end;
+  color:#fff;overflow:hidden;
+}
+.page-hero .hero-inner{padding:9rem 6vw 4rem;text-align:left;max-width:1200px;margin:0 auto;width:100%}
+.page-hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+
+/* dark scrim over placeholder heroes */
+.scrim::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,20,17,.35),rgba(12,20,17,.55));
+  z-index:1;
+}
+
+/* ---------- placeholder media blocks ---------- */
+.ph{
+  position:relative;overflow:hidden;background:var(--sand);
+  display:flex;align-items:center;justify-content:center;
+}
+.ph::before{content:"";position:absolute;inset:0}
+.ph-1::before{background:
+  radial-gradient(120% 90% at 20% 10%,#2e5b6d 0%,transparent 60%),
+  radial-gradient(110% 90% at 85% 90%,#0f2e38 0%,transparent 55%),
+  linear-gradient(160deg,#1d4e5f 0%,#3b7286 45%,#9fc3c9 100%)}
+.ph-2::before{background:
+  radial-gradient(100% 80% at 80% 15%,#d8c294 0%,transparent 55%),
+  linear-gradient(200deg,#e9dcbe 0%,#c2a35f 55%,#8a6f3c 100%)}
+.ph-3::before{background:
+  radial-gradient(120% 100% at 15% 85%,#16241f 0%,transparent 60%),
+  linear-gradient(150deg,#2c3d36 0%,#4c6a5e 55%,#a8bfae 100%)}
+.ph-4::before{background:
+  radial-gradient(110% 85% at 75% 20%,#7fb2bd 0%,transparent 55%),
+  linear-gradient(210deg,#bcd8da 0%,#5f96a3 50%,#274e58 100%)}
+.ph-5::before{background:
+  radial-gradient(100% 90% at 25% 20%,#f0e7d3 0%,transparent 55%),
+  linear-gradient(170deg,#e6dbc2 0%,#b7a071 60%,#6e5a35 100%)}
+.ph-label{
+  position:relative;z-index:2;
+  font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.4);
+  padding:.55rem 1.1rem;text-align:center;max-width:80%;
+}
+.ph-dark .ph-label{color:rgba(255,255,255,.9)}
+.hero .ph-label,.page-hero .ph-label{
+  position:absolute;bottom:1.4rem;right:1.6rem;z-index:2;
+}
+.ph-fill{position:absolute;inset:0}
+
+/* aspect helpers */
+.r-land{aspect-ratio:3/2}
+.r-port{aspect-ratio:3/4}
+.r-wide{aspect-ratio:21/9}
+.r-sq{aspect-ratio:1/1}
+
+/* ---------- sections & layout ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:2.6rem}}
+
+h2.section-title{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:1.6rem}
+.section-head{max-width:640px;margin-bottom:4rem}
+.section-head.center{margin-left:auto;margin-right:auto}
+p+p{margin-top:1.1rem}
+.muted{color:var(--ink-soft);opacity:.85}
+
+.dark{background:var(--ink);color:var(--paper)}
+.dark .muted{color:var(--sand);opacity:.8}
+.dark .section-title,.dark h3{color:var(--paper)}
+.sanded{background:var(--sand)}
+
+hr.rule{border:none;border-top:1px solid var(--line);margin:0}
+.gold-rule{width:56px;border:none;border-top:1px solid var(--gold);margin:1.6rem 0}
+.center .gold-rule{margin:1.6rem auto}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;
+  font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;
+  padding:1rem 2.6rem;border:1px solid var(--ink);
+  color:var(--ink);background:transparent;cursor:pointer;
+  transition:background .3s,color .3s,border-color .3s;
+  font-family:var(--sans);
+}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn-gold{border-color:var(--gold);color:var(--gold)}
+.btn-gold:hover{background:var(--gold);color:#fff}
+.btn-light{border-color:#fff;color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:transparent}
+.card .ph{margin-bottom:1.6rem}
+.card h3{font-size:1.5rem;margin-bottom:.6rem}
+.card .tag{
+  font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:.8rem;
+}
+.card p{font-size:.95rem}
+.card a.more{
+  display:inline-block;margin-top:1.1rem;
+  font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;
+  border-bottom:1px solid var(--gold);padding-bottom:.25rem;
+}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat .num{font-family:var(--serif);font-size:3rem;color:var(--gold)}
+.stat .lbl{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;opacity:.8}
+
+/* itinerary / steps */
+.steps{border-top:1px solid var(--line)}
+.step{
+  display:grid;grid-template-columns:110px 1fr 2fr;gap:2.5rem;
+  padding:2.6rem 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+@media(max-width:800px){.step{grid-template-columns:1fr;gap:.6rem;padding:2rem 0}}
+.step .no{font-family:var(--serif);font-size:2.2rem;color:var(--gold)}
+.step h3{font-size:1.4rem}
+.step p{font-size:.95rem}
+.dark .steps,.dark .step{border-color:rgba(250,247,241,.18)}
+
+/* ---------- forms ---------- */
+.form-shell{
+  background:#fff;border:1px solid var(--line);
+  padding:4rem;max-width:860px;margin:0 auto;
+}
+@media(max-width:700px){.form-shell{padding:2.2rem 1.4rem}}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field.full{grid-column:1/-1}
+.field label{
+  font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);
+}
+.field label .req{color:var(--gold)}
+.field input[type=text],.field input[type=email],.field input[type=tel],
+.field select,.field textarea{
+  font-family:var(--sans);font-size:1rem;font-weight:300;color:var(--ink);
+  background:transparent;border:none;border-bottom:1px solid var(--line);
+  padding:.65rem 0;outline:none;border-radius:0;transition:border-color .3s;
+}
+.field textarea{resize:vertical;min-height:110px;border:1px solid var(--line);padding:.8rem}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
+.field .hint{font-size:.78rem;color:var(--ink-soft);opacity:.75}
+
+.upload{
+  border:1px dashed var(--gold-soft);padding:1.4rem;text-align:center;cursor:pointer;
+  transition:background .3s;position:relative;
+}
+.upload:hover{background:var(--paper)}
+.upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.upload .up-title{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.upload .up-hint{font-size:.76rem;color:var(--ink-soft);opacity:.8;margin-top:.3rem}
+.upload .up-file{font-size:.82rem;margin-top:.5rem;color:var(--sea)}
+
+.form-note{font-size:.8rem;color:var(--ink-soft);opacity:.8;margin-top:1.6rem}
+.form-actions{margin-top:2.6rem;text-align:center}
+.form-msg{margin-top:1.4rem;text-align:center;font-size:.9rem;display:none}
+.form-msg.ok{display:block;color:var(--sea)}
+.form-msg.err{display:block;color:#a33d2e}
+
+/* ---------- testimonials ---------- */
+.quote-band{padding:6rem 0;text-align:center}
+.quote-band blockquote{
+  font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.1rem);
+  font-style:italic;max-width:820px;margin:0 auto 1.6rem;line-height:1.4;
+}
+.quote-band cite{
+  font-style:normal;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+@media(max-width:900px){.t-grid{grid-template-columns:1fr}}
+.t-card{
+  background:#fff;border:1px solid var(--line);padding:2.4rem;
+  display:flex;flex-direction:column;gap:1.1rem;
+}
+.t-card .t-quote{font-family:var(--serif);font-size:1.12rem;font-style:italic;line-height:1.5}
+.t-card .t-who{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:auto}
+.t-card .t-meta{font-size:.75rem;color:var(--ink-soft);opacity:.75}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--sand);padding:5rem 0 2.5rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:3rem}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+footer .logo{margin-bottom:1.2rem}
+footer h4{
+  font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;font-weight:400;
+}
+footer a{display:block;font-size:.88rem;padding:.25rem 0;opacity:.85}
+footer a:hover{opacity:1;color:#fff}
+footer p{font-size:.88rem;opacity:.85}
+.foot-bottom{
+  border-top:1px solid rgba(250,247,241,.15);margin-top:3.5rem;padding-top:1.8rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  font-size:.72rem;letter-spacing:.12em;opacity:.6;
+}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.reveal.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- misc ---------- */
+.badge-row{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:2rem}
+.badge{
+  border:1px solid var(--line);padding:.6rem 1.2rem;
+  font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+}
+.dark .badge{border-color:rgba(250,247,241,.3);color:var(--sand)}
+.checklist{list-style:none;margin-top:1.4rem}
+.checklist li{
+  padding:.75rem 0 .75rem 2rem;position:relative;border-bottom:1px solid var(--line);
+  font-size:.97rem;
+}
+.checklist li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.dark .checklist li{border-color:rgba(250,247,241,.15)}
+.notice{
+  border:1px solid var(--gold-soft);background:rgba(179,146,79,.06);
+  padding:1.6rem 2rem;font-size:.92rem;
+}
+
+
+/* ---------- single-file SPA additions ---------- */
+.wp-page{display:none}
+.wp-page.on{display:block}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#/home" data-page-logo class="logo">
+      <div class="logo-main">We Present</div>
+      <div class="logo-sub">by Coati Travel</div>
+    </a>
+    <nav class="primary">
+      <a href="#/home" data-page="home"><span class="en">Home</span><span class="ru">Главная</span></a>
+      <a href="#/about" data-page="about"><span class="en">The Concept</span><span class="ru">Концепция</span></a>
+      <a href="#/event" data-page="event"><span class="en">Maldives 2026</span><span class="ru">Мальдивы 2026</span></a>
+      <a href="#/resorts" data-page="resorts"><span class="en">The Resorts</span><span class="ru">Курорты</span></a>
+      <a href="#/testimonials" data-page="testimonials"><span class="en">Voices</span><span class="ru">Отзывы</span></a>
+      <a href="#/hotels" data-page="hotels"><span class="en">For Hotels</span><span class="ru">Отелям</span></a>
+      <a href="#/register" data-page="register" class="nav-cta"><span class="en">Register</span><span class="ru">Регистрация</span></a>
+      <span class="lang-switch">
+        <button data-lang="en" class="on">EN</button><span>/</span><button data-lang="ru">RU</button>
+      </span>
+    </nav>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<div class="wp-page" id="pg-home">
+<!-- HERO -->
+<div class="hero ph ph-1 scrim">
+  <!-- PLACEHOLDER: full-screen hero video or image — Maldives aerial / lagoon -->
+  <span class="ph-label"><span class="en">Video · Maldives aerial hero</span><span class="ru">Видео · Мальдивы, вид с высоты</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">Coati Travel presents</span><span class="ru">Coati Travel представляет</span></div>
+    <h1><span class="en">Where the Trade<br>Meets the World's<br>Finest Hotels</span><span class="ru">Там, где профессионалы<br>встречают лучшие<br>отели мира</span></h1>
+    <p class="lead">
+      <span class="en">Curated familiarization journeys for the leading travel agencies of Russia &amp; the CIS — by invitation, by merit, by We&nbsp;Present.</span>
+      <span class="ru">Эксклюзивные ознакомительные поездки для ведущих туристических агентств России и СНГ — по приглашению, по заслугам, от We&nbsp;Present.</span>
+    </p>
+    <a href="#/event" class="btn btn-light"><span class="en">Discover Maldives 2026</span><span class="ru">Мальдивы 2026</span></a>
+  </div>
+  <div class="hero-scroll"><span class="en">Scroll</span><span class="ru">Вниз</span></div>
+</div>
+
+<!-- INTRO -->
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <div class="eyebrow"><span class="en">The Concept</span><span class="ru">Концепция</span></div>
+        <h2 class="section-title"><span class="en">Knowledge, Presented Beautifully</span><span class="ru">Знание из первых рук</span></h2>
+        <hr class="gold-rule">
+        <p>
+          <span class="en">We Present is a new initiative by Coati Travel — a bridge between the finest hotels of the world and the travel professionals who sell them. We select agency representatives on merit, measured in room nights produced, and bring them to experience a destination the way their clients will: personally, thoroughly, unforgettably.</span>
+          <span class="ru">We Present — новый проект Coati Travel, мост между лучшими отелями мира и профессионалами туризма, которые их продают. Мы отбираем представителей агентств по заслугам — по количеству проданных ночей — и даём им возможность узнать направление так, как узнают его их клиенты: лично, глубоко, незабываемо.</span>
+        </p>
+        <p class="muted">
+          <span class="en">An agent who has walked the villa, tasted the breakfast and watched the sunset sells with a conviction no brochure can match.</span>
+          <span class="ru">Агент, который сам прошёл по вилле, попробовал завтрак и встретил закат, продаёт с уверенностью, которой не даст ни один буклет.</span>
+        </p>
+        <a href="#/about" class="btn" style="margin-top:2rem"><span class="en">The Full Story</span><span class="ru">Подробнее</span></a>
+      </div>
+      <div class="ph ph-3 r-port">
+        <!-- PLACEHOLDER: editorial image — resort walkway / host welcoming agents -->
+        <span class="ph-label"><span class="en">Photo · Resort arrival moment</span><span class="ru">Фото · Прибытие на курорт</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="dark">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="num">1st</div><div class="lbl"><span class="en">Inaugural Journey</span><span class="ru">Первая поездка</span></div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl"><span class="en">Partner Resorts</span><span class="ru">Курорта-партнёра</span></div></div>
+      <div class="stat"><div class="num">TTM</div><div class="lbl"><span class="en">Travel Trade Maldives</span><span class="ru">Travel Trade Maldives</span></div></div>
+      <div class="stat"><div class="num">2026</div><div class="lbl"><span class="en">August · Maldives</span><span class="ru">Август · Мальдивы</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT TEASER -->
+<section>
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <div class="eyebrow"><span class="en">The Inaugural Journey</span><span class="ru">Первая поездка</span></div>
+      <h2 class="section-title"><span class="en">Maldives · August 2026</span><span class="ru">Мальдивы · Август 2026</span></h2>
+      <p class="muted">
+        <span class="en">Three exceptional island resorts. One landmark trade event. A week that will change how you sell the Maldives.</span>
+        <span class="ru">Три исключительных островных курорта. Одно знаковое отраслевое событие. Неделя, которая изменит ваш взгляд на продажу Мальдив.</span>
+      </p>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="ph ph-1 r-land"><span class="ph-label"><span class="en">Photo · Fushifaru</span><span class="ru">Фото · Fushifaru</span></span></div>
+        <span class="tag"><span class="en">Lhaviyani Atoll</span><span class="ru">Атолл Лавияни</span></span>
+        <h3>Fushifaru Maldives</h3>
+        <p><span class="en">An intimate boutique island where two currents meet — famed for its house reef and barefoot elegance.</span><span class="ru">Камерный бутик-остров на стыке двух течений, знаменитый домашним рифом и элегантной простотой.</span></p>
+        <a class="more" href="#/resorts/fushifaru"><span class="en">Explore</span><span class="ru">Подробнее</span></a>
+      </div>
+      <div class="card">
+        <div class="ph ph-4 r-land"><span class="ph-label"><span class="en">Photo · SO/ Maldives</span><span class="ru">Фото · SO/ Maldives</span></span></div>
+        <span class="tag"><span class="en">South Malé Atoll</span><span class="ru">Южный Мале атолл</span></span>
+        <h3>SO/ Maldives</h3>
+        <p><span class="en">Avant-garde design meets island glamour — a fashion-forward resort minutes from Malé by speedboat.</span><span class="ru">Авангардный дизайн и островной гламур — модный курорт в нескольких минутах от Мале на катере.</span></p>
+        <a class="more" href="#/resorts/so"><span class="en">Explore</span><span class="ru">Подробнее</span></a>
+      </div>
+      <div class="card">
+        <div class="ph ph-2 r-land"><span class="ph-label"><span class="en">Photo · Meyyafushi</span><span class="ru">Фото · Meyyafushi</span></span></div>
+        <span class="tag"><span class="en">Lhaviyani Atoll</span><span class="ru">Атолл Лавияни</span></span>
+        <h3>Meyyafushi Maldives</h3>
+        <p><span class="en">The Maldives' newest premium all-inclusive — 95 pool villas, underwater dining and a resident marine biologist.</span><span class="ru">Новейший премиальный all-inclusive Мальдив — 95 вилл с бассейнами, подводный ресторан и морской биолог.</span></p>
+        <a class="more" href="#/resorts/meyyafushi"><span class="en">Explore</span><span class="ru">Подробнее</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="sanded quote-band reveal">
+  <div class="wrap-narrow">
+    <blockquote>
+      <span class="en">“You cannot sell a sunset you have never seen.”</span>
+      <span class="ru">«Нельзя продать закат, которого никогда не видел».</span>
+    </blockquote>
+    <cite><span class="en">The We Present Philosophy</span><span class="ru">Философия We Present</span></cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="ph ph-4 r-land ph-dark">
+        <!-- PLACEHOLDER: image — agents at TTM / networking -->
+        <span class="ph-label"><span class="en">Photo · TTM Maldives event</span><span class="ru">Фото · Событие TTM Maldives</span></span>
+      </div>
+      <div>
+        <div class="eyebrow"><span class="en">Join Us</span><span class="ru">Присоединяйтесь</span></div>
+        <h2 class="section-title"><span class="en">Earn Your Place</span><span class="ru">Заслужите своё место</span></h2>
+        <p>
+          <span class="en">Participation is by selection. Submit your agency's production statistics for 2025–2026, and our team will review your application for the inaugural journey.</span>
+          <span class="ru">Участие — по отбору. Отправьте статистику продаж вашего агентства за 2025–2026 годы, и наша команда рассмотрит вашу заявку на участие в первой поездке.</span>
+        </p>
+        <div style="margin-top:2.4rem;display:flex;gap:1.2rem;flex-wrap:wrap">
+          <a href="#/register" class="btn btn-gold"><span class="en">Register as an Agency</span><span class="ru">Регистрация агентства</span></a>
+          <a href="#/hotels" class="btn btn-light"><span class="en">Partner as a Hotel</span><span class="ru">Стать отелем-партнёром</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-about">
+<div class="page-hero ph ph-3 scrim">
+  <!-- PLACEHOLDER: image — overwater villas at dusk -->
+  <span class="ph-label"><span class="en">Photo · Villas at dusk</span><span class="ru">Фото · Виллы на закате</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">The Concept</span><span class="ru">Концепция</span></div>
+    <h1><span class="en">Why We Present Exists</span><span class="ru">Зачем существует We Present</span></h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap-narrow reveal">
+    <p style="font-family:var(--serif);font-size:1.5rem;line-height:1.5">
+      <span class="en">The most persuasive sales tool in luxury travel is not a photograph, a rate sheet or a webinar. It is memory — the agent's own.</span>
+      <span class="ru">Самый убедительный инструмент продаж в люксовом туризме — не фотография, не прайс-лист и не вебинар. Это память. Собственная память агента.</span>
+    </p>
+    <hr class="gold-rule">
+    <p>
+      <span class="en">Coati Travel has spent years connecting the Russia &amp; CIS market with exceptional destinations. We Present is the next step: a programme of familiarization journeys in which the region's most productive travel agencies are invited to live a destination before they sell it. Each journey combines immersive resort stays with the destination's flagship trade event, so that professional knowledge and professional relationships grow together.</span>
+      <span class="ru">Coati Travel много лет связывает рынок России и СНГ с исключительными направлениями. We Present — следующий шаг: программа ознакомительных поездок, в которых самые результативные агентства региона получают приглашение прожить направление прежде, чем продавать его. Каждая поездка сочетает погружение в курорты с главным отраслевым событием направления — чтобы профессиональные знания и профессиональные связи росли вместе.</span>
+    </p>
+  </div>
+</section>
+
+<section class="sanded">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="en">Selection</span><span class="ru">Отбор</span></div>
+      <h2 class="section-title"><span class="en">A Place That Is Earned</span><span class="ru">Место, которое нужно заслужить</span></h2>
+      <p class="muted"><span class="en">We Present is not open enrolment. Every seat is awarded on merit.</span><span class="ru">We Present — не открытая запись. Каждое место присуждается по заслугам.</span></p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="no">01</div>
+        <h3><span class="en">Apply</span><span class="ru">Заявка</span></h3>
+        <p><span class="en">Agencies submit a registration with their production statistics — room nights delivered in 2025–2026 — together with a business card and contact details.</span><span class="ru">Агентства подают заявку со статистикой продаж — количеством ночей за 2025–2026 годы, — а также визитной карточкой и контактными данными.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">02</div>
+        <h3><span class="en">Review</span><span class="ru">Рассмотрение</span></h3>
+        <p><span class="en">The Coati Travel team reviews each application, verifying production and considering market coverage across Russia and the CIS.</span><span class="ru">Команда Coati Travel рассматривает каждую заявку, проверяя статистику и учитывая охват рынка в России и СНГ.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">03</div>
+        <h3><span class="en">Invitation</span><span class="ru">Приглашение</span></h3>
+        <p><span class="en">Selected representatives receive a personal invitation to join the journey — resort stays, the trade event, and a curated programme throughout.</span><span class="ru">Отобранные представители получают персональное приглашение — проживание на курортах, участие в отраслевом событии и продуманную программу на всём пути.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">04</div>
+        <h3><span class="en">Present</span><span class="ru">Презентация</span></h3>
+        <p><span class="en">Participants return home as true ambassadors of the destination — and share their experience through the We Present community.</span><span class="ru">Участники возвращаются домой настоящими амбассадорами направления — и делятся опытом в сообществе We Present.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="ph ph-5 r-port">
+        <!-- PLACEHOLDER: image — site inspection / agents touring villa -->
+        <span class="ph-label"><span class="en">Photo · Villa inspection</span><span class="ru">Фото · Осмотр виллы</span></span>
+      </div>
+      <div>
+        <div class="eyebrow"><span class="en">For Whom</span><span class="ru">Для кого</span></div>
+        <h2 class="section-title"><span class="en">Built for Both Sides of the Table</span><span class="ru">Ценность для обеих сторон</span></h2>
+        <p><span class="en"><strong>For agencies</strong> — first-hand product knowledge, direct relationships with resort teams, and recognition of your production with an experience money cannot buy.</span>
+        <span class="ru"><strong>Для агентств</strong> — знание продукта из первых рук, прямые контакты с командами курортов и признание ваших результатов опытом, который нельзя купить.</span></p>
+        <p><span class="en"><strong>For hotels</strong> — a room full of the region's proven top producers, meeting your property in person rather than through a screen. No scattergun marketing; only the agents who already deliver.</span>
+        <span class="ru"><strong>Для отелей</strong> — встреча с проверенными лидерами продаж региона, которые знакомятся с вашим объектом лично, а не через экран. Никакого массового маркетинга — только агенты, которые уже приносят результат.</span></p>
+        <div class="badge-row">
+          <span class="badge"><span class="en">Merit-based</span><span class="ru">По заслугам</span></span>
+          <span class="badge"><span class="en">Trade only</span><span class="ru">Только для трейда</span></span>
+          <span class="badge"><span class="en">Russia &amp; CIS</span><span class="ru">Россия и СНГ</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="en">Beyond the Maldives</span><span class="ru">За пределами Мальдив</span></div>
+      <h2 class="section-title"><span class="en">A World of Journeys to Come</span><span class="ru">Впереди — целый мир</span></h2>
+      <p class="muted"><span class="en">The Maldives is only the beginning. We Present will expand to new destinations, each journey built around the country's finest hotels and its leading trade event.</span><span class="ru">Мальдивы — только начало. We Present будет расширяться на новые направления, и каждая поездка будет построена вокруг лучших отелей страны и её главного отраслевого события.</span></p>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="ph ph-1 r-land ph-dark"><span class="ph-label"><span class="en">Maldives · 2026</span><span class="ru">Мальдивы · 2026</span></span></div>
+        <h3><span class="en">Maldives</span><span class="ru">Мальдивы</span></h3>
+        <p><span class="en">The inaugural journey. August 2026.</span><span class="ru">Первая поездка. Август 2026.</span></p>
+      </div>
+      <div class="card">
+        <div class="ph ph-3 r-land ph-dark"><span class="ph-label"><span class="en">Coming soon</span><span class="ru">Скоро</span></span></div>
+        <h3><span class="en">Next Destination</span><span class="ru">Следующее направление</span></h3>
+        <p><span class="en">To be announced.</span><span class="ru">Будет объявлено.</span></p>
+      </div>
+      <div class="card">
+        <div class="ph ph-2 r-land ph-dark"><span class="ph-label"><span class="en">Coming soon</span><span class="ru">Скоро</span></span></div>
+        <h3><span class="en">And Beyond</span><span class="ru">И далее</span></h3>
+        <p><span class="en">To be announced.</span><span class="ru">Будет объявлено.</span></p>
+      </div>
+    </div>
+    <div class="center" style="margin-top:3.5rem">
+      <a href="#/register" class="btn btn-gold"><span class="en">Register Your Agency</span><span class="ru">Зарегистрировать агентство</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-event">
+<div class="page-hero ph ph-1 scrim">
+  <!-- PLACEHOLDER: hero video/image — seaplane over atolls -->
+  <span class="ph-label"><span class="en">Video · Seaplane over atolls</span><span class="ru">Видео · Гидросамолёт над атоллами</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">The Inaugural Journey</span><span class="ru">Первая поездка</span></div>
+    <h1><span class="en">Maldives · August 2026</span><span class="ru">Мальдивы · Август 2026</span></h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap-narrow reveal">
+    <p style="font-family:var(--serif);font-size:1.5rem;line-height:1.5">
+      <span class="en">One week. Three islands. The Maldives' flagship trade event. The first We Present journey sets the standard for everything that follows.</span>
+      <span class="ru">Одна неделя. Три острова. Главное отраслевое событие Мальдив. Первая поездка We Present задаёт стандарт для всего, что последует.</span>
+    </p>
+    <hr class="gold-rule">
+    <p>
+      <span class="en">Selected representatives of leading Russia &amp; CIS travel agencies will stay at three remarkable and very different resorts — Fushifaru Maldives, SO/ Maldives and Meyyafushi Maldives — experiencing villas, dining, spas and service first-hand. The journey culminates at Travel Trade Maldives (TTM), the destination's premier B2B event, where participants meet the wider Maldivian hospitality industry.</span>
+      <span class="ru">Отобранные представители ведущих агентств России и СНГ проведут время на трёх замечательных и очень разных курортах — Fushifaru Maldives, SO/ Maldives и Meyyafushi Maldives, — лично оценивая виллы, рестораны, спа и сервис. Кульминацией поездки станет Travel Trade Maldives (TTM) — главное B2B-событие направления, где участники встретятся со всей индустрией гостеприимства Мальдив.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="sanded">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="en">The Journey</span><span class="ru">Программа</span></div>
+      <h2 class="section-title"><span class="en">An Outline of the Week</span><span class="ru">Неделя в общих чертах</span></h2>
+      <p class="muted"><span class="en">The detailed day-by-day programme will be shared with confirmed participants. Dates and sequence are subject to final confirmation.</span><span class="ru">Подробная программа по дням будет направлена подтверждённым участникам. Даты и порядок могут уточняться.</span></p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="no">I</div>
+        <h3><span class="en">Arrival · Malé</span><span class="ru">Прибытие · Мале</span></h3>
+        <p><span class="en">Welcome to Velana International Airport, private transfers, and an opening evening with the We Present team.</span><span class="ru">Встреча в международном аэропорту Велана, индивидуальные трансферы и вечер знакомства с командой We Present.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">II</div>
+        <h3>Fushifaru Maldives</h3>
+        <p><span class="en">Boutique island living in Lhaviyani Atoll — house reef snorkelling, villa inspections and dinners with the resort's leadership.</span><span class="ru">Жизнь бутик-острова в атолле Лавияни — снорклинг на домашнем рифе, осмотр вилл и ужины с руководством курорта.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">III</div>
+        <h3>Meyyafushi Maldives</h3>
+        <p><span class="en">The newest premium all-inclusive in the Maldives — underwater dining, marine-biologist-guided excursions and 95 pool villas to discover.</span><span class="ru">Новейший премиальный all-inclusive на Мальдивах — подводный ресторан, экскурсии с морским биологом и 95 вилл с бассейнами.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">IV</div>
+        <h3>SO/ Maldives</h3>
+        <p><span class="en">Design-led glamour in South Malé Atoll — a study in how fashion and hospitality meet, minutes from the capital.</span><span class="ru">Дизайнерский гламур Южного Мале атолла — пример союза моды и гостеприимства в нескольких минутах от столицы.</span></p>
+      </div>
+      <div class="step">
+        <div class="no">V</div>
+        <h3>Travel Trade Maldives</h3>
+        <p><span class="en">Full delegate participation in TTM Maldives — scheduled B2B meetings, industry networking and the destination's signature evening events.</span><span class="ru">Полноценное участие в TTM Maldives — запланированные B2B-встречи, нетворкинг и фирменные вечерние мероприятия события.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section>
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <div class="eyebrow"><span class="en">A Glimpse</span><span class="ru">Взгляд</span></div>
+      <h2 class="section-title"><span class="en">The Setting</span><span class="ru">Место действия</span></h2>
+    </div>
+    <div class="cards reveal">
+      <div class="ph ph-1 r-port"><span class="ph-label"><span class="en">Photo · Lagoon</span><span class="ru">Фото · Лагуна</span></span></div>
+      <div class="ph ph-2 r-port"><span class="ph-label"><span class="en">Photo · Villa interior</span><span class="ru">Фото · Интерьер виллы</span></span></div>
+      <div class="ph ph-4 r-port"><span class="ph-label"><span class="en">Video · Island life</span><span class="ru">Видео · Жизнь острова</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="dark">
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <div class="eyebrow"><span class="en">For Participants</span><span class="ru">Для участников</span></div>
+        <h2 class="section-title"><span class="en">What the Journey Includes</span><span class="ru">Что включает поездка</span></h2>
+        <ul class="checklist">
+          <li><span class="en">Accommodation at all three partner resorts</span><span class="ru">Проживание на всех трёх курортах-партнёрах</span></li>
+          <li><span class="en">Transfers throughout the programme</span><span class="ru">Трансферы на протяжении всей программы</span></li>
+          <li><span class="en">Resort inspections, dining and curated experiences</span><span class="ru">Осмотры курортов, гастрономия и специальные впечатления</span></li>
+          <li><span class="en">Delegate access to TTM Maldives</span><span class="ru">Делегатский доступ на TTM Maldives</span></li>
+          <li><span class="en">Dedicated We Present host throughout</span><span class="ru">Персональный сопровождающий We Present</span></li>
+        </ul>
+        <!-- PLACEHOLDER: confirm inclusions (flights? visa support?) with Coati -->
+        <p class="muted" style="margin-top:1.4rem;font-size:.85rem"><span class="en">Full terms of participation are provided with the invitation.</span><span class="ru">Полные условия участия предоставляются вместе с приглашением.</span></p>
+      </div>
+      <div class="ph ph-3 r-port ph-dark">
+        <!-- PLACEHOLDER: image — dinner on the beach -->
+        <span class="ph-label"><span class="en">Photo · Destination dinner</span><span class="ru">Фото · Ужин на пляже</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-band">
+  <div class="wrap-narrow reveal">
+    <blockquote>
+      <span class="en">“August 2026 will be remembered as the month the Russian trade met the Maldives properly — face to face.”</span>
+      <span class="ru">«Август 2026 запомнится как месяц, когда российский трейд по-настоящему познакомился с Мальдивами — лицом к лицу».</span>
+    </blockquote>
+    <cite>We Present · Coati Travel</cite>
+    <div style="margin-top:3rem">
+      <a href="#/register" class="btn btn-gold"><span class="en">Apply to Take Part</span><span class="ru">Подать заявку</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-resorts">
+<div class="page-hero ph ph-4 scrim">
+  <!-- PLACEHOLDER: hero image — three-island composite / lagoon panorama -->
+  <span class="ph-label"><span class="en">Photo · Lagoon panorama</span><span class="ru">Фото · Панорама лагуны</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">Partner Resorts · Maldives 2026</span><span class="ru">Курорты-партнёры · Мальдивы 2026</span></div>
+    <h1><span class="en">Three Islands, Three Worlds</span><span class="ru">Три острова, три мира</span></h1>
+  </div>
+</div>
+
+<!-- FUSHIFARU -->
+<section id="fushifaru">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="ph ph-1 r-land">
+        <!-- PLACEHOLDER: Fushifaru imagery (resort will provide) -->
+        <span class="ph-label"><span class="en">Photo / video · Fushifaru Maldives</span><span class="ru">Фото / видео · Fushifaru Maldives</span></span>
+      </div>
+      <div>
+        <div class="eyebrow"><span class="en">Lhaviyani Atoll · Boutique Luxury</span><span class="ru">Атолл Лавияни · Бутик-люкс</span></div>
+        <h2 class="section-title">Fushifaru Maldives</h2>
+        <hr class="gold-rule">
+        <p><span class="en">Fushifaru — "where two currents meet" — is an intimate island celebrated for one of the finest house reefs in the Maldives. Barefoot informality is paired with polished service, Maldivian character runs through its design, and its channel-side location draws mantas, turtles and eagle rays to the doorstep.</span>
+        <span class="ru">Fushifaru — «место встречи двух течений» — камерный остров, знаменитый одним из лучших домашних рифов на Мальдивах. Босоногая непринуждённость сочетается здесь с безупречным сервисом, мальдивский характер пронизывает дизайн, а расположение у канала приманивает мант, черепах и орляковых скатов прямо к порогу.</span></p>
+        <ul class="checklist">
+          <li><span class="en">Beach &amp; water villas, many with pools</span><span class="ru">Пляжные и водные виллы, многие с бассейнами</span></li>
+          <li><span class="en">Exceptional house reef &amp; marine life</span><span class="ru">Исключительный домашний риф и морская жизнь</span></li>
+          <li><span class="en">Seaplane arrival over Lhaviyani Atoll</span><span class="ru">Прибытие гидросамолётом над атоллом Лавияни</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SO/ MALDIVES -->
+<section id="so">
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <div class="eyebrow"><span class="en">South Malé Atoll · Design &amp; Fashion</span><span class="ru">Южный Мале атолл · Дизайн и мода</span></div>
+        <h2 class="section-title">SO/ Maldives</h2>
+        <hr class="gold-rule">
+        <p><span class="en">SO/ Maldives brings avant-garde design and a fashion editor's eye to the archipelago. Bold villas, statement interiors and playful glamour make it unlike anything else in the destination — and its speedboat-only transfer from Malé makes it one of the most accessible luxury islands in the country.</span>
+        <span class="ru">SO/ Maldives привносит в архипелаг авангардный дизайн и взгляд модного редактора. Смелые виллы, выразительные интерьеры и игривый гламур не похожи ни на что другое на Мальдивах, а трансфер на катере из Мале делает его одним из самых доступных люксовых островов страны.</span></p>
+        <ul class="checklist">
+          <li><span class="en">Designer beach &amp; overwater villas</span><span class="ru">Дизайнерские пляжные и водные виллы</span></li>
+          <li><span class="en">Fashion-led aesthetic and events</span><span class="ru">Эстетика и события в духе высокой моды</span></li>
+          <li><span class="en">Speedboat transfer from Velana / Malé</span><span class="ru">Трансфер на катере из аэропорта Велана / Мале</span></li>
+        </ul>
+      </div>
+      <div class="ph ph-4 r-land">
+        <!-- PLACEHOLDER: SO/ Maldives imagery (resort will provide) -->
+        <span class="ph-label"><span class="en">Photo / video · SO/ Maldives</span><span class="ru">Фото / видео · SO/ Maldives</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- MEYYAFUSHI -->
+<section id="meyyafushi">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="ph ph-2 r-land">
+        <!-- PLACEHOLDER: Meyyafushi imagery (resort will provide) -->
+        <span class="ph-label"><span class="en">Photo / video · Meyyafushi Maldives</span><span class="ru">Фото / видео · Meyyafushi Maldives</span></span>
+      </div>
+      <div>
+        <div class="eyebrow"><span class="en">Lhaviyani Atoll · Premium All-Inclusive</span><span class="ru">Атолл Лавияни · Премиальный All-Inclusive</span></div>
+        <h2 class="section-title">Meyyafushi Maldives</h2>
+        <hr class="gold-rule">
+        <p><span class="en">The newest arrival among the three, Meyyafushi opened in late 2025 as a five-star premium all-inclusive on a natural island surrounded by world-class dive sites. Ninety-five villas and suites with private pools, seven restaurants including underwater dining, an overwater padel court and a resident marine biologist set a new benchmark for the all-inclusive Maldives.</span>
+        <span class="ru">Самый молодой из трёх курортов, Meyyafushi открылся в конце 2025 года как пятизвёздочный премиальный all-inclusive на естественном острове в окружении дайв-сайтов мирового класса. Девяносто пять вилл и сьютов с приватными бассейнами, семь ресторанов, включая подводный, падел-корт над водой и штатный морской биолог задают новую планку для all-inclusive на Мальдивах.</span></p>
+        <ul class="checklist">
+          <li><span class="en">95 pool villas &amp; suites</span><span class="ru">95 вилл и сьютов с бассейнами</span></li>
+          <li><span class="en">7 restaurants, incl. underwater dining</span><span class="ru">7 ресторанов, включая подводный</span></li>
+          <li><span class="en">35-minute seaplane from Velana</span><span class="ru">35 минут гидросамолётом из аэропорта Велана</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dark quote-band">
+  <div class="wrap-narrow reveal">
+    <blockquote>
+      <span class="en">“Three islands chosen not to be compared, but to be understood — each a different answer to the question of paradise.”</span>
+      <span class="ru">«Три острова, выбранные не для сравнения, а для понимания — каждый по-своему отвечает на вопрос, что такое рай».</span>
+    </blockquote>
+    <cite>We Present · Coati Travel</cite>
+    <div style="margin-top:3rem">
+      <a href="#/register" class="btn btn-gold"><span class="en">Experience Them Yourself</span><span class="ru">Увидеть своими глазами</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-testimonials">
+<div class="page-hero hero-sub ph ph-5 scrim">
+  <!-- PLACEHOLDER: hero image — group photo of participants -->
+  <span class="ph-label"><span class="en">Photo · Participants</span><span class="ru">Фото · Участники</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">Voices</span><span class="ru">Отзывы</span></div>
+    <h1><span class="en">In Their Own Words</span><span class="ru">Их собственными словами</span></h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <div class="eyebrow"><span class="en">The Community</span><span class="ru">Сообщество</span></div>
+      <h2 class="section-title"><span class="en">Experiences, Shared</span><span class="ru">Опыт, которым делятся</span></h2>
+      <p class="muted">
+        <span class="en">After each journey, participants share their impressions here — building a living record of the We Present experience. The first voices will appear after the inaugural Maldives journey in August 2026.</span>
+        <span class="ru">После каждой поездки участники делятся здесь впечатлениями — так рождается живая летопись We Present. Первые отзывы появятся после первой поездки на Мальдивы в августе 2026 года.</span>
+      </p>
+    </div>
+
+    <!-- PLACEHOLDER TESTIMONIALS — replace with real ones after the first journey -->
+    <div class="t-grid reveal">
+      <div class="t-card">
+        <p class="t-quote"><span class="en">“Sample testimonial — this card will hold a participant's impressions of the journey, the resorts and TTM.”</span><span class="ru">«Образец отзыва — здесь будут впечатления участника о поездке, курортах и TTM».</span></p>
+        <div class="t-who"><span class="en">Participant Name</span><span class="ru">Имя участника</span></div>
+        <div class="t-meta"><span class="en">Agency · City — Maldives 2026</span><span class="ru">Агентство · Город — Мальдивы 2026</span></div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote"><span class="en">“Sample testimonial — a few sentences about what the agent learned and how it changed the way they sell the destination.”</span><span class="ru">«Образец отзыва — несколько предложений о том, что агент узнал и как это изменило его подход к продажам направления».</span></p>
+        <div class="t-who"><span class="en">Participant Name</span><span class="ru">Имя участника</span></div>
+        <div class="t-meta"><span class="en">Agency · City — Maldives 2026</span><span class="ru">Агентство · Город — Мальдивы 2026</span></div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote"><span class="en">“Sample testimonial — participants may also submit photos and short videos from the journey to accompany their words.”</span><span class="ru">«Образец отзыва — участники также смогут приложить фотографии и короткие видео из поездки».</span></p>
+        <div class="t-who"><span class="en">Participant Name</span><span class="ru">Имя участника</span></div>
+        <div class="t-meta"><span class="en">Agency · City — Maldives 2026</span><span class="ru">Агентство · Город — Мальдивы 2026</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK FORM -->
+<section class="sanded">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <div class="eyebrow"><span class="en">Share Your Experience</span><span class="ru">Поделитесь впечатлениями</span></div>
+      <h2 class="section-title"><span class="en">Leave Your Feedback</span><span class="ru">Оставьте отзыв</span></h2>
+      <p class="muted"><span class="en">For participants of We Present journeys. Submitted feedback is reviewed by our team before publication.</span><span class="ru">Для участников поездок We Present. Отзывы публикуются после модерации нашей командой.</span></p>
+    </div>
+
+    <form class="form-shell reveal" data-handler="php/feedback.php" enctype="multipart/form-data" novalidate>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name-testimonials"><span class="en">Full Name</span><span class="ru">Полное имя</span> <span class="req">*</span></label>
+          <input type="text" id="name-testimonials" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="agency-testimonials"><span class="en">Agency &amp; City</span><span class="ru">Агентство и город</span> <span class="req">*</span></label>
+          <input type="text" id="agency-testimonials" name="agency" required>
+        </div>
+        <div class="field">
+          <label for="email-testimonials"><span class="en">Email Address</span><span class="ru">Электронная почта</span> <span class="req">*</span></label>
+          <input type="email" id="email-testimonials" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="journey-testimonials"><span class="en">Journey</span><span class="ru">Поездка</span></label>
+          <input type="text" id="journey-testimonials" name="journey" value="Maldives · August 2026">
+        </div>
+        <div class="field full">
+          <label for="comments-testimonials"><span class="en">Your Feedback</span><span class="ru">Ваш отзыв</span> <span class="req">*</span></label>
+          <textarea id="comments-testimonials" name="comments" required></textarea>
+        </div>
+        <div class="field full">
+          <label><span class="en">Photos / Videos (optional)</span><span class="ru">Фото / видео (по желанию)</span></label>
+          <div class="upload">
+            <input type="file" name="statistics[]" multiple accept=".png,.jpg,.jpeg,.mp4,.mov">
+            <div class="up-title"><span class="en">Upload Media</span><span class="ru">Загрузить медиа</span></div>
+            <div class="up-hint"><span class="en">Images or video · max 10 MB each</span><span class="ru">Изображения или видео · до 10 МБ каждый</span></div>
+            <div class="up-file"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-gold"><span class="en">Submit Feedback</span><span class="ru">Отправить отзыв</span></button>
+        <div class="form-msg"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="dark quote-band">
+  <div class="wrap-narrow reveal">
+    <blockquote>
+      <span class="en">“Every journey ends with a story. This page is where those stories live.”</span>
+      <span class="ru">«Каждая поездка заканчивается историей. Эта страница — дом для этих историй».</span>
+    </blockquote>
+    <cite>We Present · Coati Travel</cite>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-hotels">
+<div class="page-hero hero-sub ph ph-2 scrim">
+  <!-- PLACEHOLDER: hero image — resort GM welcoming guests -->
+  <span class="ph-label"><span class="en">Photo · Hosting the trade</span><span class="ru">Фото · Приём делегации</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">For Hotels &amp; Resorts</span><span class="ru">Для отелей и курортов</span></div>
+    <h1><span class="en">Be Presented</span><span class="ru">Будьте представлены</span></h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <div class="eyebrow"><span class="en">The Opportunity</span><span class="ru">Возможность</span></div>
+        <h2 class="section-title"><span class="en">The Right Agents, In Person</span><span class="ru">Нужные агенты — лично у вас</span></h2>
+        <hr class="gold-rule">
+        <p><span class="en">Every We Present delegation is composed exclusively of proven producers — agencies selected on verified room nights for the Russia &amp; CIS market. Hosting a We Present journey places your property directly in front of the people who decide where this market sleeps.</span>
+        <span class="ru">Каждая делегация We Present состоит исключительно из проверенных лидеров продаж — агентств, отобранных по подтверждённому количеству ночей на рынке России и СНГ. Принимая поездку We Present, вы представляете свой объект напрямую тем, кто решает, где будет ночевать этот рынок.</span></p>
+        <ul class="checklist">
+          <li><span class="en">Verified top-producing agencies only</span><span class="ru">Только проверенные агентства-лидеры</span></li>
+          <li><span class="en">Multi-day immersive stays, not fly-by visits</span><span class="ru">Многодневное погружение, а не беглый визит</span></li>
+          <li><span class="en">Direct relationships with decision-makers</span><span class="ru">Прямые связи с лицами, принимающими решения</span></li>
+          <li><span class="en">Ongoing exposure through the We Present community</span><span class="ru">Постоянное присутствие в сообществе We Present</span></li>
+        </ul>
+      </div>
+      <div class="ph ph-5 r-port">
+        <!-- PLACEHOLDER: image — resort showcase -->
+        <span class="ph-label"><span class="en">Photo · Property showcase</span><span class="ru">Фото · Презентация отеля</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sanded">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <div class="eyebrow"><span class="en">Partnership Enquiry</span><span class="ru">Заявка на партнёрство</span></div>
+      <h2 class="section-title"><span class="en">Introduce Your Property</span><span class="ru">Представьте свой отель</span></h2>
+      <p class="muted"><span class="en">Tell us about your hotel and our partnerships team will be in touch.</span><span class="ru">Расскажите о вашем отеле — команда по партнёрствам свяжется с вами.</span></p>
+    </div>
+
+    <form class="form-shell reveal" data-handler="php/register.php" enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="form_type" value="hotel">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="name-hotels"><span class="en">Contact Person (First &amp; Last)</span><span class="ru">Контактное лицо (имя и фамилия)</span> <span class="req">*</span></label>
+          <input type="text" id="name-hotels" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="agency-hotels"><span class="en">Hotel / Resort Name</span><span class="ru">Название отеля / курорта</span> <span class="req">*</span></label>
+          <input type="text" id="agency-hotels" name="agency" required autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="phone-hotels"><span class="en">Phone Number</span><span class="ru">Номер телефона</span> <span class="req">*</span></label>
+          <input type="tel" id="phone-hotels" name="phone" required autocomplete="tel">
+          <span class="hint"><span class="en">Preferably connected to WhatsApp or Telegram.</span><span class="ru">Желательно с WhatsApp или Telegram.</span></span>
+        </div>
+        <div class="field">
+          <label for="email-hotels"><span class="en">Email Address</span><span class="ru">Электронная почта</span> <span class="req">*</span></label>
+          <input type="email" id="email-hotels" name="email" required autocomplete="email">
+        </div>
+        <div class="field full">
+          <label for="comments-hotels"><span class="en">About Your Property / Comments</span><span class="ru">О вашем объекте / комментарии</span></label>
+          <textarea id="comments-hotels" name="comments"></textarea>
+        </div>
+        <div class="field full">
+          <label><span class="en">Fact Sheet or Presentation (optional)</span><span class="ru">Fact sheet или презентация (по желанию)</span></label>
+          <div class="upload">
+            <input type="file" name="statistics[]" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg">
+            <div class="up-title"><span class="en">Upload Files</span><span class="ru">Загрузить файлы</span></div>
+            <div class="up-hint"><span class="en">PDF, Word, PowerPoint or image · max 10 MB each</span><span class="ru">PDF, Word, PowerPoint или изображение · до 10 МБ каждый</span></div>
+            <div class="up-file"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="form-note">
+        <span class="en">By submitting this form you consent to Coati Travel processing the information provided. A confirmation email will be sent to the address above.</span>
+        <span class="ru">Отправляя форму, вы соглашаетесь на обработку указанных данных компанией Coati Travel. Письмо-подтверждение будет отправлено на указанный адрес.</span>
+      </p>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-gold"><span class="en">Send Enquiry</span><span class="ru">Отправить заявку</span></button>
+        <div class="form-msg"></div>
+      </div>
+    </form>
+  </div>
+</section>
+</div>
+
+<div class="wp-page" id="pg-register">
+<div class="page-hero hero-sub ph ph-3 scrim">
+  <!-- PLACEHOLDER: hero image — welcome ritual / lagoon -->
+  <span class="ph-label"><span class="en">Photo · Welcome ritual</span><span class="ru">Фото · Церемония встречи</span></span>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="en">For Travel Agencies</span><span class="ru">Для турагентств</span></div>
+    <h1><span class="en">Agency Registration</span><span class="ru">Регистрация агентства</span></h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto">
+      <h2 class="section-title"><span class="en">Apply for Maldives · August 2026</span><span class="ru">Заявка на Мальдивы · Август 2026</span></h2>
+      <p class="muted">
+        <span class="en">Selection is based on your agency's production. Please attach your statistics for 2025–2026 (room nights) and your business card. Our team will review your application and respond personally.</span>
+        <span class="ru">Отбор основан на результатах вашего агентства. Приложите статистику за 2025–2026 годы (количество ночей) и визитную карточку. Наша команда рассмотрит заявку и свяжется с вами лично.</span>
+      </p>
+    </div>
+
+    <form class="form-shell reveal" data-handler="php/register.php" enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="form_type" value="agency">
+      <!-- honeypot (spam trap) -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="name-register"><span class="en">Full Name (First &amp; Last)</span><span class="ru">Полное имя (имя и фамилия)</span> <span class="req">*</span></label>
+          <input type="text" id="name-register" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="agency-register"><span class="en">Agency / Company Name</span><span class="ru">Название агентства / компании</span> <span class="req">*</span></label>
+          <input type="text" id="agency-register" name="agency" required autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="phone-register"><span class="en">Phone Number</span><span class="ru">Номер телефона</span> <span class="req">*</span></label>
+          <input type="tel" id="phone-register" name="phone" required autocomplete="tel">
+          <span class="hint"><span class="en">Please use a number connected to WhatsApp or Telegram.</span><span class="ru">Укажите номер, привязанный к WhatsApp или Telegram.</span></span>
+        </div>
+        <div class="field">
+          <label for="email-register"><span class="en">Email Address</span><span class="ru">Электронная почта</span> <span class="req">*</span></label>
+          <input type="email" id="email-register" name="email" required autocomplete="email">
+        </div>
+        <div class="field full">
+          <label for="comments-register"><span class="en">Comments / Additional Information</span><span class="ru">Комментарии / дополнительная информация</span></label>
+          <textarea id="comments-register" name="comments"></textarea>
+        </div>
+        <div class="field">
+          <label><span class="en">Your Statistics</span><span class="ru">Ваша статистика</span> <span class="req">*</span></label>
+          <div class="upload">
+            <input type="file" name="statistics[]" multiple required accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.png,.jpg,.jpeg">
+            <div class="up-title"><span class="en">Upload Statistics</span><span class="ru">Загрузить статистику</span></div>
+            <div class="up-hint"><span class="en">Production for 2025–2026 · PDF, Excel, Word or image · max 10 MB each</span><span class="ru">Продажи за 2025–2026 · PDF, Excel, Word или изображение · до 10 МБ каждый</span></div>
+            <div class="up-file"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label><span class="en">Your Business Card</span><span class="ru">Ваша визитная карточка</span> <span class="req">*</span></label>
+          <div class="upload">
+            <input type="file" name="business_card" required accept=".pdf,.png,.jpg,.jpeg">
+            <div class="up-title"><span class="en">Upload Business Card</span><span class="ru">Загрузить визитку</span></div>
+            <div class="up-hint"><span class="en">PDF or image · max 10 MB</span><span class="ru">PDF или изображение · до 10 МБ</span></div>
+            <div class="up-file"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="form-note">
+        <span class="en">By submitting this form you consent to Coati Travel processing the information provided for the purpose of reviewing your application. A confirmation email will be sent to the address above.</span>
+        <span class="ru">Отправляя форму, вы соглашаетесь на обработку указанных данных компанией Coati Travel для рассмотрения вашей заявки. Письмо-подтверждение будет отправлено на указанный адрес.</span>
+      </p>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-gold"><span class="en">Submit Application</span><span class="ru">Отправить заявку</span></button>
+        <div class="form-msg"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sanded">
+  <div class="wrap-narrow center reveal">
+    <div class="eyebrow"><span class="en">Questions?</span><span class="ru">Вопросы?</span></div>
+    <h2 class="section-title"><span class="en">We Are at Your Service</span><span class="ru">Мы к вашим услугам</span></h2>
+    <p class="muted"><span class="en">Write to us at info@wepresent.example and a member of the We Present team will reply within one business day.</span><span class="ru">Напишите нам на info@wepresent.example — команда We Present ответит в течение одного рабочего дня.</span></p>
+    <!-- PLACEHOLDER: replace with real contact email / Telegram -->
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">
+          <div class="logo-main">We Present</div>
+          <div class="logo-sub">by Coati Travel</div>
+        </div>
+        <p><span class="en">Curated familiarization journeys connecting the travel trade of Russia &amp; the CIS with the world's finest hotels.</span><span class="ru">Эксклюзивные ознакомительные поездки, объединяющие туристический рынок России и СНГ с лучшими отелями мира.</span></p>
+      </div>
+      <div>
+        <h4><span class="en">Explore</span><span class="ru">Разделы</span></h4>
+        <a href="#/about"><span class="en">The Concept</span><span class="ru">Концепция</span></a>
+        <a href="#/event"><span class="en">Maldives 2026</span><span class="ru">Мальдивы 2026</span></a>
+        <a href="#/resorts"><span class="en">The Resorts</span><span class="ru">Курорты</span></a>
+        <a href="#/testimonials"><span class="en">Voices</span><span class="ru">Отзывы</span></a>
+      </div>
+      <div>
+        <h4><span class="en">Take Part</span><span class="ru">Участие</span></h4>
+        <a href="#/register"><span class="en">Agency Registration</span><span class="ru">Регистрация агентства</span></a>
+        <a href="#/hotels"><span class="en">Hotel Partnership</span><span class="ru">Партнёрство отелей</span></a>
+      </div>
+      <div>
+        <h4><span class="en">Contact</span><span class="ru">Контакты</span></h4>
+        <p>info@wepresent.example<br>
+        <span class="en">Moscow · Malé</span><span class="ru">Москва · Мале</span></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 We Present by Coati Travel</span>
+      <span><span class="en">All rights reserved</span><span class="ru">Все права защищены</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+  var html = document.documentElement;
+
+  /* ---------- language ---------- */
+  function setLang(l) {
+    html.classList.remove("en", "ru");
+    html.classList.add(l);
+    html.setAttribute("lang", l);
+    try { localStorage.setItem("wp-lang", l); } catch (e) {}
+    document.querySelectorAll(".lang-switch button").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-lang") === l);
+    });
+  }
+  var saved = "en";
+  try { saved = localStorage.getItem("wp-lang") || "en"; } catch (e) {}
+  setLang(saved === "ru" ? "ru" : "en");
+  document.querySelectorAll(".lang-switch button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+
+  /* ---------- header on scroll ---------- */
+  var header = document.querySelector("header");
+  function onScroll() {
+    if (header) header.classList.toggle("solid", window.scrollY > 40);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- mobile nav ---------- */
+  var burger = document.querySelector(".burger");
+  var nav = document.querySelector("nav.primary");
+  if (burger && nav) {
+    burger.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      burger.innerHTML = open ? "&times;" : "&#9776;";
+    });
+  }
+  function closeNav() {
+    if (nav) nav.classList.remove("open");
+    if (burger) burger.innerHTML = "&#9776;";
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  var io = null;
+  if ("IntersectionObserver" in window) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("vis"); });
+  }
+
+  /* ---------- SPA page router (no location changes; sandbox-safe) ---------- */
+  function showPage(page, anchor) {
+    var target = document.getElementById("pg-" + page);
+    if (!target) return;
+    document.querySelectorAll(".wp-page").forEach(function (p) { p.classList.remove("on"); });
+    target.classList.add("on");
+    document.querySelectorAll("nav.primary a[data-page]").forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("data-page") === page);
+    });
+    closeNav();
+    if (anchor) {
+      var el = document.getElementById(anchor);
+      if (el) { el.scrollIntoView(); return; }
+    }
+    window.scrollTo(0, 0);
+    onScroll();
+  }
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[href^='#/']");
+    if (!a) return;
+    ev.preventDefault();
+    var parts = a.getAttribute("href").slice(2).split("/");
+    showPage(parts[0], parts[1] || null);
+  });
+  showPage("home");
+
+  /* ---------- file upload labels ---------- */
+  document.querySelectorAll(".upload input[type=file]").forEach(function (inp) {
+    inp.addEventListener("change", function () {
+      var out = inp.closest(".upload").querySelector(".up-file");
+      if (!out) return;
+      var names = Array.prototype.map.call(inp.files, function (f) { return f.name; }).join(", ");
+      out.textContent = names || "";
+    });
+  });
+
+  /* ---------- forms: demo mode (no backend in this preview) ---------- */
+  document.querySelectorAll("form[data-handler]").forEach(function (form) {
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var msg = form.querySelector(".form-msg");
+      var isRu = html.classList.contains("ru");
+      if (msg) {
+        msg.className = "form-msg ok";
+        msg.textContent = isRu
+          ? "Спасибо! (Демо-версия: в рабочей версии сайта заявка будет отправлена команде We Present.)"
+          : "Thank you! (Demo preview: on the live site this application would be sent to the We Present team.)";
+      }
+      form.reset();
+      form.querySelectorAll(".up-file").forEach(function (o) { o.textContent = ""; });
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

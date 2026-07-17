@@ -1,0 +1,11 @@
+.DS_Store
+
+# Large raw media asset folders (backed up separately, not in git)
+Fushifaru Images and Videos/
+Madifushi Images and Videos/
+Meyyafushi Images and Videos/
+SO Maldives Images and Videos/
+
+# Large landing page export PDFs
+WePresent landing page (version 2).pdf
+WePresent landing page (version 3).pdf
