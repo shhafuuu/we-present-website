@@ -71,6 +71,7 @@ export const en = {
       title: "Stories from the field",
       quote: "Our first journeys are coming this August.",
       body: "Photos, trip reports and reviews from participating agents and hotel partners will appear here after each tour.",
+      cta: "Visit How It Was",
     },
     register: {
       kicker: "We Present 2027",
@@ -205,6 +206,81 @@ export const en = {
     gallery: "Gallery",
     lifeAt: "Life at",
     allResorts: "All Resorts",
+  },
+  howItWasPage: {
+    banner: {
+      kicker: "How It Was",
+      title: "Stories from the field",
+      body: "Photos, trip reports and reviews from every We Present tour will live here — built out after each edition, and kept current by the Coati team through the content portal.",
+    },
+    comingSoon: {
+      title: "Our first journeys are coming this August.",
+      body: "The 2026 season is our launch season — there are no completed tours yet. This page will fill in with real photography, recaps and reviews as soon as the first group returns.",
+    },
+    sections: [
+      {
+        title: "Photo Galleries",
+        body: "Grid galleries with lightbox from each tour and event, added after every edition.",
+      },
+      {
+        title: "Trip Reports",
+        body: "Short recaps of each tour's itinerary, resorts visited and highlights.",
+      },
+      {
+        title: "Agent Reviews",
+        body: "Testimonials from the travel agents who took part in each tour.",
+      },
+      {
+        title: "Hotel Partner Reviews",
+        body: "Feedback from the resorts that hosted each tour's group.",
+      },
+    ],
+  },
+  legalPage: {
+    banner: {
+      kicker: "Legal",
+      title: "Privacy Policy & Cookie Notice",
+    },
+    draftNotice:
+      "This is a draft policy prepared for review — final wording should be approved by Coati Travel and, where needed, legal counsel before launch (see Technical Specification, Section 14).",
+    sections: [
+      {
+        title: "Overview",
+        body: "This policy explains what personal data We Present (a project of Coati Travel) collects through this website, why, who it's shared with, and the choices you have.",
+      },
+      {
+        title: "Information We Collect",
+        body: "Depending on which form you use, we may collect: your name, email address, phone number, agency or company name, messages you send us, and — for the agent registration and hotel partnership forms — files you upload, such as performance statistics, a business card, or property images and brochures.",
+      },
+      {
+        title: "How We Use Your Information",
+        body: "We use this information to respond to inquiries, evaluate registrations and partnership requests, and get in touch about the We Present programme. We do not sell or rent your information to third parties.",
+      },
+      {
+        title: "Who Receives Your Information",
+        body: "Submissions are received by the Coati Travel team responsible for the We Present programme. Per-hotel inquiries are also shared with the relevant resort partner so they can respond to your request.",
+      },
+      {
+        title: "Data Retention",
+        body: "Retention periods are being finalised with Coati Travel. Check back here for specifics, or contact us directly with any retention or deletion request in the meantime.",
+      },
+      {
+        title: "Uploaded Files",
+        body: "Files you upload are stored securely and are accessible only to the Coati Travel team reviewing your submission. We do not publish uploaded files.",
+      },
+      {
+        title: "Your Rights",
+        body: "You may request access to, correction of, or deletion of your personal data at any time by contacting us at the email address below.",
+      },
+      {
+        title: "Cookies & Analytics",
+        body: "This site does not currently set non-essential cookies or run analytics. When analytics tools such as Yandex.Metrica or Google Analytics are added, this policy will be updated and a cookie consent notice will be shown before any non-essential cookie is set.",
+      },
+      {
+        title: "Contact Us",
+        body: "Questions about this policy or your data can be sent to hello@wepresent.org.",
+      },
+    ],
   },
   registerPage: {
     banner: {

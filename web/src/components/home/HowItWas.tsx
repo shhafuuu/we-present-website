@@ -1,6 +1,7 @@
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
-import type { Locale } from "@/i18n/config";
+import { Button } from "@/components/Button";
+import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export function HowItWas({ locale }: { locale: Locale }) {
@@ -22,6 +23,11 @@ export function HowItWas({ locale }: { locale: Locale }) {
             </p>
             <p className="mt-4 text-sm text-ink/60">{dict.home.howItWas.body}</p>
           </div>
+        </Reveal>
+        <Reveal delay={0.25} className="mt-10">
+          <Button href={href(locale, "/how-it-was")} variant="ghost">
+            {dict.home.howItWas.cta}
+          </Button>
         </Reveal>
       </div>
     </section>

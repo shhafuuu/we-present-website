@@ -19,7 +19,7 @@ export function Header({ locale }: { locale: Locale }) {
     { label: dict.nav.tours, href: href(locale, "/tours") },
     { label: dict.nav.resorts, href: href(locale, "/#resorts") },
     { label: dict.nav.partners, href: href(locale, "/partners") },
-    { label: dict.nav.howItWas, href: href(locale, "/#how-it-was") },
+    { label: dict.nav.howItWas, href: href(locale, "/how-it-was") },
     { label: dict.nav.contact, href: href(locale, "/contact") },
   ];
 

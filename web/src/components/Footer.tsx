@@ -30,7 +30,7 @@ export function Footer({ locale }: { locale: Locale }) {
               <li><Link href={href(locale, "/tours")} className="hover:text-ivory">{dict.nav.tours}</Link></li>
               <li><Link href={href(locale, "/#resorts")} className="hover:text-ivory">{dict.nav.resorts}</Link></li>
               <li><Link href={href(locale, "/partners")} className="hover:text-ivory">{dict.nav.partners}</Link></li>
-              <li><Link href={href(locale, "/#how-it-was")} className="hover:text-ivory">{dict.nav.howItWas}</Link></li>
+              <li><Link href={href(locale, "/how-it-was")} className="hover:text-ivory">{dict.nav.howItWas}</Link></li>
             </ul>
           </div>
 
