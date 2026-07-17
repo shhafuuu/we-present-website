@@ -38,15 +38,15 @@ export function Footer({ locale }: { locale: Locale }) {
             <p className="kicker text-gold">{dict.footer.contact}</p>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li>{dict.footer.email}</li>
-              <li className="text-soft-lilac/60">{dict.footer.phoneTbc}</li>
-              <li className="text-soft-lilac/60">{dict.footer.officeTbc}</li>
+              <li className="text-soft-lilac/70">{dict.footer.phoneTbc}</li>
+              <li className="text-soft-lilac/70">{dict.footer.officeTbc}</li>
             </ul>
           </div>
 
           <div>
             <p className="kicker text-gold">{dict.footer.follow}</p>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
-              <li className="text-soft-lilac/60">{dict.footer.instagramTbc}</li>
+              <li className="text-soft-lilac/70">{dict.footer.instagramTbc}</li>
             </ul>
             <p className="kicker mt-8 text-gold">{dict.footer.parentBrand}</p>
             <a

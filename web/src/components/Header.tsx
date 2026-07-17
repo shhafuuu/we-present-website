@@ -112,8 +112,10 @@ export function Header({ locale }: { locale: Locale }) {
 
         <button
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
           onClick={() => setMenuOpen((v) => !v)}
-          className={`flex flex-col gap-1.5 xl:hidden ${solid ? "text-aubergine" : "text-ivory"}`}
+          className={`flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 xl:hidden ${solid ? "text-aubergine" : "text-ivory"}`}
         >
           <span
             className={`h-px w-7 bg-current transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -130,7 +132,9 @@ export function Header({ locale }: { locale: Locale }) {
 
     <AnimatePresence>
       {menuOpen && (
-        <motion.div
+        <motion.nav
+          id="mobile-nav"
+          aria-label="Mobile menu"
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
@@ -170,7 +174,7 @@ export function Header({ locale }: { locale: Locale }) {
               {otherLocale.toUpperCase()}
             </Link>
           </div>
-        </motion.div>
+        </motion.nav>
       )}
     </AnimatePresence>
     </>

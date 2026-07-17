@@ -9,6 +9,7 @@ export function ConceptSection({ locale }: { locale: Locale }) {
   return (
     <section id="concept" className="bg-ivory px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-3xl text-center">
+        <h2 className="sr-only">{dict.home.concept.sectionLabel}</h2>
         <Reveal>
           <p className="font-display text-2xl italic leading-relaxed text-amethyst sm:text-3xl">
             {dict.home.concept.quote}

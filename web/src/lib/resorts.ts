@@ -9,6 +9,7 @@ export type Resort = {
   atoll: LocalizedString;
   tagline: LocalizedString;
   cardImage: string;
+  cardImageAlt: string;
   heroImage: string;
   heroVideo?: string;
   logo: string;
@@ -35,6 +36,7 @@ export const resorts: Resort[] = [
       ru: "Модная, игривая эстетика в одной лагуне от столицы.",
     },
     cardImage: "/images/resorts/so-maldives/card.jpg",
+    cardImageAlt: "A guest relaxing in a beachside hammock chair at SO/ Maldives, with overwater villas in the distance",
     heroImage: "/images/resorts/so-maldives/hero.jpg",
     heroVideo: "/videos/so-maldives-hero.mp4",
     logo: "/images/logos/so-maldives.png",
@@ -88,6 +90,7 @@ export const resorts: Resort[] = [
       ru: "Уединённый остров у рифа, созданный для неспешных утр.",
     },
     cardImage: "/images/resorts/fushifaru/card.jpg",
+    cardImageAlt: "Aerial view of Fushifaru Maldives, rows of overwater villas stretching into the lagoon",
     heroImage: "/images/resorts/fushifaru/hero.jpg",
     heroVideo: "/videos/fushifaru-hero.mp4",
     logo: "/images/logos/fushifaru.png",
@@ -141,6 +144,7 @@ export const resorts: Resort[] = [
       ru: "Непринуждённая элегантность на одном из новейших островов Мальдив.",
     },
     cardImage: "/images/resorts/meyyafushi/card.jpg",
+    cardImageAlt: "Aerial view of Meyyafushi Maldives at dusk, overwater villas lining the reef",
     heroImage: "/images/resorts/meyyafushi/hero.jpg",
     heroVideo: "/videos/meyyafushi-hero.mp4",
     logo: "/images/logos/meyyafushi.png",
@@ -194,6 +198,7 @@ export const resorts: Resort[] = [
       ru: "Уединённый частный остров для финального, неспешного этапа тура.",
     },
     cardImage: "/images/resorts/madifushi/card.jpg",
+    cardImageAlt: "Dark stone steps leading to a pool through lush greenery at Madifushi Private Island",
     heroImage: "/images/resorts/madifushi/hero.jpg",
     heroVideo: "/videos/madifushi-hero.mp4",
     logo: "/images/logos/madifushi.png",

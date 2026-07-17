@@ -32,7 +32,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
                     <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                       {t(tour.name, locale)}
                     </h3>
-                    <p className="mt-1 text-sm text-ink/60">
+                    <p className="mt-1 text-sm text-ink/70">
                       {tour.stops.length > 0
                         ? tour.stops.map((s) => s.label).join(" · ")
                         : dict.home.tours.datesComingSoon}

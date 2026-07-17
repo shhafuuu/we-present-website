@@ -21,7 +21,7 @@ export function HowItWas({ locale }: { locale: Locale }) {
             <p className="font-display text-xl italic text-amethyst sm:text-2xl">
               {dict.home.howItWas.quote}
             </p>
-            <p className="mt-4 text-sm text-ink/60">{dict.home.howItWas.body}</p>
+            <p className="mt-4 text-sm text-ink/70">{dict.home.howItWas.body}</p>
           </div>
         </Reveal>
         <Reveal delay={0.25} className="mt-10">

@@ -44,6 +44,7 @@ export const en = {
       nextTour: "Next tour · 17–23 August 2026 · Maldives",
     },
     concept: {
+      sectionLabel: "Our Concept",
       quote:
         "“We Present is Coati Travel’s invitation to the partners who sell the Maldives every day — a chance to experience it themselves.”",
       body: "Selection is merit-based, driven by agency production. Each edition brings a confirmed group of agency representatives to a destination to experience its resorts first-hand and, where relevant, attend the destination’s leading travel-trade event — a polished, ongoing programme rather than a single one-off trip.",
