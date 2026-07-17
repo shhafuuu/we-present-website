@@ -111,7 +111,7 @@ All fixes verified live in a real browser (heading outline via `document.querySe
 Ran the same audit against `tours/page.tsx` and `tours/[slug]/page.tsx` (16/20, "Good" band). The three P1s — all the same recurring contrast defects already fixed elsewhere, just in the two files that hadn't been touched yet — are fixed:
 - **`text-gold` on light backgrounds**: the "2026"/"2027" year-group labels (measured 2.08:1) and the itinerary stop-date kicker on the tour detail page (measured 2.30:1) — both swapped to `text-amethyst`, matching the homepage/resort-page fix and the spec's own rule (gold is for fills/dividers, never small text on light backgrounds).
 - **`bg-gold/15 text-gold` status badges** (the "pending"/"coming soon" tour badges, measured 2.01:1 — worse than plain text since the badge background is itself a faint gold tint): kept the `bg-gold/15` fill (gold-as-fill is fine per spec) but changed the text to `text-amethyst` (5.32:1 against that badge background). This still visually distinguishes "pending" (warm gold-tinted badge) from "confirmed" (cool amethyst-tinted badge) — only the badge background differs now, not the text color — so the fix didn't erase the status distinction.
-- **`text-ink/60`**: tour summary text, itinerary stop notes, and the 2027 coming-soon body copy (measured 4.00–4.02:1) — all bumped to `/70`, same fix as every other page.
+- **`text-ink/60`**: tour summary text, itinerary stop notes, and the 2027 coming-soon body copy (measured 4.00–4.02:1) — all bumped to `/70`, same fix as every other page. Verified live: computed colors for all six changed elements resolve to `rgb(110, 79, 163)` (`#6e4fa3`, amethyst) or `ink` at 0.7 alpha as expected. No images on these two page types, so there was no `sizes`-prop class of bug to find here — a genuine difference from the homepage/resort audits.
 
 Two P2 findings from this pass are **not yet fixed** (only do if asked): the "2026"/"2027" year groupings are `<p>` tags rather than headings (no way to jump to a specific year via heading navigation), and the TTM overview section on the Tour 2 detail page has no heading at all (confirmed via live heading-outline check: H1 jumps straight to H2 "The full itinerary", skipping that whole block). Also one P3: the non-interactive "Oman" (pending-status) card still gets the same `hover:-translate-y-1 hover:shadow-md` as the clickable confirmed-tour cards, implying interactivity it doesn't have.
 
@@ -123,10 +123,9 @@ The P2/P3s are fixed too:
 
 All fixes verified live in a real browser (full heading outlines via `document.querySelectorAll`, class-list diffing for the hover-affordance fix, a bounding-box check for the tap target), not just code review.
 
-Verified live: computed text colors for all six changed elements now resolve to `rgb(110, 79, 163)` (`#6e4fa3`, amethyst) or `ink` at 0.7 alpha as expected. No images on these two page types, so there was no `sizes`-prop class of bug to find here — a genuine difference from the homepage/resort audits.
-
 ## Current scope / not yet implemented
 
+- **Partners page audit**: homepage, resort pages, and tours pages have each been through the full `impeccable` audit → P1 → P2/P3 cycle (see sections above). The `/partners` page (`src/app/[locale]/partners/page.tsx`) plus its own `PartnersStrip.tsx` component haven't been audited yet — that's the next page in the sweep. Expect the same recurring `text-gold`/`text-ink/60` contrast pattern to show up there too; check before assuming it's clean.
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 
 ## Visual verification
