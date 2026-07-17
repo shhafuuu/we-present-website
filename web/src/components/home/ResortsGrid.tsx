@@ -2,16 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
-import { resorts } from "@/lib/resorts";
+import { resorts, t } from "@/lib/resorts";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function ResortsGrid() {
+export function ResortsGrid({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="resorts" className="bg-ivory px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <Reveal className="text-center">
-          <Kicker>The Resorts</Kicker>
+          <Kicker>{dict.home.resorts.kicker}</Kicker>
           <h2 className="font-display mt-5 text-4xl text-aubergine sm:text-5xl">
-            Four islands, one tour
+            {dict.home.resorts.title}
           </h2>
         </Reveal>
 
@@ -29,12 +33,12 @@ export function ResortsGrid() {
                   <div className="absolute inset-0 bg-gradient-to-t from-aubergine/50 to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="kicker text-amethyst/70">{resort.atoll}</p>
+                  <p className="kicker text-amethyst/70">{t(resort.atoll, locale)}</p>
                   <h3 className="font-display mt-2 text-xl text-aubergine">
                     {resort.name}
                   </h3>
                   <p className="mt-2 flex-1 text-sm text-ink/60">
-                    {resort.tagline}
+                    {t(resort.tagline, locale)}
                   </p>
                   <span
                     className={`kicker mt-5 inline-flex items-center gap-2 text-[0.7rem] ${
@@ -43,7 +47,7 @@ export function ResortsGrid() {
                         : "text-ink/35"
                     }`}
                   >
-                    {resort.built ? "Explore →" : "Coming Soon"}
+                    {resort.built ? dict.home.resorts.explore : dict.home.resorts.comingSoon}
                   </span>
                 </div>
               </div>
@@ -52,7 +56,7 @@ export function ResortsGrid() {
             return (
               <Reveal key={resort.slug} delay={i * 0.08}>
                 {resort.built ? (
-                  <Link href={`/resorts/${resort.slug}`} className="block h-full">
+                  <Link href={href(locale, `/resorts/${resort.slug}`)} className="block h-full">
                     {card}
                   </Link>
                 ) : (

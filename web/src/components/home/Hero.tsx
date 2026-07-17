@@ -1,8 +1,12 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function Hero() {
+export function Hero({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section className="relative flex h-screen min-h-[720px] w-full items-end overflow-hidden">
       <Image
@@ -17,34 +21,30 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
         <Reveal>
-          <p className="kicker text-gold">We Present &middot; By Coati Travel</p>
+          <p className="kicker text-gold">{dict.home.hero.kicker}</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
-            A front-row seat to the Maldives&rsquo; finest resorts.
+            {dict.home.hero.title}
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/80 sm:text-lg">
-            Curated familiarization tours for travel-agency partners &mdash;
-            an intimate, first-hand look at the properties you sell, hosted
-            by Coati Travel across the 2026 season.
+            {dict.home.hero.lead}
           </p>
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Button href="/#register" variant="primary">
-              Register Interest
+            <Button href={href(locale, "/#register")} variant="primary">
+              {dict.home.hero.ctaPrimary}
             </Button>
-            <Button href="/#tours" variant="ghost-light">
-              View Tours Calendar
+            <Button href={href(locale, "/#tours")} variant="ghost-light">
+              {dict.home.hero.ctaSecondary}
             </Button>
           </div>
         </Reveal>
         <Reveal delay={0.4}>
-          <p className="kicker mt-12 text-ivory/60">
-            Next tour &middot; 17&ndash;23 August 2026 &middot; Maldives
-          </p>
+          <p className="kicker mt-12 text-ivory/60">{dict.home.hero.nextTour}</p>
         </Reveal>
       </div>
     </section>

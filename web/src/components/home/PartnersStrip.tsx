@@ -3,15 +3,19 @@ import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { resorts } from "@/lib/resorts";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function PartnersStrip() {
+export function PartnersStrip({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="partners" className="bg-soft-lilac/40 px-6 py-24 lg:px-10">
       <div className="mx-auto max-w-6xl text-center">
         <Reveal>
-          <Kicker>Partners</Kicker>
+          <Kicker>{dict.home.partners.kicker}</Kicker>
           <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-            Alongside our resort partners &amp; TTM Maldives
+            {dict.home.partners.title}
           </h2>
         </Reveal>
 
@@ -40,8 +44,8 @@ export function PartnersStrip() {
         </Reveal>
 
         <Reveal delay={0.25} className="mt-14">
-          <Button href="/partners" variant="ghost">
-            View All Partners
+          <Button href={href(locale, "/partners")} variant="ghost">
+            {dict.home.partners.cta}
           </Button>
         </Reveal>
       </div>

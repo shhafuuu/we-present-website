@@ -1,28 +1,34 @@
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
-import { tours } from "@/lib/tours";
+import { tours, t } from "@/lib/tours";
+import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 const byYear = tours.reduce<Record<string, typeof tours>>((acc, tour) => {
   acc[tour.year] = [...(acc[tour.year] ?? []), tour];
   return acc;
 }, {});
 
-export default function ToursPage() {
+export default async function ToursPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  const dict = getDictionary(locale);
+
   return (
     <>
       <section className="bg-aubergine px-6 pb-20 pt-40 lg:px-10">
         <div className="mx-auto max-w-5xl text-center">
           <Reveal>
-            <Kicker tone="ivory">Tours Calendar</Kicker>
+            <Kicker tone="ivory">{dict.toursPage.banner.kicker}</Kicker>
             <h1 className="font-display mt-5 text-4xl text-ivory sm:text-5xl">
-              The programme&rsquo;s calendar of trips
+              {dict.toursPage.banner.title}
             </h1>
-            <p className="mt-6 text-ivory/70">
-              We Present runs multiple curated tours per year. Each one links
-              through to its full itinerary, resorts and — where relevant —
-              its travel-trade event.
-            </p>
+            <p className="mt-6 text-ivory/70">{dict.toursPage.banner.body}</p>
           </Reveal>
         </div>
       </section>
@@ -40,10 +46,10 @@ export default function ToursPage() {
                     <div className="flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/80 p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-md sm:flex-row sm:items-center sm:justify-between sm:p-8">
                       <div>
                         <h2 className="font-display text-xl text-aubergine sm:text-2xl">
-                          {tour.name}
+                          {t(tour.name, locale)}
                         </h2>
                         <p className="mt-1 max-w-xl text-sm text-ink/60">
-                          {tour.summary}
+                          {t(tour.summary, locale)}
                         </p>
                       </div>
                       <span
@@ -53,7 +59,7 @@ export default function ToursPage() {
                             : "bg-gold/15 text-gold"
                         }`}
                       >
-                        {tour.dates}
+                        {t(tour.dates, locale)}
                       </span>
                     </div>
                   );
@@ -61,7 +67,7 @@ export default function ToursPage() {
                   return (
                     <Reveal key={tour.slug} delay={i * 0.08}>
                       {tour.status === "confirmed" ? (
-                        <Link href={`/tours/${tour.slug}`} className="block">
+                        <Link href={href(locale, `/tours/${tour.slug}`)} className="block">
                           {card}
                         </Link>
                       ) : (
@@ -82,14 +88,14 @@ export default function ToursPage() {
               <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-amethyst/15 bg-ivory/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <div>
                   <h2 className="font-display text-xl text-aubergine sm:text-2xl">
-                    Coming Soon
+                    {dict.toursPage.comingSoon2027.title}
                   </h2>
                   <p className="mt-1 text-sm text-ink/60">
-                    Further destinations planned for the next edition.
+                    {dict.toursPage.comingSoon2027.body}
                   </p>
                 </div>
                 <span className="kicker inline-block shrink-0 rounded-full bg-gold/15 px-4 py-1.5 text-[0.65rem] text-gold">
-                  To be announced
+                  {dict.toursPage.comingSoon2027.badge}
                 </span>
               </div>
             </Reveal>

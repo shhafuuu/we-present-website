@@ -1,8 +1,17 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function InquiryForm({ resortName }: { resortName: string }) {
+export function InquiryForm({
+  resortName,
+  locale,
+}: {
+  resortName: string;
+  locale: Locale;
+}) {
+  const dict = getDictionary(locale).forms.inquiry;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -38,10 +47,9 @@ export function InquiryForm({ resortName }: { resortName: string }) {
   if (status === "sent") {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
-        <p className="font-display text-xl text-aubergine">Thank you.</p>
+        <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
         <p className="mt-2 text-sm text-ink/60">
-          Your inquiry about {resortName} has been noted. Our team will be in
-          touch shortly.
+          {dict.thankYouBody.replace("{resort}", resortName)}
         </p>
       </div>
     );
@@ -49,12 +57,10 @@ export function InquiryForm({ resortName }: { resortName: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl bg-soft-lilac/40 p-8">
-      <h3 className="font-display text-xl text-aubergine">
-        I&rsquo;m interested &mdash; request price/availability
-      </h3>
+      <h3 className="font-display text-xl text-aubergine">{dict.title}</h3>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">
-          Full Name
+          {dict.fullName}
           <input
             required
             name="name"
@@ -63,7 +69,7 @@ export function InquiryForm({ resortName }: { resortName: string }) {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Agency / Company
+          {dict.agency}
           <input
             name="agency"
             type="text"
@@ -71,7 +77,7 @@ export function InquiryForm({ resortName }: { resortName: string }) {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Email
+          {dict.email}
           <input
             required
             name="email"
@@ -80,7 +86,7 @@ export function InquiryForm({ resortName }: { resortName: string }) {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Phone (WhatsApp/Telegram)
+          {dict.phone}
           <input
             name="phone"
             type="tel"
@@ -89,7 +95,7 @@ export function InquiryForm({ resortName }: { resortName: string }) {
         </label>
       </div>
       <label className="mt-5 block text-sm text-ink/70">
-        Message
+        {dict.message}
         <textarea
           name="message"
           rows={3}
@@ -104,7 +110,7 @@ export function InquiryForm({ resortName }: { resortName: string }) {
         disabled={status === "sending"}
         className="mt-6 rounded-full bg-gold px-8 py-3 text-sm font-semibold text-aubergine transition-colors hover:bg-soft-gold disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Send Inquiry"}
+        {status === "sending" ? dict.submitting : dict.submit}
       </button>
     </form>
   );

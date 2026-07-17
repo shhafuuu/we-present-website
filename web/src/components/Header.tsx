@@ -2,21 +2,31 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Tours", href: "/tours" },
-  { label: "Resorts", href: "/#resorts" },
-  { label: "Partners", href: "/partners" },
-  { label: "How It Was", href: "/#how-it-was" },
-  { label: "Contact", href: "/contact" },
-];
-
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const dict = getDictionary(locale);
+
+  const NAV_LINKS = [
+    { label: dict.nav.about, href: href(locale, "/about") },
+    { label: dict.nav.tours, href: href(locale, "/tours") },
+    { label: dict.nav.resorts, href: href(locale, "/#resorts") },
+    { label: dict.nav.partners, href: href(locale, "/partners") },
+    { label: dict.nav.howItWas, href: href(locale, "/#how-it-was") },
+    { label: dict.nav.contact, href: href(locale, "/contact") },
+  ];
+
+  // Swap the locale segment of the current path, preserving the rest of the route.
+  const otherLocale: Locale = locale === "ru" ? "en" : "ru";
+  const pathWithoutLocale = pathname?.replace(new RegExp(`^/${locale}`), "") || "";
+  const switchHref = href(otherLocale, pathWithoutLocale || "/");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,7 +47,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href={href(locale, "/")} className="flex items-center gap-3">
           <Image
             src={
               solid
@@ -57,7 +67,7 @@ export function Header() {
           >
             WE PRESENT
             <span className="ml-2 hidden text-[0.65rem] tracking-[0.15em] opacity-70 sm:inline">
-              BY COATI TRAVEL
+              {dict.nav.byCoatiTravel}
             </span>
           </span>
         </Link>
@@ -77,10 +87,16 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/#register"
+            href={href(locale, "/#register")}
             className="rounded-full bg-gold px-6 py-2.5 text-xs font-semibold tracking-wide text-aubergine transition-all hover:bg-soft-gold"
           >
-            Register Interest
+            {dict.nav.register}
+          </Link>
+          <Link
+            href={switchHref}
+            className="kicker text-[0.7rem] opacity-70 hover:opacity-100"
+          >
+            {otherLocale.toUpperCase()}
           </Link>
         </nav>
 
@@ -123,11 +139,18 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/#register"
+              href={href(locale, "/#register")}
               onClick={() => setMenuOpen(false)}
               className="mt-4 rounded-full bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-aubergine"
             >
-              Register Interest
+              {dict.nav.register}
+            </Link>
+            <Link
+              href={switchHref}
+              onClick={() => setMenuOpen(false)}
+              className="kicker text-sm text-amethyst/70"
+            >
+              {otherLocale.toUpperCase()}
             </Link>
           </div>
         </motion.div>

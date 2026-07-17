@@ -1,8 +1,12 @@
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Kicker } from "@/components/Kicker";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function RegisterBand() {
+export function RegisterBand({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section
       id="register"
@@ -10,21 +14,17 @@ export function RegisterBand() {
     >
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <Kicker tone="ivory">We Present 2027</Kicker>
+          <Kicker tone="ivory">{dict.home.register.kicker}</Kicker>
           <h2 className="font-display mt-5 text-4xl text-ivory sm:text-5xl">
-            Register your interest for the next edition
+            {dict.home.register.title}
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-6 text-ivory/75">
-            Selection is merit-based and driven by agency production. Tell us
-            about your agency and we&rsquo;ll be in touch as the 2027 calendar
-            takes shape.
-          </p>
+          <p className="mt-6 text-ivory/75">{dict.home.register.body}</p>
         </Reveal>
         <Reveal delay={0.25} className="mt-10">
-          <Button href="/register" variant="primary">
-            Register Interest
+          <Button href={href(locale, "/register")} variant="primary">
+            {dict.home.register.cta}
           </Button>
         </Reveal>
       </div>

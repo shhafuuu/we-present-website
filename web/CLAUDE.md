@@ -29,7 +29,7 @@ The raw resort photo/video/logo libraries (e.g. `../Fushifaru Images and Videos/
 
 ## Architecture
 
-Next.js 16 App Router + TypeScript + Tailwind v4 + Framer Motion. Routes: `/`, `/about`, `/tours`, `/tours/[slug]`, `/partners`, `/contact`, `/resorts/[slug]` — all 4 resorts and both confirmed 2026 tours are built out. Not yet built: Register Interest, Become a Partner, How It Was, and Legal as standalone pages — header/footer nav links to these still point to `/#section-id` anchors on the home page (`Resorts` and `How It Was` are anchors by design, since there's no standalone listing page for either in the spec).
+Next.js 16 App Router + TypeScript + Tailwind v4 + Framer Motion. All routes live under `src/app/[locale]/` — `/[locale]`, `/[locale]/about`, `/[locale]/tours`, `/[locale]/tours/[slug]`, `/[locale]/partners`, `/[locale]/contact`, `/[locale]/resorts/[slug]` — all 4 resorts and both confirmed 2026 tours are built out for both `ru` and `en`. Not yet built: Register Interest, Become a Partner, How It Was, and Legal as standalone pages — header/footer nav links to these still point to `/[locale]/#section-id` anchors on the home page (`Resorts` and `How It Was` are anchors by design, since there's no standalone listing page for either in the spec).
 
 **Design tokens** live in `src/app/globals.css` as CSS custom properties (`--color-ivory`, `--color-aubergine`, `--color-gold`, etc., matching the spec's palette exactly) re-exposed to Tailwind via `@theme inline`, giving utilities like `bg-ivory`, `text-amethyst`, `bg-aubergine`. Fonts are Playfair Display (`font-display` class, headings) and Manrope (default body sans), both loaded through `next/font/google` in `src/app/layout.tsx`.
 
@@ -43,6 +43,20 @@ To add a 5th resort: add curated images to `public/images/resorts/<slug>/` (see 
 
 **`Reveal`** (`src/components/Reveal.tsx`) wraps Framer Motion's `whileInView` fade/slide-up and is the standard scroll animation used across every section — reuse it rather than hand-rolling `motion.div` calls, to keep the "slow, refined" motion feel consistent.
 
+## Internationalization (RU/EN)
+
+`src/proxy.ts` (Next 16 renamed `middleware.ts` → `proxy.ts`, same API — see AGENTS.md) redirects any request without a `/ru` or `/en` prefix to `/ru` (default locale, per spec Section 7). `src/i18n/config.ts` defines `locales`, `defaultLocale`, and the `href(locale, path)` helper — **every internal `Link`/`Button` href must be built with `href()`** so it carries the locale prefix; a bare `"/tours"` string will silently drop the user out of their locale.
+
+There is no separate root `layout.tsx` — `src/app/[locale]/layout.tsx` **is** the root layout (sets `<html lang={locale}>`, loads fonts, renders `Header`/`Footer`), since the only top-level route segment is `[locale]`. It calls `generateStaticParams()` to pre-render both locales.
+
+**Two-tier translation content:**
+- UI chrome and page copy (nav, buttons, kickers, paragraphs) live in `src/i18n/dictionaries/en.ts` and `ru.ts`. `en.ts` is canonical; `ru.ts` is typed as `Dictionary` (`typeof en`) so a missing key is a compile error, not a silent English fallback. Look up via `getDictionary(locale)` — cheap, synchronous, safe to call in both Server and Client Components (client forms like `InquiryForm`/`ContactForm` take a `locale` prop and call it directly).
+- Per-entity content (resort stories/key facts/taglines in `resorts.ts`, tour summaries/stop notes in `tours.ts`) is localized in place as `{ en: ..., ru: ... }` objects, read via each file's own `t()`/`tl()` helper. This is deliberately separate from the dictionaries file since it's data, not UI copy.
+
+**The Russian copy throughout is a first-pass machine/LLM translation** (including `ru.ts` and all resort/tour RU content) — functionally correct and natural-reading, but written without a native Russian-market travel-trade reviewer. Flag this to the client before launch; don't treat it as final.
+
+Cyrillic glyph coverage for Playfair Display and Manrope was verified for real (built and screenshotted a throwaway route rendering Cyrillic text in both fonts before committing to this approach) — safe to keep building on these font choices.
+
 **Known CSS gotcha**: don't let an element with `position: fixed` live inside an ancestor that has `backdrop-filter`/`filter`/`transform` — it changes the fixed element's containing block from the viewport to that ancestor's box, which can silently zero out its size. This bit the mobile nav overlay (it was a child of `<header>`, which has `backdrop-blur-sm`); fixed by rendering the overlay as a sibling of `<header>` instead of a descendant (see `src/components/Header.tsx`).
 
 ## Forms
@@ -53,7 +67,6 @@ There's no file upload handling yet (spec Sections 8.1/8.3 need it for the regis
 
 ## Current scope / not yet implemented
 
-- **Bilingual RU/EN**: spec requires `/ru` and `/en` locales; only English exists right now. Cyrillic glyph coverage for both Playfair Display and Manrope was verified via a throwaway test route (build + visual check) — safe to build i18n on the current font choices.
 - **Register Interest / Become a Partner forms**: retained by spec but not built as standalone pages yet (file upload fields needed).
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 

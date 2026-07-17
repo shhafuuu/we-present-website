@@ -1,8 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function ContactForm() {
+export function ContactForm({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale).forms.contact;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -38,10 +42,8 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
-        <p className="font-display text-xl text-aubergine">Thank you.</p>
-        <p className="mt-2 text-sm text-ink/60">
-          Your message has been noted. Our team will be in touch shortly.
-        </p>
+        <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
+        <p className="mt-2 text-sm text-ink/60">{dict.thankYouBody}</p>
       </div>
     );
   }
@@ -50,7 +52,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="rounded-2xl bg-soft-lilac/40 p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">
-          Full Name
+          {dict.fullName}
           <input
             required
             name="name"
@@ -59,7 +61,7 @@ export function ContactForm() {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Email
+          {dict.email}
           <input
             required
             name="email"
@@ -68,7 +70,7 @@ export function ContactForm() {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Phone (optional)
+          {dict.phone}
           <input
             name="phone"
             type="tel"
@@ -76,20 +78,20 @@ export function ContactForm() {
           />
         </label>
         <label className="text-sm text-ink/70">
-          Inquiry Type
+          {dict.inquiryType}
           <select
             name="inquiryType"
             defaultValue="General"
             className="mt-2 w-full rounded-lg border border-amethyst/20 bg-ivory px-4 py-2.5 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
           >
-            <option>General</option>
-            <option>Private Trip</option>
-            <option>Other</option>
+            <option value="General">{dict.inquiryTypeGeneral}</option>
+            <option value="Private Trip">{dict.inquiryTypePrivate}</option>
+            <option value="Other">{dict.inquiryTypeOther}</option>
           </select>
         </label>
       </div>
       <label className="mt-5 block text-sm text-ink/70">
-        Message
+        {dict.message}
         <textarea
           required
           name="message"
@@ -100,10 +102,10 @@ export function ContactForm() {
       <label className="mt-5 flex items-start gap-3 text-sm text-ink/60">
         <input required name="consent" type="checkbox" className="mt-1 accent-amethyst" />
         <span>
-          I consent to my data being processed as described in the{" "}
-          <a href="/legal" className="text-amethyst underline">
-            privacy policy
-          </a>
+          {dict.consent}{" "}
+          <Link href={href(locale, "/legal")} className="text-amethyst underline">
+            {dict.consentLink}
+          </Link>
           .
         </span>
       </label>
@@ -115,7 +117,7 @@ export function ContactForm() {
         disabled={status === "sending"}
         className="mt-6 rounded-full bg-gold px-8 py-3 text-sm font-semibold text-aubergine transition-colors hover:bg-soft-gold disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Send Message"}
+        {status === "sending" ? dict.submitting : dict.submit}
       </button>
     </form>
   );

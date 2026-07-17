@@ -2,16 +2,20 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Kicker } from "@/components/Kicker";
-import { tours } from "@/lib/tours";
+import { tours, t } from "@/lib/tours";
+import { href, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
-export function ToursTimeline() {
+export function ToursTimeline({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="tours" className="bg-lavender-mist px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
-          <Kicker>Tours Calendar</Kicker>
+          <Kicker>{dict.home.tours.kicker}</Kicker>
           <h2 className="font-display mt-5 text-4xl text-aubergine sm:text-5xl">
-            The 2026 season, at a glance
+            {dict.home.tours.title}
           </h2>
         </Reveal>
 
@@ -26,12 +30,12 @@ export function ToursTimeline() {
                   <div className="h-10 w-px bg-amethyst/15" />
                   <div>
                     <h3 className="font-display text-xl text-aubergine sm:text-2xl">
-                      {tour.name}
+                      {t(tour.name, locale)}
                     </h3>
                     <p className="mt-1 text-sm text-ink/60">
                       {tour.stops.length > 0
                         ? tour.stops.map((s) => s.label).join(" · ")
-                        : "Dates coming soon"}
+                        : dict.home.tours.datesComingSoon}
                     </p>
                   </div>
                 </div>
@@ -43,7 +47,7 @@ export function ToursTimeline() {
                         : "bg-gold/15 text-gold"
                     }`}
                   >
-                    {tour.dates}
+                    {t(tour.dates, locale)}
                   </span>
                 </div>
               </div>
@@ -52,7 +56,7 @@ export function ToursTimeline() {
             return (
               <Reveal key={tour.slug} delay={i * 0.08}>
                 {tour.status === "confirmed" ? (
-                  <Link href={`/tours/${tour.slug}`} className="block">
+                  <Link href={href(locale, `/tours/${tour.slug}`)} className="block">
                     {card}
                   </Link>
                 ) : (
@@ -64,11 +68,11 @@ export function ToursTimeline() {
         </div>
 
         <Reveal delay={0.3} className="mt-14 flex flex-wrap justify-center gap-4">
-          <Button href="/tours" variant="ghost">
-            View Full Calendar
+          <Button href={href(locale, "/tours")} variant="ghost">
+            {dict.home.tours.ctaFull}
           </Button>
-          <Button href="/#resorts" variant="ghost">
-            See the Resorts on Tour
+          <Button href={href(locale, "/#resorts")} variant="ghost">
+            {dict.home.tours.ctaResorts}
           </Button>
         </Reveal>
       </div>

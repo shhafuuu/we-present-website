@@ -5,18 +5,25 @@ import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { Gallery } from "@/components/Gallery";
 import { InquiryForm } from "@/components/InquiryForm";
-import { getResort, resorts } from "@/lib/resorts";
+import { getResort, resorts, t, tl } from "@/lib/resorts";
+import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export function generateStaticParams() {
-  return resorts.filter((r) => r.built).map((r) => ({ slug: r.slug }));
+  const builtResorts = resorts.filter((r) => r.built);
+  return locales.flatMap((locale) =>
+    builtResorts.map((resort) => ({ locale, slug: resort.slug }))
+  );
 }
 
 export default async function ResortPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  const dict = getDictionary(locale);
   const resort = getResort(slug);
 
   if (!resort || !resort.built) {
@@ -41,11 +48,11 @@ export default async function ResortPage({
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>
-            <p className="kicker text-gold">{resort.atoll}</p>
+            <p className="kicker text-gold">{t(resort.atoll, locale)}</p>
             <h1 className="font-display mt-4 text-5xl text-ivory sm:text-6xl">
               {resort.name}
             </h1>
-            <p className="mt-4 text-sm text-ivory/70">{resort.stayDates}</p>
+            <p className="mt-4 text-sm text-ivory/70">{t(resort.stayDates, locale)}</p>
           </Reveal>
         </div>
       </section>
@@ -53,11 +60,11 @@ export default async function ResortPage({
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_1fr]">
           <Reveal>
-            <Kicker>The Story</Kicker>
+            <Kicker>{dict.resortPage.story}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-              {resort.tagline}
+              {t(resort.tagline, locale)}
             </h2>
-            {resort.story.map((paragraph, i) => (
+            {tl(resort.story, locale).map((paragraph, i) => (
               <p
                 key={i}
                 className={`text-base leading-relaxed text-ink/70 ${i === 0 ? "mt-6" : "mt-4"}`}
@@ -69,25 +76,23 @@ export default async function ResortPage({
 
           <Reveal delay={0.15}>
             <div className="rounded-2xl bg-soft-lilac/40 p-8">
-              <Kicker>Key Facts</Kicker>
+              <Kicker>{dict.resortPage.keyFacts}</Kicker>
               <dl className="mt-6 space-y-5 text-sm">
                 <div>
-                  <dt className="kicker text-amethyst/70">Location</dt>
-                  <dd className="mt-1 text-ink/70">{resort.keyFacts.location}</dd>
+                  <dt className="kicker text-amethyst/70">{dict.resortPage.location}</dt>
+                  <dd className="mt-1 text-ink/70">{t(resort.keyFacts.location, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">Villas</dt>
-                  <dd className="mt-1 text-ink/70">{resort.keyFacts.villas}</dd>
+                  <dt className="kicker text-amethyst/70">{dict.resortPage.villas}</dt>
+                  <dd className="mt-1 text-ink/70">{t(resort.keyFacts.villas, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">Facilities</dt>
-                  <dd className="mt-1 text-ink/70">{resort.keyFacts.facilities}</dd>
+                  <dt className="kicker text-amethyst/70">{dict.resortPage.facilities}</dt>
+                  <dd className="mt-1 text-ink/70">{t(resort.keyFacts.facilities, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">Official Website</dt>
-                  <dd className="mt-1 text-ink/40">
-                    To be confirmed by resort partner
-                  </dd>
+                  <dt className="kicker text-amethyst/70">{dict.resortPage.officialWebsite}</dt>
+                  <dd className="mt-1 text-ink/40">{dict.resortPage.officialWebsiteTbc}</dd>
                 </div>
               </dl>
             </div>
@@ -98,9 +103,9 @@ export default async function ResortPage({
       <section className="bg-lavender-mist px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <Kicker>Gallery</Kicker>
+            <Kicker>{dict.resortPage.gallery}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-              Life at {resort.name}
+              {dict.resortPage.lifeAt} {resort.name}
             </h2>
           </Reveal>
           <Reveal delay={0.15} className="mt-10">
@@ -112,7 +117,7 @@ export default async function ResortPage({
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-2xl">
           <Reveal>
-            <InquiryForm resortName={resort.name} />
+            <InquiryForm resortName={resort.name} locale={locale} />
           </Reveal>
         </div>
       </section>
@@ -120,16 +125,16 @@ export default async function ResortPage({
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between text-sm">
           <Link
-            href={`/resorts/${previous.slug}`}
+            href={href(locale, `/resorts/${previous.slug}`)}
             className="text-amethyst hover:text-aubergine"
           >
             ← {previous.name}
           </Link>
-          <Link href="/#resorts" className="kicker text-ink/40 hover:text-amethyst">
-            All Resorts
+          <Link href={href(locale, "/#resorts")} className="kicker text-ink/40 hover:text-amethyst">
+            {dict.resortPage.allResorts}
           </Link>
           <Link
-            href={`/resorts/${next.slug}`}
+            href={href(locale, `/resorts/${next.slug}`)}
             className="text-amethyst hover:text-aubergine"
           >
             {next.name} →
