@@ -39,14 +39,11 @@ export default async function PartnersPage({
           </Reveal>
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
-            {resorts.map((resort, i) => (
-              <Reveal key={resort.slug} delay={i * 0.08}>
-                <a
-                  href={resort.website}
-                  target={resort.website ? "_blank" : undefined}
-                  rel={resort.website ? "noreferrer" : undefined}
-                  className={`flex gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-[0_1px_2px_rgba(62,44,85,0.06)] transition-transform duration-500 ${resort.website ? "hover:-translate-y-1" : "cursor-default"}`}
-                >
+            {resorts.map((resort, i) => {
+              const cardClassName =
+                "flex gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-[0_1px_2px_rgba(62,44,85,0.06)] transition-transform duration-500";
+              const content = (
+                <>
                   <div
                     className={`relative h-20 w-32 shrink-0 ${
                       resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
@@ -67,9 +64,26 @@ export default async function PartnersPage({
                     <p className="kicker mt-1 text-amethyst">{t(resort.atoll, locale)}</p>
                     <p className="mt-2 text-sm text-ink/70">{t(resort.tagline, locale)}</p>
                   </div>
-                </a>
-              </Reveal>
-            ))}
+                </>
+              );
+
+              return (
+                <Reveal key={resort.slug} delay={i * 0.08}>
+                  {resort.website ? (
+                    <a
+                      href={resort.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${cardClassName} hover:-translate-y-1`}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div className={cardClassName}>{content}</div>
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -84,7 +98,7 @@ export default async function PartnersPage({
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-10 rounded-2xl bg-ivory p-10">
-              <p className="kicker text-gold">{dict.partnersPage.associated.badge}</p>
+              <p className="kicker text-amethyst">{dict.partnersPage.associated.badge}</p>
               <p className="mt-4 text-sm leading-relaxed text-ink/70">
                 {dict.partnersPage.associated.body}
               </p>

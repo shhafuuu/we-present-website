@@ -138,9 +138,15 @@ Implemented the unblocked portion of the v1.8 spec's Appendix C checklist — ev
 
 Not investigated further: the client's broader "Russian version doesn't display correctly" report (misalignment, overlap) beyond this specific header bug — no other RU-specific rendering defect turned up in a full-page live check at desktop/tablet/mobile widths in this pass, and both fonts already load full Cyrillic subsets (`subsets: ["latin", "cyrillic"]` in `layout.tsx`, previously verified). If the client points to a specific page/section still, check that page's real Russian string lengths at its actual breakpoints rather than assuming a font-coverage issue — the one confirmed RU-only bug so far (the header) had nothing to do with font coverage, despite the client's own guess that it did.
 
-## Current scope / not yet implemented
+## Impeccable audit (partners page, 2026-07-21)
 
-- **Partners page audit**: the Partners page's low-opacity text (`/60`) has now been bumped along with the rest of the site-wide contrast pass above, but it hasn't been through the full `impeccable` P1→P2/P3 cycle the other pages got (heading outline, tap targets, `sizes` props, ARIA) — still the next page due for that full sweep.
+Ran the full `impeccable` audit flow against `/partners` (17/20, "Good" band). Two findings, both fixed (P3s deferred, not requested):
+- **[P1] `text-gold` badge on light background**: the "TTM Maldives · 10th Edition" badge (`partnersPage.associated.badge`) measured 2.30:1 — the same recurring contrast defect from every prior audit round, just not yet swept on this page. Swapped to `text-amethyst`, verified live at 6.09:1.
+- **[P2] Resort cards were `<a>` with no `href`**: since no resort has a `website` yet, `href={resort.website}` rendered as `href={undefined}` — an anchor with no `href`, invalid semantics wrapping non-interactive content. Fixed by mirroring `PartnersStrip.tsx`'s existing conditional: renders a plain `<div>` when `resort.website` is absent, `<a target="_blank">` only once it's set. Verified live: 0 hrefless anchors, all 4 cards currently `DIV` (will automatically become `A` the moment a `website` URL is added to `resorts.ts` — no further code change needed then).
+
+Deferred (P3, not requested): the redundant alt-text/heading double-announcement once cards become real links, and promoting the inline `shadow-[0_1px_2px_rgba(62,44,85,0.06)]` to a named token.
+
+## Current scope / not yet implemented
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 - **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark + star/monogram motif work), selected hero/resort photos, hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.
 
