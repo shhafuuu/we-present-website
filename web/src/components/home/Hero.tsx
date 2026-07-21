@@ -9,7 +9,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
-    <section className="relative flex h-screen min-h-[720px] w-full items-end overflow-hidden">
+    <section className="relative flex min-h-screen w-full items-end overflow-hidden">
       <Image
         src="/images/home/hero-so-aerial.jpg"
         alt="Aerial view of an overwater villa in the Maldives"
