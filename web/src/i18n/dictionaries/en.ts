@@ -198,7 +198,7 @@ export const en = {
       officeTbc: "Address to be confirmed",
       instagram: "Instagram",
       instagramTbc: "Handle to be confirmed",
-      parentBrand: "Parent Brand",
+      parentBrand: "An Exclusive Initiative",
     },
   },
   resortPage: {

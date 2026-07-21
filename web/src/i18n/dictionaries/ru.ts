@@ -200,7 +200,7 @@ export const ru: Dictionary = {
       officeTbc: "Адрес уточняется",
       instagram: "Instagram",
       instagramTbc: "Аккаунт уточняется",
-      parentBrand: "Материнская компания",
+      parentBrand: "Эксклюзивная инициатива",
     },
   },
   resortPage: {

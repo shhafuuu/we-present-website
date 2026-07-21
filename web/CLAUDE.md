@@ -161,6 +161,12 @@ Ran the full audit against the six pages that hadn't been through the cycle yet:
 
 All fixes verified live (contrast via canvas compositing, heading-outline via `document.querySelectorAll`, focus style via programmatic `.focus()` + computed style). This closes out the full audit sweep — every page in the sitemap has now been through the audit → P1 → P2/P3 → verify cycle.
 
+## Mobile spot-check (2026-07-22)
+
+Did a fresh mobile pass (390×844, Playwright — the `resize_window` browser-automation tool doesn't reliably resize the actual rendered viewport in this environment, `document.documentElement.clientWidth` stayed desktop-sized regardless of requested width, so headless Playwright is the reliable way to check mobile here) across home, tours, partners, a resort detail page, register and contact: no horizontal overflow anywhere, mobile nav overlay opens cleanly, the new intro section and 5-tour calendar both read well at mobile width, and the Madifushi hero photo/gallery look right.
+
+One real miss found and fixed: **`contactPage.details.parentBrand`** still said "Материнская компания"/"Parent Brand" — the brand-rename round fixed `footer.parentBrand` (same concept, same wording) but missed this separate dictionary key that renders the identical label on the Contact page's own details list. Now reads "Эксклюзивная инициатива"/"An Exclusive Initiative", matching the footer.
+
 ## Repo-wide `text-gold` sweep (2026-07-21)
 
 Grepped every remaining `text-gold` usage in `src` (7 hits) to close out the recurring contrast defect once and for all, rather than keep finding it page-by-page:
