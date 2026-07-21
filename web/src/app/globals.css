@@ -24,6 +24,7 @@
   --color-ink: var(--color-ink);
   --font-display: var(--font-playfair);
   --font-sans: var(--font-manrope);
+  --shadow-card: 0 1px 2px rgba(62, 44, 85, 0.06);
 }
 
 body {

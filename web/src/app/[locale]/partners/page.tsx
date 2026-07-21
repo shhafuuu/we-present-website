@@ -41,7 +41,7 @@ export default async function PartnersPage({
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {resorts.map((resort, i) => {
               const cardClassName =
-                "flex gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-[0_1px_2px_rgba(62,44,85,0.06)] transition-transform duration-500";
+                "flex gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-card transition-transform duration-500";
               const content = (
                 <>
                   <div
@@ -51,7 +51,7 @@ export default async function PartnersPage({
                   >
                     <Image
                       src={resort.logo}
-                      alt={resort.name}
+                      alt=""
                       fill
                       sizes="128px"
                       className="object-contain"

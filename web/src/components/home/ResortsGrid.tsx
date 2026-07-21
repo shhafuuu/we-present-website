@@ -22,7 +22,7 @@ export function ResortsGrid({ locale }: { locale: Locale }) {
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {resorts.map((resort, i) => {
             const card = (
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-amethyst/10 bg-soft-lilac/50 shadow-[0_1px_2px_rgba(62,44,85,0.06)] transition-transform duration-500 hover:-translate-y-2">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-amethyst/10 bg-soft-lilac/50 shadow-card transition-transform duration-500 hover:-translate-y-2">
                 <div className="relative h-64 w-full overflow-hidden">
                   <Image
                     src={resort.cardImage}
