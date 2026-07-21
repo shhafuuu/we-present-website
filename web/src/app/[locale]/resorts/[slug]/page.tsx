@@ -46,7 +46,7 @@ export default async function ResortPage({
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>
-            <p className="kicker text-gold">{t(resort.atoll, locale)}</p>
+            <p className="kicker text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">{t(resort.atoll, locale)}</p>
             <h1 className="font-display mt-4 text-5xl text-ivory sm:text-6xl">
               {resort.name}
             </h1>

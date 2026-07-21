@@ -161,10 +161,19 @@ Ran the full audit against the six pages that hadn't been through the cycle yet:
 
 All fixes verified live (contrast via canvas compositing, heading-outline via `document.querySelectorAll`, focus style via programmatic `.focus()` + computed style). This closes out the full audit sweep — every page in the sitemap has now been through the audit → P1 → P2/P3 → verify cycle.
 
+## Repo-wide `text-gold` sweep (2026-07-21)
+
+Grepped every remaining `text-gold` usage in `src` (7 hits) to close out the recurring contrast defect once and for all, rather than keep finding it page-by-page:
+- **4 in `Footer.tsx`** (section-label kickers) — solid `bg-aubergine`, computed **5.16:1**. Fine, no change.
+- **1 in `Kicker.tsx`** — the `tone="gold"` branch. Confirmed via grep that `tone="gold"` is never actually invoked anywhere in the app; dead code, not a live bug, left as-is.
+- **2 real, previously-unverified failures**: the atoll/destination kicker on the **home hero** (`Hero.tsx`) and the **resort-page hero** (`resorts/[slug]/page.tsx`). Both sit over a photographic hero image + gradient scrim, not a solid color — the earlier assumption that "gold on the dark hero passes, same as the footer" turned out to be wrong: the scrim (`from-aubergine/80 via-aubergine/15 to-transparent`) doesn't reach full darkness where the kicker sits (above the H1, in the lighter part of the gradient), and it varies with the underlying photo. Measured via actual pixel-sampling (a screenshot of the live element, decoded to a canvas, background sampled from the corners) rather than assumed: home hero **3.59:1**, resort hero (Madifushi) **1.86:1** — both real AA failures, confirmed visually with a screenshot crop before touching anything.
+  - **Fix**: swapped both to `text-ivory` (matching the already-legible H1 right below them) plus a `[text-shadow:0_1px_3px_rgba(0,0,0,0.45)]` for extra legibility insurance against whatever photo a future resort uses, since this position is inherently more exposed to the underlying image than the H1 lower in the scrim. Re-verified live post-fix: home hero 8.30:1, resort hero 4.99:1 — both now comfortably pass, and a screenshot crop confirms it reads cleanly against the same Madifushi photo that failed before.
+
+This closes the `text-gold`-contrast defect across the entire site — it will not recur from a component this codebase already has; any future gold-on-photographic-hero usage should default to `text-ivory` + the same shadow treatment instead.
+
 ## Current scope / not yet implemented
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 - **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark + star/monogram motif work), selected hero/resort photos, hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.
-- **Repo-wide `text-gold`-on-light sweep**: this exact contrast defect has now been found and fixed individually on every single page audited (homepage, resorts, tours, partners, about) — a one-time grep for `text-gold` outside `Kicker`/button/divider contexts would likely catch anything remaining faster than continuing page-by-page.
 
 ## Visual verification
 

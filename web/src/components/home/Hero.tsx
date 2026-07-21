@@ -22,7 +22,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
         <Reveal>
-          <p className="kicker text-gold">{dict.home.hero.kicker}</p>
+          <p className="kicker text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">{dict.home.hero.kicker}</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
