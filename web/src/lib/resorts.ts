@@ -13,6 +13,8 @@ export type Resort = {
   heroImage: string;
   heroVideo?: string;
   logo: string;
+  /** Official resort website — link target for clickable partner logos (spec §6.7). Undefined until the client supplies it. */
+  website?: string;
   /** "none" = logo is self-contained (transparent art or its own baked-in background) and renders with no wrapper. "dark" = logo needs a dark backdrop to be visible (light-on-transparent art). */
   logoBg: "none" | "dark";
   built: boolean;
@@ -192,13 +194,13 @@ export const resorts: Resort[] = [
   {
     slug: "madifushi",
     name: "Madifushi Private Island",
-    atoll: { en: "Thaa Atoll", ru: "Атолл Тхаа" },
+    atoll: { en: "Meemu Atoll", ru: "Атолл Меему" },
     tagline: {
       en: "A private-island retreat for the final, unhurried leg.",
       ru: "Уединённый частный остров для финального, неспешного этапа тура.",
     },
     cardImage: "/images/resorts/madifushi/card.jpg",
-    cardImageAlt: "Dark stone steps leading to a pool through lush greenery at Madifushi Private Island",
+    cardImageAlt: "Aerial view of Madifushi Private Island's overwater villas and lagoon",
     heroImage: "/images/resorts/madifushi/hero.jpg",
     heroVideo: "/videos/madifushi-hero.mp4",
     logo: "/images/logos/madifushi.png",
@@ -210,18 +212,18 @@ export const resorts: Resort[] = [
     },
     story: {
       en: [
-        "Madifushi Private Island sits further south in Thaa Atoll, less visited than the capital-adjacent atolls and quieter for it. The property leans into that privacy — Serene Pool Villas, a Mandara Spa outpost, and a dolphin-cruise programme that takes advantage of the atoll's open water.",
+        "Madifushi Private Island sits further south in Meemu Atoll, less visited than the capital-adjacent atolls and quieter for it. The property leans into that privacy — Serene Pool Villas, a Mandara Spa outpost, and a dolphin-cruise programme that takes advantage of the atoll's open water.",
         "Madifushi was the fourth stop on the original Tour 2 itinerary; whether it remains within the shorter revised window is still being confirmed with the client (see the Technical Specification, Section 3.3).",
       ],
       ru: [
-        "Madifushi Private Island расположен южнее, в атолле Тхаа — менее посещаемом, чем атоллы рядом со столицей, и потому более тихом. Отель делает ставку на уединённость: виллы Serene Pool Villa, спа Mandara и программа круизов с дельфинами, использующая открытую воду атолла.",
+        "Madifushi Private Island расположен южнее, в атолле Меему — менее посещаемом, чем атоллы рядом со столицей, и потому более тихом. Отель делает ставку на уединённость: виллы Serene Pool Villa, спа Mandara и программа круизов с дельфинами, использующая открытую воду атолла.",
         "Madifushi был четвёртой остановкой в первоначальном маршруте Тура 2; сохранится ли она в сокращённом графике, пока уточняется с клиентом (см. Техническое задание, раздел 3.3).",
       ],
     },
     keyFacts: {
       location: {
-        en: "Thaa Atoll, Maldives — domestic flight + speedboat from Male",
-        ru: "Атолл Тхаа, Мальдивы — внутренний рейс и скоростной катер от Мале",
+        en: "Meemu Atoll, Maldives — domestic flight + speedboat from Male",
+        ru: "Атолл Меему, Мальдивы — внутренний рейс и скоростной катер от Мале",
       },
       villas: { en: "Serene Pool Villas", ru: "Виллы Serene Pool Villa" },
       facilities: {
@@ -231,6 +233,7 @@ export const resorts: Resort[] = [
     },
     gallery: [
       { src: "/images/resorts/madifushi/hero.jpg", alt: "Aerial view of Madifushi Private Island" },
+      { src: "/images/resorts/madifushi/steps.jpg", alt: "Stone steps leading to a pool through lush greenery at Madifushi Private Island" },
       { src: "/images/resorts/madifushi/villa.jpg", alt: "Serene Pool Villa" },
       { src: "/images/resorts/madifushi/dining.jpg", alt: "Bella Six restaurant" },
       { src: "/images/resorts/madifushi/spa.jpg", alt: "Mandara Spa treatment room" },

@@ -1,8 +1,8 @@
 export const en = {
   meta: {
-    title: "We Present — by Coati Travel",
+    title: "We Present — by Coati",
     description:
-      "We Present is a curated tour programme by Coati Travel bringing travel-agency partners to experience the Maldives' finest resorts first-hand.",
+      "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the Maldives' finest resorts first-hand.",
   },
   common: {
     chooseFile: "Choose file",
@@ -17,28 +17,32 @@ export const en = {
     contact: "Contact",
     register: "Register Interest",
     becomePartner: "Become a Partner",
-    byCoatiTravel: "BY COATI TRAVEL",
+    byCoati: "BY COATI",
   },
   footer: {
     tagline:
-      "A curated tour programme bringing agency partners face-to-face with the Maldives’ finest resorts.",
+      "An exclusive series of business events for leading travel-industry professionals, offering a unique opportunity to experience the finest resorts in our collection.",
     explore: "Explore",
     contact: "Contact",
     follow: "Follow",
-    parentBrand: "Parent Brand",
+    parentBrand: "An Exclusive Initiative",
     email: "hello@wepresent.org",
     phoneTbc: "Phone — to be confirmed",
     officeTbc: "Office address — to be confirmed",
     instagramTbc: "Instagram — handle to be confirmed",
-    projectByCoati: "A project by Coati Travel →",
-    copyright: "© 2026 We Present by Coati Travel. All rights reserved.",
+    projectByCoati: "A Project by Coati",
+    copyright: "© 2026 We Present by Coati. All rights reserved.",
     privacyPolicy: "Privacy Policy",
   },
   home: {
+    intro: {
+      kicker: "What Is We Present",
+      body: "WePresent by COATI is a prestigious initiative from COATI Global Sales Agency, uniting the most influential leaders in the tourism industry, elite media, digital-platform innovators, journalists, tour operators and their exclusive agency partners. The project offers carefully curated, limited-access outbound business events — a unique space for strategic networking, sharing expertise, forming partnerships and delivering measurable business results.",
+    },
     hero: {
-      kicker: "We Present · By Coati Travel",
+      kicker: "We Present · By Coati",
       title: "A front-row seat to the Maldives’ finest resorts.",
-      lead: "Curated familiarization tours for travel-agency partners — an intimate, first-hand look at the properties you sell, hosted by Coati Travel across the 2026 season.",
+      lead: "Curated familiarization tours for travel-agency partners — an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
       ctaPrimary: "Register Interest",
       ctaSecondary: "View Tours Calendar",
       nextTour: "Next tour · 17–23 August 2026 · Maldives",
@@ -46,8 +50,8 @@ export const en = {
     concept: {
       sectionLabel: "Our Concept",
       quote:
-        "“We Present is Coati Travel’s invitation to the partners who sell the Maldives every day — a chance to experience it themselves.”",
-      body: "Selection is merit-based, driven by agency production. Each edition brings a confirmed group of agency representatives to a destination to experience its resorts first-hand and, where relevant, attend the destination’s leading travel-trade event — a polished, ongoing programme rather than a single one-off trip.",
+        "“We Present is an invitation from COATI Global Sales Agency to the partners who sell the Maldives every day — a chance to see it all for themselves.”",
+      body: "Participants are invited based on their agency's performance. Each edition brings together a group of professionals to experience the resorts in our collection first-hand and take part in key industry events. We Present isn't a one-off trip — it's an ongoing programme of professional development and partnership.",
       cta: "Explore the Programme",
     },
     tours: {
@@ -91,7 +95,7 @@ export const en = {
       kicker: "The Concept",
       title: "A B2B programme, not a marketing event",
       paragraphs: [
-        "We Present is a B2B initiative by Coati Travel, an agency specialising in the Russia and CIS outbound market. The programme organises curated familiarization trips that bring selected travel-agency representatives to a destination to experience its resorts first-hand.",
+        "We Present is a B2B initiative by COATI Global Sales Agency, an agency specialising in the Russia and CIS outbound market. The programme organises curated familiarization trips that bring selected travel-agency representatives to a destination to experience its resorts first-hand.",
         "Rather than a single event, We Present runs an ongoing series of tours. The 2026 launch season includes two Maldives tours in August — one combined with Travel Trade Maldives (TTM) 2026 — followed by an Oman tour in December, with further destinations planned for 2027.",
       ],
       imageAlt: "Fushifaru beach deck at sunset",
@@ -112,7 +116,7 @@ export const en = {
         {
           number: "01",
           title: "Production is tracked",
-          body: "Coati Travel tracks room-nights delivered by each partner agency across the Russia/CIS market throughout the year.",
+          body: "COATI Global Sales Agency tracks room-nights delivered by each partner agency across the Russia/CIS market throughout the year.",
         },
         {
           number: "02",
@@ -132,7 +136,7 @@ export const en = {
       items: [
         "First-hand knowledge of the resorts you sell — not a brochure, the actual villa, the actual reef.",
         "Direct access to resort partners and, where relevant, the destination's leading travel-trade event.",
-        "A recognised marker of production within the Coati Travel partner network.",
+        "A recognised marker of production within the Coati partner network.",
         "A curated, hosted experience — flights, transfers and the itinerary are handled end-to-end.",
       ],
       cta: "Register Interest",
@@ -186,7 +190,7 @@ export const en = {
       body: "Whether you’re part of a scheduled tour, a hotel partner, or simply curious about a private trip — we’d like to hear from you.",
     },
     details: {
-      kicker: "Coati Travel",
+      kicker: "Coati",
       email: "Email",
       phone: "Phone",
       phoneTbc: "To be confirmed",
@@ -244,11 +248,11 @@ export const en = {
       title: "Privacy Policy & Cookie Notice",
     },
     draftNotice:
-      "This is a draft policy prepared for review — final wording should be approved by Coati Travel and, where needed, legal counsel before launch (see Technical Specification, Section 14).",
+      "This is a draft policy prepared for review — final wording should be approved by COATI Global Sales Agency and, where needed, legal counsel before launch (see Technical Specification, Section 14).",
     sections: [
       {
         title: "Overview",
-        body: "This policy explains what personal data We Present (a project of Coati Travel) collects through this website, why, who it's shared with, and the choices you have.",
+        body: "This policy explains what personal data We Present (a project of COATI Global Sales Agency) collects through this website, why, who it's shared with, and the choices you have.",
       },
       {
         title: "Information We Collect",
@@ -260,15 +264,15 @@ export const en = {
       },
       {
         title: "Who Receives Your Information",
-        body: "Submissions are received by the Coati Travel team responsible for the We Present programme. Per-hotel inquiries are also shared with the relevant resort partner so they can respond to your request.",
+        body: "Submissions are received by the COATI Global Sales Agency team responsible for the We Present programme. Per-hotel inquiries are also shared with the relevant resort partner so they can respond to your request.",
       },
       {
         title: "Data Retention",
-        body: "Retention periods are being finalised with Coati Travel. Check back here for specifics, or contact us directly with any retention or deletion request in the meantime.",
+        body: "Retention periods are being finalised with COATI Global Sales Agency. Check back here for specifics, or contact us directly with any retention or deletion request in the meantime.",
       },
       {
         title: "Uploaded Files",
-        body: "Files you upload are stored securely and are accessible only to the Coati Travel team reviewing your submission. We do not publish uploaded files.",
+        body: "Files you upload are stored securely and are accessible only to the COATI Global Sales Agency team reviewing your submission. We do not publish uploaded files.",
       },
       {
         title: "Your Rights",

@@ -10,7 +10,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
-    <section id="tours" className="bg-lavender-mist px-6 py-28 lg:px-10">
+    <section id="tours" className="border-t border-amethyst/10 bg-lavender-mist px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
           <Kicker>{dict.home.tours.kicker}</Kicker>
@@ -44,7 +44,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
                     className={`kicker rounded-full px-4 py-1.5 text-[0.65rem] ${
                       tour.status === "confirmed"
                         ? "bg-amethyst/10 text-amethyst"
-                        : "bg-gold/15 text-gold"
+                        : "bg-gold/15 text-amethyst"
                     }`}
                   >
                     {t(tour.dates, locale)}

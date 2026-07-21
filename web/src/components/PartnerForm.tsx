@@ -33,7 +33,7 @@ export function PartnerForm({ locale }: { locale: Locale }) {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
         <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
-        <p className="mt-2 text-sm text-ink/60">{dict.thankYouBody}</p>
+        <p className="mt-2 text-sm text-ink/70">{dict.thankYouBody}</p>
       </div>
     );
   }
@@ -118,7 +118,7 @@ export function PartnerForm({ locale }: { locale: Locale }) {
         />
       </div>
 
-      <label className="mt-5 flex items-start gap-3 text-sm text-ink/60">
+      <label className="mt-5 flex items-start gap-3 text-sm text-ink/70">
         <input required name="consent" type="checkbox" className="mt-1 accent-amethyst" />
         <span>
           {dict.consent}{" "}

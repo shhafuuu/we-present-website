@@ -66,14 +66,14 @@ export function Header({ locale }: { locale: Locale }) {
             }`}
           >
             WE PRESENT
-            <span className="ml-2 hidden text-[0.65rem] tracking-[0.15em] opacity-70 sm:inline">
-              {dict.nav.byCoatiTravel}
+            <span className="ml-2 hidden whitespace-nowrap text-[0.65rem] tracking-[0.15em] opacity-70 sm:inline">
+              {dict.nav.byCoati}
             </span>
           </span>
         </Link>
 
         <nav
-          className={`hidden items-center gap-5 whitespace-nowrap xl:flex xl:gap-6 ${
+          className={`hidden items-center gap-5 whitespace-nowrap min-[1400px]:flex min-[1400px]:gap-6 ${
             solid ? "text-ink" : "text-ivory"
           }`}
         >
@@ -81,14 +81,14 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               key={link.href}
               href={link.href}
-              className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full xl:text-[0.7rem]"
+              className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href={href(locale, "/become-a-partner")}
-            className={`rounded-full border px-3.5 py-2 text-[0.65rem] font-semibold tracking-wide transition-all xl:px-4 xl:py-2.5 xl:text-xs ${
+            className={`rounded-full border px-3.5 py-2 text-[0.65rem] font-semibold tracking-wide transition-all min-[1400px]:px-4 min-[1400px]:py-2.5 min-[1400px]:text-xs ${
               solid
                 ? "border-amethyst/30 text-amethyst hover:border-amethyst hover:bg-amethyst/5"
                 : "border-ivory/50 text-ivory hover:border-ivory hover:bg-ivory/10"
@@ -98,13 +98,13 @@ export function Header({ locale }: { locale: Locale }) {
           </Link>
           <Link
             href={href(locale, "/register")}
-            className="rounded-full bg-gold px-4 py-2 text-[0.65rem] font-semibold tracking-wide text-aubergine transition-all hover:bg-soft-gold xl:px-5 xl:py-2.5 xl:text-xs"
+            className="rounded-full bg-gold px-4 py-2 text-[0.65rem] font-semibold tracking-wide text-aubergine transition-all hover:bg-soft-gold min-[1400px]:px-5 min-[1400px]:py-2.5 min-[1400px]:text-xs"
           >
             {dict.nav.register}
           </Link>
           <Link
             href={switchHref}
-            className="kicker text-[0.65rem] opacity-70 hover:opacity-100 xl:text-[0.7rem]"
+            className="kicker text-[0.65rem] opacity-70 hover:opacity-100 min-[1400px]:text-[0.7rem]"
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -115,7 +115,7 @@ export function Header({ locale }: { locale: Locale }) {
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((v) => !v)}
-          className={`flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 xl:hidden ${solid ? "text-aubergine" : "text-ivory"}`}
+          className={`flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 min-[1400px]:hidden ${solid ? "text-aubergine" : "text-ivory"}`}
         >
           <span
             className={`h-px w-7 bg-current transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -139,7 +139,7 @@ export function Header({ locale }: { locale: Locale }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 top-[64px] z-40 bg-lavender-mist xl:hidden"
+          className="fixed inset-0 top-[64px] z-40 bg-lavender-mist min-[1400px]:hidden"
         >
           <div className="flex h-full flex-col items-center justify-center gap-8">
             {NAV_LINKS.map((link) => (

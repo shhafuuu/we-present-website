@@ -10,7 +10,7 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
-    <section id="partners" className="bg-soft-lilac/40 px-6 py-24 lg:px-10">
+    <section id="partners" className="border-t border-amethyst/10 bg-soft-lilac/60 px-6 py-24 lg:px-10">
       <div className="mx-auto max-w-6xl text-center">
         <Reveal>
           <Kicker>{dict.home.partners.kicker}</Kicker>
@@ -20,23 +20,41 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-            {resorts.map((resort) => (
-              <div
-                key={resort.slug}
-                className={`relative h-14 w-32 shrink-0 transition-transform duration-500 hover:-translate-y-1 sm:h-16 sm:w-36 ${
-                  resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-2" : ""
-                }`}
-              >
-                <Image
-                  src={resort.logo}
-                  alt={resort.name}
-                  fill
-                  sizes="144px"
-                  className={`object-contain ${resort.logoBg === "none" ? "opacity-80 hover:opacity-100" : ""}`}
-                />
-              </div>
-            ))}
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+            {resorts.map((resort) => {
+              const logo = (
+                <div
+                  className={`relative h-16 w-36 shrink-0 transition-transform duration-500 group-hover:-translate-y-1 sm:h-20 sm:w-44 ${
+                    resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
+                  }`}
+                >
+                  <Image
+                    src={resort.logo}
+                    alt={resort.name}
+                    fill
+                    sizes="176px"
+                    className={`object-contain ${resort.logoBg === "none" ? "opacity-80 group-hover:opacity-100" : ""}`}
+                  />
+                </div>
+              );
+
+              return resort.website ? (
+                <a
+                  key={resort.slug}
+                  href={resort.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group"
+                  aria-label={resort.name}
+                >
+                  {logo}
+                </a>
+              ) : (
+                <div key={resort.slug} className="group">
+                  {logo}
+                </div>
+              );
+            })}
           </div>
         </Reveal>
 

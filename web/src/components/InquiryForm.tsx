@@ -48,7 +48,7 @@ export function InquiryForm({
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
         <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
-        <p className="mt-2 text-sm text-ink/60">
+        <p className="mt-2 text-sm text-ink/70">
           {dict.thankYouBody.replace("{resort}", resortName)}
         </p>
       </div>

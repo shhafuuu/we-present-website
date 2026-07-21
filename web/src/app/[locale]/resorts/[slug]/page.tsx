@@ -78,19 +78,19 @@ export default async function ResortPage({
               <Kicker>{dict.resortPage.keyFacts}</Kicker>
               <dl className="mt-6 space-y-5 text-sm">
                 <div>
-                  <dt className="kicker text-amethyst/70">{dict.resortPage.location}</dt>
+                  <dt className="kicker text-amethyst">{dict.resortPage.location}</dt>
                   <dd className="mt-1 text-ink/70">{t(resort.keyFacts.location, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">{dict.resortPage.villas}</dt>
+                  <dt className="kicker text-amethyst">{dict.resortPage.villas}</dt>
                   <dd className="mt-1 text-ink/70">{t(resort.keyFacts.villas, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">{dict.resortPage.facilities}</dt>
+                  <dt className="kicker text-amethyst">{dict.resortPage.facilities}</dt>
                   <dd className="mt-1 text-ink/70">{t(resort.keyFacts.facilities, locale)}</dd>
                 </div>
                 <div>
-                  <dt className="kicker text-amethyst/70">{dict.resortPage.officialWebsite}</dt>
+                  <dt className="kicker text-amethyst">{dict.resortPage.officialWebsite}</dt>
                   <dd className="mt-1 text-ink/70">{dict.resortPage.officialWebsiteTbc}</dd>
                 </div>
               </dl>

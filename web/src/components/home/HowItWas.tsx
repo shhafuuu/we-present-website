@@ -8,7 +8,7 @@ export function HowItWas({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
-    <section id="how-it-was" className="bg-ivory px-6 py-28 lg:px-10">
+    <section id="how-it-was" className="border-t border-amethyst/10 bg-ivory px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
           <Kicker>{dict.home.howItWas.kicker}</Kicker>
@@ -17,7 +17,7 @@ export function HowItWas({ locale }: { locale: Locale }) {
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <div className="mt-12 rounded-3xl border border-dashed border-amethyst/20 bg-lavender-mist/30 px-8 py-16">
+          <div className="mt-12 rounded-3xl border border-dashed border-amethyst/20 bg-soft-lilac/40 px-8 py-16">
             <p className="font-display text-xl italic text-amethyst sm:text-2xl">
               {dict.home.howItWas.quote}
             </p>

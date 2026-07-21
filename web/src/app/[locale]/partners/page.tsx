@@ -41,16 +41,22 @@ export default async function PartnersPage({
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {resorts.map((resort, i) => (
               <Reveal key={resort.slug} delay={i * 0.08}>
-                <div className="flex gap-6 rounded-2xl bg-lavender-mist/40 p-6">
+                <a
+                  href={resort.website}
+                  target={resort.website ? "_blank" : undefined}
+                  rel={resort.website ? "noreferrer" : undefined}
+                  className={`flex gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-[0_1px_2px_rgba(62,44,85,0.06)] transition-transform duration-500 ${resort.website ? "hover:-translate-y-1" : "cursor-default"}`}
+                >
                   <div
-                    className={`relative h-16 w-24 shrink-0 ${
-                      resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-2" : ""
+                    className={`relative h-20 w-32 shrink-0 ${
+                      resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
                     }`}
                   >
                     <Image
                       src={resort.logo}
                       alt={resort.name}
                       fill
+                      sizes="128px"
                       className="object-contain"
                     />
                   </div>
@@ -58,10 +64,10 @@ export default async function PartnersPage({
                     <h3 className="font-display text-lg text-aubergine">
                       {resort.name}
                     </h3>
-                    <p className="kicker mt-1 text-amethyst/60">{t(resort.atoll, locale)}</p>
-                    <p className="mt-2 text-sm text-ink/60">{t(resort.tagline, locale)}</p>
+                    <p className="kicker mt-1 text-amethyst">{t(resort.atoll, locale)}</p>
+                    <p className="mt-2 text-sm text-ink/70">{t(resort.tagline, locale)}</p>
                   </div>
-                </div>
+                </a>
               </Reveal>
             ))}
           </div>

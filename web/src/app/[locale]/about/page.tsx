@@ -65,7 +65,7 @@ export default async function AboutPage({
                   <h3 className="font-display mt-4 text-xl text-aubergine">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
                     {step.body}
                   </p>
                 </div>

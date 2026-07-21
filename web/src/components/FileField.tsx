@@ -44,7 +44,7 @@ export function FileField({
           className="absolute h-0 w-0 opacity-0"
         />
       </div>
-      <p className="mt-1.5 text-xs text-ink/40">{hint}</p>
+      <p className="mt-1.5 text-xs text-ink/70">{hint}</p>
     </label>
   );
 }

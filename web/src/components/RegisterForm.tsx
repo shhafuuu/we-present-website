@@ -33,7 +33,7 @@ export function RegisterForm({ locale }: { locale: Locale }) {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
         <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
-        <p className="mt-2 text-sm text-ink/60">{dict.thankYouBody}</p>
+        <p className="mt-2 text-sm text-ink/70">{dict.thankYouBody}</p>
       </div>
     );
   }
@@ -79,7 +79,7 @@ export function RegisterForm({ locale }: { locale: Locale }) {
             type="tel"
             className="mt-2 w-full rounded-lg border border-amethyst/20 bg-ivory px-4 py-2.5 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
           />
-          <span className="mt-1.5 block text-xs text-ink/40">{dict.phoneHint}</span>
+          <span className="mt-1.5 block text-xs text-ink/70">{dict.phoneHint}</span>
         </label>
         <label className="text-sm text-ink/70">
           {dict.email}
@@ -106,7 +106,7 @@ export function RegisterForm({ locale }: { locale: Locale }) {
         <FileField name="businessCard" label={dict.cardUpload} hint={dict.cardUploadHint} required locale={locale} />
       </div>
 
-      <label className="mt-5 flex items-start gap-3 text-sm text-ink/60">
+      <label className="mt-5 flex items-start gap-3 text-sm text-ink/70">
         <input required name="consent" type="checkbox" className="mt-1 accent-amethyst" />
         <span>
           {dict.consent}{" "}

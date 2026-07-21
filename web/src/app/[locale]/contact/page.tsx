@@ -33,23 +33,23 @@ export default async function ContactPage({
             <Kicker>{dict.contactPage.details.kicker}</Kicker>
             <dl className="mt-6 space-y-6 text-sm">
               <div>
-                <dt className="kicker text-amethyst/70">{dict.contactPage.details.email}</dt>
+                <dt className="kicker text-amethyst">{dict.contactPage.details.email}</dt>
                 <dd className="mt-1 text-ink/70">hello@wepresent.org</dd>
               </div>
               <div>
-                <dt className="kicker text-amethyst/70">{dict.contactPage.details.phone}</dt>
-                <dd className="mt-1 text-ink/40">{dict.contactPage.details.phoneTbc}</dd>
+                <dt className="kicker text-amethyst">{dict.contactPage.details.phone}</dt>
+                <dd className="mt-1 text-ink/70">{dict.contactPage.details.phoneTbc}</dd>
               </div>
               <div>
-                <dt className="kicker text-amethyst/70">{dict.contactPage.details.office}</dt>
-                <dd className="mt-1 text-ink/40">{dict.contactPage.details.officeTbc}</dd>
+                <dt className="kicker text-amethyst">{dict.contactPage.details.office}</dt>
+                <dd className="mt-1 text-ink/70">{dict.contactPage.details.officeTbc}</dd>
               </div>
               <div>
-                <dt className="kicker text-amethyst/70">{dict.contactPage.details.instagram}</dt>
-                <dd className="mt-1 text-ink/40">{dict.contactPage.details.instagramTbc}</dd>
+                <dt className="kicker text-amethyst">{dict.contactPage.details.instagram}</dt>
+                <dd className="mt-1 text-ink/70">{dict.contactPage.details.instagramTbc}</dd>
               </div>
               <div>
-                <dt className="kicker text-amethyst/70">{dict.contactPage.details.parentBrand}</dt>
+                <dt className="kicker text-amethyst">{dict.contactPage.details.parentBrand}</dt>
                 <dd className="mt-1">
                   <a
                     href="https://coatitravel.ru"

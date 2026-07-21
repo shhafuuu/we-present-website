@@ -43,7 +43,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
         <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
-        <p className="mt-2 text-sm text-ink/60">{dict.thankYouBody}</p>
+        <p className="mt-2 text-sm text-ink/70">{dict.thankYouBody}</p>
       </div>
     );
   }
@@ -99,7 +99,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
           className="mt-2 w-full rounded-lg border border-amethyst/20 bg-ivory px-4 py-2.5 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
         />
       </label>
-      <label className="mt-5 flex items-start gap-3 text-sm text-ink/60">
+      <label className="mt-5 flex items-start gap-3 text-sm text-ink/70">
         <input required name="consent" type="checkbox" className="mt-1 accent-amethyst" />
         <span>
           {dict.consent}{" "}

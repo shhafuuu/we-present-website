@@ -7,7 +7,7 @@ export function ConceptSection({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
-    <section id="concept" className="bg-ivory px-6 py-28 lg:px-10">
+    <section id="concept" className="border-t border-amethyst/10 bg-ivory px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="sr-only">{dict.home.concept.sectionLabel}</h2>
         <Reveal>

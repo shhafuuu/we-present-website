@@ -29,11 +29,11 @@ export default async function HowItWasPage({
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <div className="rounded-3xl border border-dashed border-amethyst/20 bg-lavender-mist/30 px-8 py-16">
+            <div className="rounded-3xl border border-dashed border-amethyst/20 bg-soft-lilac/40 px-8 py-16">
               <p className="font-display text-xl italic text-amethyst sm:text-2xl">
                 {dict.howItWasPage.comingSoon.title}
               </p>
-              <p className="mt-4 text-sm text-ink/60">
+              <p className="mt-4 text-sm text-ink/70">
                 {dict.howItWasPage.comingSoon.body}
               </p>
             </div>
@@ -46,11 +46,11 @@ export default async function HowItWasPage({
           <div className="grid gap-6 sm:grid-cols-2">
             {dict.howItWasPage.sections.map((section, i) => (
               <Reveal key={section.title} delay={i * 0.08}>
-                <div className="rounded-2xl border border-dashed border-amethyst/20 bg-ivory/60 p-8">
+                <div className="rounded-2xl border border-dashed border-amethyst/20 bg-ivory/80 p-8">
                   <h2 className="font-display text-xl text-aubergine">
                     {section.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
                     {section.body}
                   </p>
                 </div>

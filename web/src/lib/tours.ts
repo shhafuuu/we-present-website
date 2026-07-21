@@ -62,8 +62,8 @@ export const tours: Tour[] = [
     dates: { en: "28 August – 3 September 2026", ru: "28 августа – 3 сентября 2026" },
     status: "confirmed",
     summary: {
-      en: "The original inaugural tour, combining attendance at Travel Trade Maldives (TTM) 2026 with a partner-resort tour. End date revised to 3 September per the client's calendar.",
-      ru: "Первоначальный флагманский тур, совмещающий участие в Travel Trade Maldives (TTM) 2026 с туром по курортам-партнёрам. Дата окончания перенесена на 3 сентября по календарю клиента.",
+      en: "A Maldives tour combining attendance at Travel Trade Maldives (TTM) 2026 with a partner-resort tour. End date revised to 3 September per the client's calendar.",
+      ru: "Тур по Мальдивам, совмещающий участие в Travel Trade Maldives (TTM) 2026 с туром по курортам-партнёрам. Дата окончания перенесена на 3 сентября по календарю клиента.",
     },
     ttmOverview: {
       en: "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
@@ -108,6 +108,19 @@ export const tours: Tour[] = [
     ],
   },
   {
+    slug: "cinnamon-resorts-maldives",
+    year: "2026",
+    name: { en: "Cinnamon Resorts Maldives", ru: "Cinnamon Resorts Maldives" },
+    destination: { en: "Maldives", ru: "Мальдивы" },
+    dates: { en: "October 2026", ru: "Октябрь 2026" },
+    status: "pending",
+    summary: {
+      en: "A separate Maldives familiarization fam with Cinnamon Resorts, in October 2026. Exact dates and resort line-up are not yet set; the tour appears on the calendar as \"coming soon\" and will be completed via the content portal once confirmed.",
+      ru: "Отдельный ознакомительный тур по Мальдивам с Cinnamon Resorts в октябре 2026 года. Точные даты и список отелей пока не определены; в календаре тур отображается как «скоро» и будет дополнен через контент-портал после подтверждения.",
+    },
+    stops: [],
+  },
+  {
     slug: "oman",
     year: "2026",
     name: { en: "Oman", ru: "Оман" },
@@ -117,6 +130,19 @@ export const tours: Tour[] = [
     summary: {
       en: 'An Oman familiarization tour in December 2026. Exact dates and resort line-up are not yet set; the tour appears on the calendar as "dates coming soon" and will be completed via the content portal once confirmed.',
       ru: "Ознакомительный тур в Оман в декабре 2026 года. Точные даты и список отелей пока не определены; в календаре тур отображается как «даты уточняются» и будет дополнен через контент-портал после подтверждения.",
+    },
+    stops: [],
+  },
+  {
+    slug: "kenya",
+    year: "2026 / 27",
+    name: { en: "Kenya", ru: "Кения" },
+    destination: { en: "Kenya", ru: "Кения" },
+    dates: { en: "Dates to be confirmed", ru: "Даты уточняются" },
+    status: "pending",
+    summary: {
+      en: "A Kenya familiarization tour; dates to be confirmed. The tour appears on the calendar as \"coming soon\" and will be completed via the content portal once confirmed.",
+      ru: "Ознакомительный тур в Кению; даты уточняются. В календаре тур отображается как «скоро» и будет дополнен через контент-портал после подтверждения.",
     },
     stops: [],
   },
