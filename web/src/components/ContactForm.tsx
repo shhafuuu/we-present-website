@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { Sparkle } from "@/components/Sparkle";
 
 export function ContactForm({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale).forms.contact;
@@ -42,7 +43,8 @@ export function ContactForm({ locale }: { locale: Locale }) {
   if (status === "sent") {
     return (
       <div className="rounded-2xl bg-soft-lilac/40 p-8 text-center">
-        <p className="font-display text-xl text-aubergine">{dict.thankYouTitle}</p>
+        <Sparkle className="mx-auto h-5 w-5 text-gold" />
+        <p className="font-display mt-3 text-xl text-aubergine">{dict.thankYouTitle}</p>
         <p className="mt-2 text-sm text-ink/70">{dict.thankYouBody}</p>
       </div>
     );

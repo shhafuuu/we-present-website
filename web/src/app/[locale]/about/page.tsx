@@ -2,6 +2,7 @@ import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { AlternatingBlock } from "@/components/about/AlternatingBlock";
 import { Button } from "@/components/Button";
+import { Sparkle } from "@/components/Sparkle";
 import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -75,8 +76,9 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-aubergine px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="relative overflow-hidden bg-aubergine px-6 py-24 lg:px-10">
+        <Sparkle className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 text-ivory/[0.04]" />
+        <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>
             <Kicker tone="ivory">{dict.about.benefits.kicker}</Kicker>
             <p className="font-display mt-6 text-2xl italic text-ivory/90 sm:text-3xl">
@@ -88,7 +90,7 @@ export default async function AboutPage({
             {dict.about.benefits.items.map((benefit, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div className="flex items-start gap-4 rounded-xl border border-ivory/10 p-6">
-                  <span className="h-px w-6 shrink-0 translate-y-3 bg-gold" />
+                  <Sparkle className="mt-1 h-3.5 w-3.5 shrink-0 text-gold" />
                   <p className="text-sm leading-relaxed text-ivory/75">{benefit}</p>
                 </div>
               </Reveal>

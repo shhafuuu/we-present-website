@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
+import { Sparkle } from "@/components/Sparkle";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -22,7 +23,11 @@ export function Hero({ locale }: { locale: Locale }) {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
         <Reveal>
-          <p className="kicker text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">{dict.home.hero.kicker}</p>
+          <p className="kicker inline-flex items-center gap-2.5 text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
+            <span className="h-px w-5 bg-ivory/60" />
+            <Sparkle className="h-2.5 w-2.5 shrink-0" />
+            {dict.home.hero.kicker}
+          </p>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
@@ -47,6 +52,13 @@ export function Hero({ locale }: { locale: Locale }) {
         <Reveal delay={0.4}>
           <p className="kicker mt-12 text-ivory/60">{dict.home.hero.nextTour}</p>
         </Reveal>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center motion-safe:animate-bounce">
+        <div className="flex flex-col items-center gap-1.5 text-ivory/60">
+          <Sparkle className="h-3 w-3" />
+          <span className="h-8 w-px bg-ivory/40" />
+        </div>
       </div>
     </section>
   );

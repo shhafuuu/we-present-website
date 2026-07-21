@@ -177,9 +177,27 @@ Grepped every remaining `text-gold` usage in `src` (7 hits) to close out the rec
 
 This closes the `text-gold`-contrast defect across the entire site — it will not recur from a component this codebase already has; any future gold-on-photographic-hero usage should default to `text-ivory` + the same shadow treatment instead.
 
+## Star / monogram motif work (2026-07-22)
+
+Implemented the spec §4.3 ask to make the four-point star (sparkle) and WP monogram "more prominent and repeated across sections" — this had been outstanding since the brand-rename round, not blocked on the still-pending logo SVG (that only blocks the header *wordmark* itself).
+
+- **`src/components/Sparkle.tsx`**: new reusable inline SVG matching the sparkle glyph baked into `public/images/logos/wp-monogram-*.png` (a generic four-point "sparkle" shape — colored via `currentColor`, so it takes on whatever `text-*` class wraps it).
+- **`Kicker.tsx`** (the shared component used by 17 files across every page): the plain leading rule now reads rule → sparkle → label. This alone put the motif on nearly every section header sitewide for one change. `Footer.tsx`'s four column labels were converted from raw `<p className="kicker">` markup to the shared `<Kicker>` component specifically to pick this up too (a net simplification, not just a motif add).
+- **Scroll cue**: added to the bottom of the home hero (`Hero.tsx`) — a small bouncing sparkle + line, `motion-safe:animate-bounce` so it's inert under `prefers-reduced-motion` with no extra JS needed.
+- **Watermark behind quotes**: a large, very faint (`/10` on light ivory, `/[0.04]` on dark aubergine — light-on-dark reads more visible than dark-on-light at the same opacity, tuned by eye) sparkle sits behind the home `ConceptSection` quote and the About page's benefits quote. `pointer-events-none`, `aria-hidden` via the Sparkle component itself.
+- **List bullets**: About page's benefits-list leading rule (`h-px bg-gold`) replaced with a small gold sparkle.
+- **Hero kickers**: both the home hero and resort-page hero kickers (raw markup, not the shared `Kicker` component, since they need the photo-legibility text-shadow treatment from the gold-sweep fix above) got the same rule+sparkle treatment by hand, matching the shared component's pattern.
+- **Form success states**: all four forms (Register/Partner/Contact/Inquiry) now show a small gold sparkle above the "thank you" title.
+- **Favicon**: `src/app/icon.svg` (Next.js app-router convention, auto-wires the `<link rel="icon">` tags, no code changes needed elsewhere) — the sparkle in aubergine, replacing the default Next.js placeholder `favicon.ico` (kept as a legacy fallback, both now serve correctly).
+
+Deliberately *not* touched: the resort/partners-page atoll labels and the tours-page date pills — these are dense multi-card grids (4 resort cards, 5 tour cards) where multiplying the motif per-card risked tipping into clutter rather than reinforcement, per the design skill's own restraint guidance. If the client wants it there too, it's a quick follow-up, not a redesign.
+
+**Found while verifying (pre-existing, unrelated to this change — confirmed by testing against the unmodified code via `git stash`)**: at short mobile viewport heights (≤667px, e.g. iPhone SE and similar older/smaller devices), the home hero's kicker and H1 overlap by a few pixels — the hero's stacked content (kicker, heading, lead, buttons, next-tour pill) exceeds the `min-h-[720px]` section height at these viewports, and since the section is bottom-anchored (`items-end`), the overflow pushes the top content (kicker) up past the viewport edge into the heading. Not fixed as part of this round since it's out of scope for the motif work — flagging for a follow-up.
+
 ## Current scope / not yet implemented
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
-- **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark + star/monogram motif work), selected hero/resort photos, hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.
+- **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark — the star/monogram motif prominence work itself is done, see above), selected hero/resort photos, hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.
+- **Short-viewport hero overlap** (see above) — pre-existing, found but not fixed this round.
 
 ## Visual verification
 

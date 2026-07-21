@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Kicker } from "@/components/Kicker";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -24,7 +25,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div>
-            <p className="kicker text-gold">{dict.footer.explore}</p>
+            <Kicker tone="gold">{dict.footer.explore}</Kicker>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li><Link href={href(locale, "/about")} className="hover:text-ivory">{dict.nav.about}</Link></li>
               <li><Link href={href(locale, "/tours")} className="hover:text-ivory">{dict.nav.tours}</Link></li>
@@ -35,7 +36,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div>
-            <p className="kicker text-gold">{dict.footer.contact}</p>
+            <Kicker tone="gold">{dict.footer.contact}</Kicker>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li>{dict.footer.email}</li>
               <li className="text-soft-lilac/70">{dict.footer.phoneTbc}</li>
@@ -44,11 +45,13 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div>
-            <p className="kicker text-gold">{dict.footer.follow}</p>
+            <Kicker tone="gold">{dict.footer.follow}</Kicker>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li className="text-soft-lilac/70">{dict.footer.instagramTbc}</li>
             </ul>
-            <p className="kicker mt-8 text-gold">{dict.footer.parentBrand}</p>
+            <div className="mt-8">
+              <Kicker tone="gold">{dict.footer.parentBrand}</Kicker>
+            </div>
             <a
               href="https://coatitravel.ru"
               target="_blank"
