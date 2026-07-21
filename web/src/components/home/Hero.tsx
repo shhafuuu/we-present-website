@@ -11,8 +11,8 @@ export function Hero({ locale }: { locale: Locale }) {
   return (
     <section className="relative flex min-h-screen w-full items-end overflow-hidden">
       <Image
-        src="/images/home/hero-so-aerial.jpg"
-        alt="Aerial view of an overwater villa in the Maldives"
+        src="/images/home/hero-meyyafushi-aerial.jpg"
+        alt="Aerial view of overwater villas at golden hour"
         fill
         priority
         sizes="100vw"

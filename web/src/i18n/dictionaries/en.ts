@@ -41,7 +41,7 @@ export const en = {
     },
     hero: {
       kicker: "We Present · By Coati",
-      title: "A front-row seat to the Maldives’ finest resorts.",
+      title: "A front-row seat to the world’s finest resorts.",
       lead: "Curated familiarization tours for travel-agency partners — an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
       ctaPrimary: "Register Interest",
       ctaSecondary: "View Tours Calendar",

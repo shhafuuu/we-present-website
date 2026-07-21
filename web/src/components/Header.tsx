@@ -61,7 +61,7 @@ export function Header({ locale }: { locale: Locale }) {
             priority
           />
           <span
-            className={`font-display text-sm tracking-[0.2em] ${
+            className={`font-sans text-sm font-semibold tracking-[0.12em] ${
               solid ? "text-aubergine" : "text-ivory"
             }`}
           >
