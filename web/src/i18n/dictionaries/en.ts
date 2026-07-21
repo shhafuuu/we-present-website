@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    title: "We Present — by Coati",
+    title: "We Present · by Coati",
     description:
       "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the Maldives' finest resorts first-hand.",
   },
@@ -27,9 +27,9 @@ export const en = {
     follow: "Follow",
     parentBrand: "An Exclusive Initiative",
     email: "hello@wepresent.org",
-    phoneTbc: "Phone — to be confirmed",
-    officeTbc: "Office address — to be confirmed",
-    instagramTbc: "Instagram — handle to be confirmed",
+    phoneTbc: "Phone: to be confirmed",
+    officeTbc: "Office address: to be confirmed",
+    instagramTbc: "Instagram: handle to be confirmed",
     projectByCoati: "A Project by Coati",
     copyright: "© 2026 We Present by Coati. All rights reserved.",
     privacyPolicy: "Privacy Policy",
@@ -37,12 +37,12 @@ export const en = {
   home: {
     intro: {
       kicker: "What Is We Present",
-      body: "WePresent by COATI is a prestigious initiative from COATI Global Sales Agency, uniting the most influential leaders in the tourism industry, elite media, digital-platform innovators, journalists, tour operators and their exclusive agency partners. The project offers carefully curated, limited-access outbound business events — a unique space for strategic networking, sharing expertise, forming partnerships and delivering measurable business results.",
+      body: "WePresent by COATI is a prestigious initiative from COATI Global Sales Agency, uniting the most influential leaders in the tourism industry, elite media representatives, digital platform innovators, journalists, tour operators, their exclusive agency partners, and key industry professionals. This project offers carefully curated limited-access outbound business events, creating a unique space for strategic networking, sharing cutting-edge expertise, forming new partnerships, and implementing initiatives that guarantee measurable business results.",
     },
     hero: {
       kicker: "We Present · By Coati",
       title: "A front-row seat to the world’s finest resorts.",
-      lead: "Curated familiarization tours for travel-agency partners — an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
+      lead: "Curated familiarization tours for travel-agency partners: an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
       ctaPrimary: "Register Interest",
       ctaSecondary: "View Tours Calendar",
       nextTour: "Next tour · 17–23 August 2026 · Maldives",
@@ -50,8 +50,8 @@ export const en = {
     concept: {
       sectionLabel: "Our Concept",
       quote:
-        "“We Present is an invitation from COATI Global Sales Agency to the partners who sell the Maldives every day — a chance to see it all for themselves.”",
-      body: "Participants are invited based on their agency's performance. Each edition brings together a group of professionals to experience the resorts in our collection first-hand and take part in key industry events. We Present isn't a one-off trip — it's an ongoing programme of professional development and partnership.",
+        "“We Present is an invitation from COATI Global Sales Agency to the partners who sell the Maldives every day, a chance to see it all for themselves.”",
+      body: "Participants are invited based on their agency's performance. Each edition brings together a group of professionals to experience the resorts in our collection first-hand and take part in key industry events. We Present isn't a one-off trip; it's an ongoing programme of professional development and partnership.",
       cta: "Explore the Programme",
     },
     tours: {
@@ -96,7 +96,7 @@ export const en = {
       title: "A B2B programme, not a marketing event",
       paragraphs: [
         "We Present is a B2B initiative by COATI Global Sales Agency, an agency specialising in the Russia and CIS outbound market. The programme organises curated familiarization trips that bring selected travel-agency representatives to a destination to experience its resorts first-hand.",
-        "Rather than a single event, We Present runs an ongoing series of tours. The 2026 launch season includes two Maldives tours in August — one combined with Travel Trade Maldives (TTM) 2026 — followed by an Oman tour in December, with further destinations planned for 2027.",
+        "Rather than a single event, We Present runs an ongoing series of tours. The 2026 launch season includes two Maldives tours in August, one combined with Travel Trade Maldives (TTM) 2026, followed by an Oman tour in December, with further destinations planned for 2027.",
       ],
       imageAlt: "Fushifaru beach deck at sunset",
     },
@@ -104,7 +104,7 @@ export const en = {
       kicker: "How It Works",
       title: "The group is already confirmed",
       paragraphs: [
-        "For each edition, the participating group is already confirmed before the site goes live — the website is not a tool to recruit attendees for a given tour. Its role is to give the programme a polished, professional online presence.",
+        "For each edition, the participating group is already confirmed before the site goes live; the website is not a tool to recruit attendees for a given tour. Its role is to give the programme a polished, professional online presence.",
         "That means showcasing the concept, the tours, the resorts and the partners; keeping the calendar current; and supporting inquiries and forward interest from agents, clients and hotels alike.",
       ],
       imageAlt: "Kayaking at SO/ Maldives",
@@ -121,7 +121,7 @@ export const en = {
         {
           number: "02",
           title: "Selection is merit-based",
-          body: "Top-producing agencies are invited to nominate a representative for the upcoming edition — no application process, no lobbying.",
+          body: "Top-producing agencies are invited to nominate a representative for the upcoming edition, with no application process and no lobbying.",
         },
         {
           number: "03",
@@ -134,10 +134,10 @@ export const en = {
       kicker: "Benefits for Agents",
       quote: "“A chance to sell what you’ve actually seen.”",
       items: [
-        "First-hand knowledge of the resorts you sell — not a brochure, the actual villa, the actual reef.",
+        "First-hand knowledge of the resorts you sell: not a brochure, the actual villa, the actual reef.",
         "Direct access to resort partners and, where relevant, the destination's leading travel-trade event.",
         "A recognised marker of production within the Coati partner network.",
-        "A curated, hosted experience — flights, transfers and the itinerary are handled end-to-end.",
+        "A curated, hosted experience: flights, transfers and the itinerary are handled end-to-end.",
       ],
       cta: "Register Interest",
     },
@@ -146,7 +146,7 @@ export const en = {
     banner: {
       kicker: "Tours Calendar",
       title: "The programme’s calendar of trips",
-      body: "We Present runs multiple curated tours per year. Each one links through to its full itinerary, resorts and — where relevant — its travel-trade event.",
+      body: "We Present runs multiple curated tours per year. Each one links through to its full itinerary, resorts and, where relevant, its travel-trade event.",
     },
     comingSoon2027: {
       title: "Coming Soon",
@@ -174,12 +174,12 @@ export const en = {
       kicker: "Associated Partners",
       title: "Travel Trade Maldives",
       badge: "TTM Maldives · 10th Edition",
-      body: "Travel Trade Maldives (TTM) is the destination’s leading trade event. Tour 2 combines TTM 2026 attendance — including the Awards & Gala Night — with the partner-resort tour that follows. TTM branding will appear here once the partnership’s visual assets are provided.",
+      body: "Travel Trade Maldives (TTM) is the destination’s leading trade event. Tour 2 combines TTM 2026 attendance, including the Awards & Gala Night, with the partner-resort tour that follows. TTM branding will appear here once the partnership’s visual assets are provided.",
     },
     forHotels: {
       kicker: "For Hotels",
       title: "Interested in partnering with We Present?",
-      body: "Resorts interested in joining a future edition can request partnership — including images and brochures for review.",
+      body: "Resorts interested in joining a future edition can request partnership, including images and brochures for review.",
       cta: "Request Partnership",
     },
   },
@@ -187,7 +187,7 @@ export const en = {
     banner: {
       kicker: "Contact",
       title: "Get in touch",
-      body: "Whether you’re part of a scheduled tour, a hotel partner, or simply curious about a private trip — we’d like to hear from you.",
+      body: "Whether you’re part of a scheduled tour, a hotel partner, or simply curious about a private trip, we’d like to hear from you.",
     },
     details: {
       kicker: "Coati",
@@ -217,11 +217,11 @@ export const en = {
     banner: {
       kicker: "How It Was",
       title: "Stories from the field",
-      body: "Photos, trip reports and reviews from every We Present tour will live here — built out after each edition, and kept current by the Coati team through the content portal.",
+      body: "Photos, trip reports and reviews from every We Present tour will live here, built out after each edition, and kept current by the Coati team through the content portal.",
     },
     comingSoon: {
       title: "Our first journeys are coming this August.",
-      body: "The 2026 season is our launch season — there are no completed tours yet. This page will fill in with real photography, recaps and reviews as soon as the first group returns.",
+      body: "The 2026 season is our launch season; there are no completed tours yet. This page will fill in with real photography, recaps and reviews as soon as the first group returns.",
     },
     sections: [
       {
@@ -248,7 +248,7 @@ export const en = {
       title: "Privacy Policy & Cookie Notice",
     },
     draftNotice:
-      "This is a draft policy prepared for review — final wording should be approved by COATI Global Sales Agency and, where needed, legal counsel before launch (see Technical Specification, Section 14).",
+      "This is a draft policy prepared for review; final wording should be approved by COATI Global Sales Agency and, where needed, legal counsel before launch (see Technical Specification, Section 14).",
     sections: [
       {
         title: "Overview",
@@ -256,7 +256,7 @@ export const en = {
       },
       {
         title: "Information We Collect",
-        body: "Depending on which form you use, we may collect: your name, email address, phone number, agency or company name, messages you send us, and — for the agent registration and hotel partnership forms — files you upload, such as performance statistics, a business card, or property images and brochures.",
+        body: "Depending on which form you use, we may collect: your name, email address, phone number, agency or company name, messages you send us, and, for the agent registration and hotel partnership forms, files you upload, such as performance statistics, a business card, or property images and brochures.",
       },
       {
         title: "How We Use Your Information",
@@ -304,7 +304,7 @@ export const en = {
   },
   forms: {
     inquiry: {
-      title: "I’m interested — request price/availability",
+      title: "I’m interested: request price/availability",
       fullName: "Full Name",
       agency: "Agency / Company",
       email: "Email",
@@ -341,9 +341,9 @@ export const en = {
       email: "Email Address",
       comments: "Comments / Additional Info",
       statsUpload: "Upload Statistics (2025–2026)",
-      statsUploadHint: "PDF, XLS(X), DOC(X), JPG or PNG — up to 15MB.",
+      statsUploadHint: "PDF, XLS(X), DOC(X), JPG or PNG (up to 15MB).",
       cardUpload: "Upload Business Card",
-      cardUploadHint: "JPG, PNG or PDF — up to 15MB.",
+      cardUploadHint: "JPG, PNG or PDF (up to 15MB).",
       consent: "I consent to my data being processed as described in the",
       consentLink: "privacy policy",
       submit: "Submit Registration",
@@ -360,7 +360,7 @@ export const en = {
       website: "Website",
       message: "Message",
       upload: "Images / Brochure",
-      uploadHint: "PDF, JPG, PNG, DOC(X) or XLS(X) — up to 15MB per file.",
+      uploadHint: "PDF, JPG, PNG, DOC(X) or XLS(X) (up to 15MB per file).",
       consent: "I consent to my data being processed as described in the",
       consentLink: "privacy policy",
       submit: "Submit Request",

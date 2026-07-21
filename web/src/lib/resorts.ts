@@ -50,18 +50,18 @@ export const resorts: Resort[] = [
     },
     story: {
       en: [
-        "A short boat transfer from Male brings you to a lagoon where fashion-forward design meets barefoot ease. SO/ Maldives wears its playful, couture-inspired identity everywhere — from the Lazuli Beach Club to the sculptural Arrival Pavilion — without losing sight of the reef just beyond the villas.",
+        "A short boat transfer from Male brings you to a lagoon where fashion-forward design meets barefoot ease. SO/ Maldives wears its playful, couture-inspired identity everywhere, from the Lazuli Beach Club to the sculptural Arrival Pavilion, without losing sight of the reef just beyond the villas.",
         "For the We Present tour, SO/ is the opening or closing stop: two nights to test the Nest & the Zone activity spaces, dine at the Citronelle Club, and see first-hand why the property reads as one of the most distinctive addresses in South Male Atoll.",
       ],
       ru: [
-        "Короткий трансфер на лодке от Мале приводит в лагуну, где модный дизайн сочетается с непринуждённой простотой. SO/ Maldives выражает свою игривую, вдохновлённую кутюром идентичность повсюду — от Lazuli Beach Club до скульптурного павильона прибытия — не теряя из виду риф прямо за виллами.",
+        "Короткий трансфер на лодке от Мале приводит в лагуну, где модный дизайн сочетается с непринуждённой простотой. SO/ Maldives выражает свою игривую, вдохновлённую кутюром идентичность повсюду, от Lazuli Beach Club до скульптурного павильона прибытия, не теряя из виду риф прямо за виллами.",
         "В туре We Present SO/ становится первой или последней остановкой: две ночи, чтобы опробовать зоны The Nest & The Zone, поужинать в Citronelle Club и лично увидеть, почему этот отель считается одним из самых узнаваемых адресов Южного Мале Атолла.",
       ],
     },
     keyFacts: {
       location: {
-        en: "South Male Atoll, Maldives — 35 min speedboat from Male",
-        ru: "Южный Мале Атолл, Мальдивы — 35 минут на скоростном катере от Мале",
+        en: "South Male Atoll, Maldives · 35 min speedboat from Male",
+        ru: "Южный Мале Атолл, Мальдивы · 35 минут на скоростном катере от Мале",
       },
       villas: {
         en: "Beach Pool Villa Collection & Water Pool Villa Collection",
@@ -105,17 +105,17 @@ export const resorts: Resort[] = [
     story: {
       en: [
         "Fushifaru sits on its own private reef, a short seaplane hop from Male, where mornings begin with the tide and the days slow to the pace of the lagoon. Overwater and beach villas face an uninterrupted horizon; the house reef, reachable by a short swim from most villas, is among the most accessible in the atoll.",
-        "For the We Present tour, Fushifaru is the second stop — two nights to dive the house reef, unwind at Heylhi Spa, and experience the island’s understated, barefoot-luxury hospitality first-hand.",
+        "For the We Present tour, Fushifaru is the second stop: two nights to dive the house reef, unwind at Heylhi Spa, and experience the island’s understated, barefoot-luxury hospitality first-hand.",
       ],
       ru: [
-        "Fushifaru расположен на собственном рифе, в нескольких минutах на гидросамолёте от Мале, где утро начинается с приливом, а дни текут в ритме лагуны. Виллы над водой и на пляже смотрят на безграничный горизонт; домашний риф, до которого от большинства вилл можно доплыть за пару минут, — один из самых доступных в атолле.",
+        "Fushifaru расположен на собственном рифе, в нескольких минutах на гидросамолёте от Мале, где утро начинается с приливом, а дни текут в ритме лагуны. Виллы над водой и на пляже смотрят на безграничный горизонт; домашний риф, до которого от большинства вилл можно доплыть за пару минут, входит в число самых доступных в атолле.",
         "В туре We Present Fushifaru становится второй остановкой: две ночи, чтобы понырять у домашнего рифа, отдохнуть в Heylhi Spa и лично познакомиться со сдержанным, но роскошным гостеприимством острова.",
       ],
     },
     keyFacts: {
       location: {
-        en: "Lhaviyani Atoll, Maldives — 35 min seaplane from Male",
-        ru: "Атолл Лавияни, Мальдивы — 35 минут на гидросамолёте от Мале",
+        en: "Lhaviyani Atoll, Maldives · 35 min seaplane from Male",
+        ru: "Атолл Лавияни, Мальдивы · 35 минут на гидросамолёте от Мале",
       },
       villas: {
         en: "Beach Villas, Water Villas & Sunset Water Villas",
@@ -158,18 +158,18 @@ export const resorts: Resort[] = [
     },
     story: {
       en: [
-        "One of the newest additions to Raa Atoll, Meyyafushi pairs a still-fresh design language with an unusually deep list of overwater firsts — an overwater fitness centre, an overwater wine cellar, a 24-hour cafe — set against a genuinely quiet, barefoot island.",
+        "One of the newest additions to Raa Atoll, Meyyafushi pairs a still-fresh design language with an unusually deep list of overwater firsts (an overwater fitness centre, an overwater wine cellar, a 24-hour cafe) set against a genuinely quiet, barefoot island.",
         "As the closing stop on Tour 1, Meyyafushi gives the group two nights to see how a brand-new property balances its sustainability programme with the kind of polish agents will want to describe to their own clients.",
       ],
       ru: [
-        "Один из новейших отелей атолла Раа, Meyyafushi сочетает свежий дизайн с необычно длинным списком решений «впервые над водой» — фитнес-центр, винный погреб, кафе, работающее круглые сутки — на фоне по-настоящему тихого острова.",
+        "Один из новейших отелей атолла Раа, Meyyafushi сочетает свежий дизайн с необычно длинным списком решений «впервые над водой» (фитнес-центр, винный погреб, кафе, работающее круглые сутки) на фоне по-настоящему тихого острова.",
         "Как заключительная остановка Тура 1, Meyyafushi даёт группе две ночи, чтобы увидеть, как совершенно новый отель сочетает программу устойчивого развития с тем уровнем подачи, который агенты захотят описывать своим клиентам.",
       ],
     },
     keyFacts: {
       location: {
-        en: "Raa Atoll, Maldives — seaplane from Male",
-        ru: "Атолл Раа, Мальдивы — гидросамолёт от Мале",
+        en: "Raa Atoll, Maldives · seaplane from Male",
+        ru: "Атолл Раа, Мальдивы · гидросамолёт от Мале",
       },
       villas: {
         en: "Beach Pool Villas & Two-Bedroom Semi-Ocean Pool Villas",
@@ -212,18 +212,18 @@ export const resorts: Resort[] = [
     },
     story: {
       en: [
-        "Madifushi Private Island sits further south in Meemu Atoll, less visited than the capital-adjacent atolls and quieter for it. The property leans into that privacy — Serene Pool Villas, a Mandara Spa outpost, and a dolphin-cruise programme that takes advantage of the atoll's open water.",
+        "Madifushi Private Island sits further south in Meemu Atoll, less visited than the capital-adjacent atolls and quieter for it. The property leans into that privacy: Serene Pool Villas, a Mandara Spa outpost, and a dolphin-cruise programme that takes advantage of the atoll's open water.",
         "Madifushi was the fourth stop on the original Tour 2 itinerary; whether it remains within the shorter revised window is still being confirmed with the client (see the Technical Specification, Section 3.3).",
       ],
       ru: [
-        "Madifushi Private Island расположен южнее, в атолле Меему — менее посещаемом, чем атоллы рядом со столицей, и потому более тихом. Отель делает ставку на уединённость: виллы Serene Pool Villa, спа Mandara и программа круизов с дельфинами, использующая открытую воду атолла.",
+        "Madifushi Private Island расположен южнее, в атолле Меему, менее посещаемом, чем атоллы рядом со столицей, и потому более тихом. Отель делает ставку на уединённость: виллы Serene Pool Villa, спа Mandara и программа круизов с дельфинами, использующая открытую воду атолла.",
         "Madifushi был четвёртой остановкой в первоначальном маршруте Тура 2; сохранится ли она в сокращённом графике, пока уточняется с клиентом (см. Техническое задание, раздел 3.3).",
       ],
     },
     keyFacts: {
       location: {
-        en: "Meemu Atoll, Maldives — domestic flight + speedboat from Male",
-        ru: "Атолл Меему, Мальдивы — внутренний рейс и скоростной катер от Мале",
+        en: "Meemu Atoll, Maldives · domestic flight + speedboat from Male",
+        ru: "Атолл Меему, Мальдивы · внутренний рейс и скоростной катер от Мале",
       },
       villas: { en: "Serene Pool Villas", ru: "Виллы Serene Pool Villa" },
       facilities: {

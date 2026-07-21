@@ -41,7 +41,7 @@ export async function POST(request: Request) {
   const attachments: Attachment[] = await Promise.all(files.map(toAttachment));
 
   const result = await sendSubmission({
-    subject: `We Present — partnership request from ${hotelName}`,
+    subject: `We Present · Partnership request from ${hotelName}`,
     replyTo: email,
     fields: {
       "Hotel / Company": hotelName,

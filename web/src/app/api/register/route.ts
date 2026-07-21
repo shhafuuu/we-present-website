@@ -48,7 +48,7 @@ export async function POST(request: Request) {
   }
 
   const result = await sendSubmission({
-    subject: `We Present 2027 — agent registration from ${agency}`,
+    subject: `We Present 2027 · Agent registration from ${agency}`,
     replyTo: email,
     fields: {
       "Full Name": name,

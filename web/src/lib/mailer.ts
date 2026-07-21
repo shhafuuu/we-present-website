@@ -75,7 +75,7 @@ export async function sendSubmission(input: MailInput) {
   });
 
   await transporter.sendMail({
-    from: `"We Present — Website" <${user}>`,
+    from: `"We Present · Website" <${user}>`,
     to: NOTIFY_TO,
     replyTo: input.replyTo,
     subject: input.subject,

@@ -30,8 +30,8 @@ export const tours: Tour[] = [
     dates: { en: "17–23 August 2026", ru: "17–23 августа 2026" },
     status: "confirmed",
     summary: {
-      en: "A three-resort familiarization tour across three atolls — the same concept as Tour 2, without the Madifushi stop and without TTM attendance.",
-      ru: "Ознакомительный тур по трём курортам в трёх атоллах — та же концепция, что и Тур 2, но без остановки на Madifushi и без участия в TTM.",
+      en: "A three-resort familiarization tour across three atolls, the same concept as Tour 2, without the Madifushi stop and without TTM attendance.",
+      ru: "Ознакомительный тур по трём курортам в трёх атоллах, та же концепция, что и Тур 2, но без остановки на Madifushi и без участия в TTM.",
     },
     stops: [
       {
@@ -67,7 +67,7 @@ export const tours: Tour[] = [
     },
     ttmOverview: {
       en: "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
-      ru: "Travel Trade Maldives (TTM) 2026 — ведущее торговое мероприятие направления, уже 10-й сезон, с гала-вечером и церемонией награждения 27 августа. Группа We Present посещает TTM перед тем, как отправиться по курортам, указанным ниже.",
+      ru: "Travel Trade Maldives (TTM) 2026 является ведущим торговым мероприятием направления, уже 10-й сезон, с гала-вечером и церемонией награждения 27 августа. Группа We Present посещает TTM перед тем, как отправиться по курортам, указанным ниже.",
     },
     stops: [
       {

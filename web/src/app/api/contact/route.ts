@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   }
 
   const result = await sendSubmission({
-    subject: `We Present — contact form (${inquiryType || "General"})`,
+    subject: `We Present · Contact form (${inquiryType || "General"})`,
     replyTo: String(email),
     fields: {
       "Full Name": String(name),

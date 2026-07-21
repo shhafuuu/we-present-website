@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   }
 
   const result = await sendSubmission({
-    subject: `We Present — inquiry for ${hotel}`,
+    subject: `We Present · Inquiry for ${hotel}`,
     replyTo: email,
     fields: {
       Hotel: hotel,
