@@ -25,11 +25,11 @@ export function FileField({
   return (
     <label className="block text-sm text-ink/70">
       {label}
-      <div className="mt-2 flex items-center gap-3 rounded-lg border border-dashed border-amethyst/30 bg-ivory px-4 py-3">
+      <div className="mt-2 flex items-center gap-3 rounded-lg border border-dashed border-amethyst/30 bg-ivory px-4 py-3 has-[:focus-visible]:border-gold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-gold/30">
         <span className="kicker shrink-0 rounded-full bg-amethyst/10 px-3 py-1 text-[0.65rem] text-amethyst">
           {common.chooseFile}
         </span>
-        <span className="truncate text-xs text-ink/50">
+        <span className="truncate text-xs text-ink/70">
           {fileNames.length ? fileNames.join(", ") : common.noFileSelected}
         </span>
         <input

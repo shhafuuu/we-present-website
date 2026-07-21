@@ -51,7 +51,7 @@ export function RegisterForm({ locale }: { locale: Locale }) {
         className="absolute left-[-9999px] h-0 w-0"
         aria-hidden="true"
       />
-      <h3 className="font-display text-xl text-aubergine">{dict.title}</h3>
+      <h2 className="font-display text-xl text-aubergine">{dict.title}</h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">
           {dict.fullName}

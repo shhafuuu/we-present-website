@@ -316,6 +316,7 @@ export const en = {
       thankYouBody: "Your inquiry about {resort} has been noted. Our team will be in touch shortly.",
     },
     contact: {
+      title: "Send Us a Message",
       fullName: "Full Name",
       email: "Email",
       phone: "Phone (optional)",

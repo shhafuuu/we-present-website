@@ -50,7 +50,8 @@ export function ContactForm({ locale }: { locale: Locale }) {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl bg-soft-lilac/40 p-8">
-      <div className="grid gap-5 sm:grid-cols-2">
+      <h2 className="font-display text-xl text-aubergine">{dict.title}</h2>
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">
           {dict.fullName}
           <input

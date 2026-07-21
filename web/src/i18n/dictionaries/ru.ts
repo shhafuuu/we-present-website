@@ -318,6 +318,7 @@ export const ru: Dictionary = {
       thankYouBody: "Ваш запрос по {resort} принят. Наша команда свяжется с вами в ближайшее время.",
     },
     contact: {
+      title: "Отправить сообщение",
       fullName: "Полное имя",
       email: "Email",
       phone: "Телефон (необязательно)",

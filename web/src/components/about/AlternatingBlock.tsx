@@ -25,7 +25,13 @@ export function AlternatingBlock({
     >
       <Reveal>
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-          <Image src={image} alt={imageAlt} fill className="object-cover" />
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
       </Reveal>
       <Reveal delay={0.15}>

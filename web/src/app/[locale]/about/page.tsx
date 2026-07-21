@@ -61,7 +61,7 @@ export default async function AboutPage({
             {dict.about.selectionModel.steps.map((step, i) => (
               <Reveal key={step.number} delay={i * 0.1}>
                 <div className="rounded-2xl bg-soft-lilac/40 p-8 text-left">
-                  <p className="font-display text-3xl text-gold">{step.number}</p>
+                  <p className="font-display text-3xl text-amethyst">{step.number}</p>
                   <h3 className="font-display mt-4 text-xl text-aubergine">
                     {step.title}
                   </h3>

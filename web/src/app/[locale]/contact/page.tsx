@@ -30,6 +30,7 @@ export default async function ContactPage({
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto grid max-w-5xl gap-16 lg:grid-cols-[1fr_1.3fr]">
           <Reveal>
+            <h2 className="sr-only">{dict.contactPage.details.kicker}</h2>
             <Kicker>{dict.contactPage.details.kicker}</Kicker>
             <dl className="mt-6 space-y-6 text-sm">
               <div>
