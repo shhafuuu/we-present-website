@@ -29,6 +29,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
           inquiryType: form.get("inquiryType"),
           message: form.get("message"),
           consent: form.get("consent") === "on",
+          company_website: form.get("company_website"),
         }),
       });
 
@@ -51,7 +52,15 @@ export function ContactForm({ locale }: { locale: Locale }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl bg-soft-lilac/40 p-8">
+    <form onSubmit={handleSubmit} className="relative rounded-2xl bg-soft-lilac/40 p-8">
+      <input
+        type="text"
+        name="company_website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="absolute left-[-9999px] h-0 w-0"
+        aria-hidden="true"
+      />
       <h2 className="font-display text-xl text-aubergine">{dict.title}</h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">

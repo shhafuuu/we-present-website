@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
 import { sendSubmission } from "@/lib/mailer";
 import { validateUpload, toAttachment } from "@/lib/uploads";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export async function POST(request: Request) {
+  const { allowed, retryAfterSeconds } = checkRateLimit(`register:${getClientIp(request)}`);
+  if (!allowed) {
+    return NextResponse.json(
+      { ok: false, error: "Too many submissions. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   const form = await request.formData().catch(() => null);
   if (!form) {
     return NextResponse.json({ ok: false, error: "Invalid request body" }, { status: 400 });
