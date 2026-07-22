@@ -1,0 +1,53 @@
+{
+  "slug": "madifushi",
+  "order": 4,
+  "name": "Madifushi Private Island",
+  "atoll": { "en": "Meemu Atoll", "ru": "Атолл Меему" },
+  "tagline": {
+    "en": "A private-island retreat for the final, unhurried leg.",
+    "ru": "Уединённый частный остров для финального, неспешного этапа тура."
+  },
+  "cardImage": "/images/resorts/madifushi/card.jpg",
+  "cardImageAlt": "Aerial view of Madifushi Private Island's overwater villas and lagoon",
+  "heroImage": "/images/resorts/madifushi/hero.jpg",
+  "heroVideo": "/videos/madifushi-hero.mp4",
+  "logo": "/images/logos/madifushi.png",
+  "logoBg": "dark",
+  "built": true,
+  "website": "",
+  "stayDates": {
+    "en": "Tour 2 · dates to be confirmed",
+    "ru": "Тур 2 · даты уточняются"
+  },
+  "story": {
+    "en": [
+      "Madifushi Private Island sits further south in Meemu Atoll, less visited than the capital-adjacent atolls and quieter for it. The property leans into that privacy: Serene Pool Villas, a Mandara Spa outpost, and a dolphin-cruise programme that takes advantage of the atoll's open water.",
+      "Madifushi was the fourth stop on the original Tour 2 itinerary; whether it remains within the shorter revised window is still being confirmed with the client (see the Technical Specification, Section 3.3)."
+    ],
+    "ru": [
+      "Madifushi Private Island расположен южнее, в атолле Меему, менее посещаемом, чем атоллы рядом со столицей, и потому более тихом. Отель делает ставку на уединённость: виллы Serene Pool Villa, спа Mandara и программа круизов с дельфинами, использующая открытую воду атолла.",
+      "Madifushi был четвёртой остановкой в первоначальном маршруте Тура 2; сохранится ли она в сокращённом графике, пока уточняется с клиентом (см. Техническое задание, раздел 3.3)."
+    ]
+  },
+  "keyFacts": {
+    "location": {
+      "en": "Meemu Atoll, Maldives · domestic flight + speedboat from Male",
+      "ru": "Атолл Меему, Мальдивы · внутренний рейс и скоростной катер от Мале"
+    },
+    "villas": { "en": "Serene Pool Villas", "ru": "Виллы Serene Pool Villa" },
+    "facilities": {
+      "en": "Mandara Spa, Bella Six restaurant, Kokko Learning Studio, dolphin cruises",
+      "ru": "Спа Mandara, ресторан Bella Six, учебная студия Kokko, круизы с дельфинами"
+    }
+  },
+  "gallery": [
+    { "src": "/images/resorts/madifushi/hero.jpg", "alt": "Aerial view of Madifushi Private Island" },
+    { "src": "/images/resorts/madifushi/steps.jpg", "alt": "Stone steps leading to a pool through lush greenery at Madifushi Private Island" },
+    { "src": "/images/resorts/madifushi/villa.jpg", "alt": "Serene Pool Villa" },
+    { "src": "/images/resorts/madifushi/dining.jpg", "alt": "Bella Six restaurant" },
+    { "src": "/images/resorts/madifushi/spa.jpg", "alt": "Mandara Spa treatment room" },
+    { "src": "/images/resorts/madifushi/activity.jpg", "alt": "Dolphin cruise" },
+    { "src": "/images/resorts/madifushi/kids.jpg", "alt": "Kokko Learning Studio" },
+    { "src": "/images/resorts/madifushi/lifestyle.jpg", "alt": "Life at Madifushi Private Island" }
+  ]
+}

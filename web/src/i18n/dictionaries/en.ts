@@ -35,10 +35,6 @@ export const en = {
     privacyPolicy: "Privacy Policy",
   },
   home: {
-    intro: {
-      kicker: "What Is We Present",
-      body: "WePresent by COATI is a prestigious initiative from COATI Global Sales Agency, uniting the most influential leaders in the tourism industry, elite media representatives, digital platform innovators, journalists, tour operators, their exclusive agency partners, and key industry professionals. This project offers carefully curated limited-access outbound business events, creating a unique space for strategic networking, sharing cutting-edge expertise, forming new partnerships, and implementing initiatives that guarantee measurable business results.",
-    },
     hero: {
       kicker: "We Present · By Coati",
       title: "A front-row seat to the world’s finest resorts.",

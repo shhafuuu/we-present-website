@@ -1,0 +1,14 @@
+{
+  "slug": "oman",
+  "order": 4,
+  "year": "2026",
+  "name": { "en": "Oman", "ru": "Оман" },
+  "destination": { "en": "Oman", "ru": "Оман" },
+  "dates": { "en": "December 2026", "ru": "Декабрь 2026" },
+  "status": "pending",
+  "summary": {
+    "en": "An Oman familiarization tour in December 2026. Exact dates and resort line-up are not yet set; the tour appears on the calendar as \"dates coming soon\" and will be completed via the content portal once confirmed.",
+    "ru": "Ознакомительный тур в Оман в декабре 2026 года. Точные даты и список отелей пока не определены; в календаре тур отображается как «даты уточняются» и будет дополнен через контент-портал после подтверждения."
+  },
+  "stops": []
+}

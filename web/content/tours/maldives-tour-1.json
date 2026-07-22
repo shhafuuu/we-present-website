@@ -1,0 +1,33 @@
+{
+  "slug": "maldives-tour-1",
+  "order": 1,
+  "year": "2026",
+  "name": { "en": "Maldives · Tour 1", "ru": "Мальдивы · Тур 1" },
+  "destination": { "en": "Maldives", "ru": "Мальдивы" },
+  "dates": { "en": "17–23 August 2026", "ru": "17–23 августа 2026" },
+  "status": "confirmed",
+  "summary": {
+    "en": "A three-resort familiarization tour across three atolls, the same concept as Tour 2, without the Madifushi stop and without TTM attendance.",
+    "ru": "Ознакомительный тур по трём курортам в трёх атоллах, та же концепция, что и Тур 2, но без остановки на Madifushi и без участия в TTM."
+  },
+  "stops": [
+    {
+      "label": "SO/ Maldives",
+      "dates": { "en": "17–19 Aug", "ru": "17–19 авг" },
+      "note": { "en": "Resort stop 1.", "ru": "Остановка 1." },
+      "resortSlug": "so-maldives"
+    },
+    {
+      "label": "Fushifaru Maldives",
+      "dates": { "en": "19–21 Aug", "ru": "19–21 авг" },
+      "note": { "en": "Resort stop 2.", "ru": "Остановка 2." },
+      "resortSlug": "fushifaru"
+    },
+    {
+      "label": "Meyyafushi Maldives",
+      "dates": { "en": "21–23 Aug", "ru": "21–23 авг" },
+      "note": { "en": "Resort stop 3; departure 23 Aug.", "ru": "Остановка 3; вылет 23 авг." },
+      "resortSlug": "meyyafushi"
+    }
+  ]
+}

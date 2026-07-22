@@ -1,0 +1,14 @@
+{
+  "slug": "cinnamon-resorts-maldives",
+  "order": 3,
+  "year": "2026",
+  "name": { "en": "Cinnamon Resorts Maldives", "ru": "Cinnamon Resorts Maldives" },
+  "destination": { "en": "Maldives", "ru": "Мальдивы" },
+  "dates": { "en": "October 2026", "ru": "Октябрь 2026" },
+  "status": "pending",
+  "summary": {
+    "en": "A separate Maldives familiarization fam with Cinnamon Resorts, in October 2026. Exact dates and resort line-up are not yet set; the tour appears on the calendar as \"coming soon\" and will be completed via the content portal once confirmed.",
+    "ru": "Отдельный ознакомительный тур по Мальдивам с Cinnamon Resorts в октябре 2026 года. Точные даты и список отелей пока не определены; в календаре тур отображается как «скоро» и будет дополнен через контент-портал после подтверждения."
+  },
+  "stops": []
+}

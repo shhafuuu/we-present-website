@@ -1,0 +1,56 @@
+{
+  "slug": "meyyafushi",
+  "order": 3,
+  "name": "Meyyafushi Maldives",
+  "atoll": { "en": "Raa Atoll", "ru": "Атолл Раа" },
+  "tagline": {
+    "en": "Barefoot elegance on one of the Maldives' newest islands.",
+    "ru": "Непринуждённая элегантность на одном из новейших островов Мальдив."
+  },
+  "cardImage": "/images/resorts/meyyafushi/card.jpg",
+  "cardImageAlt": "Aerial view of Meyyafushi Maldives at dusk, overwater villas lining the reef",
+  "heroImage": "/images/resorts/meyyafushi/hero.jpg",
+  "heroVideo": "/videos/meyyafushi-hero.mp4",
+  "logo": "/images/logos/meyyafushi.png",
+  "logoBg": "none",
+  "built": true,
+  "website": "",
+  "stayDates": {
+    "en": "21–23 Aug 2026 · Tour 1, stop 3 (2 nights)",
+    "ru": "21–23 августа 2026 · Тур 1, остановка 3 (2 ночи)"
+  },
+  "story": {
+    "en": [
+      "One of the newest additions to Raa Atoll, Meyyafushi pairs a still-fresh design language with an unusually deep list of overwater firsts (an overwater fitness centre, an overwater wine cellar, a 24-hour cafe) set against a genuinely quiet, barefoot island.",
+      "As the closing stop on Tour 1, Meyyafushi gives the group two nights to see how a brand-new property balances its sustainability programme with the kind of polish agents will want to describe to their own clients."
+    ],
+    "ru": [
+      "Один из новейших отелей атолла Раа, Meyyafushi сочетает свежий дизайн с необычно длинным списком решений «впервые над водой» (фитнес-центр, винный погреб, кафе, работающее круглые сутки) на фоне по-настоящему тихого острова.",
+      "Как заключительная остановка Тура 1, Meyyafushi даёт группе две ночи, чтобы увидеть, как совершенно новый отель сочетает программу устойчивого развития с тем уровнем подачи, который агенты захотят описывать своим клиентам."
+    ]
+  },
+  "keyFacts": {
+    "location": {
+      "en": "Raa Atoll, Maldives · seaplane from Male",
+      "ru": "Атолл Раа, Мальдивы · гидросамолёт от Мале"
+    },
+    "villas": {
+      "en": "Beach Pool Villas & Two-Bedroom Semi-Ocean Pool Villas",
+      "ru": "Beach Pool Villa и двухспальные Semi-Ocean Pool Villa"
+    },
+    "facilities": {
+      "en": "Overwater fitness centre, overwater wine cellar, Kokko Kids Club, Baa main bar",
+      "ru": "Фитнес-центр над водой, винный погреб над водой, детский клуб Kokko, главный бар Baa"
+    }
+  },
+  "gallery": [
+    { "src": "/images/resorts/meyyafushi/hero.jpg", "alt": "Aerial view of Meyyafushi Maldives" },
+    { "src": "/images/resorts/meyyafushi/villa.jpg", "alt": "Beach Pool Villa bedroom" },
+    { "src": "/images/resorts/meyyafushi/dining.jpg", "alt": "Baa main bar" },
+    { "src": "/images/resorts/meyyafushi/spa.jpg", "alt": "Overwater fitness centre" },
+    { "src": "/images/resorts/meyyafushi/kids.jpg", "alt": "Kokko Kids Club" },
+    { "src": "/images/resorts/meyyafushi/lifestyle.jpg", "alt": "Overwater wine cellar" },
+    { "src": "/images/resorts/meyyafushi/sustainability.jpg", "alt": "Solar panels at Meyyafushi" },
+    { "src": "/images/resorts/meyyafushi/aerial2.jpg", "alt": "Island aerial view" }
+  ]
+}

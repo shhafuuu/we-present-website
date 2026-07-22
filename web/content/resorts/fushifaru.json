@@ -1,0 +1,56 @@
+{
+  "slug": "fushifaru",
+  "order": 2,
+  "name": "Fushifaru Maldives",
+  "atoll": { "en": "Lhaviyani Atoll", "ru": "Атолл Лавияни" },
+  "tagline": {
+    "en": "An intimate reef-fringed island built for slow mornings.",
+    "ru": "Уединённый остров у рифа, созданный для неспешных утр."
+  },
+  "cardImage": "/images/resorts/fushifaru/card.jpg",
+  "cardImageAlt": "Aerial view of Fushifaru Maldives, rows of overwater villas stretching into the lagoon",
+  "heroImage": "/images/resorts/fushifaru/hero.jpg",
+  "heroVideo": "/videos/fushifaru-hero.mp4",
+  "logo": "/images/logos/fushifaru.png",
+  "logoBg": "none",
+  "built": true,
+  "website": "",
+  "stayDates": {
+    "en": "19–21 Aug 2026 · Tour 1, stop 2 (2 nights)",
+    "ru": "19–21 августа 2026 · Тур 1, остановка 2 (2 ночи)"
+  },
+  "story": {
+    "en": [
+      "Fushifaru sits on its own private reef, a short seaplane hop from Male, where mornings begin with the tide and the days slow to the pace of the lagoon. Overwater and beach villas face an uninterrupted horizon; the house reef, reachable by a short swim from most villas, is among the most accessible in the atoll.",
+      "For the We Present tour, Fushifaru is the second stop: two nights to dive the house reef, unwind at Heylhi Spa, and experience the island’s understated, barefoot-luxury hospitality first-hand."
+    ],
+    "ru": [
+      "Fushifaru расположен на собственном рифе, в нескольких минutах на гидросамолёте от Мале, где утро начинается с приливом, а дни текут в ритме лагуны. Виллы над водой и на пляже смотрят на безграничный горизонт; домашний риф, до которого от большинства вилл можно доплыть за пару минут, входит в число самых доступных в атолле.",
+      "В туре We Present Fushifaru становится второй остановкой: две ночи, чтобы понырять у домашнего рифа, отдохнуть в Heylhi Spa и лично познакомиться со сдержанным, но роскошным гостеприимством острова."
+    ]
+  },
+  "keyFacts": {
+    "location": {
+      "en": "Lhaviyani Atoll, Maldives · 35 min seaplane from Male",
+      "ru": "Атолл Лавияни, Мальдивы · 35 минут на гидросамолёте от Мале"
+    },
+    "villas": {
+      "en": "Beach Villas, Water Villas & Sunset Water Villas",
+      "ru": "Пляжные виллы, виллы над водой и виллы Sunset Water Villa"
+    },
+    "facilities": {
+      "en": "Heylhi Spa, PADI dive centre, Greenfushi sustainability hub, kids club",
+      "ru": "Heylhi Spa, дайв-центр PADI, эко-центр Greenfushi, детский клуб"
+    }
+  },
+  "gallery": [
+    { "src": "/images/resorts/fushifaru/lifestyle.jpg", "alt": "Fushifaru beach deck at sunset" },
+    { "src": "/images/resorts/fushifaru/villa.jpg", "alt": "Beach Villa Sunrise interior" },
+    { "src": "/images/resorts/fushifaru/dining.jpg", "alt": "Dining at Fushifaru" },
+    { "src": "/images/resorts/fushifaru/spa.jpg", "alt": "Heylhi Spa treatment room" },
+    { "src": "/images/resorts/fushifaru/sandbank.jpg", "alt": "Fushifaru sandbank" },
+    { "src": "/images/resorts/fushifaru/dive.jpg", "alt": "Diving with a sea turtle" },
+    { "src": "/images/resorts/fushifaru/island.jpg", "alt": "Aerial view around the island" },
+    { "src": "/images/resorts/fushifaru/yoga.jpg", "alt": "Yoga session at Fushifaru" }
+  ]
+}

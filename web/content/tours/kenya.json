@@ -1,0 +1,14 @@
+{
+  "slug": "kenya",
+  "order": 5,
+  "year": "2026 / 27",
+  "name": { "en": "Kenya", "ru": "Кения" },
+  "destination": { "en": "Kenya", "ru": "Кения" },
+  "dates": { "en": "Dates to be confirmed", "ru": "Даты уточняются" },
+  "status": "pending",
+  "summary": {
+    "en": "A Kenya familiarization tour; dates to be confirmed. The tour appears on the calendar as \"coming soon\" and will be completed via the content portal once confirmed.",
+    "ru": "Ознакомительный тур в Кению; даты уточняются. В календаре тур отображается как «скоро» и будет дополнен через контент-портал после подтверждения."
+  },
+  "stops": []
+}

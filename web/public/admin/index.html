@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We Present — Content Portal</title>
+    <!-- robots: this admin route is not linked from the public site and is meaningless without
+         editor credentials, but keep it out of search indexes regardless. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- Explicit, absolute config path — Decap's default relative lookup breaks when
+         this page is served at the bare /admin URL (no trailing slash, via the Next.js
+         rewrite in next.config.ts) rather than /admin/. -->
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <!-- Decap CMS itself, loaded from the CDN per the standard zero-build-step setup
+         (see web/CLAUDE.md for why this route isn't bundled through Next.js). -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
+</html>

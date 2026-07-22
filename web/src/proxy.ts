@@ -20,9 +20,12 @@ export const config = {
     /*
      * Match all paths except:
      * - api routes
+     * - the content-portal admin UI (public/admin/index.html — a static file with
+     *   no extension in its URL, so it isn't caught by the .* extension exclusion
+     *   below; it must stay locale-prefix-free like /api does)
      * - Next.js internals (_next/static, _next/image)
      * - public files (anything with a file extension, e.g. favicon.ico, images)
      */
-    "/((?!api|_next/static|_next/image|.*\\..*).*)",
+    "/((?!api|admin|_next/static|_next/image|.*\\..*).*)",
   ],
 };

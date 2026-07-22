@@ -1,0 +1,83 @@
+{
+  "heroVideo": "/videos/so-maldives-hero.mp4",
+  "heroImage": "/images/resorts/so-maldives/hero.jpg",
+  "keyFacts": {
+    "location": {
+      "en": "South Male Atoll, Maldives · 35 min speedboat from Male",
+      "ru": "Южный Мале Атолл, Мальдивы · 35 минут на скоростном катере от Мале"
+    },
+    "villas": {
+      "en": "Beach Pool Villa Collection & Water Pool Villa Collection",
+      "ru": "Коллекция Beach Pool Villa и коллекция Water Pool Villa"
+    },
+    "facilities": {
+      "en": "Lazuli Beach Club, Citronelle Club, The Nest & The Zone, Wellness Camp spa",
+      "ru": "Lazuli Beach Club, Citronelle Club, The Nest & The Zone, спа Wellness Camp"
+    }
+  },
+  "cardImage": "/images/resorts/so-maldives/card.jpg",
+  "logo": "/images/logos/so-maldives.png",
+  "name": "SO/ Maldives",
+  "slug": "so-maldives",
+  "stayDates": {
+    "en": "17–19 Aug 2026 · Tour 1, stop 1 (2 nights)",
+    "ru": "17–19 августа 2026 · Тур 1, остановка 1 (2 ночи)"
+  },
+  "tagline": {
+    "en": "Fashion-forward playfulness, one lagoon from the capital.",
+    "ru": "Модная, игривая эстетика в одной лагуне от столицы."
+  },
+  "order": 1,
+  "logoBg": "none",
+  "gallery": [
+    {
+      "src": "/images/resorts/so-maldives/hero.jpg",
+      "alt": "Aerial view of SO/ Maldives overwater villas"
+    },
+    {
+      "src": "/images/resorts/so-maldives/villa.jpg",
+      "alt": "Beach Pool Villa Collection interior"
+    },
+    {
+      "src": "/images/resorts/so-maldives/dining.jpg",
+      "alt": "The Citronelle Club by day"
+    },
+    {
+      "src": "/images/resorts/so-maldives/spa.jpg",
+      "alt": "Aqua yoga at the Wellness Camp"
+    },
+    {
+      "src": "/images/resorts/so-maldives/reef.jpg",
+      "alt": "House reef at SO/ Maldives"
+    },
+    {
+      "src": "/images/resorts/so-maldives/arrival.jpg",
+      "alt": "Arrival Pavilion decoration"
+    },
+    {
+      "src": "/images/resorts/so-maldives/activity.jpg",
+      "alt": "Kids Club swing with family"
+    },
+    {
+      "src": "/images/resorts/so-maldives/lifestyle.jpg",
+      "alt": "Kayaking at SO/ Maldives"
+    }
+  ],
+  "story": {
+    "en": [
+      "A short boat transfer from Male brings you to a lagoon where fashion-forward design meets barefoot ease. SO/ Maldives wears its playful, couture-inspired identity everywhere, from the Lazuli Beach Club to the sculptural Arrival Pavilion, without losing sight of the reef just beyond the villas.",
+      "For the We Present tour, SO/ is the opening or closing stop: two nights to test the Nest & the Zone activity spaces, dine at the Citronelle Club, and see first-hand why the property reads as one of the most distinctive addresses in South Male Atoll."
+    ],
+    "ru": [
+      "Короткий трансфер на лодке от Мале приводит в лагуну, где модный дизайн сочетается с непринуждённой простотой. SO/ Maldives выражает свою игривую, вдохновлённую кутюром идентичность повсюду, от Lazuli Beach Club до скульптурного павильона прибытия, не теряя из виду риф прямо за виллами.",
+      "В туре We Present SO/ становится первой или последней остановкой: две ночи, чтобы опробовать зоны The Nest & The Zone, поужинать в Citronelle Club и лично увидеть, почему этот отель считается одним из самых узнаваемых адресов Южного Мале Атолла."
+    ]
+  },
+  "website": "",
+  "atoll": {
+    "en": "Emboodhu Finolhu, South Male Atoll",
+    "ru": "Эмбooду Финолху, Южный Мале Атолл"
+  },
+  "cardImageAlt": "A guest relaxing in a beachside hammock chair at SO/ Maldives, with overwater villas in the distance",
+  "built": true
+}

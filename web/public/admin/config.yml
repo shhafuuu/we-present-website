@@ -1,0 +1,261 @@
+# Decap CMS config for the We Present content portal (spec §9.2).
+#
+# All folder/media paths below are relative to the GIT REPO ROOT, which is
+# `/Users/test/Downloads/We Present` (one level above this `web/` Next.js app) —
+# not to this config file's own location. See web/CLAUDE.md "Content portal" for
+# the full explanation, local testing steps, and what's still needed for
+# production (a real OAuth backend once hosting is finalized).
+
+backend:
+  name: github
+  repo: shhafuuu/we-present-website
+  branch: main
+
+# Lets the CMS run fully locally against the real repo files with no OAuth setup,
+# via `npx decap-server` run from the repo root alongside `npm run dev`. Decap
+# detects it's on localhost and talks to that proxy instead of the GitHub API.
+# Harmless to leave in for production too — it's simply unused unless the proxy
+# is actually running.
+local_backend: true
+
+publish_mode: simple
+
+media_folder: "web/public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "tours"
+    label: "Tours"
+    label_singular: "Tour"
+    folder: "web/content/tours"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    identifier_field: slug
+    summary: "{{year}} · {{fields.name.en}} ({{status}})"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL-safe id, e.g. maldives-tour-1. Must be unique. Do not change once a tour has a public detail page — its URL depends on this."
+      - label: "Display order"
+        name: "order"
+        widget: "number"
+        hint: "Lower numbers show first in the calendar. Existing tours are 1–5; use 6+ for a new one, or a decimal (e.g. 1.5) to slot between two."
+      - label: "Year label"
+        name: "year"
+        widget: "string"
+        hint: "e.g. 2026 — or 2026 / 27 for a tour that spans years and should get its own calendar grouping."
+      - label: "Name"
+        name: "name"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Destination"
+        name: "destination"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Dates (display text)"
+        name: "dates"
+        widget: "object"
+        hint: "Free text, not a real date picker — e.g. \"17–23 August 2026\" or \"Dates to be confirmed\"."
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Confirmed — gets its own public tour-detail page", value: "confirmed" }
+          - { label: "Pending — shows as \"coming soon\" on the calendar, no detail page yet", value: "pending" }
+      - label: "Summary"
+        name: "summary"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "text" }
+          - { label: "Russian", name: "ru", widget: "text" }
+      - label: "TTM overview"
+        name: "ttmOverview"
+        widget: "object"
+        required: false
+        hint: "Only fill this in for a tour that includes Travel Trade Maldives attendance — it renders as an extra section on that tour's detail page. Leave both fields blank for every other tour."
+        fields:
+          - { label: "English", name: "en", widget: "text", required: false }
+          - { label: "Russian", name: "ru", widget: "text", required: false }
+      - label: "Itinerary stops"
+        name: "stops"
+        widget: "list"
+        allow_add: true
+        hint: "Only shown for confirmed tours — leave empty for a pending/coming-soon tour."
+        fields:
+          - { label: "Stop name", name: "label", widget: "string" }
+          - label: "Dates"
+            name: "dates"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Note"
+            name: "note"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Resort page to link to"
+            name: "resortSlug"
+            widget: "string"
+            required: false
+            hint: "Must exactly match a resort's Slug field (see the Resorts collection), e.g. fushifaru. Leave blank for a non-resort stop like TTM Maldives itself."
+
+  - name: "resorts"
+    label: "Resorts"
+    label_singular: "Resort"
+    folder: "web/content/resorts"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: false
+    identifier_field: slug
+    summary: "{{name}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL-safe id, e.g. fushifaru. Must be unique. Do not change once published — every resort page URL and tour stop reference depends on this."
+      - label: "Display order"
+        name: "order"
+        widget: "number"
+        hint: "Lower numbers show first in the resort grid and partners list."
+      - { label: "Resort name", name: "name", widget: "string", hint: "Not translated — brand names stay as-is in both languages." }
+      - label: "Atoll"
+        name: "atoll"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Tagline"
+        name: "tagline"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - { label: "Card image", name: "cardImage", widget: "image", hint: "Used in grid/list cards. Upload a new one here, or type a path under /images/resorts/<slug>/ if it's already been added to the repo by hand (see web/CLAUDE.md — the curated-image pipeline)." }
+      - { label: "Card image alt text", name: "cardImageAlt", widget: "string", hint: "Describe the scene for screen readers, e.g. \"Aerial view of ... overwater villas\" — don't just repeat the resort name." }
+      - { label: "Hero image", name: "heroImage", widget: "image" }
+      - { label: "Hero video (optional)", name: "heroVideo", widget: "string", required: false, hint: "Path under /videos/, e.g. /videos/fushifaru-hero.mp4. Leave blank to show the hero image only." }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Official website", name: "website", widget: "string", required: false, hint: "Full URL incl. https:// — makes this resort's logo clickable on the Partners page and homepage. Leave blank until the hotel provides one." }
+      - label: "Logo background treatment"
+        name: "logoBg"
+        widget: "select"
+        options:
+          - { label: "None — logo already looks right on a light background", value: "none" }
+          - { label: "Dark — logo is light-colored and needs a dark chip behind it to be visible", value: "dark" }
+      - { label: "Published (uncheck to hide from the site without deleting it)", name: "built", widget: "boolean", default: true }
+      - label: "Stay dates (display text)"
+        name: "stayDates"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Story paragraphs"
+        name: "story"
+        widget: "object"
+        hint: "Each language needs the same number of paragraphs, in the same order."
+        fields:
+          - { label: "English paragraphs", name: "en", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+          - { label: "Russian paragraphs", name: "ru", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+      - label: "Key facts"
+        name: "keyFacts"
+        widget: "object"
+        fields:
+          - label: "Location"
+            name: "location"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Villas"
+            name: "villas"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Facilities"
+            name: "facilities"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt text", name: "alt", widget: "string", hint: "Describe what's in the photo — used by screen readers, not shown visually." }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "web/content/settings/home.json"
+        fields:
+          - label: "Intro section"
+            name: "intro"
+            widget: "object"
+            hint: "The \"What Is We Present\" block near the top of the homepage."
+            fields:
+              - label: "Kicker (small label above the text)"
+                name: "kicker"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Russian", name: "ru", widget: "string" }
+              - label: "Body text"
+                name: "body"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "text" }
+                  - { label: "Russian", name: "ru", widget: "text" }
+
+  - name: "how_it_was"
+    label: "How It Was — Stories"
+    label_singular: "Story"
+    folder: "web/content/how-it-was"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    identifier_field: title
+    summary: "{{fields.title.en}}"
+    fields:
+      - label: "Related tour"
+        name: "tourSlug"
+        widget: "string"
+        required: false
+        hint: "Must exactly match a tour's Slug field (see the Tours collection), e.g. maldives-tour-1."
+      - label: "Title"
+        name: "title"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Body"
+        name: "body"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "text" }
+          - { label: "Russian", name: "ru", widget: "text" }
+      - { label: "Cover image", name: "coverImage", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt text", name: "alt", widget: "string" }
