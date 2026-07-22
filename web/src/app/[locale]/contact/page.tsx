@@ -19,7 +19,7 @@ export default async function ContactPage({
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <Kicker tone="ivory">{dict.contactPage.banner.kicker}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory sm:text-5xl">
+            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
               {dict.contactPage.banner.title}
             </h1>
             <p className="mt-6 text-ivory/70">{dict.contactPage.banner.body}</p>

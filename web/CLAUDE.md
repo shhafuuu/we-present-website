@@ -222,6 +222,17 @@ Went back through every client feedback source (the original PDF, all three chat
 
 Deliberately left alone: the home hero's own quote ("...the partners who sell the Maldives every day...") — that's Daria's client-approved copy in quotation marks, a different thing from unquoted page copy, not unilaterally rewritten.
 
+## RU-rendering confirmation sweep — 1 real bug found + fixed (2026-07-22)
+
+The client's original "Russian version doesn't display correctly" complaint had only ever had one confirmed-and-fixed instance (the header byline wrap) plus a lot of live spot-checking without finding more — asked to actually confirm it page by page rather than assume. Did it properly this time:
+
+- **Automated pass**: a Playwright script hit all 15 routes × 4 viewports (375×667, 390×844, 768×1024, 1440×900) = 60 page loads in RU, checking for horizontal overflow, any text element resolving to a non-Manrope/Playfair font (system-font fallback), heading/paragraph bounding-box overlaps, and console errors.
+- **Found one real bug**: the Legal page's H1 ("Политика конфиденциальности и уведомление о cookie") overflowed its container by ~9px at mobile widths (confirmed RU-specific — the EN equivalent's `scrollWidth` matched the viewport exactly, RU's didn't). Root cause: "конфиденциальности" (19 characters, no natural break point) doesn't fit the banner's `max-w-3xl` column at mobile widths, and without `overflow-wrap`, a single unbreakable word overflows its container instead of wrapping — the classic "Russian words run longer than English" failure mode the client described.
+- **Fixed systemically, not just the one instance**: this exact banner-H1 className (`font-display mt-5 text-4xl text-ivory sm:text-5xl`) is shared verbatim by 9 pages (Tours, Tour detail, Become a Partner, Contact, Register, How It Was, About, Partners, Legal). Added `break-words` to all 9 rather than patching only the one currently-overflowing page — the other 8 weren't triggering it with their *current* RU copy, but the same failure mode was one long word away from happening on any of them.
+- **Re-ran the full 60-page-load automated sweep after the fix**: zero findings. Followed up with full-page screenshots of the highest content-density pages (home, tours calendar, a tour detail page with the itinerary timeline, a resort page, both form pages) at mobile and desktop — all confirmed clean by eye, no overlap, no clipped text, no misalignment.
+
+This is now a genuinely confirmed, not assumed, fix — both the automated structural check and a visual pass agree.
+
 ## Current scope / not yet implemented
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 - **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark's exact typeface — an interim sans-serif fix is in place, see above — and the star/monogram motif prominence work is done), selected/approved hero photo (an interim replacement is in place, see above — client may still prefer to supply their own), hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.

@@ -33,7 +33,7 @@ export default async function TourDetailPage({
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <Kicker tone="ivory">{t(tour.destination, locale)}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory sm:text-5xl">
+            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
               {t(tour.name, locale)}
             </h1>
             <p className="mt-4 text-sm text-ivory/60">{t(tour.dates, locale)}</p>
