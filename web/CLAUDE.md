@@ -212,6 +212,16 @@ All verified live post-change: no horizontal overflow, headline text confirmed v
 - **4 remaining instances are deliberately untouched**: two JSDoc-style code comments (`Sparkle.tsx`, `resorts.ts`) and two lines in `mailer.ts` (an internal comment and a `console.log` debug string, gated behind missing env vars, never sent anywhere) — none of these render on any page or reach an end user or the client's inbox, so they're outside the scope of "on the website."
 - **Verified exhaustively, not spot-checked**: a Playwright script visited all 15 distinct routes in both locales (30 page loads total — home, about, tours list, both tour details, partners, register, become-a-partner, contact, how-it-was, legal, and all 4 resort pages) and searched each page's full rendered text for the `—` character. Zero hits.
 
+## Full feedback re-audit — 3 stale Maldives-only/out-of-date spots fixed (2026-07-22)
+
+Went back through every client feedback source (the original PDF, all three chat rounds, and the client's own replies) and checked each point against the live dictionary/data files directly rather than trusting prior session summaries — found 3 real gaps the destination-neutral and Cinnamon/Kenya work hadn't reached yet, all fixed (both locales):
+
+- **`meta.description`** (the SEO/social-share tag) still said "...experience the Maldives' finest resorts..." — never updated when the hero headline went destination-neutral. Now "...the world's finest resorts...".
+- **About page banner H1** ("An invitation to the partners who sell the Maldives every day") — the one page meant to explain the whole multi-destination concept opened with Maldives-only framing. Now "...who sell the world's finest resorts every day", echoing the home hero's own "world's finest resorts" phrase for consistency across pages.
+- **About page's concept narrative paragraph was stale**: described the season as "two Maldives tours... followed by an Oman tour in December, with further destinations planned for 2027" — didn't mention Cinnamon Resorts (Oct 2026) or Kenya at all, and wrongly implied everything past Oman was 2027-only. Rewrote to name both and drop the inaccurate "planned for 2027" framing.
+
+Deliberately left alone: the home hero's own quote ("...the partners who sell the Maldives every day...") — that's Daria's client-approved copy in quotation marks, a different thing from unquoted page copy, not unilaterally rewritten.
+
 ## Current scope / not yet implemented
 - **CMS / hosting**: the Git-based CMS (Decap/Tina), AWS deployment, and Russia-reachability testing from spec Sections 9–10 are unstarted — client is handling domain/hosting setup directly.
 - **Pending client assets** (spec Appendix D): logo SVG (blocks finalizing the header wordmark's exact typeface — an interim sans-serif fix is in place, see above — and the star/monogram motif prominence work is done), selected/approved hero photo (an interim replacement is in place, see above — client may still prefer to supply their own), hotel website URLs (needed to actually activate the now-built clickable-logo capability), parent-brand logo/link and footer contact details (phone/office/Instagram), and confirmation of the "TTM Tier 1/2" naming + Tour 2 per-resort nights.

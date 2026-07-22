@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: "We Present · by Coati",
     description:
-      "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the Maldives' finest resorts first-hand.",
+      "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the world's finest resorts first-hand.",
   },
   common: {
     chooseFile: "Choose file",
@@ -89,14 +89,14 @@ export const en = {
   about: {
     banner: {
       kicker: "About We Present",
-      title: "An invitation to the partners who sell the Maldives every day",
+      title: "An invitation to the partners who sell the world's finest resorts every day",
     },
     concept: {
       kicker: "The Concept",
       title: "A B2B programme, not a marketing event",
       paragraphs: [
         "We Present is a B2B initiative by COATI Global Sales Agency, an agency specialising in the Russia and CIS outbound market. The programme organises curated familiarization trips that bring selected travel-agency representatives to a destination to experience its resorts first-hand.",
-        "Rather than a single event, We Present runs an ongoing series of tours. The 2026 launch season includes two Maldives tours in August, one combined with Travel Trade Maldives (TTM) 2026, followed by an Oman tour in December, with further destinations planned for 2027.",
+        "Rather than a single event, We Present runs an ongoing series of tours. The 2026 season includes two Maldives tours in August, one combined with Travel Trade Maldives (TTM) 2026, a Cinnamon Resorts Maldives fam in October, and an Oman tour in December, with a Kenya edition and further destinations to follow.",
       ],
       imageAlt: "Fushifaru beach deck at sunset",
     },
