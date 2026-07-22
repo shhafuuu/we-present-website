@@ -11,15 +11,15 @@ export function Hero({ locale }: { locale: Locale }) {
   return (
     <section className="relative flex min-h-screen w-full items-end overflow-hidden">
       <Image
-        src="/images/home/hero-meyyafushi-aerial.jpg"
-        alt="Aerial view of overwater villas at golden hour"
+        src="/images/home/hero-open-ocean.jpg"
+        alt="Aerial view of open ocean water"
         fill
         priority
         sizes="100vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/20 to-aubergine/10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-aubergine/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-aubergine/95 via-aubergine/50 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
         <Reveal>
