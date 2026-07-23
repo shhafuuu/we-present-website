@@ -9,6 +9,8 @@ export type Resort = {
   slug: string;
   /** Display order in grids/lists — lower first. Editable via the content portal. */
   order: number;
+  /** Which content/destinations/*.json entry this resort belongs to (spec §6.4a). */
+  destinationSlug: string;
   name: string;
   atoll: LocalizedString;
   tagline: LocalizedString;

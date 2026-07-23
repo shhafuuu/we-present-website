@@ -1,5 +1,6 @@
 {
   "slug": "fushifaru",
+  "destinationSlug": "maldives",
   "order": 2,
   "name": "Fushifaru Maldives",
   "atoll": { "en": "Lhaviyani Atoll", "ru": "Атолл Лавияни" },

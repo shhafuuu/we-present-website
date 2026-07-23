@@ -19,6 +19,7 @@
   "logo": "/images/logos/so-maldives.png",
   "name": "SO/ Maldives",
   "slug": "so-maldives",
+  "destinationSlug": "maldives",
   "stayDates": {
     "en": "17–19 Aug 2026 · Tour 1, stop 1 (2 nights)",
     "ru": "17–19 августа 2026 · Тур 1, остановка 1 (2 ночи)"

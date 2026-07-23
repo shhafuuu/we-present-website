@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
+import { Button } from "@/components/Button";
 import { resorts, t } from "@/lib/resorts";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -67,6 +68,12 @@ export function ResortsGrid({ locale }: { locale: Locale }) {
             );
           })}
         </div>
+
+        <Reveal delay={0.3} className="mt-14 text-center">
+          <Button href={href(locale, "/destinations")} variant="ghost">
+            {dict.home.resorts.viewAllCta}
+          </Button>
+        </Reveal>
       </div>
     </section>
   );

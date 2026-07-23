@@ -111,6 +111,58 @@ collections:
             required: false
             hint: "Must exactly match a resort's Slug field (see the Resorts collection), e.g. fushifaru. Leave blank for a non-resort stop like TTM Maldives itself."
 
+  - name: "destinations"
+    label: "Destinations"
+    label_singular: "Destination"
+    folder: "web/content/destinations"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: false
+    identifier_field: slug
+    summary: "{{fields.name.en}} ({{status}})"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL-safe id, e.g. oman. Must be unique. Do not change once published — the destination page URL and every resort's Destination field depend on this."
+      - label: "Display order"
+        name: "order"
+        widget: "number"
+        hint: "Lower numbers show first on the Destinations landing page."
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Active — gets its own public destination page", value: "active" }
+          - { label: "Coming soon — shows as a non-clickable card, no page yet", value: "coming-soon" }
+        hint: "Only switch to Active once this destination has at least one resort (see the Resorts collection's Destination field) and the Hero image / Intro below are filled in."
+      - label: "Name"
+        name: "name"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - { label: "Hero image", name: "heroImage", widget: "image", required: false, hint: "Required before switching Status to Active." }
+      - label: "Intro"
+        name: "intro"
+        widget: "object"
+        required: false
+        hint: "Required before switching Status to Active."
+        fields:
+          - label: "Kicker (small label above the heading)"
+            name: "kicker"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Body"
+            name: "body"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "text" }
+              - { label: "Russian", name: "ru", widget: "text" }
+
   - name: "resorts"
     label: "Resorts"
     label_singular: "Resort"
@@ -130,6 +182,14 @@ collections:
         name: "order"
         widget: "number"
         hint: "Lower numbers show first in the resort grid and partners list."
+      - label: "Destination"
+        name: "destinationSlug"
+        widget: "select"
+        options:
+          - { label: "Maldives", value: "maldives" }
+          - { label: "Oman", value: "oman" }
+          - { label: "Kenya", value: "kenya" }
+        hint: "Which destination page this resort is nested under. Must match a Destinations collection entry's Slug."
       - { label: "Resort name", name: "name", widget: "string", hint: "Not translated — brand names stay as-is in both languages." }
       - label: "Atoll"
         name: "atoll"

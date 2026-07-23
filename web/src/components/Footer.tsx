@@ -29,7 +29,7 @@ export function Footer({ locale }: { locale: Locale }) {
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li><Link href={href(locale, "/about")} className="hover:text-ivory">{dict.nav.about}</Link></li>
               <li><Link href={href(locale, "/tours")} className="hover:text-ivory">{dict.nav.tours}</Link></li>
-              <li><Link href={href(locale, "/#resorts")} className="hover:text-ivory">{dict.nav.resorts}</Link></li>
+              <li><Link href={href(locale, "/destinations")} className="hover:text-ivory">{dict.nav.destinations}</Link></li>
               <li><Link href={href(locale, "/partners")} className="hover:text-ivory">{dict.nav.partners}</Link></li>
               <li><Link href={href(locale, "/how-it-was")} className="hover:text-ivory">{dict.nav.howItWas}</Link></li>
             </ul>

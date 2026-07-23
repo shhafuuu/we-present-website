@@ -11,7 +11,7 @@ export const en = {
   nav: {
     about: "About",
     tours: "Tours",
-    resorts: "Resorts",
+    destinations: "Destinations",
     partners: "Partners",
     howItWas: "How It Was",
     contact: "Contact",
@@ -62,6 +62,7 @@ export const en = {
       title: "Four islands, one tour",
       explore: "Explore →",
       comingSoon: "Coming Soon",
+      viewAllCta: "View All Destinations",
     },
     partners: {
       kicker: "Partners",
@@ -155,6 +156,22 @@ export const en = {
     itineraryKicker: "Itinerary",
     itineraryTitle: "The full itinerary",
     backToAll: "← All Tours",
+  },
+  destinationsPage: {
+    banner: {
+      kicker: "Destinations",
+      title: "Where We Present travels",
+      body: "Each destination in the collection groups its partner resorts, partners, and the programmes that visit it.",
+    },
+    comingSoon: {
+      badge: "Coming Soon",
+      body: "Resorts and partners for this destination are being confirmed.",
+    },
+    resortsHeading: "Partner Resorts",
+    resortsTitle: "Four islands, one itinerary",
+    programmesHeading: "Programmes",
+    programmesTitle: "This season's calendar",
+    backToAll: "← All Destinations",
   },
   partnersPage: {
     banner: {
@@ -289,6 +306,16 @@ export const en = {
       kicker: "We Present 2027",
       title: "Register your interest for the next edition",
       body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2027 calendar takes shape.",
+    },
+    enContact: {
+      banner: {
+        kicker: "We Present",
+        title: "Interested in We Present?",
+        body: "This programme is built around a Russia/CIS-focused agent registration process. If you're a hotel, destination or industry partner interested in getting involved, we'd like to hear from you directly.",
+      },
+      title: "Get in Touch",
+      body: "Email us and our team will follow up.",
+      emailCta: "Email Us",
     },
   },
   partnerPage: {

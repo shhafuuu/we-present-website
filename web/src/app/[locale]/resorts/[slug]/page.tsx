@@ -135,7 +135,7 @@ export default async function ResortPage({
             ← {previous.name}
           </Link>
           <Link
-            href={href(locale, "/#resorts")}
+            href={href(locale, `/destinations/${resort.destinationSlug}`)}
             className="kicker inline-flex min-h-11 items-center text-ink/70 hover:text-amethyst"
           >
             {dict.resortPage.allResorts}

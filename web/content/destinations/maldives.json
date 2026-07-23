@@ -1,0 +1,14 @@
+{
+  "slug": "maldives",
+  "order": 1,
+  "status": "active",
+  "name": { "en": "Maldives", "ru": "Мальдивы" },
+  "heroImage": "/images/home/hero-meyyafushi-aerial.jpg",
+  "intro": {
+    "kicker": { "en": "Maldives", "ru": "Мальдивы" },
+    "body": {
+      "en": "The Maldives is where We Present began, and remains the heart of the 2026 season. Four partner resorts across South Male, Lhaviyani and Meemu atolls host our familiarization tours, alongside Travel Trade Maldives, the destination's leading trade event.",
+      "ru": "Мальдивы, место, с которого начался We Present, и сердце сезона 2026 года. Четыре партнёрских курорта в атоллах Южный Мале, Лавияни и Меему принимают наши ознакомительные туры, наряду с Travel Trade Maldives, ведущим торговым мероприятием направления."
+    }
+  }
+}

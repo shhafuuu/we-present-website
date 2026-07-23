@@ -71,7 +71,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
           <Button href={href(locale, "/tours")} variant="ghost">
             {dict.home.tours.ctaFull}
           </Button>
-          <Button href={href(locale, "/#resorts")} variant="ghost">
+          <Button href={href(locale, "/destinations")} variant="ghost">
             {dict.home.tours.ctaResorts}
           </Button>
         </Reveal>
