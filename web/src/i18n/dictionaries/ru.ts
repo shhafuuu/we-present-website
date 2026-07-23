@@ -39,7 +39,7 @@ export const ru: Dictionary = {
   home: {
     hero: {
       kicker: "We Present · от Coati",
-      title: "Место в первом ряду среди лучших курортов мира.",
+      title: "Ваше место в первом ряду среди лучших курортов мира.",
       lead: "Эксклюзивные ознакомительные программы для партнёров турагентств при поддержке COATI Global Sales Agency: знакомство с курортами нашей коллекции.",
       ctaPrimary: "Оставить заявку",
       ctaSecondary: "Смотреть календарь туров",
@@ -232,6 +232,11 @@ export const ru: Dictionary = {
       instagram: "Instagram",
       instagramTbc: "Аккаунт уточняется",
       parentBrand: "Эксклюзивная инициатива",
+    },
+    enContact: {
+      title: "Свяжитесь с нами",
+      body: "Напишите нам, и наша команда свяжется с вами.",
+      emailCta: "Написать нам",
     },
   },
   resortPage: {

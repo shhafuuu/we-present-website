@@ -231,6 +231,11 @@ export const en = {
       instagramTbc: "Handle to be confirmed",
       parentBrand: "An Exclusive Initiative",
     },
+    enContact: {
+      title: "Get in Touch",
+      body: "Email us directly and our team will follow up.",
+      emailCta: "Email Us",
+    },
   },
   resortPage: {
     story: "The Story",

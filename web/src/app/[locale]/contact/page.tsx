@@ -1,6 +1,7 @@
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { ContactEnBlock } from "@/components/ContactEnBlock";
 import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -12,6 +13,8 @@ export default async function ContactPage({
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
   const dict = getDictionary(locale);
+  // Same RU-full-form/EN-contact-only split as /register (client instruction,
+  // extended here from the register page to the general contact form).
 
   return (
     <>
@@ -66,7 +69,7 @@ export default async function ContactPage({
           </Reveal>
 
           <Reveal delay={0.15}>
-            <ContactForm locale={locale} />
+            {locale === "ru" ? <ContactForm locale={locale} /> : <ContactEnBlock locale={locale} />}
           </Reveal>
         </div>
       </section>
