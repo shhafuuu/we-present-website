@@ -89,13 +89,25 @@ export const en = {
       title: "An invitation to the partners who sell the world's finest resorts every day",
     },
     concept: {
-      kicker: "The Concept",
-      title: "A B2B programme, not a marketing event",
+      kicker: "The Platform",
+      title: "An integrated platform, not a single event",
       paragraphs: [
-        "We Present is a B2B initiative by COATI Global Sales Agency, an agency specialising in the Russia and CIS outbound market. The programme organises curated familiarization trips that bring selected travel-agency representatives to a destination to experience its resorts first-hand.",
-        "Rather than a single event, We Present runs an ongoing series of tours. The 2026 season includes two Maldives tours in August, one combined with Travel Trade Maldives (TTM) 2026, a Cinnamon Resorts Maldives fam in October, and an Oman tour in December, with a Kenya edition and further destinations to follow.",
+        "WePresent by COATI is an integrated B2B platform that brings together exclusive destination experiences, professional networking, education, media exposure, PR, influencer marketing and strategic partnerships in one unique format.",
+        "It connects the key players in tourism, from travel professionals and tour operators to hotels, destinations, media, content creators and industry experts. Together, they create real value: greater destination and brand awareness, meaningful industry connections, media and digital exposure, sales growth, long-term partnerships, and measurable business results.",
       ],
       imageAlt: "Fushifaru beach deck at sunset",
+    },
+    valueGrid: {
+      kicker: "The Value",
+      title: "What the platform creates",
+      items: [
+        { title: "Destination & Brand Awareness", body: "Raising visibility for destinations and hotel brands among the agents who sell them." },
+        { title: "Meaningful Industry Connections", body: "Bringing together travel professionals, hoteliers, media and industry experts in one room." },
+        { title: "Media & Digital Exposure", body: "Coverage, content and campaigns that extend each edition well beyond the trip itself." },
+        { title: "Sales Growth", body: "Direct, first-hand product knowledge that agents convert into bookings." },
+        { title: "Long-Term Partnerships", body: "Relationships between agencies, hotels and destinations built to last beyond a single edition." },
+        { title: "Measurable Results", body: "Outcomes tracked and reported, not just goodwill." },
+      ],
     },
     howItWorks: {
       kicker: "How It Works",
@@ -126,6 +138,12 @@ export const en = {
           body: "Once confirmed, the itinerary, resorts and event attendance are locked in, and the group experiences the destination together.",
         },
       ],
+    },
+    cases: {
+      kicker: "Project Cases",
+      title: "Real results, coming soon",
+      body: "As each 2026 edition wraps, real project cases will appear here: destination launches, hotel presentations, educational trips, media and blogger collaborations, and more, each with the activities completed and results achieved. Participant and partner reviews will follow the same way.",
+      cta: "See How It Was",
     },
     benefits: {
       kicker: "Benefits for Agents",

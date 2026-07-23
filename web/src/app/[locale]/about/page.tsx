@@ -39,6 +39,29 @@ export default async function AboutPage({
       </section>
 
       <section className="bg-lavender-mist px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-6xl text-center">
+          <Reveal>
+            <Kicker>{dict.about.valueGrid.kicker}</Kicker>
+            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+              {dict.about.valueGrid.title}
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+            {dict.about.valueGrid.items.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.06}>
+                <div className="flex h-full flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory p-6 shadow-card">
+                  <Sparkle className="h-4 w-4 text-gold" />
+                  <h3 className="font-display text-lg text-aubergine">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-ink/70">{item.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ivory px-6 py-24 lg:px-10">
         <AlternatingBlock
           kicker={dict.about.howItWorks.kicker}
           title={dict.about.howItWorks.title}
@@ -49,7 +72,7 @@ export default async function AboutPage({
         />
       </section>
 
-      <section className="bg-ivory px-6 py-24 lg:px-10">
+      <section className="bg-lavender-mist px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-5xl text-center">
           <Reveal>
             <Kicker>{dict.about.selectionModel.kicker}</Kicker>
@@ -61,7 +84,7 @@ export default async function AboutPage({
           <div className="mt-14 grid gap-8 sm:grid-cols-3">
             {dict.about.selectionModel.steps.map((step, i) => (
               <Reveal key={step.number} delay={i * 0.1}>
-                <div className="rounded-2xl bg-soft-lilac/40 p-8 text-left">
+                <div className="rounded-2xl bg-ivory p-8 text-left shadow-card">
                   <p className="font-display text-3xl text-amethyst">{step.number}</p>
                   <h3 className="font-display mt-4 text-xl text-aubergine">
                     {step.title}
@@ -73,6 +96,28 @@ export default async function AboutPage({
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-ivory px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <Kicker>{dict.about.cases.kicker}</Kicker>
+            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+              {dict.about.cases.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-10 rounded-3xl border border-dashed border-amethyst/20 bg-soft-lilac/40 px-8 py-14">
+              <Sparkle className="mx-auto h-4 w-4 text-gold" />
+              <p className="mt-4 text-sm leading-relaxed text-ink/70">{dict.about.cases.body}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.25} className="mt-10">
+            <Button href={href(locale, "/how-it-was")} variant="ghost">
+              {dict.about.cases.cta}
+            </Button>
+          </Reveal>
         </div>
       </section>
 
