@@ -52,6 +52,11 @@ export default async function DestinationPage({
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/95 via-aubergine/50 to-aubergine/15" />
+        {/* Same fixed-header protection as the resort hero template — the main
+            gradient's own top opacity isn't reliable across different destination
+            photos (confirmed live: nav measured 3.46:1 on the current Maldives
+            photo despite the kicker passing comfortably). */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-aubergine/85 via-aubergine/35 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>
             <p className="kicker inline-flex items-center gap-2.5 text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
