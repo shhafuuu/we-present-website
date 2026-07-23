@@ -15,6 +15,7 @@ export function InquiryForm({
   const dict = getDictionary(locale).forms.inquiry;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [loadedAt] = useState(() => Date.now());
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,6 +36,7 @@ export function InquiryForm({
           message: form.get("message"),
           hotel: resortName,
           company_website: form.get("company_website"),
+          formLoadedAt: loadedAt,
         }),
       });
 

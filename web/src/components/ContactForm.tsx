@@ -10,6 +10,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale).forms.contact;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [loadedAt] = useState(() => Date.now());
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,6 +31,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
           message: form.get("message"),
           consent: form.get("consent") === "on",
           company_website: form.get("company_website"),
+          formLoadedAt: loadedAt,
         }),
       });
 

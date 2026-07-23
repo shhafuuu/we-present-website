@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { sendSubmission } from "@/lib/mailer";
-import { validateUpload, toAttachment } from "@/lib/uploads";
+import { validateUpload, validateUploadBatch, toAttachment } from "@/lib/uploads";
 import type { Attachment } from "@/lib/mailer";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+import { isSubmittedTooFast } from "@/lib/antiSpam";
+import { isValidEmail, isWithinLength } from "@/lib/validate";
 
 export async function POST(request: Request) {
   const { allowed, retryAfterSeconds } = checkRateLimit(`partner:${getClientIp(request)}`);
@@ -20,6 +22,11 @@ export async function POST(request: Request) {
 
   // Honeypot: real users never fill this hidden field (spec Section 8.4 anti-spam).
   if (form.get("company_website")) {
+    return NextResponse.json({ ok: true, delivered: false });
+  }
+
+  // Time-trap: same "look successful, log nothing" response as the honeypot.
+  if (isSubmittedTooFast(form.get("formLoadedAt"))) {
     return NextResponse.json({ ok: true, delivered: false });
   }
 
@@ -42,8 +49,25 @@ export async function POST(request: Request) {
     );
   }
 
+  if (!isValidEmail(email)) {
+    return NextResponse.json({ ok: false, error: "Please provide a valid email address." }, { status: 400 });
+  }
+
+  if (
+    !isWithinLength(hotelName, 200) ||
+    !isWithinLength(contactPerson, 200) ||
+    (typeof phone === "string" && !isWithinLength(phone, 50)) ||
+    (typeof website === "string" && !isWithinLength(website, 500)) ||
+    (typeof message === "string" && !isWithinLength(message, 5000))
+  ) {
+    return NextResponse.json({ ok: false, error: "One or more fields are too long." }, { status: 400 });
+  }
+
+  const batchError = validateUploadBatch(files);
+  if (batchError) return NextResponse.json({ ok: false, error: batchError }, { status: 400 });
+
   for (const file of files) {
-    const error = validateUpload(file);
+    const error = await validateUpload(file);
     if (error) return NextResponse.json({ ok: false, error }, { status: 400 });
   }
 

@@ -11,6 +11,7 @@ export function PartnerForm({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale).forms.partner;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [loadedAt] = useState(() => Date.now());
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -53,6 +54,7 @@ export function PartnerForm({ locale }: { locale: Locale }) {
         className="absolute left-[-9999px] h-0 w-0"
         aria-hidden="true"
       />
+      <input type="hidden" name="formLoadedAt" value={loadedAt} readOnly />
       <h2 className="font-display text-xl text-aubergine">{dict.title}</h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">

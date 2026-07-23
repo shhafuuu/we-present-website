@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { sendSubmission } from "@/lib/mailer";
-import { validateUpload, toAttachment } from "@/lib/uploads";
+import { validateUpload, validateUploadBatch, toAttachment } from "@/lib/uploads";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+import { isSubmittedTooFast } from "@/lib/antiSpam";
+import { isValidEmail, isWithinLength } from "@/lib/validate";
 
 export async function POST(request: Request) {
   const { allowed, retryAfterSeconds } = checkRateLimit(`register:${getClientIp(request)}`);
@@ -19,6 +21,13 @@ export async function POST(request: Request) {
 
   // Honeypot: real users never fill this hidden field (spec Section 8.4 anti-spam).
   if (form.get("company_website")) {
+    return NextResponse.json({ ok: true, delivered: false });
+  }
+
+  // Time-trap: a submission filled in and sent faster than a real person could
+  // read the form is almost certainly a bot (spec Section 12.2). Same "look
+  // successful, log nothing" response as the honeypot, so bots get no signal.
+  if (isSubmittedTooFast(form.get("formLoadedAt"))) {
     return NextResponse.json({ ok: true, delivered: false });
   }
 
@@ -44,6 +53,19 @@ export async function POST(request: Request) {
     );
   }
 
+  if (!isValidEmail(email)) {
+    return NextResponse.json({ ok: false, error: "Please provide a valid email address." }, { status: 400 });
+  }
+
+  if (
+    !isWithinLength(name, 200) ||
+    !isWithinLength(agency, 200) ||
+    !isWithinLength(phone, 50) ||
+    (typeof comments === "string" && !isWithinLength(comments, 5000))
+  ) {
+    return NextResponse.json({ ok: false, error: "One or more fields are too long." }, { status: 400 });
+  }
+
   if (!(stats instanceof File) || !(businessCard instanceof File)) {
     return NextResponse.json(
       { ok: false, error: "Statistics and business card uploads are required." },
@@ -51,8 +73,11 @@ export async function POST(request: Request) {
     );
   }
 
+  const batchError = validateUploadBatch([stats, businessCard]);
+  if (batchError) return NextResponse.json({ ok: false, error: batchError }, { status: 400 });
+
   for (const file of [stats, businessCard]) {
-    const error = validateUpload(file);
+    const error = await validateUpload(file);
     if (error) return NextResponse.json({ ok: false, error }, { status: 400 });
   }
 
