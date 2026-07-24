@@ -347,6 +347,16 @@ export const en = {
       title: "Request partnership with We Present",
       body: "Resorts interested in joining a future edition can submit their details below, along with images or brochures for our team to review.",
     },
+    enContact: {
+      banner: {
+        kicker: "Become a Partner",
+        title: "Interested in partnering with We Present?",
+        body: "This programme is built around a Russia/CIS-focused partner process. If your property is interested in joining a future edition, we'd like to hear from you directly.",
+      },
+      title: "Get in Touch",
+      body: "Email us and our team will follow up.",
+      emailCta: "Email Us",
+    },
   },
   forms: {
     inquiry: {
