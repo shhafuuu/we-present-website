@@ -19,11 +19,6 @@ export function Hero({ locale }: { locale: Locale }) {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(62,44,85,0.88)_0%,rgba(62,44,85,0.64)_45%,rgba(62,44,85,0.63)_65%,rgba(62,44,85,0.14)_80%,transparent_92%)]" />
-      {/* The header nav (a separate fixed component, transparent until scrolled)
-          sits directly on this section's top edge — protect it independently of
-          the main gradient above, which is intentionally clear here so the photo
-          reads clean where there's no text over it. */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-aubergine/95 via-aubergine/50 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
         <Reveal>

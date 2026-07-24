@@ -45,13 +45,6 @@ export default async function ResortPage({
           alt={resort.name}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
-        {/* The fixed header nav (transparent until scrolled) sits on every hero's
-            top edge. Each resort uses a different photo, and some are bright
-            enough at the top that nav text fails contrast without its own
-            protection (confirmed live: Meyyafushi measured 1.51:1) — this scrim
-            is independent of the section gradient above so it protects the nav
-            regardless of which resort's photo is showing. */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-aubergine/95 via-aubergine/55 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
           <Reveal>
             <p className="kicker inline-flex items-center gap-2.5 text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">

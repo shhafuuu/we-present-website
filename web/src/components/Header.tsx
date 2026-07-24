@@ -43,7 +43,7 @@ export function Header({ locale }: { locale: Locale }) {
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         solid
           ? "bg-ivory/95 backdrop-blur-sm shadow-[0_1px_0_0_rgba(62,44,85,0.08)]"
-          : "bg-transparent"
+          : "bg-aubergine/75 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-[100rem] items-center justify-between px-6 py-4 lg:px-8">
