@@ -46,6 +46,18 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
+  images: {
+    // Resort partner logos are delivered as SVG (transparent vector art) — Next's
+    // image optimizer blocks SVG by default since an untrusted SVG can embed
+    // <script> tags. The mitigations below are Next's own documented pairing for
+    // this flag: served SVGs get a strict per-response CSP (no scripts at all)
+    // and a forced download disposition, so even a malicious SVG uploaded later
+    // via the CMS can't execute in the browser. All current logo SVGs are
+    // static, hand-verified, script-free vector art, not untrusted uploads.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },

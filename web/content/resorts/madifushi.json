@@ -12,8 +12,8 @@
   "cardImageAlt": "Aerial view of Madifushi Private Island's overwater villas and lagoon",
   "heroImage": "/images/resorts/madifushi/hero.jpg",
   "heroVideo": "/videos/madifushi-hero.mp4",
-  "logo": "/images/logos/madifushi.png",
-  "logoBg": "dark",
+  "logo": "/images/logos/madifushi.svg",
+  "logoBg": "none",
   "built": true,
   "website": "",
   "stayDates": {
