@@ -47,7 +47,16 @@ export function Footer({ locale }: { locale: Locale }) {
           <div>
             <Kicker tone="gold">{dict.footer.follow}</Kicker>
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
-              <li className="text-soft-lilac/70">{dict.footer.instagramTbc}</li>
+              <li>
+                <a
+                  href="https://www.instagram.com/wepresentproject"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-ivory"
+                >
+                  {dict.footer.instagramHandle}
+                </a>
+              </li>
             </ul>
             <div className="mt-8">
               <Kicker tone="gold">{dict.footer.parentBrand}</Kicker>

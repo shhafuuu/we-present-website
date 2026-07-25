@@ -33,7 +33,7 @@ export default async function AboutPage({
           kicker={dict.about.concept.kicker}
           title={dict.about.concept.title}
           paragraphs={dict.about.concept.paragraphs}
-          image="/images/resorts/fushifaru/lifestyle.jpg"
+          image="/images/resorts/fushifaru/island.jpg"
           imageAlt={dict.about.concept.imageAlt}
         />
       </section>
@@ -66,7 +66,7 @@ export default async function AboutPage({
           kicker={dict.about.howItWorks.kicker}
           title={dict.about.howItWorks.title}
           paragraphs={dict.about.howItWorks.paragraphs}
-          image="/images/resorts/so-maldives/lifestyle.jpg"
+          image="/images/resorts/fushifaru/sandbank.jpg"
           imageAlt={dict.about.howItWorks.imageAlt}
           reverse
         />

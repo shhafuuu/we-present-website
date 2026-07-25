@@ -50,7 +50,16 @@ export default async function ContactPage({
               </div>
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.instagram}</dt>
-                <dd className="mt-1 text-ink/70">{dict.contactPage.details.instagramTbc}</dd>
+                <dd className="mt-1">
+                  <a
+                    href="https://www.instagram.com/wepresentproject"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-amethyst underline"
+                  >
+                    {dict.contactPage.details.instagramHandle}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.parentBrand}</dt>

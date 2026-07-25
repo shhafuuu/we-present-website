@@ -29,7 +29,7 @@ export const en = {
     email: "hello@wepresent.org",
     phoneTbc: "Phone: to be confirmed",
     officeTbc: "Office address: to be confirmed",
-    instagramTbc: "Instagram: handle to be confirmed",
+    instagramHandle: "@wepresentproject",
     projectByCoati: "A Project by Coati",
     copyright: "© 2026 We Present by Coati. All rights reserved.",
     privacyPolicy: "Privacy Policy",
@@ -95,7 +95,7 @@ export const en = {
         "WePresent by COATI is an integrated B2B platform that brings together exclusive destination experiences, professional networking, education, media exposure, PR, influencer marketing and strategic partnerships in one unique format.",
         "It connects the key players in tourism, from travel professionals and tour operators to hotels, destinations, media, content creators and industry experts. Together, they create real value: greater destination and brand awareness, meaningful industry connections, media and digital exposure, sales growth, long-term partnerships, and measurable business results.",
       ],
-      imageAlt: "Fushifaru beach deck at sunset",
+      imageAlt: "A seaplane arriving at an island resort",
     },
     valueGrid: {
       kicker: "The Value",
@@ -116,7 +116,7 @@ export const en = {
         "For each edition, the participating group is already confirmed before the site goes live; the website is not a tool to recruit attendees for a given tour. Its role is to give the programme a polished, professional online presence.",
         "That means showcasing the concept, the tours, the resorts and the partners; keeping the calendar current; and supporting inquiries and forward interest from agents, clients and hotels alike.",
       ],
-      imageAlt: "Kayaking at SO/ Maldives",
+      imageAlt: "A private picnic set up on a sandbank",
     },
     selectionModel: {
       kicker: "Selection Model",
@@ -228,7 +228,7 @@ export const en = {
       office: "Office",
       officeTbc: "Address to be confirmed",
       instagram: "Instagram",
-      instagramTbc: "Handle to be confirmed",
+      instagramHandle: "@wepresentproject",
       parentBrand: "An Exclusive Initiative",
     },
     enContact: {
