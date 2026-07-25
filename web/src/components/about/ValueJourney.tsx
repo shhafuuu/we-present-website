@@ -44,7 +44,7 @@ const STAGE_BODY_TONE = ["text-ink/70", "text-ink/70", "text-ivory/75"] as const
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-function Connector({ toneClass, reduced }: { toneClass: string; reduced: boolean }) {
+function Connector({ toneClass, reduced, delay }: { toneClass: string; reduced: boolean; delay: number }) {
   return (
     <div className="hidden items-center justify-center lg:flex" aria-hidden="true">
       <svg width="40" height="16" viewBox="0 0 40 16" fill="none" className={toneClass}>
@@ -56,9 +56,19 @@ function Connector({ toneClass, reduced }: { toneClass: string; reduced: boolean
           initial={reduced ? { pathLength: 1 } : { pathLength: 0 }}
           whileInView={{ pathLength: 1 }}
           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-          transition={{ duration: reduced ? 0 : 0.6, ease: "easeOut" }}
+          transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : delay, ease: "easeOut" }}
         />
-        <path d="M28 2.5 35.5 8 28 13.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        <motion.path
+          d="M28 2.5 35.5 8 28 13.5"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={reduced ? { opacity: 1 } : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+          transition={{ duration: reduced ? 0 : 0.2, delay: reduced ? 0 : delay + 0.7, ease: "easeOut" }}
+        />
       </svg>
     </div>
   );
@@ -89,38 +99,33 @@ export function ValueJourney({ stages, items }: { stages: string[]; items: Value
                 const Icon = ITEM_ICONS[itemIndex];
                 const item = items[itemIndex];
                 return (
-                  <motion.div
+                  <div
                     key={itemIndex}
                     className={`flex flex-col gap-3 ${
                       rowIndex > 0 ? `border-t pt-6 ${STAGE_DIVIDER[stageIndex]}` : ""
                     }`}
-                    whileHover={reduced ? undefined : "hover"}
-                    initial="rest"
                   >
-                    <motion.span
-                      variants={{
-                        rest: { scale: 1, rotate: 0 },
-                        hover: { scale: 1.12, rotate: -6 },
-                      }}
-                      transition={{ type: "spring", stiffness: 320, damping: 14 }}
-                      className={`inline-flex ${STAGE_ICON_TONE[stageIndex]}`}
-                    >
+                    <span className={`inline-flex ${STAGE_ICON_TONE[stageIndex]}`}>
                       <Icon className="h-7 w-7" />
-                    </motion.span>
+                    </span>
                     <h3 className={`font-display text-lg ${STAGE_TITLE_TONE[stageIndex]}`}>
                       {item.title}
                     </h3>
                     <p className={`text-sm leading-relaxed ${STAGE_BODY_TONE[stageIndex]}`}>
                       {item.body}
                     </p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
           </motion.div>
 
           {stageIndex < STAGE_ITEM_INDEXES.length - 1 && (
-            <Connector toneClass={STAGE_LABEL_TONE[stageIndex]} reduced={reduced} />
+            <Connector
+              toneClass={STAGE_LABEL_TONE[stageIndex]}
+              reduced={reduced}
+              delay={stageIndex * 0.15 + 0.5}
+            />
           )}
         </div>
       ))}

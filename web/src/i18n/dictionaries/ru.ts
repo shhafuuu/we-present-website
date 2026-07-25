@@ -4,7 +4,7 @@ export const ru: Dictionary = {
   meta: {
     title: "We Present · от Coati",
     description:
-      "We Present by COATI: кураторская программа туров от COATI Global Sales Agency, которая знакомит партнёров турагентств с лучшими курортами мира лично.",
+      "We Present by COATI: кураторская программа туров от COATI Global Sales Agency, которая знакомит партнёров турагентств с лучшими отелями мира лично.",
   },
   common: {
     chooseFile: "Выбрать файл",
@@ -40,7 +40,7 @@ export const ru: Dictionary = {
   home: {
     hero: {
       kicker: "We Present · от Coati",
-      title: "Ваше место в первом ряду среди лучших курортов мира.",
+      title: "Ваше место в первом ряду среди лучших отелей мира.",
       lead: "Эксклюзивные ознакомительные программы для партнёров турагентств при поддержке COATI Global Sales Agency: знакомство с курортами нашей коллекции.",
       ctaPrimary: "Оставить заявку",
       ctaSecondary: "Смотреть календарь туров",
@@ -89,7 +89,7 @@ export const ru: Dictionary = {
   about: {
     banner: {
       kicker: "О программе We Present",
-      title: "Приглашение для партнёров, которые каждый день продают лучшие курорты мира",
+      title: "Приглашение для партнёров, которые каждый день продают лучшие отели мира",
     },
     concept: {
       kicker: "Платформа",

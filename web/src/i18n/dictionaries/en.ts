@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: "We Present · by Coati",
     description:
-      "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the world's finest resorts first-hand.",
+      "We Present by COATI is a curated tour programme by COATI Global Sales Agency bringing travel-agency partners to experience the world's finest hotels first-hand.",
   },
   common: {
     chooseFile: "Choose file",
@@ -38,7 +38,7 @@ export const en = {
   home: {
     hero: {
       kicker: "We Present · By Coati",
-      title: "A front-row seat to the world’s finest resorts.",
+      title: "A front-row seat to the world’s finest hotels.",
       lead: "Curated familiarization tours for travel-agency partners: an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
       ctaPrimary: "Register Interest",
       ctaSecondary: "View Tours Calendar",
@@ -87,7 +87,7 @@ export const en = {
   about: {
     banner: {
       kicker: "About We Present",
-      title: "An invitation to the partners who sell the world's finest resorts every day",
+      title: "An invitation to the partners who sell the world's finest hotels every day",
     },
     concept: {
       kicker: "The Platform",

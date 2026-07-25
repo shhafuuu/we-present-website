@@ -2,9 +2,18 @@
   "slug": "maldives-ttm-tour-2",
   "order": 2,
   "year": "2026",
-  "name": { "en": "Maldives + TTM · Tour 2", "ru": "Мальдивы + TTM · Тур 2" },
-  "destination": { "en": "Maldives", "ru": "Мальдивы" },
-  "dates": { "en": "28 August – 3 September 2026", "ru": "28 августа – 3 сентября 2026" },
+  "name": {
+    "en": "Maldives + TTM · Tour 2",
+    "ru": "Мальдивы + TTM · Тур 2"
+  },
+  "destination": {
+    "en": "Maldives",
+    "ru": "Мальдивы"
+  },
+  "dates": {
+    "en": "28 August – 3 September 2026",
+    "ru": "28 августа – 3 сентября 2026"
+  },
   "status": "confirmed",
   "summary": {
     "en": "A Maldives tour combining attendance at Travel Trade Maldives (TTM) 2026 with a partner-resort tour. End date revised to 3 September per the client's calendar.",
@@ -14,34 +23,13 @@
     "en": "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
     "ru": "Travel Trade Maldives (TTM) 2026 является ведущим торговым мероприятием направления, уже 10-й сезон, с гала-вечером и церемонией награждения 27 августа. Группа We Present посещает TTM перед тем, как отправиться по курортам, указанным ниже."
   },
-  "whatsIncluded": {
-    "items": [
-      { "icon": "ticket", "label": { "en": "Registration fee", "ru": "Регистрационный взнос" } },
-      { "icon": "bed", "label": { "en": "Accommodation (½ DBL*)", "ru": "Проживание (½ DBL*)" } },
-      { "icon": "dining", "label": { "en": "Full board / Premium All-Inclusive (at Meyyafushi)", "ru": "Полный пансион / Премиум «Всё включено» (в Meyyafushi)" } },
-      { "icon": "transfer", "label": { "en": "Transfers", "ru": "Трансферы" } },
-      { "icon": "program", "label": { "en": "Exclusive programme with resort management", "ru": "Эксклюзивная программа с руководством курорта" } }
-    ],
-    "notes": {
-      "en": "* Single-room accommodation is available at an additional charge on request. Please note: international flights and travel insurance are arranged independently by participants. Accommodation terms apply only to registered participants of TTM Maldives 2026.",
-      "ru": "* Одноместное размещение доступно за дополнительную плату по запросу. Обратите внимание: международные перелёты и страховку участники организуют самостоятельно. Условия проживания действуют только для зарегистрированных участников TTM Maldives 2026."
-    }
-  },
-  "onSiteProgram": {
-    "title": { "en": "At every resort you will enjoy", "ru": "На каждом курорте вас ждёт" },
-    "items": [
-      { "en": "Resort inspection", "ru": "Инспекция курорта" },
-      { "en": "Meetings with the resort management team", "ru": "Встречи с управленческой командой курорта" },
-      { "en": "An engaging business and networking programme", "ru": "Насыщенная деловая и нетворкинг-программа" },
-      { "en": "Unique content-creation opportunities", "ru": "Уникальные возможности для создания контента" },
-      { "en": "Destination updates and product information", "ru": "Обновления по направлению и информация о продукте" },
-      { "en": "Brainstorming sessions with industry colleagues on resort promotion and sales development", "ru": "Мозговые штурмы с коллегами по отрасли по продвижению курорта и развитию продаж" }
-    ]
-  },
   "stops": [
     {
       "label": "TTM Maldives",
-      "dates": { "en": "26–27 Aug", "ru": "26–27 авг" },
+      "dates": {
+        "en": "26–27 Aug",
+        "ru": "26–27 авг"
+      },
       "note": {
         "en": "Travel Trade Maldives 2026 (10th edition); Awards & Gala Night 27 Aug.",
         "ru": "Travel Trade Maldives 2026 (10-й сезон); гала-вечер и награждение 27 авг."
@@ -49,25 +37,46 @@
     },
     {
       "label": "Fushifaru Maldives",
-      "dates": { "en": "28–30 Aug", "ru": "28–30 авг" },
-      "note": { "en": "Resort stop 1.", "ru": "Остановка 1." },
+      "dates": {
+        "en": "28–30 Aug",
+        "ru": "28–30 авг"
+      },
+      "note": {
+        "en": "Resort stop 1.",
+        "ru": "Остановка 1."
+      },
       "resortSlug": "fushifaru"
     },
     {
       "label": "Meyyafushi Maldives",
-      "dates": { "en": "30 Aug–1 Sep", "ru": "30 авг–1 сен" },
-      "note": { "en": "Resort stop 2.", "ru": "Остановка 2." },
+      "dates": {
+        "en": "30 Aug–1 Sep",
+        "ru": "30 авг–1 сен"
+      },
+      "note": {
+        "en": "Resort stop 2.",
+        "ru": "Остановка 2."
+      },
       "resortSlug": "meyyafushi"
     },
     {
       "label": "SO/ Maldives",
-      "dates": { "en": "1–3 Sep", "ru": "1–3 сен" },
-      "note": { "en": "Resort stop 3; departure 3 Sep.", "ru": "Остановка 3; вылет 3 сен." },
+      "dates": {
+        "en": "1–3 Sep",
+        "ru": "1–3 сен"
+      },
+      "note": {
+        "en": "Resort stop 3; departure 3 Sep.",
+        "ru": "Остановка 3; вылет 3 сен."
+      },
       "resortSlug": "so-maldives"
     },
     {
       "label": "Madifushi Private Island",
-      "dates": { "en": "To confirm", "ru": "Уточняется" },
+      "dates": {
+        "en": "To confirm",
+        "ru": "Уточняется"
+      },
       "note": {
         "en": "Inclusion within the shorter window is being confirmed with the client.",
         "ru": "Включение в сокращённый график уточняется с клиентом."

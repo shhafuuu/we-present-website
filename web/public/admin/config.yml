@@ -110,58 +110,6 @@ collections:
             widget: "string"
             required: false
             hint: "Must exactly match a resort's Slug field (see the Resorts collection), e.g. fushifaru. Leave blank for a non-resort stop like TTM Maldives itself."
-      - label: "What's included"
-        name: "whatsIncluded"
-        widget: "object"
-        required: false
-        hint: "The participation-package row (registration fee, accommodation, etc). Leave the whole block empty for a tour that doesn't have this confirmed yet — it only renders when present."
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.label.en}}"
-            fields:
-              - label: "Icon"
-                name: "icon"
-                widget: "select"
-                options:
-                  - { label: "Ticket (registration / fee)", value: "ticket" }
-                  - { label: "Bed (accommodation)", value: "bed" }
-                  - { label: "Dining (board / all-inclusive)", value: "dining" }
-                  - { label: "Transfer (car)", value: "transfer" }
-                  - { label: "Programme (person + star)", value: "program" }
-              - label: "Label"
-                name: "label"
-                widget: "object"
-                fields:
-                  - { label: "English", name: "en", widget: "string" }
-                  - { label: "Russian", name: "ru", widget: "string" }
-          - label: "Fine print"
-            name: "notes"
-            widget: "object"
-            fields:
-              - { label: "English", name: "en", widget: "text" }
-              - { label: "Russian", name: "ru", widget: "text" }
-      - label: "On-site programme"
-        name: "onSiteProgram"
-        widget: "object"
-        required: false
-        hint: "The \"at every resort you will enjoy\" list. Content is normally the same across tours — copy it from an existing tour rather than rewriting from scratch. Leave the whole block empty to hide this section."
-        fields:
-          - label: "Title"
-            name: "title"
-            widget: "object"
-            fields:
-              - { label: "English", name: "en", widget: "string" }
-              - { label: "Russian", name: "ru", widget: "string" }
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.en}}"
-            fields:
-              - { label: "English", name: "en", widget: "string" }
-              - { label: "Russian", name: "ru", widget: "string" }
-
   - name: "destinations"
     label: "Destinations"
     label_singular: "Destination"
@@ -333,6 +281,60 @@ collections:
                 fields:
                   - { label: "English", name: "en", widget: "text" }
                   - { label: "Russian", name: "ru", widget: "text" }
+
+      - name: "tours"
+        label: "Tours Page — What's Included / On-Site Programme"
+        file: "web/content/settings/tours.json"
+        fields:
+          - label: "What's included"
+            name: "included"
+            widget: "object"
+            hint: "The participation-package row (registration fee, accommodation, etc), shown once on the tours overview page — the same across every tour."
+            fields:
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.label.en}}"
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    options:
+                      - { label: "Ticket (registration / fee)", value: "ticket" }
+                      - { label: "Bed (accommodation)", value: "bed" }
+                      - { label: "Dining (board / all-inclusive)", value: "dining" }
+                      - { label: "Transfer (car)", value: "transfer" }
+                      - { label: "Programme (person + star)", value: "program" }
+                  - label: "Label"
+                    name: "label"
+                    widget: "object"
+                    fields:
+                      - { label: "English", name: "en", widget: "string" }
+                      - { label: "Russian", name: "ru", widget: "string" }
+              - label: "Fine print"
+                name: "notes"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "text" }
+                  - { label: "Russian", name: "ru", widget: "text" }
+          - label: "On-site programme"
+            name: "onSiteProgram"
+            widget: "object"
+            hint: "The \"at every hotel you will enjoy\" list, shown once on the tours overview page."
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Russian", name: "ru", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.en}}"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Russian", name: "ru", widget: "string" }
 
   - name: "how_it_was"
     label: "How It Was — Stories"

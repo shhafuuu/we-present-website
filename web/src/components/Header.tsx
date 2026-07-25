@@ -148,14 +148,14 @@ export function Header({ locale }: { locale: Locale }) {
             {moreOpen && (
               <div
                 id="nav-more-menu"
-                className="absolute left-1/2 top-full z-10 mt-3 flex w-40 -translate-x-1/2 flex-col gap-1 rounded-xl border border-amethyst/10 bg-ivory p-2 text-ink shadow-card"
+                className="absolute left-1/2 top-full z-10 mt-3 flex w-max -translate-x-1/2 flex-col gap-1 rounded-xl border border-amethyst/10 bg-ivory p-2 text-ink shadow-card"
               >
                 {MORE_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setMoreOpen(false)}
-                    className="kicker rounded-lg px-3 py-2 text-[0.65rem] outline-none hover:bg-amethyst/5 hover:text-amethyst focus-visible:ring-2 focus-visible:ring-amethyst/70"
+                    className="kicker whitespace-nowrap rounded-lg px-3 py-2 text-[0.65rem] outline-none hover:bg-amethyst/5 hover:text-amethyst focus-visible:ring-2 focus-visible:ring-amethyst/70"
                   >
                     {link.label}
                   </Link>

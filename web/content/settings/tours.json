@@ -1,0 +1,26 @@
+{
+  "included": {
+    "items": [
+      { "icon": "ticket", "label": { "en": "Registration fee", "ru": "Регистрационный взнос" } },
+      { "icon": "bed", "label": { "en": "Accommodation (½ DBL*)", "ru": "Проживание (½ DBL*)" } },
+      { "icon": "dining", "label": { "en": "Full board / Premium All-Inclusive dining", "ru": "Полный пансион / Премиум «Всё включено»" } },
+      { "icon": "transfer", "label": { "en": "Transfers", "ru": "Трансферы" } },
+      { "icon": "program", "label": { "en": "Exclusive programme with hotel management", "ru": "Эксклюзивная программа с руководством отеля" } }
+    ],
+    "notes": {
+      "en": "* Single-room accommodation is available at an additional charge on request. International flights and travel insurance are arranged independently by participants. Exact inclusions are confirmed at registration for each tour.",
+      "ru": "* Одноместное размещение доступно за дополнительную плату по запросу. Международные перелёты и страховку участники организуют самостоятельно. Точный состав услуг уточняется при регистрации на конкретный тур."
+    }
+  },
+  "onSiteProgram": {
+    "title": { "en": "At every hotel you will enjoy", "ru": "В каждом отеле вас ждёт" },
+    "items": [
+      { "en": "Hotel inspection", "ru": "Инспекция отеля" },
+      { "en": "Meetings with the hotel management team", "ru": "Встречи с руководством отеля" },
+      { "en": "An engaging business and networking programme", "ru": "Насыщенная деловая и нетворкинг-программа" },
+      { "en": "Unique content-creation opportunities", "ru": "Уникальные возможности для создания контента" },
+      { "en": "Destination updates and product information", "ru": "Обновления по направлению и информация о продукте" },
+      { "en": "Brainstorming sessions with industry colleagues on hotel promotion and sales development", "ru": "Мозговые штурмы с коллегами по отрасли о продвижении отеля и развитии продаж" }
+    ]
+  }
+}

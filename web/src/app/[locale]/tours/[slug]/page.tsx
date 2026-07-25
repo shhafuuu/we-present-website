@@ -2,8 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
-import { Sparkle } from "@/components/Sparkle";
-import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
 import { getTour, tours, t } from "@/lib/tours";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -58,37 +56,6 @@ export default async function TourDetailPage({
         </section>
       )}
 
-      {tour.whatsIncluded && (
-        <section className="bg-ivory px-6 py-16 lg:px-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <Reveal>
-              <Kicker>{dict.tourDetail.includedKicker}</Kicker>
-              <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-                {dict.tourDetail.includedTitle}
-              </h2>
-            </Reveal>
-            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-5">
-              {tour.whatsIncluded.items.map((item, i) => {
-                const Icon = INCLUDED_ICONS[item.icon] ?? TicketIcon;
-                return (
-                  <Reveal key={i} delay={i * 0.06}>
-                    <div className="flex flex-col items-center gap-3">
-                      <Icon className="h-8 w-8 text-amethyst" />
-                      <p className="text-sm text-ink/70">{t(item.label, locale)}</p>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-            <Reveal delay={0.3}>
-              <p className="mx-auto mt-10 max-w-2xl text-xs leading-relaxed text-ink/60">
-                {t(tour.whatsIncluded.notes, locale)}
-              </p>
-            </Reveal>
-          </div>
-        </section>
-      )}
-
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-3xl">
           <Reveal>
@@ -121,29 +88,6 @@ export default async function TourDetailPage({
           </div>
         </div>
       </section>
-
-      {tour.onSiteProgram && (
-        <section className="bg-soft-lilac/40 px-6 py-24 lg:px-10">
-          <div className="mx-auto max-w-4xl">
-            <Reveal className="text-center">
-              <Kicker>{dict.tourDetail.onSiteKicker}</Kicker>
-              <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-                {t(tour.onSiteProgram.title, locale)}
-              </h2>
-            </Reveal>
-            <div className="mt-12 grid gap-4 text-left sm:grid-cols-2">
-              {tour.onSiteProgram.items.map((item, i) => (
-                <Reveal key={i} delay={i * 0.06}>
-                  <div className="flex h-full items-start gap-3 rounded-xl border border-amethyst/10 bg-ivory p-5 shadow-card">
-                    <Sparkle className="mt-1 h-3.5 w-3.5 shrink-0 text-gold" />
-                    <p className="text-sm leading-relaxed text-ink/70">{t(item, locale)}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
         <div className="mx-auto max-w-3xl">
