@@ -9,6 +9,7 @@ export function IntroSection({ locale }: { locale: Locale }) {
   return (
     <section className="border-t border-amethyst/10 bg-lavender-mist px-6 py-24 lg:px-10">
       <div className="mx-auto max-w-3xl text-center">
+        <h2 className="sr-only">{t(settings.intro.kicker, locale)}</h2>
         <Reveal>
           <Kicker>{t(settings.intro.kicker, locale)}</Kicker>
           <p className="mt-6 text-base leading-relaxed text-ink/80 sm:text-lg">

@@ -1,11 +1,15 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 
 type ButtonProps = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "ghost" | "ghost-light";
   className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  /** Set false for same-page anchors with a custom onClick scroll handler,
+   * so Next's own navigation-scroll handling doesn't fight it. */
+  scroll?: boolean;
 };
 
 export function Button({
@@ -13,6 +17,8 @@ export function Button({
   children,
   variant = "primary",
   className = "",
+  onClick,
+  scroll,
 }: ButtonProps) {
   const base =
     "inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm tracking-wide transition-all duration-300 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
@@ -27,7 +33,7 @@ export function Button({
   } as const;
 
   return (
-    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
+    <Link href={href} onClick={onClick} scroll={scroll} className={`${base} ${styles[variant]} ${className}`}>
       {children}
     </Link>
   );

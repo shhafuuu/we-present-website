@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import type { MouseEvent } from "react";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Sparkle } from "@/components/Sparkle";
@@ -7,6 +10,17 @@ import { getDictionary } from "@/i18n/getDictionary";
 
 export function Hero({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
+
+  // Next.js Link's client-side transition doesn't reliably hash-scroll on a
+  // same-page navigation (confirmed: a fresh URL load with the hash works,
+  // an in-app click did not) - scroll manually and sync the URL ourselves.
+  const scrollToTours = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("tours");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `${window.location.pathname}#tours`);
+  };
 
   return (
     <section className="relative flex min-h-screen w-full items-end overflow-hidden">
@@ -43,7 +57,12 @@ export function Hero({ locale }: { locale: Locale }) {
             <Button href={href(locale, "/register")} variant="primary">
               {dict.home.hero.ctaPrimary}
             </Button>
-            <Button href={href(locale, "/#tours")} variant="ghost-light">
+            <Button
+              href={href(locale, "/#tours")}
+              variant="ghost-light"
+              onClick={scrollToTours}
+              scroll={false}
+            >
               {dict.home.hero.ctaSecondary}
             </Button>
           </div>

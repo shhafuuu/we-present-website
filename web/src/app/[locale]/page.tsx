@@ -21,9 +21,9 @@ export default async function Home({
       <Hero locale={locale} />
       <IntroSection locale={locale} />
       <ConceptSection locale={locale} />
-      <HowItWas locale={locale} />
       <ToursTimeline locale={locale} />
       <ResortsGrid locale={locale} />
+      <HowItWas locale={locale} />
       <PartnersStrip locale={locale} />
       <RegisterBand locale={locale} />
     </>

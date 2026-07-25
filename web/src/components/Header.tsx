@@ -16,9 +16,12 @@ export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const dict = getDictionary(locale);
 
-  // Kept to the 3 highest-traffic destinations; Partners/How It Was/Contact are
-  // grouped under "More" so the nav doesn't present 9 simultaneous top-level
-  // choices at once (spec: keep top-level nav within working-memory limits).
+  // Kept to the 3 highest-traffic destinations. Partners/How It Was/Contact,
+  // plus Become a Partner, are grouped under "More": the nav shouldn't present
+  // 9 simultaneous top-level choices (working-memory limits), and Become a
+  // Partner specifically shouldn't sit at parity with the primary IA links -
+  // PRODUCT.md is explicit that hotels are a secondary, lighter-funnel
+  // audience, not equal to agent registration.
   const PRIMARY_LINKS = [
     { label: dict.nav.about, href: href(locale, "/about") },
     { label: dict.nav.tours, href: href(locale, "/tours") },
@@ -28,6 +31,7 @@ export function Header({ locale }: { locale: Locale }) {
     { label: dict.nav.partners, href: href(locale, "/partners") },
     { label: dict.nav.howItWas, href: href(locale, "/how-it-was") },
     { label: dict.nav.contact, href: href(locale, "/contact") },
+    { label: dict.nav.becomePartner, href: href(locale, "/become-a-partner") },
   ];
   const NAV_LINKS = [...PRIMARY_LINKS, ...MORE_LINKS];
 
@@ -73,7 +77,12 @@ export function Header({ locale }: { locale: Locale }) {
       }`}
     >
       <div className="mx-auto flex max-w-[100rem] items-center justify-between px-6 py-4 lg:px-8">
-        <Link href={href(locale, "/")} className="flex items-center gap-3">
+        <Link
+          href={href(locale, "/")}
+          className={`flex items-center gap-3 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
+            solid ? "focus-visible:ring-amethyst/70" : "focus-visible:ring-ivory/70"
+          }`}
+        >
           <Image
             src={
               solid
@@ -107,7 +116,9 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               key={link.href}
               href={link.href}
-              className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
+              className={`kicker relative rounded-sm text-[0.65rem] outline-none after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent min-[1400px]:text-[0.7rem] ${
+                solid ? "focus-visible:ring-amethyst/70" : "focus-visible:ring-ivory/70"
+              }`}
             >
               {link.label}
             </Link>
@@ -118,7 +129,9 @@ export function Header({ locale }: { locale: Locale }) {
               onClick={() => setMoreOpen((v) => !v)}
               aria-expanded={moreOpen}
               aria-controls="nav-more-menu"
-              className="kicker relative flex items-center gap-1 text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
+              className={`kicker relative flex items-center gap-1 rounded-sm text-[0.65rem] outline-none after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent min-[1400px]:text-[0.7rem] ${
+                solid ? "focus-visible:ring-amethyst/70" : "focus-visible:ring-ivory/70"
+              }`}
             >
               {dict.nav.more}
               <svg
@@ -142,7 +155,7 @@ export function Header({ locale }: { locale: Locale }) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMoreOpen(false)}
-                    className="kicker rounded-lg px-3 py-2 text-[0.65rem] hover:bg-amethyst/5 hover:text-amethyst"
+                    className="kicker rounded-lg px-3 py-2 text-[0.65rem] outline-none hover:bg-amethyst/5 hover:text-amethyst focus-visible:ring-2 focus-visible:ring-amethyst/70"
                   >
                     {link.label}
                   </Link>
@@ -151,20 +164,16 @@ export function Header({ locale }: { locale: Locale }) {
             )}
           </div>
           <Link
-            href={href(locale, "/become-a-partner")}
-            className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
-          >
-            {dict.nav.becomePartner}
-          </Link>
-          <Link
             href={href(locale, "/register")}
-            className="rounded-full bg-gold px-4 py-2 text-[0.65rem] font-semibold tracking-wide text-aubergine transition-all hover:bg-soft-gold min-[1400px]:px-5 min-[1400px]:py-2.5 min-[1400px]:text-xs"
+            className="rounded-full bg-gold px-4 py-2 text-[0.65rem] font-semibold tracking-wide text-aubergine outline-none transition-all hover:bg-soft-gold focus-visible:ring-2 focus-visible:ring-aubergine/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent min-[1400px]:px-5 min-[1400px]:py-2.5 min-[1400px]:text-xs"
           >
             {dict.nav.register}
           </Link>
           <Link
             href={switchHref}
-            className="kicker text-[0.65rem] opacity-70 hover:opacity-100 min-[1400px]:text-[0.7rem]"
+            className={`kicker rounded-sm text-[0.65rem] opacity-70 outline-none hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent min-[1400px]:text-[0.7rem] ${
+              solid ? "focus-visible:ring-amethyst/70" : "focus-visible:ring-ivory/70"
+            }`}
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -175,7 +184,7 @@ export function Header({ locale }: { locale: Locale }) {
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((v) => !v)}
-          className={`flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 min-[1400px]:hidden ${solid ? "text-aubergine" : "text-ivory"}`}
+          className={`flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent min-[1400px]:hidden ${solid ? "text-aubergine focus-visible:ring-amethyst/70" : "text-ivory focus-visible:ring-ivory/70"}`}
         >
           <span
             className={`h-px w-7 bg-current transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -207,29 +216,22 @@ export function Header({ locale }: { locale: Locale }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-display text-2xl text-aubergine"
+                className="rounded-sm font-display text-2xl text-aubergine outline-none focus-visible:ring-2 focus-visible:ring-amethyst/70 focus-visible:ring-offset-2"
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href={href(locale, "/become-a-partner")}
-              onClick={() => setMenuOpen(false)}
-              className="font-display text-2xl text-aubergine"
-            >
-              {dict.nav.becomePartner}
-            </Link>
-            <Link
               href={href(locale, "/register")}
               onClick={() => setMenuOpen(false)}
-              className="rounded-full bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-aubergine"
+              className="rounded-full bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-aubergine outline-none focus-visible:ring-2 focus-visible:ring-aubergine/70 focus-visible:ring-offset-2"
             >
               {dict.nav.register}
             </Link>
             <Link
               href={switchHref}
               onClick={() => setMenuOpen(false)}
-              className="kicker text-sm text-amethyst/70"
+              className="kicker rounded-sm text-sm text-amethyst/70 outline-none focus-visible:ring-2 focus-visible:ring-amethyst/70 focus-visible:ring-offset-2"
             >
               {otherLocale.toUpperCase()}
             </Link>
