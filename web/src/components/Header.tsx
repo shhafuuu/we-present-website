@@ -117,7 +117,6 @@ export function Header({ locale }: { locale: Locale }) {
               type="button"
               onClick={() => setMoreOpen((v) => !v)}
               aria-expanded={moreOpen}
-              aria-haspopup="true"
               aria-controls="nav-more-menu"
               className="kicker relative flex items-center gap-1 text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
             >
@@ -136,14 +135,12 @@ export function Header({ locale }: { locale: Locale }) {
             {moreOpen && (
               <div
                 id="nav-more-menu"
-                role="menu"
                 className="absolute left-1/2 top-full z-10 mt-3 flex w-40 -translate-x-1/2 flex-col gap-1 rounded-xl border border-amethyst/10 bg-ivory p-2 text-ink shadow-card"
               >
                 {MORE_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    role="menuitem"
                     onClick={() => setMoreOpen(false)}
                     className="kicker rounded-lg px-3 py-2 text-[0.65rem] hover:bg-amethyst/5 hover:text-amethyst"
                   >
