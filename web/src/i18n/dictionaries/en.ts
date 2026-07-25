@@ -171,6 +171,9 @@ export const en = {
   },
   tourDetail: {
     ttmKicker: "TTM Maldives 2026",
+    includedKicker: "Included",
+    includedTitle: "What's Included",
+    onSiteKicker: "On-Site Programme",
     itineraryKicker: "Itinerary",
     itineraryTitle: "The full itinerary",
     backToAll: "← All Tours",

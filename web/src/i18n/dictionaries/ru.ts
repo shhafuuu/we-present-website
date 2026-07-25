@@ -173,6 +173,9 @@ export const ru: Dictionary = {
   },
   tourDetail: {
     ttmKicker: "TTM Maldives 2026",
+    includedKicker: "Включено",
+    includedTitle: "Что включено",
+    onSiteKicker: "Программа на месте",
     itineraryKicker: "Маршрут",
     itineraryTitle: "Полный маршрут",
     backToAll: "← Все туры",

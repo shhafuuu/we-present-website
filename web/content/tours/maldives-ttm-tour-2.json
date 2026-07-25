@@ -14,6 +14,30 @@
     "en": "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
     "ru": "Travel Trade Maldives (TTM) 2026 является ведущим торговым мероприятием направления, уже 10-й сезон, с гала-вечером и церемонией награждения 27 августа. Группа We Present посещает TTM перед тем, как отправиться по курортам, указанным ниже."
   },
+  "whatsIncluded": {
+    "items": [
+      { "icon": "ticket", "label": { "en": "Registration fee", "ru": "Регистрационный взнос" } },
+      { "icon": "bed", "label": { "en": "Accommodation (½ DBL*)", "ru": "Проживание (½ DBL*)" } },
+      { "icon": "dining", "label": { "en": "Full board / Premium All-Inclusive (at Meyyafushi)", "ru": "Полный пансион / Премиум «Всё включено» (в Meyyafushi)" } },
+      { "icon": "transfer", "label": { "en": "Transfers", "ru": "Трансферы" } },
+      { "icon": "program", "label": { "en": "Exclusive programme with resort management", "ru": "Эксклюзивная программа с руководством курорта" } }
+    ],
+    "notes": {
+      "en": "* Single-room accommodation is available at an additional charge on request. Please note: international flights and travel insurance are arranged independently by participants. Accommodation terms apply only to registered participants of TTM Maldives 2026.",
+      "ru": "* Одноместное размещение доступно за дополнительную плату по запросу. Обратите внимание: международные перелёты и страховку участники организуют самостоятельно. Условия проживания действуют только для зарегистрированных участников TTM Maldives 2026."
+    }
+  },
+  "onSiteProgram": {
+    "title": { "en": "At every resort you will enjoy", "ru": "На каждом курорте вас ждёт" },
+    "items": [
+      { "en": "Resort inspection", "ru": "Инспекция курорта" },
+      { "en": "Meetings with the resort management team", "ru": "Встречи с управленческой командой курорта" },
+      { "en": "An engaging business and networking programme", "ru": "Насыщенная деловая и нетворкинг-программа" },
+      { "en": "Unique content-creation opportunities", "ru": "Уникальные возможности для создания контента" },
+      { "en": "Destination updates and product information", "ru": "Обновления по направлению и информация о продукте" },
+      { "en": "Brainstorming sessions with industry colleagues on resort promotion and sales development", "ru": "Мозговые штурмы с коллегами по отрасли по продвижению курорта и развитию продаж" }
+    ]
+  },
   "stops": [
     {
       "label": "TTM Maldives",

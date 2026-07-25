@@ -11,6 +11,18 @@ export type TourStop = {
   resortSlug?: string;
 };
 
+export type IncludedItem = { icon: string; label: LocalizedString };
+
+export type WhatsIncluded = {
+  items: IncludedItem[];
+  notes: LocalizedString;
+};
+
+export type OnSiteProgram = {
+  title: LocalizedString;
+  items: LocalizedString[];
+};
+
 export type Tour = {
   slug: string;
   /** Display order in the calendar — lower first. Editable via the content portal. */
@@ -23,6 +35,13 @@ export type Tour = {
   summary: LocalizedString;
   stops: TourStop[];
   ttmOverview?: LocalizedString;
+  /** Participation package (registration fee, accommodation, etc). Portal-editable,
+   *  per-tour since inclusions vary — spec v2.0 §7.1. Only render when present. */
+  whatsIncluded?: WhatsIncluded;
+  /** The on-site programme every resort stop includes. Content is the same across
+   *  tours today, but modelled per-tour (not a single shared default) so it stays
+   *  portal-editable if a future tour ever needs to diverge — spec v2.0 §7.2. */
+  onSiteProgram?: OnSiteProgram;
 };
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "tours");
