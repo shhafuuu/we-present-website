@@ -111,10 +111,10 @@ export const en = {
     },
     howItWorks: {
       kicker: "How It Works",
-      title: "The group is already confirmed",
+      title: "How to take part",
       paragraphs: [
-        "For each edition, the participating group is already confirmed before the site goes live; the website is not a tool to recruit attendees for a given tour. Its role is to give the programme a polished, professional online presence.",
-        "That means showcasing the concept, the tours, the resorts and the partners; keeping the calendar current; and supporting inquiries and forward interest from agents, clients and hotels alike.",
+        "We Present is a merit-based programme: participation is driven by each agency's production, measured in the room-nights it delivers across the Russia and CIS market. Every edition brings a selected group of partners to a destination (the Maldives, Oman, Kenya and more) to experience its resorts first-hand and connect with the wider industry.",
+        "If you'd like to join a future edition, you can get in touch through this site. Our team reviews every enquiry and confirms the group for each programme as its destination and dates take shape. The website is both where the programme lives and where partners begin the conversation.",
       ],
       imageAlt: "A private picnic set up on a sandbank",
     },
@@ -130,7 +130,7 @@ export const en = {
         {
           number: "02",
           title: "Selection is merit-based",
-          body: "Top-producing agencies are invited to nominate a representative for the upcoming edition, with no application process and no lobbying.",
+          body: "Top-producing agencies are prioritised for each edition, and you can register your interest directly through the site.",
         },
         {
           number: "03",

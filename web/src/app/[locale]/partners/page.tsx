@@ -17,7 +17,7 @@ export default async function PartnersPage({
 
   return (
     <>
-      <section className="bg-aubergine px-6 pb-20 pt-40 lg:px-10">
+      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <Kicker tone="ivory">{dict.partnersPage.banner.kicker}</Kicker>

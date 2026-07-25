@@ -29,7 +29,7 @@ export default async function TourDetailPage({
 
   return (
     <>
-      <section className="bg-aubergine px-6 pb-20 pt-40 lg:px-10">
+      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <Kicker tone="ivory">{t(tour.destination, locale)}</Kicker>
