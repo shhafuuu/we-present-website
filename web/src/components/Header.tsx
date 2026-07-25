@@ -88,11 +88,7 @@ export function Header({ locale }: { locale: Locale }) {
           ))}
           <Link
             href={href(locale, "/become-a-partner")}
-            className={`rounded-full border px-3.5 py-2 text-[0.65rem] font-semibold tracking-wide transition-all min-[1400px]:px-4 min-[1400px]:py-2.5 min-[1400px]:text-xs ${
-              solid
-                ? "border-amethyst/30 text-amethyst hover:border-amethyst hover:bg-amethyst/5"
-                : "border-ivory/50 text-ivory hover:border-ivory hover:bg-ivory/10"
-            }`}
+            className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
           >
             {dict.nav.becomePartner}
           </Link>
@@ -155,7 +151,7 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               href={href(locale, "/become-a-partner")}
               onClick={() => setMenuOpen(false)}
-              className="rounded-full border border-amethyst/30 px-8 py-3 text-sm font-semibold tracking-wide text-amethyst"
+              className="font-display text-2xl text-aubergine"
             >
               {dict.nav.becomePartner}
             </Link>
