@@ -80,7 +80,7 @@ export const en = {
     register: {
       kicker: "We Present 2026",
       title: "Register your interest for the next edition",
-      body: "Selection is merit-based and driven by agency production. Tell us about your agency and we’ll be in touch as the 2026 calendar takes shape.",
+      body: "Selection is merit-based and driven by agency production. Tell us about your agency and we’ll be in touch as the 2026 calendar takes shape. Every submission is reviewed personally, and your details are kept confidential and used only for this review.",
       cta: "Register Interest",
     },
   },
@@ -333,7 +333,7 @@ export const en = {
     banner: {
       kicker: "We Present 2026",
       title: "Register your interest for the next edition",
-      body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2026 calendar takes shape.",
+      body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2026 calendar takes shape. Every submission is reviewed personally, and your details are kept confidential and used only for this review.",
     },
     enContact: {
       banner: {

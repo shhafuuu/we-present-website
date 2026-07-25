@@ -21,10 +21,10 @@ export default async function Home({
       <Hero locale={locale} />
       <IntroSection locale={locale} />
       <ConceptSection locale={locale} />
+      <HowItWas locale={locale} />
       <ToursTimeline locale={locale} />
       <ResortsGrid locale={locale} />
       <PartnersStrip locale={locale} />
-      <HowItWas locale={locale} />
       <RegisterBand locale={locale} />
     </>
   );

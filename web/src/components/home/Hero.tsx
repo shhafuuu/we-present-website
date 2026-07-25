@@ -40,7 +40,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Button href={href(locale, "/#register")} variant="primary">
+            <Button href={href(locale, "/register")} variant="primary">
               {dict.home.hero.ctaPrimary}
             </Button>
             <Button href={href(locale, "/#tours")} variant="ghost-light">

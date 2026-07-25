@@ -134,7 +134,7 @@ export default async function AboutPage({
           </div>
 
           <Reveal delay={0.3} className="mt-14">
-            <Button href={href(locale, "/#register")} variant="primary">
+            <Button href={href(locale, "/register")} variant="primary">
               {dict.about.benefits.cta}
             </Button>
           </Reveal>
