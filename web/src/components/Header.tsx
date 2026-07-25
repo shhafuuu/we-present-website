@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -11,17 +11,25 @@ import { getDictionary } from "@/i18n/getDictionary";
 export function Header({ locale }: { locale: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const dict = getDictionary(locale);
 
-  const NAV_LINKS = [
+  // Kept to the 3 highest-traffic destinations; Partners/How It Was/Contact are
+  // grouped under "More" so the nav doesn't present 9 simultaneous top-level
+  // choices at once (spec: keep top-level nav within working-memory limits).
+  const PRIMARY_LINKS = [
     { label: dict.nav.about, href: href(locale, "/about") },
     { label: dict.nav.tours, href: href(locale, "/tours") },
     { label: dict.nav.destinations, href: href(locale, "/destinations") },
+  ];
+  const MORE_LINKS = [
     { label: dict.nav.partners, href: href(locale, "/partners") },
     { label: dict.nav.howItWas, href: href(locale, "/how-it-was") },
     { label: dict.nav.contact, href: href(locale, "/contact") },
   ];
+  const NAV_LINKS = [...PRIMARY_LINKS, ...MORE_LINKS];
 
   // Swap the locale segment of the current path, preserving the rest of the route.
   const otherLocale: Locale = locale === "ru" ? "en" : "ru";
@@ -34,6 +42,24 @@ export function Header({ locale }: { locale: Locale }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onClickOutside = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [moreOpen]);
 
   const solid = scrolled || menuOpen;
 
@@ -77,7 +103,7 @@ export function Header({ locale }: { locale: Locale }) {
             solid ? "text-ink" : "text-ivory"
           }`}
         >
-          {NAV_LINKS.map((link) => (
+          {PRIMARY_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -86,6 +112,47 @@ export function Header({ locale }: { locale: Locale }) {
               {link.label}
             </Link>
           ))}
+          <div ref={moreRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setMoreOpen((v) => !v)}
+              aria-expanded={moreOpen}
+              aria-haspopup="true"
+              aria-controls="nav-more-menu"
+              className="kicker relative flex items-center gap-1 text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"
+            >
+              {dict.nav.more}
+              <svg
+                viewBox="0 0 12 12"
+                className={`h-2.5 w-2.5 shrink-0 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <path d="M2.5 4.5 6 8l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {moreOpen && (
+              <div
+                id="nav-more-menu"
+                role="menu"
+                className="absolute left-1/2 top-full z-10 mt-3 flex w-40 -translate-x-1/2 flex-col gap-1 rounded-xl border border-amethyst/10 bg-ivory p-2 text-ink shadow-card"
+              >
+                {MORE_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    role="menuitem"
+                    onClick={() => setMoreOpen(false)}
+                    className="kicker rounded-lg px-3 py-2 text-[0.65rem] hover:bg-amethyst/5 hover:text-amethyst"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <Link
             href={href(locale, "/become-a-partner")}
             className="kicker relative text-[0.65rem] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full min-[1400px]:text-[0.7rem]"

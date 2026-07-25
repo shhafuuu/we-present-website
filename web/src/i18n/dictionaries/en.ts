@@ -15,6 +15,7 @@ export const en = {
     partners: "Partners",
     howItWas: "How It Was",
     contact: "Contact",
+    more: "More",
     register: "Register Interest",
     becomePartner: "Become a Partner",
     byCoati: "BY COATI",
