@@ -49,7 +49,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
         </Reveal>
         <Reveal delay={0.4}>
-          <p className="kicker mt-12 text-ivory/60">{dict.home.hero.nextTour}</p>
+          <p className="kicker mt-12 text-ivory/85">{dict.home.hero.nextTour}</p>
         </Reveal>
       </div>
 

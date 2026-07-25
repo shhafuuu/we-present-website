@@ -20,7 +20,7 @@ export function RegisterBand({ locale }: { locale: Locale }) {
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-6 text-ivory/75">{dict.home.register.body}</p>
+          <p className="mt-6 text-ivory/85">{dict.home.register.body}</p>
         </Reveal>
         <Reveal delay={0.25} className="mt-10">
           <Button href={href(locale, "/register")} variant="primary">
