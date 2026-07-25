@@ -1,6 +1,7 @@
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
 import { AlternatingBlock } from "@/components/about/AlternatingBlock";
+import { ValueJourney } from "@/components/about/ValueJourney";
 import { Button } from "@/components/Button";
 import { Sparkle } from "@/components/Sparkle";
 import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
@@ -47,17 +48,7 @@ export default async function AboutPage({
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
-            {dict.about.valueGrid.items.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.06}>
-                <div className="flex h-full flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory p-6 shadow-card">
-                  <Sparkle className="h-4 w-4 text-gold" />
-                  <h3 className="font-display text-lg text-aubergine">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-ink/70">{item.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <ValueJourney stages={dict.about.valueGrid.stages} items={dict.about.valueGrid.items} />
         </div>
       </section>
 

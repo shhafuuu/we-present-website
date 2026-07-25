@@ -100,6 +100,7 @@ export const en = {
     valueGrid: {
       kicker: "The Value",
       title: "What the platform creates",
+      stages: ["Visibility", "Relationships", "Results"],
       items: [
         { title: "Destination & Brand Awareness", body: "Raising visibility for destinations and hotel brands among the agents who sell them." },
         { title: "Meaningful Industry Connections", body: "Bringing together travel professionals, hoteliers, media and industry experts in one room." },
