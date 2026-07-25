@@ -97,12 +97,17 @@ export default async function PartnersPage({
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="mt-10 rounded-2xl bg-ivory p-10">
+            <a
+              href="https://www.traveltrademaldives.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-10 block rounded-2xl bg-ivory p-10 text-left transition-transform duration-500 hover:-translate-y-1"
+            >
               <p className="kicker text-amethyst">{dict.partnersPage.associated.badge}</p>
               <p className="mt-4 text-sm leading-relaxed text-ink/70">
                 {dict.partnersPage.associated.body}
               </p>
-            </div>
+            </a>
           </Reveal>
         </div>
       </section>
