@@ -77,9 +77,9 @@ export const en = {
       cta: "Visit How It Was",
     },
     register: {
-      kicker: "We Present 2027",
+      kicker: "We Present 2026",
       title: "Register your interest for the next edition",
-      body: "Selection is merit-based and driven by agency production. Tell us about your agency and we’ll be in touch as the 2027 calendar takes shape.",
+      body: "Selection is merit-based and driven by agency production. Tell us about your agency and we’ll be in touch as the 2026 calendar takes shape.",
       cta: "Register Interest",
     },
   },
@@ -330,9 +330,9 @@ export const en = {
   },
   registerPage: {
     banner: {
-      kicker: "We Present 2027",
+      kicker: "We Present 2026",
       title: "Register your interest for the next edition",
-      body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2027 calendar takes shape.",
+      body: "Selection is merit-based, driven by agency production. Share your agency's details and recent performance, and we’ll be in touch as the 2026 calendar takes shape.",
     },
     enContact: {
       banner: {
@@ -409,7 +409,7 @@ export const en = {
       submit: "Submit Registration",
       submitting: "Submitting…",
       thankYouTitle: "Thank you for registering.",
-      thankYouBody: "Your registration has been received. Our team will review your details and be in touch as the 2027 calendar takes shape.",
+      thankYouBody: "Your registration has been received. Our team will review your details and be in touch as the 2026 calendar takes shape.",
     },
     partner: {
       title: "Hotel Partnership Request",

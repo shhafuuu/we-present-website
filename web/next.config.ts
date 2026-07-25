@@ -5,6 +5,9 @@ import type { NextConfig } from "next";
 // only loosen connect-src for it outside production so the prod CSP stays tight.
 const isDev = process.env.NODE_ENV !== "production";
 
+// Dev-only allowance so impeccable live mode can load. Guarded by isDev; never reaches production.
+const __impeccableLiveDev = isDev ? " http://localhost:8400" : "";
+
 // Deliberately NOT using a nonce-based CSP: per Next's own docs
 // (node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md),
 // nonces require every page to be dynamically rendered — no static generation, no
@@ -21,11 +24,11 @@ const isDev = process.env.NODE_ENV !== "production";
 // stack-trace reconstruction per the same Next docs, and is never sent in prod.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://unpkg.com${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://unpkg.com${isDev ? " 'unsafe-eval'" : ""}${__impeccableLiveDev}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",
-  `connect-src 'self'${isDev ? " http://localhost:8081" : ""}`,
+  `connect-src 'self'${isDev ? " http://localhost:8081" : ""}${__impeccableLiveDev}`,
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

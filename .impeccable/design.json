@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-25T00:00:00Z",
+  "title": "Design System: We Present by COATI",
+  "extensions": {
+    "colorMeta": {
+      "aubergine": {
+        "role": "primary",
+        "displayName": "Twilight Aubergine",
+        "canonical": "#3e2c55",
+        "tonalRamp": ["#0a070e", "#191222", "#281c36", "#37274b", "#554569", "#837892", "#b2abbb", "#e0dde4"]
+      },
+      "amethyst": {
+        "role": "secondary",
+        "displayName": "Vivid Amethyst",
+        "canonical": "#6e4fa3",
+        "tonalRamp": ["#120d1a", "#2c2041", "#463368", "#61468f", "#7f64ae", "#a28ec4", "#c5b9da", "#e8e3f0"]
+      },
+      "gold": {
+        "role": "tertiary",
+        "displayName": "Antique Gold",
+        "canonical": "#c9a24b",
+        "tonalRamp": ["#201a0c", "#50411e", "#816830", "#b18f42", "#cfad61", "#dcc38c", "#e9dab7", "#f6f0e2"]
+      },
+      "soft-gold": {
+        "role": "tertiary",
+        "displayName": "Soft Gold",
+        "canonical": "#ebdcb4",
+        "tonalRamp": ["#26231d", "#5e5848", "#968d73", "#cfc29e", "#ede0bd", "#f2e9cf", "#f7f1e1", "#fcf9f3"]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory",
+        "canonical": "#fcfaf6",
+        "tonalRamp": ["#282827", "#656462", "#a1a09d", "#dedcd8", "#fcfbf7", "#fdfcf9", "#fefdfb", "#fffefe"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Violet Ink",
+        "canonical": "#2b2338",
+        "tonalRamp": ["#070609", "#110e16", "#1c1624", "#261f31", "#443d50", "#777280", "#aaa7af", "#dddcdf"]
+      },
+      "lavender-mist": {
+        "role": "neutral",
+        "displayName": "Lavender Mist",
+        "canonical": "#f3ecfb",
+        "tonalRamp": ["#272628", "#615e64", "#9c97a1", "#d6d0dd", "#f4eefb", "#f7f3fc", "#faf7fd", "#fdfcfe"]
+      },
+      "soft-lilac": {
+        "role": "neutral",
+        "displayName": "Soft Lilac",
+        "canonical": "#dcc9f0",
+        "tonalRamp": ["#232026", "#585060", "#8d819a", "#c2b1d3", "#e0cff2", "#e9dcf5", "#f1e9f9", "#f9f6fd"]
+      },
+      "lilac": {
+        "role": "neutral",
+        "displayName": "Lilac Bloom",
+        "canonical": "#c3a5e6",
+        "tonalRamp": ["#1f1a25", "#4e425c", "#7d6a93", "#ac91ca", "#cab0e9", "#d9c5ef", "#e7dbf5", "#f5f1fb"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Playfair Display serif, page banners and section H1/H2s only — never UI chrome or small labels." },
+      "body": { "displayName": "Body", "purpose": "Manrope, all paragraph copy and general UI text." },
+      "label": { "displayName": "Label / Kicker", "purpose": "Manrope 600, uppercase, 0.22em tracking — the shared .kicker treatment for eyebrows, nav links, and badges." }
+    },
+    "shadows": [
+      { "name": "card", "value": "0 1px 2px rgba(62,44,85,0.06)", "purpose": "The only shadow token in active use; nearly flat, applied at rest to most cards/panels. Depth otherwise comes from color/tint layering, not shadow growth." },
+      { "name": "gold-glow", "value": "0 8px 24px rgba(201,162,75,0.2)", "purpose": "Primary (gold) button hover glow." }
+    ],
+    "motion": [
+      { "name": "reveal", "value": "0.9s cubic-bezier(0.22, 1, 0.36, 1), from opacity:0/translateY:28px", "purpose": "The system's one consistent scroll-reveal signature; staggered per item within a section (delay = index * 0.06-0.1s)." },
+      { "name": "icon-spring", "value": "spring(stiffness: 320, damping: 14), scale 1 to 1.12, rotate 0 to -6deg", "purpose": "Icon hover micro-interaction, e.g. the About page's Value-journey stage cards." },
+      { "name": "hover-lift", "value": "300-500ms ease, translateY 0 to -4px/-8px", "purpose": "Card hover lift (resort cards, tour cards, partner cards) — depth conveyed by motion, not added shadow." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "nav", "value": "1400px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gold pill CTA — Register Interest, Send Inquiry, etc.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Register Interest</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #c9a24b; color: #3e2c55; border-radius: 9999px; padding: 14px 32px; font-family: Manrope, sans-serif; font-size: 14px; letter-spacing: 0.02em; font-weight: 600; text-decoration: none; transition: background 0.3s, box-shadow 0.3s; } .ds-btn-primary:hover { background: #ebdcb4; box-shadow: 0 8px 24px rgba(201,162,75,0.2); } .ds-btn-primary:focus-visible { outline: 2px solid #c9a24b; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Amethyst-outline secondary action — Become a Partner, View All Destinations.",
+      "html": "<a href=\"#\" class=\"ds-btn-ghost\">Become a Partner</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 9999px; border: 1px solid rgba(110,79,163,0.4); color: #6e4fa3; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; background: transparent; transition: border-color 0.3s, background 0.3s; } .ds-btn-ghost:hover { border-color: #6e4fa3; background: rgba(110,79,163,0.05); } .ds-btn-ghost:focus-visible { outline: 2px solid #6e4fa3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Standard content card — resort/tour/partner listing card.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Fushifaru Maldives</h3><p class=\"ds-card-body\">An intimate reef-fringed island built for slow mornings.</p></div>",
+      "css": ".ds-card { background: #fcfaf6; border: 1px solid rgba(110,79,163,0.1); border-radius: 16px; padding: 24px; box-shadow: 0 1px 2px rgba(62,44,85,0.06); transition: transform 0.5s; } .ds-card:hover { transform: translateY(-8px); } .ds-card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: #3e2c55; margin: 0 0 8px; } .ds-card-body { font-family: Manrope, sans-serif; font-size: 14px; line-height: 1.6; color: rgba(43,35,56,0.7); margin: 0; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form text input with label, as used in Register/Contact/Inquiry forms.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input type=\"email\" class=\"ds-input\" placeholder=\"you@agency.com\" /></label>",
+      "css": ".ds-field { display: block; font-family: Manrope, sans-serif; font-size: 14px; color: rgba(43,35,56,0.7); } .ds-field-label { display: block; margin-bottom: 8px; } .ds-input { width: 100%; box-sizing: border-box; border-radius: 8px; border: 1px solid rgba(110,79,163,0.2); background: #fcfaf6; padding: 10px 16px; font-family: Manrope, sans-serif; font-size: 14px; color: #2b2338; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input:focus { border-color: #c9a24b; box-shadow: 0 0 0 3px rgba(201,162,75,0.3); }"
+    },
+    {
+      "name": "Kicker Label",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "The shared uppercase eyebrow/label treatment — section kickers, badges, stage markers.",
+      "html": "<span class=\"ds-kicker\"><span class=\"ds-kicker-rule\"></span>The Value</span>",
+      "css": ".ds-kicker { display: inline-flex; align-items: center; gap: 10px; font-family: Manrope, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #6e4fa3; } .ds-kicker-rule { width: 20px; height: 1px; background: rgba(110,79,163,0.5); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation link with animated gold underline reveal.",
+      "html": "<a href=\"#\" class=\"ds-nav-link\">About</a>",
+      "css": ".ds-nav-link { position: relative; font-family: Manrope, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #2b2338; text-decoration: none; padding-bottom: 4px; } .ds-nav-link::after { content: ''; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: #c9a24b; transition: width 0.3s; } .ds-nav-link:hover::after { width: 100%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Curated Crossing",
+    "overview": "We Present's visual system is a selective, hand-picked passage between destinations and the RU/CIS travel professionals invited to cross into them. It carries the formal warmth of the aubergine-and-gold palette and serif display type, but holds that warmth with restraint: one decisive photograph per section rather than busy compositions, generous negative space, near-flat surfaces. Confidence comes from composure, not density or noise.\n\nThe system rejects two easy failure modes: cold corporate B2B (it isn't — the palette is warm, the type is serif and humanist, photography carries real weight) and loud travel-marketing maximalism (it isn't that either — no stacked gradients, no crowded grids, no shouting CTAs). It sits in between: a quietly confident, editorially restrained invitation.",
+    "keyCharacteristics": [
+      "Deep aubergine and warm gold carry the brand identity; amethyst and soft-lilac tints do the connective/structural work",
+      "Playfair Display serif for all headings, Manrope sans for everything else, no third family",
+      "Cards and panels are nearly flat at rest (shadow-card is barely visible); depth comes from color/tint layering, not shadow",
+      "One full-bleed, decisive photograph leads most sections rather than photo grids or stock-collage treatments",
+      "Motion is a single consistent fade-and-rise reveal, staggered per section, plus a small vocabulary of hover lifts and spring-based icon micro-interactions"
+    ],
+    "rules": [
+      { "name": "The Rare Gold Rule", "body": "Gold is a spotlight, not a base color. It appears on primary CTAs, small accent marks, and hover glows — never as a large fill, never as small body text (contrast failure below ~4.5:1 at that size).", "section": "colors" },
+      { "name": "The Tinted-Neutral Rule", "body": "Section backgrounds alternate between ivory and lavender-mist/soft-lilac rather than white and gray — every neutral in this system carries the brand's own violet hue, never a true gray.", "section": "colors" },
+      { "name": "The Kicker Rule", "body": "Any small uppercase label in this system runs through the shared .kicker class (Manrope 600, 0.22em tracking, 0.75rem) — never a one-off text-xs uppercase tracking-wide improvisation.", "section": "typography" }
+    ],
+    "dos": [
+      "Do run every small uppercase label through the shared .kicker class — one label treatment system-wide.",
+      "Do keep muted body text at /70 opacity or higher against its background.",
+      "Do let one decisive photograph carry a section rather than a stock-photo collage; destination-neutral imagery where the copy itself is destination-neutral.",
+      "Do use the [0.22, 1, 0.36, 1] custom ease-out curve with a 0.9s duration and per-item stagger for scroll reveals.",
+      "Do reserve gold for actions and accents; let aubergine and amethyst carry structural/text weight."
+    ],
+    "donts": [
+      "Don't use text-gold for small body text — it fails WCAG AA contrast at that size against light backgrounds.",
+      "Don't stack multiple scrim/gradient treatments on a single hero photo to fix nav-contrast — fix it once, architecturally, at the component that needs it.",
+      "Don't use near-identical adjacent tints (e.g. bg-lavender-mist next to bg-soft-lilac/40) for two sections that need a visible boundary.",
+      "Don't default to numbered eyebrows (01 / 02 / 03) as section scaffolding — reserve numbering for content that is genuinely a sequence."
+    ]
+  }
+}
