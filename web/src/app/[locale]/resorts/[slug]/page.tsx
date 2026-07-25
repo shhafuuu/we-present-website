@@ -96,7 +96,20 @@ export default async function ResortPage({
                 </div>
                 <div>
                   <dt className="kicker text-amethyst">{dict.resortPage.officialWebsite}</dt>
-                  <dd className="mt-1 text-ink/70">{dict.resortPage.officialWebsiteTbc}</dd>
+                  <dd className="mt-1 text-ink/70">
+                    {resort.website ? (
+                      <a
+                        href={resort.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-amethyst underline"
+                      >
+                        {new URL(resort.website).hostname.replace(/^www\./, "")}
+                      </a>
+                    ) : (
+                      dict.resortPage.officialWebsiteTbc
+                    )}
+                  </dd>
                 </div>
               </dl>
             </div>
