@@ -15,7 +15,7 @@
       "ru": "Lazuli Beach Club, Citronelle Club, The Nest & The Zone, спа Wellness Camp"
     }
   },
-  "cardImage": "/images/resorts/so-maldives/card.jpg",
+  "cardImage": "/images/resorts/so-maldives/channel.jpg",
   "logo": "/images/logos/so-maldives.png",
   "name": "SO/ Maldives",
   "slug": "so-maldives",
@@ -74,11 +74,11 @@
       "В туре We Present SO/ становится первой или последней остановкой: две ночи, чтобы опробовать зоны The Nest & The Zone, поужинать в Citronelle Club и лично увидеть, почему этот отель считается одним из самых узнаваемых адресов Южного Мале Атолла."
     ]
   },
-  "website": "",
+  "website": "https://so-hotels.com/en/maldives/",
   "atoll": {
     "en": "Emboodhu Finolhu, South Male Atoll",
     "ru": "Эмбooду Финолху, Южный Мале Атолл"
   },
-  "cardImageAlt": "A guest relaxing in a beachside hammock chair at SO/ Maldives, with overwater villas in the distance",
+  "cardImageAlt": "Aerial view of a channel between two stone breakwaters at SO/ Maldives, with a kayak crossing the lagoon",
   "built": true
 }
