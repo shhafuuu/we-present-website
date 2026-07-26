@@ -20,7 +20,7 @@ export default async function DestinationsPage({
     <>
       <section className="bg-aubergine px-6 pb-20 pt-40 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
-          <Reveal>
+          <Reveal trigger="mount">
             <Kicker tone="ivory">{dict.destinationsPage.banner.kicker}</Kicker>
             <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
               {dict.destinationsPage.banner.title}

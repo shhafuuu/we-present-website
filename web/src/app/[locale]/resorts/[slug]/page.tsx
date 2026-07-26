@@ -46,7 +46,7 @@ export default async function ResortPage({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-aubergine/80 via-aubergine/15 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 lg:px-10">
-          <Reveal>
+          <Reveal trigger="mount">
             <p className="kicker inline-flex items-center gap-2.5 text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
               <span className="h-px w-5 bg-ivory/60" />
               <Sparkle className="h-2.5 w-2.5 shrink-0" />
