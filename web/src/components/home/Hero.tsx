@@ -35,24 +35,24 @@ export function Hero({ locale }: { locale: Locale }) {
       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(62,44,85,0.88)_0%,rgba(62,44,85,0.64)_45%,rgba(62,44,85,0.63)_65%,rgba(62,44,85,0.14)_80%,transparent_92%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 lg:px-10">
-        <Reveal>
+        <Reveal trigger="mount">
           <p className="kicker inline-flex items-center gap-2.5 text-ivory [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
             <span className="h-px w-5 bg-ivory/60" />
             <Sparkle className="h-2.5 w-2.5 shrink-0" />
             {dict.home.hero.kicker}
           </p>
         </Reveal>
-        <Reveal delay={0.1}>
+        <Reveal trigger="mount" delay={0.1}>
           <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
             {dict.home.hero.title}
           </h1>
         </Reveal>
-        <Reveal delay={0.2}>
+        <Reveal trigger="mount" delay={0.2}>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/80 sm:text-lg">
             {dict.home.hero.lead}
           </p>
         </Reveal>
-        <Reveal delay={0.3}>
+        <Reveal trigger="mount" delay={0.3}>
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <Button href={href(locale, "/register")} variant="primary">
               {dict.home.hero.ctaPrimary}
@@ -67,7 +67,7 @@ export function Hero({ locale }: { locale: Locale }) {
             </Button>
           </div>
         </Reveal>
-        <Reveal delay={0.4}>
+        <Reveal trigger="mount" delay={0.4}>
           <p className="kicker mt-12 text-ivory/85">{dict.home.hero.nextTour}</p>
         </Reveal>
       </div>
