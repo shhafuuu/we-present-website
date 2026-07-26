@@ -1,4 +1,5 @@
 .DS_Store
+.claude/settings.local.json
 
 # Large raw media asset folders (backed up separately, not in git)
 Fushifaru Images and Videos/
