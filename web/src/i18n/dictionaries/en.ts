@@ -98,9 +98,78 @@ export const en = {
       ],
       imageAlt: "A seaplane arriving at an island resort",
     },
+    difference: {
+      kicker: "The Difference",
+      title: "What makes We Present different",
+      lead: "We Present is not a traditional familiarisation trip. Unlike traditional FAM trips, where participants visit many hotels and locations in a short period of time and receive only a general impression, We Present focuses on deep product knowledge, destination immersion, meaningful professional experience, long-term cooperation and measurable results.",
+      columns: { traditional: "Traditional FAM trip", wePresent: "We Present" },
+      rows: [
+        {
+          dimension: "Pace",
+          traditional: "Many hotels and locations in a short period",
+          wePresent: "Fewer partners, and real time with each one",
+        },
+        {
+          dimension: "Depth",
+          traditional: "A general impression of each property",
+          wePresent: "Deep product knowledge and destination immersion",
+        },
+        {
+          dimension: "Preparation",
+          traditional: "Participants arrive without a brief",
+          wePresent: "Participants are briefed in advance and understand the goals",
+        },
+        {
+          dimension: "Outcome",
+          traditional: "Goodwill and general familiarity",
+          wePresent: "Measurable results, tracked and reported",
+        },
+        {
+          dimension: "Follow-through",
+          traditional: "Ends when the trip ends",
+          wePresent: "Long-term cooperation and partnerships",
+        },
+      ],
+    },
+    audiences: {
+      kicker: "Who It Is For",
+      title: "Two sides of the same programme",
+      participants: {
+        label: "For participants",
+        message:
+          "Deep immersion into the product and destination through a unique professional experience.",
+        items: [
+          "Direct communication with hotel representatives, resort teams, tourism boards and local partners.",
+          "Deep understanding of each product and destination, instead of a short visit to many locations.",
+          "More time to explore the concept, values, unique selling points and potential of each partner.",
+          "Experiencing the destination, not just visiting it.",
+          "Preparation before the trip: participants receive information and understand the goals of the project.",
+          "Professional meetings, workshops and brainstorming sessions.",
+          "Opportunities to create new ideas, content and promotion strategies.",
+          "Building new professional connections and long-term partnerships.",
+        ],
+        keyMessage:
+          "Participants do not simply visit a destination. They experience it, understand it, and return with knowledge, inspiration and the tools to promote it effectively to their audience and clients.",
+      },
+      partners: {
+        label: "For hotels, resorts and destinations",
+        message:
+          "Not just exposure. Guaranteed promotion, quality content and measurable business results.",
+        items: [
+          "A professional promotion platform focused on real results, not only a familiarisation trip.",
+          "Each partner receives an individual approach and promotion strategy.",
+          "Cooperation starts before the trip: goals, positioning and promotion opportunities are discussed in advance.",
+          "Participants arrive prepared, already understanding the product, its values and advantages.",
+          "The programme includes professional discussions, workshops and brainstorming sessions.",
+          "Partners receive deeper product awareness among participants.",
+        ],
+        keyMessage:
+          "Hotels and destinations receive more than a traditional FAM trip. They receive a structured promotion process, professional content, qualified partners and measurable business results.",
+      },
+    },
     valueGrid: {
-      kicker: "The Value",
-      title: "What the platform creates",
+      kicker: "What Partners Receive",
+      title: "Promotion as a process, not a visit",
       stages: ["Visibility", "Relationships", "Results"],
       items: [
         { title: "Destination & Brand Awareness", body: "Raising visibility for destinations and hotel brands among the agents who sell them." },

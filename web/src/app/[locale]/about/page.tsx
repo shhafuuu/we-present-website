@@ -2,6 +2,8 @@ import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { AlternatingBlock } from "@/components/about/AlternatingBlock";
+import { AudiencePanel } from "@/components/about/AudiencePanel";
+import { DifferenceTable } from "@/components/about/DifferenceTable";
 import { ValueJourney } from "@/components/about/ValueJourney";
 import { Button } from "@/components/Button";
 import { Sparkle } from "@/components/Sparkle";
@@ -34,18 +36,59 @@ export default async function AboutPage({
         />
       </section>
 
-      <section className="bg-lavender-mist px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl text-center">
+      {/* v2.1 section 1: the differentiator leads, then the two audiences get a panel
+          each. Previously both audiences were mixed into one value block, which is the
+          client's central objection this round. */}
+      <section className="bg-lavender-mist px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-4xl">
+          <Reveal className="text-center">
+            <Kicker>{dict.about.difference.kicker}</Kicker>
+            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+              {dict.about.difference.title}
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-ink/70">
+              {dict.about.difference.lead}
+            </p>
+          </Reveal>
+
+          <DifferenceTable
+            columns={dict.about.difference.columns}
+            rows={dict.about.difference.rows}
+          />
+        </div>
+      </section>
+
+      <AudiencePanel
+        id="for-participants"
+        tone="ivory"
+        label={dict.about.audiences.participants.label}
+        message={dict.about.audiences.participants.message}
+        items={dict.about.audiences.participants.items}
+        keyMessage={dict.about.audiences.participants.keyMessage}
+      />
+
+      <AudiencePanel
+        id="for-partners"
+        tone="lilac"
+        label={dict.about.audiences.partners.label}
+        message={dict.about.audiences.partners.message}
+        items={dict.about.audiences.partners.items}
+        keyMessage={dict.about.audiences.partners.keyMessage}
+      >
+        {/* The six value items describe what a partner receives, not what the platform
+            offers both audiences, so the journey belongs inside this panel rather than
+            standing alone above the split. */}
+        <div className="mt-16 text-center">
           <Reveal>
             <Kicker>{dict.about.valueGrid.kicker}</Kicker>
-            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+            <h3 className="font-display mt-5 text-2xl text-aubergine sm:text-3xl">
               {dict.about.valueGrid.title}
-            </h2>
+            </h3>
           </Reveal>
 
           <ValueJourney stages={dict.about.valueGrid.stages} items={dict.about.valueGrid.items} />
         </div>
-      </section>
+      </AudiencePanel>
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <AlternatingBlock
