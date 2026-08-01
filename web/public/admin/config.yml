@@ -326,11 +326,12 @@ collections:
           - label: "On-site programme"
             name: "onSiteProgram"
             widget: "object"
-            hint: "The \"at every hotel you will enjoy\" list, shown once on the tours overview page."
+            hint: "The \"on every programme you will enjoy\" list, shown once on the tours overview page and shared by every programme."
             fields:
               - label: "Title"
                 name: "title"
                 widget: "object"
+                hint: "Keep this destination-neutral. It sits above every programme including Oman and Kenya, which have no hotels, so wording tied to hotels or resorts will not travel."
                 fields:
                   - { label: "English", name: "en", widget: "string" }
                   - { label: "Russian", name: "ru", widget: "string" }

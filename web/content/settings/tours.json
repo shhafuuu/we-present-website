@@ -13,7 +13,7 @@
     }
   },
   "onSiteProgram": {
-    "title": { "en": "At every hotel you will enjoy", "ru": "В каждом отеле вас ждёт" },
+    "title": { "en": "On every programme you will enjoy", "ru": "В каждой программе вас ждёт" },
     "items": [
       { "en": "Hotel inspection", "ru": "Инспекция отеля" },
       { "en": "Meetings with the hotel management team", "ru": "Встречи с руководством отеля" },

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { Reveal } from "@/components/Reveal";
-import { Sparkle } from "@/components/Sparkle";
 import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
 import { tours, t } from "@/lib/tours";
 import { getToursSettings } from "@/lib/settings";
@@ -140,24 +139,29 @@ export default async function ToursPage({
         </div>
       </section>
 
-      <section className="bg-soft-lilac/40 px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-4xl">
+      {/* Hairline-ruled list, not cards (v2.1 §4.2): six equal cards each carrying the
+          same sparkle read as six separate things and stacked very tall on mobile. The
+          chrome and the repeated icon are gone so the block reads as one unit; the
+          section's single accent is the Kicker's own sparkle. */}
+      <section className="bg-soft-lilac/40 px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-2xl">
           <Reveal className="text-center">
             <Kicker>{dict.tourDetail.onSiteKicker}</Kicker>
-            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+            <h2 className="font-display mt-4 text-3xl text-aubergine sm:text-4xl">
               {t(toursSettings.onSiteProgram.title, locale)}
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-4 text-left sm:grid-cols-2">
+          <ul className="mt-8 text-left">
             {toursSettings.onSiteProgram.items.map((item, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <div className="flex h-full items-start gap-3 rounded-xl border border-amethyst/10 bg-ivory p-5 shadow-card">
-                  <Sparkle className="mt-1 h-3.5 w-3.5 shrink-0 text-gold" />
-                  <p className="text-sm leading-relaxed text-ink/70">{t(item, locale)}</p>
-                </div>
-              </Reveal>
+              <li key={i} className="border-t border-amethyst/15 last:border-b">
+                <Reveal delay={i * 0.06} y={16}>
+                  <p className="py-3.5 text-sm leading-relaxed text-ink/70">
+                    {t(item, locale)}
+                  </p>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </>
