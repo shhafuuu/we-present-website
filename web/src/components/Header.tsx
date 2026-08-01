@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LogoMark } from "@/components/Logo";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -83,17 +83,12 @@ export function Header({ locale }: { locale: Locale }) {
             solid ? "focus-visible:ring-amethyst/70" : "focus-visible:ring-ivory/70"
           }`}
         >
-          <Image
-            src={
-              solid
-                ? "/images/logos/wp-monogram-black.png"
-                : "/images/logos/wp-monogram-white.png"
-            }
-            alt="We Present monogram"
-            width={34}
-            height={34}
-            className="h-8 w-8 object-contain"
-            priority
+          {/* Vector mark from the client's official SVG. One component covers both
+              header states: the fill is currentColor, so it follows the text colour
+              instead of needing a second raster file. */}
+          <LogoMark
+            aria-hidden="true"
+            className={`h-8 w-auto ${solid ? "text-aubergine" : "text-ivory"}`}
           />
           <span
             className={`font-sans text-sm font-semibold tracking-[0.12em] ${

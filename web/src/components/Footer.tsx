@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import {
@@ -8,6 +7,7 @@ import {
   INSTAGRAM_HREF,
   LINKEDIN_HREF,
 } from "@/lib/contact";
+import { LogoLockup } from "@/components/Logo";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -19,12 +19,10 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Image
-              src="/images/logos/wp-monogram-white.png"
-              alt="We Present monogram"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
+            {/* The footer has room for the full lockup, wordmark and all. */}
+            <LogoLockup
+              aria-label="WePresent by COATI"
+              className="h-24 w-auto text-ivory"
             />
             <p className="mt-4 max-w-[220px] text-sm text-soft-lilac">
               {dict.footer.tagline}

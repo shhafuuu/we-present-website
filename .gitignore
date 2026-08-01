@@ -37,6 +37,8 @@ web/sample.mjs
 web/waitshot.mjs
 web/statshot.mjs
 web/panelmeasure.mjs
+web/logo-split.mjs
+web/logo-render.mjs
 web/ours.mjs
 web/ref2.mjs
 web/ref.mjs
