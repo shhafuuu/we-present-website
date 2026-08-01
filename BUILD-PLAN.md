@@ -746,6 +746,39 @@ Client wants a zip on completion.
 
 ---
 
+## Where to pick this up
+
+State as of 1 August 2026, end of the round-4 session. Working tree clean, everything
+pushed to `main`.
+
+**Do this first.** Re-read the Guardrails above, then `docs/round-4-status.md` for what
+shipped and the nine open client questions. `docs/cases-source-extract.md` is the audit
+trail for every published case figure; the source decks are gitignored at 583MB and live
+only on local disk, so that file is all that survives a fresh clone.
+
+**Only three orders are genuinely outstanding**, and one of them is blocked:
+
+1. **WO-52, contrast pass.** The only unblocked build work left. Individual pairings have
+   been measured as they were touched (gold on aubergine 5.16:1, the hero panel 6.29:1,
+   the lilac card fill 5.00:1 for `ink/70`), but the systematic sweep has not been run.
+2. **WO-04, partner logos.** Blocked: the client's files are still `.ai` and `.psd`.
+3. **WO-62, handover zip.** Best produced last, once the blocked items land.
+
+**Do not reopen WO-10's URL nesting** without a new reason. Moving resort pages under
+`/destinations/[destination]/[resort]` was considered and declined: nothing is broken, no
+visitor sees a difference, and it rewrites URLs already live in the review build.
+
+**The review build is stale.** `playful-cassata-3c1ccf.netlify.app` responds but does not
+reflect any round-4 work, so Netlify is not auto-deploying from `main`. Wiring that up
+also unblocks the CMS, which needs the same rebuild-on-publish webhook.
+
+**Two facts on the site still want client confirmation before launch:** the Cases stat
+now reads "in market since 2014" (confirm the basis), and the eighth case, the
+full-resort buy-outs, is sourced from a "Real facts" slide but sits outside the spec's
+approved Tier 1 table.
+
+---
+
 ## Open points for the client
 
 Carry these into the next client summary. None of them block the orders above.
