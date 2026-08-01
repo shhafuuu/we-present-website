@@ -17,11 +17,13 @@ There is no test suite. Node.js is not installed via Homebrew here (no `brew`) �
 
 ## Source of truth
 
-`../We-Present-Website-Technical-Specification-v2.0.docx` (one directory above `web/`, outside this repo) is the client's spec and drives design, copy, and information architecture — palette, fonts, sitemap, form fields, tour dates. Read it with:
+Two documents, different jobs. `../We-Present-Website-Technical-Specification-v2.1.docx` (one directory up) is the client-facing spec and is authoritative on **intent and client-agreed content** — palette, fonts, sitemap, form fields, copy. `../BUILD-PLAN.md` is the **execution** document: the same scope as 31 numbered work orders with files, acceptance criteria and verification steps, consolidating rounds 2, 3 and 4. Where they differ, BUILD-PLAN.md wins on implementation detail. Read the spec with:
 
 ```bash
-textutil -convert txt -stdout "../We-Present-Website-Technical-Specification-v2.0.docx"
+textutil -convert txt -stdout "../We-Present-Website-Technical-Specification-v2.1.docx"
 ```
+
+**v2.1's "Repo state" line is wrong.** It claims the repository reflects round 1 only. Much of round 2 shipped in July (Destinations restructure, security pass, RU/EN form split, About rebuild, the atoll corrections). Audit before starting a work order rather than trusting that line, and skip orders already satisfied instead of rebuilding them.
 
 Raw resort photo/video/logo libraries (e.g. `../Fushifaru Images and Videos/`) also live one directory up and are **not** in the repo (gitignored, 5–17GB each). `public/images/` holds only a curated, resized subset copied via `sips -Z <maxdim> -s format jpeg -s formatOptions 82`. Pull source files from those sibling folders the same way rather than committing raw originals.
 

@@ -22,3 +22,12 @@ Meyyafushi Logo.svg
 
 # Raw source for the home hero photo (curated/resized copy is web/public/images/home/hero-open-ocean.jpg)
 ChatGPT Image 21 июля 2026 г., 16_51_55.png
+
+# Source COATI decks for the Cases section (v2.1 §2). Far over GitHub's 100MB limit
+# (the company deck alone is 571MB); the mined figures live in content/cases/*.json.
+Company Presentations/
+PR & Media opportunities presentations.pptx
+Sales & Marketing opportunities presentations.pptx
+
+# Throwaway Playwright screenshot scripts (see CLAUDE.md "Visual verification")
+web/shot.mjs
