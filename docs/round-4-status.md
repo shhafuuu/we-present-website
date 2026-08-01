@@ -26,6 +26,11 @@ Already correct before this round, verified not rebuilt: the Meyyafushi and Madi
 atolls, the RU/EN form split, the flights claim (the spec calls this "currently live";
 it is not), the About rebuild and the value grid elevation.
 
+**Logo installed** (WO-02): the client's SVG is now live as vector in the header,
+footer and favicon, cropped to its ink and filled with `currentColor` so one
+definition covers every colour variant. The raster placeholders are left in place
+unused.
+
 **Not done, by decision:** WO-10's remaining step, which would move resort pages from
 `/resorts/[slug]` to `/destinations/[destination]/[resort]` with 308 redirects. Nothing
 is broken, no visitor sees a difference, and it rewrites URLs already live in the review

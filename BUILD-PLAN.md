@@ -11,6 +11,13 @@ Consolidated work orders for rounds 2, 3 and 4. Supersedes the loose backlog in 
 
 Work one order at a time, in order, unless a phase says otherwise.
 
+**Status key.** `[x]` done. `[~]` partially done, see the order for what is left.
+`[ ]` outstanding. As of 1 August 2026 the only genuinely outstanding orders are
+WO-04 (blocked on web-format partner logos), WO-52 (a systematic contrast pass;
+individual pairings have been measured as they were touched) and WO-62 (the
+handover zip, which is best produced last). WO-10 is partial by decision: the
+Destinations restructure shipped, the URL nesting was judged not worth the churn.
+
 For each work order:
 
 1. Read the order in full, plus any file it names.
@@ -79,7 +86,7 @@ These apply to every order. Violating one is a defect even if the order itself w
 
 # Phase 0 — Foundations
 
-### [ ] WO-01 — Reconcile the design tokens against DESIGN.md
+### [x] WO-01 — Reconcile the design tokens against DESIGN.md
 
 **Origin:** housekeeping · **Priority:** first
 
@@ -99,7 +106,7 @@ Earlier specs circulated a yellow accent (`#F4C64A`). `DESIGN.md` is authoritati
 
 ---
 
-### [ ] WO-02 — Install the official logo
+### [x] WO-02 — Install the official logo
 
 **Origin:** round 1 open item, asset now received
 
@@ -155,7 +162,7 @@ Client supplied Meyyafushi and Fushifaru as `.ai` and Madifushi as `.psd`. Not w
 
 # Phase 1 — Data model and content structure
 
-### [ ] WO-10 — Restructure Resorts into Destinations
+### [~] WO-10 — Restructure Resorts into Destinations
 
 **Origin:** round 2
 
@@ -264,7 +271,7 @@ Meyyafushi is in **Lhaviyani Atoll**, not Raa Atoll.
 
 # Phase 2 — Positioning, copy and audience
 
-### [ ] WO-20 — Rebuild About as a B2B platform
+### [x] WO-20 — Rebuild About as a B2B platform
 
 **Origin:** round 2
 
@@ -666,7 +673,7 @@ White against lilac was reported as too similar. Related: adjacent near-identica
 
 ---
 
-### [ ] WO-53 — Russian typography check
+### [x] WO-53 — Russian typography check
 
 **Origin:** round 1
 
@@ -696,7 +703,7 @@ Add or extend collections for everything introduced above: `destinations`, `case
 
 ---
 
-### [ ] WO-61 — Security pass
+### [x] WO-61 — Security pass
 
 **Origin:** July 2026 security review, `WePresent-Security-Review-and-CLAUDE-additions.md`
 
@@ -725,7 +732,7 @@ Client wants a zip on completion.
 
 # Phase 8 — Final verification
 
-### [ ] WO-70 — Full QA sweep
+### [x] WO-70 — Full QA sweep
 
 - [ ] Every page, both locales, at 1440px, 1024px and 390px
 - [ ] `rg -i "coati travel"` returns nothing
