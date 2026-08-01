@@ -282,6 +282,31 @@ collections:
                   - { label: "English", name: "en", widget: "text" }
                   - { label: "Russian", name: "ru", widget: "text" }
 
+      - name: "cases"
+        label: "Cases — Stat Rail & Attribution"
+        file: "web/content/settings/cases.json"
+        fields:
+          - label: "Attribution line"
+            name: "attribution"
+            widget: "object"
+            hint: "Shown under the case index and on every case page. These are COATI results, not We Present results, and the wording is agreed with the client. Do not reword without asking."
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+          - label: "Stat rail"
+            name: "stats"
+            widget: "list"
+            max: 3
+            summary: "{{fields.value}}"
+            hint: "Exactly three figures. Beyond three each number loses impact, and only the first three render."
+            fields:
+              - { label: "Value", name: "value", widget: "string", hint: "e.g. 19,854 or 15,000+. Digits animate on scroll; any prefix or suffix stays put." }
+              - label: "Label"
+                name: "label"
+                widget: "object"
+                fields:
+                  - { label: "English", name: "en", widget: "string" }
+                  - { label: "Russian", name: "ru", widget: "string" }
       - name: "tours"
         label: "Tours Page — What's Included / On-Site Programme"
         file: "web/content/settings/tours.json"
@@ -342,6 +367,117 @@ collections:
                 fields:
                   - { label: "English", name: "en", widget: "string" }
                   - { label: "Russian", name: "ru", widget: "string" }
+
+  - name: "cases"
+    label: "Cases — COATI Results"
+    label_singular: "Case"
+    folder: "web/content/cases"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    identifier_field: slug
+    summary: "{{fields.partner.en}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL segment, lowercase with hyphens, e.g. cinnamon-maldives. Changing it changes the case's web address."
+      - label: "Display order"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        hint: "Lower numbers appear first in the index."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["sales", "media", "influencers", "events", "digital", "awards"]
+        hint: "Drives which filter the case appears under."
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+        required: false
+        hint: "Switch off to hold a finished case back while a permission question is open. Oman is off pending confirmation that the ministry representation may be published."
+      - label: "Feature this case"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "The first featured case gets the large card. Others get the dark fill but normal size."
+      - label: "Partner"
+        name: "partner"
+        widget: "object"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Headline figure"
+        name: "headlineMetric"
+        widget: "object"
+        required: false
+        hint: "The single number the index card leads with. Leave empty for a case with no figure, such as an award; the card falls back to the summary."
+        fields:
+          - { label: "Value", name: "value", widget: "string", hint: "e.g. 19,854 or +98%" }
+          - label: "Label"
+            name: "label"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Summary"
+        name: "summary"
+        widget: "object"
+        hint: "One line, shown on the index card."
+        fields:
+          - { label: "English", name: "en", widget: "text" }
+          - { label: "Russian", name: "ru", widget: "text" }
+      - label: "Description"
+        name: "description"
+        widget: "object"
+        required: false
+        hint: "Detail-page opener. A case with no description gets no detail page and is not linked from the index, so never leave this half-written."
+        fields:
+          - { label: "English", name: "en", widget: "text", required: false }
+          - { label: "Russian", name: "ru", widget: "text", required: false }
+      - label: "What we did"
+        name: "activities"
+        widget: "list"
+        required: false
+        summary: "{{fields.en}}"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "The result"
+        name: "results"
+        widget: "list"
+        required: false
+        summary: "{{fields.en}}"
+        fields:
+          - { label: "English", name: "en", widget: "string" }
+          - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Partner quote"
+        name: "quote"
+        widget: "object"
+        required: false
+        hint: "Paraphrase partner correspondence, never quote it verbatim. The source material is private email. Say so in the attribution."
+        fields:
+          - label: "Text"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "text" }
+              - { label: "Russian", name: "ru", widget: "text" }
+          - label: "Attribution"
+            name: "attribution"
+            widget: "object"
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Destination slug"
+        name: "destination"
+        widget: "string"
+        required: false
+        hint: "Optional. Must match a destination slug, e.g. maldives."
 
   - name: "how_it_was"
     label: "How It Was — Stories"

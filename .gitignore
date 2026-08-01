@@ -29,6 +29,10 @@ Company Presentations/
 PR & Media opportunities presentations.pptx
 Sales & Marketing opportunities presentations.pptx
 
-# Throwaway Playwright screenshot/measure scripts (see CLAUDE.md "Visual verification")
+# Throwaway Playwright verification scripts (see CLAUDE.md "Visual verification")
 web/shot.mjs
 web/measure.mjs
+web/overflow.mjs
+web/sample.mjs
+web/waitshot.mjs
+web/statshot.mjs

@@ -7,6 +7,10 @@ import { DifferenceTable } from "@/components/about/DifferenceTable";
 import { ValueJourney } from "@/components/about/ValueJourney";
 import { Button } from "@/components/Button";
 import { Sparkle } from "@/components/Sparkle";
+import { CasesIndex, type CaseCard } from "@/components/cases/CasesIndex";
+import { StatRail } from "@/components/cases/StatRail";
+import { cases, activeCategories, hasDetail, t as tc } from "@/lib/cases";
+import { getCasesSettings } from "@/lib/settings";
 import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -18,6 +22,34 @@ export default async function AboutPage({
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
   const dict = getDictionary(locale);
+
+  // Localise on the server so the client filter component ships plain strings and
+  // never needs the dictionary or the fs-backed loaders.
+  const casesSettings = getCasesSettings();
+  const statRail = casesSettings.stats.map((s) => ({
+    value: s.value,
+    label: s.label[locale],
+  }));
+
+  const caseCards: CaseCard[] = cases.map((c) => ({
+    slug: c.slug,
+    category: c.category,
+    categoryLabel: dict.about.cases.filters[c.category],
+    partner: tc(c.partner, locale),
+    metricValue: c.headlineMetric?.value,
+    metricLabel: c.headlineMetric ? tc(c.headlineMetric.label, locale) : undefined,
+    summary: tc(c.summary, locale),
+    featured: c.featured,
+    hasDetail: hasDetail(c),
+    detailHref: href(locale, `/cases/${c.slug}`),
+  }));
+
+  // Only offer a filter for a category that actually has cases, so no filter can
+  // return an empty grid.
+  const caseFilters = [
+    { key: "all", label: dict.about.cases.filters.all },
+    ...activeCategories.map((cat) => ({ key: cat, label: dict.about.cases.filters[cat] })),
+  ];
 
   return (
     <>
@@ -128,21 +160,41 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-ivory px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <Reveal>
+      {/* Cases (v2.1 section 2). Three layers, deliberately separated: the stat rail,
+          then the filterable index, then a full editorial page per case. Putting the
+          description, activities and results on the cards instead is what would make
+          this section text-heavy, which is precisely what was to be avoided. */}
+      <section id="cases" className="scroll-mt-24 border-t border-amethyst/10 bg-ivory px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="text-center">
             <Kicker>{dict.about.cases.kicker}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
               {dict.about.cases.title}
             </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
+              {dict.about.cases.intro}
+            </p>
           </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-10 rounded-3xl border border-dashed border-amethyst/20 bg-soft-lilac/40 px-8 py-14">
-              <Sparkle className="mx-auto h-4 w-4 text-gold" />
-              <p className="mt-4 text-sm leading-relaxed text-ink/70">{dict.about.cases.body}</p>
-            </div>
+
+          <div className="mt-16 border-y border-amethyst/15 py-14">
+            <StatRail stats={statRail} />
+          </div>
+
+          <div className="mt-16">
+            <CasesIndex
+              cards={caseCards}
+              filters={caseFilters}
+              emptyLabel={dict.about.cases.empty}
+            />
+          </div>
+
+          {/* These are COATI results, not We Present results, and the site must not
+              present them as the latter. */}
+          <Reveal delay={0.1}>
+            <p className="mt-14 text-center text-sm text-ink/70">{casesSettings.attribution[locale]}</p>
           </Reveal>
-          <Reveal delay={0.25} className="mt-10">
+
+          <Reveal delay={0.2} className="mt-12 text-center">
             <Button href={href(locale, "/how-it-was")} variant="ghost">
               {dict.about.cases.cta}
             </Button>

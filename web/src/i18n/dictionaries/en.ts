@@ -218,9 +218,21 @@ export const en = {
     },
     cases: {
       kicker: "Project Cases",
-      title: "Real results, coming soon",
-      body: "As each 2026 edition wraps, real project cases will appear here: destination launches, hotel presentations, educational trips, media and blogger collaborations, and more, each with the activities completed and results achieved. Participant and partner reviews will follow the same way.",
+      title: "Real results, not descriptions",
+      intro:
+        "Delivered work for hotels, resorts and destinations in the Russia and CIS market. Room nights, growth and appointments, with the partners named.",
       cta: "See How It Was",
+      empty: "No cases in this category yet.",
+      readCase: "Read the case",
+      filters: {
+        all: "All work",
+        sales: "Sales growth",
+        media: "Media",
+        influencers: "Influencers",
+        events: "Events",
+        digital: "Digital",
+        awards: "Awards",
+      },
     },
     benefits: {
       kicker: "Benefits for Agents",
@@ -245,6 +257,13 @@ export const en = {
       body: "Further destinations planned for the next edition.",
       badge: "To be announced",
     },
+  },
+  casePage: {
+    activities: "What we did",
+    results: "The result",
+    back: "All cases",
+    ctaTitle: "Want results like these for your property?",
+    cta: "Register Interest",
   },
   tourDetail: {
     ttmKicker: "TTM Maldives 2026",
