@@ -120,7 +120,7 @@ Earlier specs circulated a yellow accent (`#F4C64A`). `DESIGN.md` is authoritati
 
 ---
 
-### [ ] WO-03 — Extract a shared PageBanner component
+### [x] WO-03 — Extract a shared PageBanner component
 
 **Origin:** v2.0 §4a, extended
 
@@ -178,7 +178,7 @@ Destination becomes the top-level entity. Resorts and partners nest inside a des
 
 ---
 
-### [ ] WO-11 — Add the Cinnamon Maldives Resorts tour
+### [x] WO-11 — Add the Cinnamon Maldives Resorts tour
 
 **Origin:** round 4
 
@@ -208,7 +208,7 @@ Client confirmed the tour name as **Cinnamon Maldives Resorts**. Four properties
 
 ---
 
-### [ ] WO-12 — Add Oman as a destination programme — partially BLOCKED
+### [x] WO-12 — Add Oman as a destination programme — partially BLOCKED
 
 **Origin:** round 4
 
@@ -225,7 +225,7 @@ Oman is a **destination programme**, not a hotel tour. COATI represents the dest
 
 ---
 
-### [ ] WO-13 — Add Kenya as a lodge-collection programme — partially BLOCKED
+### [x] WO-13 — Add Kenya as a lodge-collection programme — partially BLOCKED
 
 **Origin:** round 4
 
@@ -242,7 +242,7 @@ Kenya is the **Saruni Basecamp** collection: 13 safari lodges across Kenya, with
 
 ---
 
-### [ ] WO-14 — Fix the Meyyafushi atoll
+### [x] WO-14 — Fix the Meyyafushi atoll
 
 **Origin:** round 2, still outstanding
 
@@ -278,7 +278,7 @@ A visitor must grasp within one screen: what it is, how it works, who it connect
 
 ---
 
-### [ ] WO-21 — Split the value section by audience
+### [x] WO-21 — Split the value section by audience
 
 **Origin:** round 4 (client's primary ask)
 
@@ -302,7 +302,7 @@ Currently both audiences are mixed into one block. Split into two, preceded by t
 
 ---
 
-### [ ] WO-22 — Homepage: differentiator and dual key messages
+### [x] WO-22 — Homepage: differentiator and dual key messages
 
 **Origin:** round 4
 
@@ -316,7 +316,7 @@ The homepage carries an abbreviated version of WO-21 so it stays premium rather 
 
 ---
 
-### [ ] WO-23 — Correct the participation positioning
+### [x] WO-23 — Correct the participation positioning
 
 **Origin:** v2.0 §1 and §6.3, carried forward
 
@@ -337,7 +337,7 @@ Full RU and EN copy is in spec v2.1 Appendix A.
 
 ---
 
-### [ ] WO-24 — Fix the flights claim
+### [x] WO-24 — Fix the flights claim
 
 **Origin:** round 4 (client correction, factual error)
 
@@ -356,7 +356,7 @@ Full RU and EN copy is in spec v2.1 Appendix A.
 
 # Phase 3 — Tour detail sections
 
-### [ ] WO-25 — Revise the What's Included block
+### [x] WO-25 — Revise the What's Included block
 
 **Origin:** v2.0 §7.1, amended by round 4
 
@@ -391,7 +391,7 @@ RU: *Одноместное размещение доступно за допо�
 
 ---
 
-### [ ] WO-26 — Per-tour programme PDF, gated — partially BLOCKED
+### [x] WO-26 — Per-tour programme PDF, gated — partially BLOCKED
 
 **Origin:** round 4
 
@@ -416,7 +416,7 @@ Each tour can carry a downloadable PDF: detailed itinerary, day-by-day programme
 
 ---
 
-### [ ] WO-27 — On-site programme block: title and layout
+### [x] WO-27 — On-site programme block: title and layout
 
 **Origin:** v2.0 §7.2, amended after review of the live build
 
@@ -454,7 +454,7 @@ Make the title a per-tour CMS field. Default to the client's wording for the Mal
 
 # Phase 4 — Cases
 
-### [ ] WO-30 — Build the Cases collection and data model
+### [x] WO-30 — Build the Cases collection and data model
 
 **Origin:** round 2, content supplied round 4
 
@@ -490,7 +490,7 @@ type Case = {
 
 ---
 
-### [ ] WO-31 — Cases index: stat rail, filter, editorial grid
+### [x] WO-31 — Cases index: stat rail, filter, editorial grid
 
 **Origin:** round 4, design direction agreed with Shaf
 
@@ -516,7 +516,7 @@ Three layers. Do not collapse them into one.
 
 ---
 
-### [ ] WO-32 — Case detail pages
+### [x] WO-32 — Case detail pages
 
 **Origin:** round 2 ("Learn more" per case)
 
@@ -526,7 +526,7 @@ Each case gets a full editorial page: the challenge, what COATI did, the result,
 
 ---
 
-### [ ] WO-33 — Seed the case content
+### [x] WO-33 — Seed the case content
 
 **Origin:** mined from the three COATI decks, 1 Aug 2026
 
@@ -569,7 +569,7 @@ Feature **Cinnamon** and **Fushifaru** prominently: both are also WePresent tour
 
 # Phase 5 — Contact, forms and locale
 
-### [ ] WO-40 — Contact details
+### [x] WO-40 — Contact details
 
 **Origin:** round 4
 
@@ -583,7 +583,7 @@ Feature **Cinnamon** and **Fushifaru** prominently: both are also WePresent tour
 
 ---
 
-### [ ] WO-41 — Confirm the RU/EN form split
+### [x] WO-41 — Confirm the RU/EN form split
 
 **Origin:** round 2, likely already correct
 
@@ -595,7 +595,7 @@ RU keeps the full project sign-up form. EN shows a contact block only. This is d
 
 # Phase 6 — Design and motion
 
-### [ ] WO-50 — Hero image treatment
+### [x] WO-50 — Hero image treatment
 
 **Origin:** round 4 (client asked for advice)
 
@@ -618,7 +618,7 @@ The client likes the destination-neutral ocean image but finds the purple overla
 
 ---
 
-### [ ] WO-51 — Elevate the About value grid
+### [x] WO-51 — Elevate the About value grid
 
 **Origin:** v2.0 §8, client priority
 
@@ -684,7 +684,7 @@ Russian rendering was reported broken from incomplete Cyrillic coverage.
 
 # Phase 7 — Portal, security, handover
 
-### [ ] WO-60 — Extend the Decap CMS schema
+### [x] WO-60 — Extend the Decap CMS schema
 
 **Origin:** rounds 2 and 4. Client's stated top priority is self-service editing.
 
