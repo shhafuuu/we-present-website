@@ -1,15 +1,15 @@
 {
   "included": {
     "items": [
-      { "icon": "ticket", "label": { "en": "Registration fee", "ru": "Регистрационный взнос" } },
+      { "icon": "ticket", "label": { "en": "Registration fee", "ru": "Регистрационный взнос" }, "enabled": false },
       { "icon": "bed", "label": { "en": "Accommodation (½ DBL*)", "ru": "Проживание (½ DBL*)" } },
-      { "icon": "dining", "label": { "en": "Full board / Premium All-Inclusive dining", "ru": "Полный пансион / Премиум «Всё включено»" } },
+      { "icon": "dining", "label": { "en": "Dining", "ru": "Питание" } },
       { "icon": "transfer", "label": { "en": "Transfers", "ru": "Трансферы" } },
       { "icon": "program", "label": { "en": "Exclusive programme with hotel management", "ru": "Эксклюзивная программа с руководством отеля" } }
     ],
     "notes": {
       "en": "* Single-room accommodation is available at an additional charge on request. International flights and travel insurance are arranged independently by participants. Exact inclusions are confirmed at registration for each tour.",
-      "ru": "* Одноместное размещение доступно за дополнительную плату по запросу. Международные перелёты и страховку участники организуют самостоятельно. Точный состав услуг уточняется при регистрации на конкретный тур."
+      "ru": "* Одноместное размещение доступно за дополнительную плату по запросу. Международные перелёты и страховку участники организуют самостоятельно. Точный состав включённых услуг подтверждается при регистрации на каждый тур."
     }
   },
   "onSiteProgram": {

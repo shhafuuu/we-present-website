@@ -11,7 +11,11 @@ export type HomeSettings = {
   };
 };
 
-export type IncludedItem = { icon: string; label: LocalizedString };
+/** `enabled: false` keeps an item in the portal, switched off, without deleting it.
+ *  Used for the registration fee: round 4 removed it from the package, but a future
+ *  edition may charge one, so the editor can switch it back on rather than retype it.
+ *  Absent means enabled — existing items don't need the flag. */
+export type IncludedItem = { icon: string; label: LocalizedString; enabled?: boolean };
 
 export type ToursSettings = {
   included: {
@@ -46,7 +50,14 @@ export function getHomeSettings(): HomeSettings {
  */
 export function getToursSettings(): ToursSettings {
   const raw = fs.readFileSync(TOURS_SETTINGS_FILE, "utf8");
-  return JSON.parse(raw) as ToursSettings;
+  const settings = JSON.parse(raw) as ToursSettings;
+  return {
+    ...settings,
+    included: {
+      ...settings.included,
+      items: settings.included.items.filter((item) => item.enabled !== false),
+    },
+  };
 }
 
 export const t = (value: LocalizedString, locale: Locale) => value[locale];

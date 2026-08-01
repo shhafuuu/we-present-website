@@ -119,7 +119,7 @@ export default async function ToursPage({
               {dict.tourDetail.includedTitle}
             </h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-5">
+          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
             {toursSettings.included.items.map((item, i) => {
               const Icon = INCLUDED_ICONS[item.icon] ?? TicketIcon;
               return (

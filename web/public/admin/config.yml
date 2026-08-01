@@ -289,7 +289,7 @@ collections:
           - label: "What's included"
             name: "included"
             widget: "object"
-            hint: "The participation-package row (registration fee, accommodation, etc), shown once on the tours overview page — the same across every tour."
+            hint: "The participation-package row (accommodation, dining, transfers, programme), shown once on the tours overview page. It states the category of what is covered; per-tour specifics belong in that tour's programme PDF, not here."
             fields:
               - label: "Items"
                 name: "items"
@@ -311,6 +311,12 @@ collections:
                     fields:
                       - { label: "English", name: "en", widget: "string" }
                       - { label: "Russian", name: "ru", widget: "string" }
+                  - label: "Show this item"
+                    name: "enabled"
+                    widget: "boolean"
+                    default: true
+                    required: false
+                    hint: "Switch off to hide an item without deleting it. The registration fee is off by default; switch it on if a future edition charges one."
               - label: "Fine print"
                 name: "notes"
                 widget: "object"
