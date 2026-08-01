@@ -1,0 +1,20 @@
+{
+  "attribution": {
+    "en": "Delivered by COATI, the team behind We Present.",
+    "ru": "Реализовано COATI, командой, стоящей за We Present."
+  },
+  "stats": [
+    {
+      "value": "19,854",
+      "label": { "en": "room nights delivered", "ru": "ночей продано" }
+    },
+    {
+      "value": "15,000+",
+      "label": { "en": "agents in the network", "ru": "агентов в сети" }
+    },
+    {
+      "value": "11",
+      "label": { "en": "years in market", "ru": "лет на рынке" }
+    }
+  ]
+}

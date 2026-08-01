@@ -1,0 +1,21 @@
+{
+  "slug": "happy-planet-dmc",
+  "order": 6,
+  "category": "sales",
+  "partner": { "en": "Happy Planet DMC, Mauritius", "ru": "Happy Planet DMC, Маврикий" },
+  "headlineMetric": {
+    "value": "7",
+    "label": { "en": "new tour operator contracts signed in 2025", "ru": "новых контрактов с туроператорами в 2025 году" }
+  },
+  "summary": {
+    "en": "Seven new tour operator contracts signed in 2025, opening distribution for Mauritius across the Russian market.",
+    "ru": "Семь новых контрактов с туроператорами в 2025 году, открывших дистрибуцию Маврикия на российском рынке."
+  },
+  "description": {
+    "en": "Distribution work rather than campaign work. For a destination management company, the measure of a year is not impressions but how many operators will actually package and sell the product, because each signed contract is a channel that keeps selling after the campaign ends.",
+    "ru": "Работа с дистрибуцией, а не с кампаниями. Для принимающей компании итог года измеряется не показами, а числом операторов, готовых реально паковать и продавать продукт: каждый подписанный контракт становится каналом, который продолжает продавать и после завершения кампании."
+  },
+  "results": [
+    { "en": "Seven new tour operator contracts signed during 2025.", "ru": "Семь новых контрактов с туроператорами подписано в течение 2025 года." }
+  ]
+}

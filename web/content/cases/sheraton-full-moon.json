@@ -1,0 +1,35 @@
+{
+  "slug": "sheraton-full-moon",
+  "order": 3,
+  "category": "sales",
+  "destination": "maldives",
+  "partner": { "en": "Sheraton Maldives Full Moon", "ru": "Sheraton Maldives Full Moon" },
+  "headlineMetric": {
+    "value": "+98%",
+    "label": { "en": "sales growth, 2023 to 2025", "ru": "рост продаж с 2023 по 2025 год" }
+  },
+  "summary": {
+    "en": "Sales nearly doubled over two years, and 4,287 room nights delivered in 2025 alone.",
+    "ru": "Продажи почти удвоились за два года, а только за 2025 год продано 4 287 ночей."
+  },
+  "description": {
+    "en": "A Marriott International property in North Malé Atoll. The brief was straightforward and the timeline was not: grow a mature five-star resort in a competitive market where agents already had established alternatives. Performance here led Marriott to appoint COATI as official representative and later to extend the contract to properties in Dubai.",
+    "ru": "Отель Marriott International в Северном Мале Атолле. Задача была простой, а сроки нет: вырастить зрелый пятизвёздочный курорт на конкурентном рынке, где у агентов уже были привычные альтернативы. Результаты привели к назначению COATI официальным представителем, а позже к расширению контракта с Marriott на отели в Дубае."
+  },
+  "activities": [
+    { "en": "Year-round agent education and direct sales outreach across Russia and the CIS.", "ru": "Круглогодичное обучение агентов и прямые продажи по России и СНГ." },
+    { "en": "Positioning work separating the resort from nearby competitors in the same atoll.", "ru": "Работа над позиционированием, отделяющая курорт от конкурентов в том же атолле." }
+  ],
+  "results": [
+    { "en": "98% sales growth between 2023 and 2025, including 34% from 2024 to 2025.", "ru": "Рост продаж на 98% с 2023 по 2025 год, включая 34% с 2024 по 2025 год." },
+    { "en": "4,287 room nights delivered in 2025.", "ru": "4 287 ночей продано в 2025 году." },
+    { "en": "Appointed official representative for the property by Marriott International.", "ru": "Назначение официальным представителем отеля со стороны Marriott International." }
+  ],
+  "quote": {
+    "text": {
+      "en": "The resort's management wrote to confirm the partnership had been instrumental in the year's results, citing 4,287 room nights delivered in 2025, and said they expected the growth to continue.",
+      "ru": "Руководство курорта подтвердило, что партнёрство сыграло ключевую роль в результатах года, назвав 4 287 проданных ночей за 2025 год, и выразило уверенность в продолжении роста."
+    },
+    "attribution": { "en": "Paraphrased from partner correspondence, Sheraton Maldives Full Moon", "ru": "Пересказ из переписки с партнёром, Sheraton Maldives Full Moon" }
+  }
+}

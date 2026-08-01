@@ -1,0 +1,14 @@
+{
+  "slug": "fashion-travel-awards",
+  "order": 7,
+  "category": "awards",
+  "partner": { "en": "Fashion Travel Awards 2026", "ru": "Fashion Travel Awards 2026" },
+  "summary": {
+    "en": "Named Best Representative Company in Russia at the Fashion Travel Awards 2026.",
+    "ru": "Звание лучшей представительской компании в России на Fashion Travel Awards 2026."
+  },
+  "description": {
+    "en": "An industry award judged on representation work in the Russian market, given to COATI Global Sales Agency as Best Representative Company in Russia.",
+    "ru": "Отраслевая награда за представительскую работу на российском рынке, присуждённая COATI Global Sales Agency как лучшей представительской компании в России."
+  }
+}

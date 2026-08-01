@@ -1,0 +1,22 @@
+{
+  "slug": "oman-ministry",
+  "order": 8,
+  "category": "awards",
+  "published": false,
+  "partner": {
+    "en": "Ministry of Heritage and Tourism of Oman",
+    "ru": "Министерство наследия и туризма Омана"
+  },
+  "summary": {
+    "en": "Appointed official representative of the Ministry of Heritage and Tourism of Oman in 2025.",
+    "ru": "Назначение официальным представителем Министерства наследия и туризма Омана в 2025 году."
+  },
+  "description": {
+    "en": "Appointed in 2025 to represent Oman as a destination in the Russian market, operating a market-based representative office under COATI. Russian arrivals to Oman rose 147% across the same year.",
+    "ru": "Назначение в 2025 году представителем Омана как направления на российском рынке с работой представительского офиса под управлением COATI. За тот же год поток российских туристов в Оман вырос на 147%."
+  },
+  "results": [
+    { "en": "Appointed official representative of the Ministry of Heritage and Tourism of Oman, 2025.", "ru": "Назначение официальным представителем Министерства наследия и туризма Омана в 2025 году." },
+    { "en": "147% increase in Russian arrivals to Oman in 2025.", "ru": "Рост числа российских туристов в Омане на 147% в 2025 году." }
+  ]
+}

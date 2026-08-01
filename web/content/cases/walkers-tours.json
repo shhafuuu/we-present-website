@@ -1,0 +1,21 @@
+{
+  "slug": "walkers-tours",
+  "order": 5,
+  "category": "sales",
+  "partner": { "en": "Walkers Tours, Sri Lanka", "ru": "Walkers Tours, Шри-Ланка" },
+  "headlineMetric": {
+    "value": "+60%",
+    "label": { "en": "growth in the first year of partnership", "ru": "рост за первый год партнёрства" }
+  },
+  "summary": {
+    "en": "60% growth delivered in the first year of the partnership, 2023 to 2024.",
+    "ru": "Рост на 60% за первый год партнёрства, с 2023 по 2024 год."
+  },
+  "description": {
+    "en": "A destination management company in Sri Lanka, and a different shape of partnership to the resort work: the product is a whole destination rather than a single property, sold to agents who in most cases had never packaged it. First-year growth of this size comes from building a market rather than taking share in one.",
+    "ru": "Принимающая компания на Шри-Ланке и другой формат партнёрства по сравнению с работой с отелями: продуктом выступает целое направление, а не отдельный объект, и продаётся оно агентам, которые в большинстве своём никогда его не паковали. Такой рост за первый год достигается за счёт создания рынка, а не отвоёвывания доли на существующем."
+  },
+  "results": [
+    { "en": "60% growth across the first year of partnership, 2023 to 2024.", "ru": "Рост на 60% за первый год партнёрства, с 2023 по 2024 год." }
+  ]
+}

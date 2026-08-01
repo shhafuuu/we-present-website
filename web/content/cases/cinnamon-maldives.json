@@ -1,0 +1,51 @@
+{
+  "slug": "cinnamon-maldives",
+  "order": 1,
+  "featured": true,
+  "category": "sales",
+  "destination": "maldives",
+  "partner": { "en": "Cinnamon Maldives", "ru": "Cinnamon Maldives" },
+  "headlineMetric": {
+    "value": "19,854",
+    "label": {
+      "en": "room nights delivered across four hotels",
+      "ru": "ночей продано в четырёх отелях"
+    }
+  },
+  "summary": {
+    "en": "19,854 room nights across four Cinnamon properties between April and December 2025, up 20% on the same period in 2024.",
+    "ru": "19 854 ночи в четырёх отелях Cinnamon с апреля по декабрь 2025 года, на 20% больше, чем за тот же период 2024 года."
+  },
+  "description": {
+    "en": "Cinnamon Hotels & Resorts operates four properties in the Maldives across two star ratings, from adults-only island retreats to family resorts. Selling four properties under one brand into the Russia and CIS market means agents have to understand what separates them, not just recognise the name. The work was to build that product knowledge across the agent network and convert it into booked room nights.",
+    "ru": "Cinnamon Hotels & Resorts управляет четырьмя отелями на Мальдивах в двух категориях звёздности: от островных курортов только для взрослых до семейных отелей. Чтобы продавать четыре объекта одного бренда на рынке России и СНГ, агентам нужно понимать, чем они отличаются, а не просто узнавать название. Задача состояла в том, чтобы выстроить это знание продукта в агентской сети и конвертировать его в проданные ночи."
+  },
+  "activities": [
+    {
+      "en": "Focused product training separating the four properties by concept, guest profile and unique selling points.",
+      "ru": "Целевое обучение по продукту, разделяющее четыре отеля по концепции, профилю гостя и преимуществам."
+    },
+    {
+      "en": "Regular workshops, seminars and roadshows reaching agents beyond Moscow and St Petersburg.",
+      "ru": "Регулярные воркшопы, семинары и роуд-шоу с охватом агентов за пределами Москвы и Санкт-Петербурга."
+    },
+    {
+      "en": "Daily sales calls keeping availability windows and special offers in front of key partners.",
+      "ru": "Ежедневные звонки партнёрам, чтобы информация о наличии мест и спецпредложениях всегда была под рукой."
+    }
+  ],
+  "results": [
+    {
+      "en": "19,854 room nights delivered between April and December 2025.",
+      "ru": "19 854 ночи продано с апреля по декабрь 2025 года."
+    },
+    {
+      "en": "20% growth against the same period in 2024.",
+      "ru": "Рост на 20% по сравнению с тем же периодом 2024 года."
+    },
+    {
+      "en": "The cluster agreement with Cinnamon Hotels & Resorts was extended.",
+      "ru": "Кластерное соглашение с Cinnamon Hotels & Resorts было продлено."
+    }
+  ]
+}

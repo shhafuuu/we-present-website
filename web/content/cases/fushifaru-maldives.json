@@ -1,0 +1,61 @@
+{
+  "slug": "fushifaru-maldives",
+  "order": 2,
+  "featured": true,
+  "category": "sales",
+  "destination": "maldives",
+  "partner": { "en": "Fushifaru Maldives", "ru": "Fushifaru Maldives" },
+  "headlineMetric": {
+    "value": "+73%",
+    "label": {
+      "en": "Russian market growth against 2021",
+      "ru": "рост российского рынка к 2021 году"
+    }
+  },
+  "summary": {
+    "en": "Sustained year-on-year growth from Russia and Kazakhstan, with Russia ranked the resort's number one market.",
+    "ru": "Устойчивый рост из России и Казахстана год к году: Россия стала для отеля рынком номер один."
+  },
+  "description": {
+    "en": "Fushifaru is a five-star resort in Lhaviyani Atoll, and one of the partner properties a We Present participant is invited to visit. Growth here was not a single campaign but a compounding one, held across several years and two separate source markets rather than spiking once and falling back.",
+    "ru": "Fushifaru: пятизвёздочный курорт в атолле Лавияни и один из отелей-партнёров, которые посещают участники We Present. Рост здесь обеспечила не разовая кампания, а накопительная работа, которую удалось удержать на протяжении нескольких лет и сразу на двух рынках, а не показать всплеск с последующим спадом."
+  },
+  "activities": [
+    {
+      "en": "Continuous agent education across both the Russian and Kazakh markets.",
+      "ru": "Непрерывное обучение агентов на российском и казахстанском рынках."
+    },
+    {
+      "en": "Exclusive full-resort buy-outs, including a booking for a major Russian media company with over 150 attendees.",
+      "ru": "Эксклюзивные выкупы курорта целиком, включая бронирование для крупной российской медиакомпании более чем на 150 человек."
+    },
+    {
+      "en": "Sustained presence at workshops, seminars and industry events across the region.",
+      "ru": "Постоянное присутствие на воркшопах, семинарах и отраслевых мероприятиях региона."
+    }
+  ],
+  "results": [
+    {
+      "en": "Russian market up 73% against 2021 and 28% against 2024.",
+      "ru": "Российский рынок вырос на 73% к 2021 году и на 28% к 2024 году."
+    },
+    {
+      "en": "Kazakhstan up 143% against 2022.",
+      "ru": "Казахстан вырос на 143% к 2022 году."
+    },
+    {
+      "en": "Russia ranked the resort's number one source market.",
+      "ru": "Россия стала для курорта рынком номер один."
+    }
+  ],
+  "quote": {
+    "text": {
+      "en": "The resort's team recorded Russia as their number one market for the year, with room nights up 28% and Kazakhstan room nights up 143%, and thanked the COATI team by name for the effort behind it.",
+      "ru": "Команда курорта зафиксировала Россию как рынок номер один по итогам года: рост ночей на 28%, а по Казахстану на 143%, и поимённо поблагодарила команду COATI за проделанную работу."
+    },
+    "attribution": {
+      "en": "Paraphrased from partner correspondence, Fushifaru Maldives",
+      "ru": "Пересказ из переписки с партнёром, Fushifaru Maldives"
+    }
+  }
+}

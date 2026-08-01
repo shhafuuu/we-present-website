@@ -28,7 +28,16 @@ export type ToursSettings = {
   };
 };
 
+export type CasesSettings = {
+  /** Client-agreed wording. Every case carries it: these are COATI results, not
+   *  We Present results, and the site must not present them as the latter. */
+  attribution: LocalizedString;
+  /** Exactly three. Beyond that each number loses impact, so the render caps it. */
+  stats: { value: string; label: LocalizedString }[];
+};
+
 const HOME_SETTINGS_FILE = path.join(process.cwd(), "content", "settings", "home.json");
+const CASES_SETTINGS_FILE = path.join(process.cwd(), "content", "settings", "cases.json");
 const TOURS_SETTINGS_FILE = path.join(process.cwd(), "content", "settings", "tours.json");
 
 /**
@@ -58,6 +67,14 @@ export function getToursSettings(): ToursSettings {
       items: settings.included.items.filter((item) => item.enabled !== false),
     },
   };
+}
+
+export function getCasesSettings(): CasesSettings {
+  const raw = fs.readFileSync(CASES_SETTINGS_FILE, "utf8");
+  const settings = JSON.parse(raw) as CasesSettings;
+  // Three is the ceiling per v2.1 section 2.2, enforced here rather than trusting the
+  // portal, so a fourth entry degrades the rail instead of breaking its layout.
+  return { ...settings, stats: settings.stats.slice(0, 3) };
 }
 
 export const t = (value: LocalizedString, locale: Locale) => value[locale];

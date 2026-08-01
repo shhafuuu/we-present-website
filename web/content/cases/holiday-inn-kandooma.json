@@ -1,0 +1,30 @@
+{
+  "slug": "holiday-inn-kandooma",
+  "order": 4,
+  "category": "sales",
+  "destination": "maldives",
+  "partner": { "en": "Holiday Inn Resort Kandooma", "ru": "Holiday Inn Resort Kandooma" },
+  "headlineMetric": {
+    "value": "6,750",
+    "label": { "en": "room nights delivered", "ru": "ночей продано" }
+  },
+  "summary": {
+    "en": "6,750 room nights delivered, with November 2025 alone bringing 443 more room nights than the same month a year earlier.",
+    "ru": "Продано 6 750 ночей, причём только ноябрь 2025 года принёс на 443 ночи больше, чем тот же месяц годом ранее."
+  },
+  "description": {
+    "en": "A family and surf resort in South Malé Atoll, sitting in a different price bracket to most of the collection. The value of the partnership shows most clearly month by month rather than in the annual total: growth held through the shoulder season, not only in peak weeks.",
+    "ru": "Семейный и сёрф-курорт в Южном Мале Атолле, находящийся в другом ценовом сегменте, чем большая часть коллекции. Ценность партнёрства виднее в помесячной динамике, чем в годовом итоге: рост удержался и в межсезонье, а не только в пиковые недели."
+  },
+  "results": [
+    { "en": "6,750 room nights delivered from Russia and the CIS.", "ru": "6 750 ночей продано из России и СНГ." },
+    { "en": "November 2025 delivered 1,315 room nights, 443 more than November 2024.", "ru": "Ноябрь 2025 года принёс 1 315 ночей, на 443 больше, чем ноябрь 2024 года." }
+  ],
+  "quote": {
+    "text": {
+      "en": "The resort's reporting for November 2025 recorded 1,315 room nights from Russia and the CIS, an increase of 443 on the same month the previous year.",
+      "ru": "В отчётности курорта за ноябрь 2025 года зафиксировано 1 315 ночей из России и СНГ, что на 443 больше, чем в том же месяце предыдущего года."
+    },
+    "attribution": { "en": "Paraphrased from partner correspondence, Holiday Inn Resort Kandooma", "ru": "Пересказ из переписки с партнёром, Holiday Inn Resort Kandooma" }
+  }
+}
