@@ -70,7 +70,7 @@ export default async function AboutPage({
       </section>
 
       <section id="cases" className="scroll-mt-24 border-t border-amethyst/10 bg-ivory px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+        <div className="container-wide">
           <Reveal className="text-center">
             <Kicker>{dict.about.cases.kicker}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">

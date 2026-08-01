@@ -37,6 +37,9 @@ web/sample.mjs
 web/waitshot.mjs
 web/statshot.mjs
 web/panelmeasure.mjs
+web/ours.mjs
+web/ref2.mjs
+web/ref.mjs
 web/sweep.mjs
 web/rm.mjs
 

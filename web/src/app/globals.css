@@ -49,3 +49,14 @@ body {
 .font-display {
   font-family: var(--font-display);
 }
+
+/* Image-led sections run wider than reading sections.
+   Measured against the reference sites the client shared: Aman sits at a 25px side
+   gutter, Mandarin Oriental around 99px, Oberoi full-bleed. Our max-w-6xl containers
+   were leaving 144px of dead space either side at 1440, and 208px on /tours.
+   Text keeps its narrow measure (Aman's own body column measures ~326px); it is the
+   imagery that earns the width. */
+.container-wide {
+  margin-inline: auto;
+  max-width: 96rem; /* 1536px: ~40px gutters at 1440, ~24px at 1600 */
+}

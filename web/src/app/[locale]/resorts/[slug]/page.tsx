@@ -118,7 +118,9 @@ export default async function ResortPage({
       </section>
 
       <section className="bg-lavender-mist px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+        {/* Wider than the reading sections: the gallery is the reason to be on this
+            page, and max-w-6xl was leaving 144px unused either side at 1440. */}
+        <div className="container-wide">
           <Reveal>
             <Kicker>{dict.resortPage.gallery}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">

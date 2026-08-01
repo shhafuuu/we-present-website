@@ -25,7 +25,7 @@ export default async function PartnersPage({
       />
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+        <div className="container-wide">
           <Reveal className="text-center">
             <Kicker>{dict.partnersPage.resortPartners.kicker}</Kicker>
             <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">

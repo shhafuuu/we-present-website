@@ -11,7 +11,7 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
 
   return (
     <section id="partners" className="border-t border-amethyst/10 bg-soft-lilac/60 px-6 py-24 lg:px-10">
-      <div className="mx-auto max-w-6xl text-center">
+      <div className="container-wide text-center">
         <Reveal>
           <Kicker>{dict.home.partners.kicker}</Kicker>
           <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">

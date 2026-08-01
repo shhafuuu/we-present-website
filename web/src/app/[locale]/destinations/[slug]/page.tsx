@@ -76,7 +76,7 @@ export default async function DestinationPage({
           grid there would read as one still loading. */}
       {showsResortGrid(destination) && destResorts.length > 0 && (
         <section className="bg-ivory px-6 py-24 lg:px-10">
-          <div className="mx-auto max-w-6xl">
+          <div className="container-wide">
             <Reveal className="text-center">
               <Kicker>{dict.destinationsPage.resortsHeading}</Kicker>
               <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
@@ -164,7 +164,7 @@ export default async function DestinationPage({
       )}
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+        <div className="container-wide">
           <Link
             href={href(locale, "/destinations")}
             className="kicker inline-flex min-h-11 items-center text-ink/70 hover:text-amethyst"

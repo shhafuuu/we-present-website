@@ -25,7 +25,7 @@ export default async function DestinationsPage({
       />
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+        <div className="container-wide">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((destination, i) => {
               if (destination.status === "active" && destination.heroImage) {
