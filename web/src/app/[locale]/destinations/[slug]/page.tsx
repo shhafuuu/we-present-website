@@ -8,11 +8,12 @@ import {
   destinations,
   getDestination,
   getResortsForDestination,
+  showsResortGrid,
   getToursForDestination,
   t as td,
 } from "@/lib/destinations";
 import { t as tr } from "@/lib/resorts";
-import { t as tt } from "@/lib/tours";
+import { hasDetailPage, t as tt } from "@/lib/tours";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -69,7 +70,11 @@ export default async function DestinationPage({
         </div>
       </section>
 
-      {destResorts.length > 0 && (
+      {/* Guarded on programmeType, not just on whether resorts exist: Oman is
+          represented as a destination in its own right and Kenya as a lodge
+          collection, so neither will ever have a partner-property roster. An empty
+          grid there would read as one still loading. */}
+      {showsResortGrid(destination) && destResorts.length > 0 && (
         <section className="bg-ivory px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <Reveal className="text-center">
@@ -123,7 +128,7 @@ export default async function DestinationPage({
                 const card = (
                   <div
                     className={`flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/80 p-6 transition-all duration-500 sm:flex-row sm:items-center sm:justify-between sm:p-8 ${
-                      tour.status === "confirmed" ? "hover:-translate-y-1 hover:shadow-md" : ""
+                      hasDetailPage(tour) ? "hover:-translate-y-1 hover:shadow-md" : ""
                     }`}
                   >
                     <div>
@@ -143,7 +148,7 @@ export default async function DestinationPage({
                 );
                 return (
                   <Reveal key={tour.slug} delay={i * 0.08}>
-                    {tour.status === "confirmed" ? (
+                    {hasDetailPage(tour) ? (
                       <Link href={href(locale, `/tours/${tour.slug}`)} className="block">
                         {card}
                       </Link>

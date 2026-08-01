@@ -14,6 +14,29 @@ export type Destination = {
    *  "coming-soon" only ever shows as a non-clickable card on the landing page — no
    *  resorts/partners exist yet, so there's nothing to build a real page around. */
   status: "active" | "coming-soon";
+  /**
+   * What kind of programme this destination runs, which decides what its page shows.
+   *
+   * "hotels" (the default) is the Maldives shape: COATI represents individual partner
+   * properties, so the page renders a resort grid.
+   *
+   * "destination" is Oman: COATI represents the destination as a whole, so there is no
+   * resort grid to render and the page is built around the itinerary and what the
+   * destination offers. Rendering an empty grid here would imply a roster that does
+   * not exist.
+   *
+   * "collection" is Kenya: COATI represents the Saruni Basecamp collection of safari
+   * lodges, with selected lodges included depending on the itinerary. Lodges are
+   * listed by name, and no logos are available.
+   */
+  programmeType?: "hotels" | "destination" | "collection";
+  /** Only for programmeType "collection". */
+  collection?: {
+    name: string;
+    description?: LocalizedString;
+    /** Ships empty until the client supplies the roster. Never invent lodge names. */
+    lodges?: { name: string; image?: string }[];
+  };
   name: LocalizedString;
   /** Only present for "active" destinations. */
   heroImage?: string;
@@ -43,6 +66,16 @@ export const getDestination = (slug: string) =>
 
 export const getResortsForDestination = (slug: string): Resort[] =>
   resorts.filter((resort) => resort.destinationSlug === slug);
+
+/**
+ * Whether this destination's page should render a resort grid at all.
+ *
+ * Guarding on programmeType rather than on "are there any resorts yet" matters: an
+ * empty grid on Oman would read as a roster still loading, when in fact COATI
+ * represents the destination as a whole and there will never be one.
+ */
+export const showsResortGrid = (destination: Destination) =>
+  (destination.programmeType ?? "hotels") === "hotels";
 
 /**
  * Tours don't carry a destinationSlug of their own — they already have a

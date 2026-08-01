@@ -3,14 +3,16 @@ import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
-import { getTour, tours, t } from "@/lib/tours";
+import { getTour, tours, hasDetailPage, groupByTier, t } from "@/lib/tours";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export function generateStaticParams() {
-  const confirmedTours = tours.filter((tour) => tour.status === "confirmed");
+  // Not just confirmed tours: a pending tour with a named line-up (Cinnamon) has
+  // real content to show even though its dates are not set.
+  const withPages = tours.filter(hasDetailPage);
   return locales.flatMap((locale) =>
-    confirmedTours.map((tour) => ({ locale, slug: tour.slug }))
+    withPages.map((tour) => ({ locale, slug: tour.slug }))
   );
 }
 
@@ -24,7 +26,7 @@ export default async function TourDetailPage({
   const dict = getDictionary(locale);
   const tour = getTour(slug);
 
-  if (!tour || tour.status !== "confirmed") {
+  if (!tour || !hasDetailPage(tour)) {
     notFound();
   }
 
@@ -52,6 +54,65 @@ export default async function TourDetailPage({
         </section>
       )}
 
+      {/* Named line-up for a tour whose dates are not confirmed. Per the client's
+          instruction the star ratings are two visually separate groups with their own
+          subheadings, not one mixed grid. */}
+      {tour.properties?.length ? (
+        <section className="bg-ivory px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-3xl">
+            <Reveal className="text-center">
+              <Kicker>{dict.tourDetail.propertiesKicker}</Kicker>
+              <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+                {dict.tourDetail.propertiesTitle}
+              </h2>
+            </Reveal>
+
+            <div className="mt-14 space-y-12">
+              {groupByTier(tour.properties).map((group) => (
+                <div key={group.tier ?? "untiered"}>
+                  {group.tier ? (
+                    <Reveal>
+                      <h3 className="kicker border-b border-amethyst/15 pb-3 text-amethyst">
+                        {dict.tourDetail.tiers[group.tier] ?? group.tier}
+                      </h3>
+                    </Reveal>
+                  ) : null}
+                  <ul>
+                    {group.items.map((property, i) => (
+                      <li
+                        key={property.name}
+                        className="border-b border-amethyst/15 first:border-t-0"
+                      >
+                        <Reveal delay={i * 0.06} y={14}>
+                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-4">
+                            <p className="font-display text-lg text-aubergine">
+                              {property.name}
+                            </p>
+                            {property.badge ? (
+                              <span className="kicker rounded-full bg-amethyst/10 px-3 py-1 text-[0.6rem] text-amethyst">
+                                {t(property.badge, locale)}
+                              </span>
+                            ) : null}
+                          </div>
+                          {/* Descriptions are written separately and added through the
+                              portal. Guarded so an empty one renders nothing. */}
+                          {property.description ? (
+                            <p className="-mt-1 pb-4 text-sm leading-relaxed text-ink/70">
+                              {t(property.description, locale)}
+                            </p>
+                          ) : null}
+                        </Reveal>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {tour.stops.length > 0 && (
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-3xl">
           <Reveal>
@@ -84,6 +145,7 @@ export default async function TourDetailPage({
           </div>
         </div>
       </section>
+      )}
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">
         <div className="mx-auto max-w-3xl">

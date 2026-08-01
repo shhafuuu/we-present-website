@@ -2,5 +2,14 @@
   "slug": "kenya",
   "order": 3,
   "status": "coming-soon",
+  "programmeType": "collection",
+  "collection": {
+    "name": "Saruni Basecamp",
+    "description": {
+      "en": "A collection of 13 safari lodges across Kenya. Selected lodges are included depending on the itinerary.",
+      "ru": "Коллекция из 13 сафари-лоджей по всей Кении. Состав лоджей в программе зависит от маршрута."
+    },
+    "lodges": []
+  },
   "name": { "en": "Kenya", "ru": "Кения" }
 }

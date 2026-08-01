@@ -268,6 +268,9 @@ export const en = {
     cta: "Register Interest",
   },
   tourDetail: {
+    propertiesKicker: "The Properties",
+    propertiesTitle: "The resorts on this programme",
+    tiers: { "5": "Five-star resorts", "4": "Four-star resorts" } as Record<string, string>,
     ttmKicker: "TTM Maldives 2026",
     includedKicker: "Included",
     includedTitle: "What's Included",

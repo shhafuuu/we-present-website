@@ -270,6 +270,9 @@ export const ru: Dictionary = {
     cta: "Оставить заявку",
   },
   tourDetail: {
+    propertiesKicker: "Отели",
+    propertiesTitle: "Отели этой программы",
+    tiers: { "5": "Отели пять звёзд", "4": "Отели четыре звезды" } as Record<string, string>,
     ttmKicker: "TTM Maldives 2026",
     includedKicker: "Включено",
     includedTitle: "Что включено",

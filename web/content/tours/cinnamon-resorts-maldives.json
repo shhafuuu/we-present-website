@@ -2,13 +2,23 @@
   "slug": "cinnamon-resorts-maldives",
   "order": 3,
   "year": "2026",
-  "name": { "en": "Cinnamon Resorts Maldives", "ru": "Cinnamon Resorts Maldives" },
+  "name": { "en": "Cinnamon Maldives Resorts", "ru": "Cinnamon Maldives Resorts" },
   "destination": { "en": "Maldives", "ru": "Мальдивы" },
-  "dates": { "en": "October 2026", "ru": "Октябрь 2026" },
+  "dates": { "en": "Dates to be confirmed", "ru": "Даты уточняются" },
   "status": "pending",
   "summary": {
-    "en": "A separate Maldives familiarization fam with Cinnamon Resorts, in October 2026. Exact dates and resort line-up are not yet set; the tour appears on the calendar as \"coming soon\" and will be completed via the content portal once confirmed.",
-    "ru": "Отдельный ознакомительный тур по Мальдивам с Cinnamon Resorts в октябре 2026 года. Точные даты и список отелей пока не определены; в календаре тур отображается как «скоро» и будет дополнен через контент-портал после подтверждения."
+    "en": "A Maldives programme across four Cinnamon properties, spanning both five-star and four-star resorts. Dates are not yet confirmed.",
+    "ru": "Программа по Мальдивам с посещением четырёх отелей Cinnamon категорий пять и четыре звезды. Даты пока не подтверждены."
   },
-  "stops": []
+  "stops": [],
+  "properties": [
+    { "name": "Cinnamon Velifushi Maldives", "tier": "5" },
+    {
+      "name": "Cinnamon Hakuraa Huraa Maldives",
+      "tier": "5",
+      "badge": { "en": "Adults only, 18+", "ru": "Только для взрослых, 18+" }
+    },
+    { "name": "Cinnamon Dhonveli Maldives", "tier": "4" },
+    { "name": "Ellaidhoo Maldives by Cinnamon", "tier": "4" }
+  ]
 }

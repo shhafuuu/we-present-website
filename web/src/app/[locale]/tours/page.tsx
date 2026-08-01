@@ -3,7 +3,7 @@ import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
-import { tours, t } from "@/lib/tours";
+import { tours, hasDetailPage, t } from "@/lib/tours";
 import { getToursSettings } from "@/lib/settings";
 import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -44,7 +44,7 @@ export default async function ToursPage({
                   const card = (
                     <div
                       className={`flex flex-col gap-3 rounded-2xl border border-amethyst/10 bg-ivory/80 p-6 transition-all duration-500 sm:flex-row sm:items-center sm:justify-between sm:p-8 ${
-                        tour.status === "confirmed" ? "hover:-translate-y-1 hover:shadow-md" : ""
+                        hasDetailPage(tour) ? "hover:-translate-y-1 hover:shadow-md" : ""
                       }`}
                     >
                       <div>
@@ -69,7 +69,7 @@ export default async function ToursPage({
 
                   return (
                     <Reveal key={tour.slug} delay={i * 0.08}>
-                      {tour.status === "confirmed" ? (
+                      {hasDetailPage(tour) ? (
                         <Link href={href(locale, `/tours/${tour.slug}`)} className="block">
                           {card}
                         </Link>

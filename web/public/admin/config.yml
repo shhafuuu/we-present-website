@@ -86,6 +86,38 @@ collections:
         fields:
           - { label: "English", name: "en", widget: "text", required: false }
           - { label: "Russian", name: "ru", widget: "text", required: false }
+      - label: "Properties (line-up without dates)"
+        name: "properties"
+        widget: "list"
+        required: false
+        summary: "{{fields.name}}"
+        hint: "Use for a programme whose hotels are confirmed but whose dates are not, such as Cinnamon. Adding at least one property here gives the tour its own page even while it is Pending. Leave empty for a tour that uses Itinerary stops instead."
+        fields:
+          - { label: "Property name", name: "name", widget: "string" }
+          - label: "Star tier"
+            name: "tier"
+            widget: "select"
+            required: false
+            options:
+              - { label: "5 star", value: "5" }
+              - { label: "4 star", value: "4" }
+            hint: "Properties are grouped by tier under their own subheading. Do not mix ratings into one list."
+          - label: "Badge"
+            name: "badge"
+            widget: "object"
+            required: false
+            hint: "Short flag such as \"Adults only, 18+\". Keep it to a few words: it renders as a small badge, not body copy."
+            fields:
+              - { label: "English", name: "en", widget: "string", required: false }
+              - { label: "Russian", name: "ru", widget: "string", required: false }
+          - label: "Short description"
+            name: "description"
+            widget: "object"
+            required: false
+            hint: "Optional. Leave blank until the copy is written; an empty description renders nothing."
+            fields:
+              - { label: "English", name: "en", widget: "text", required: false }
+              - { label: "Russian", name: "ru", widget: "text", required: false }
       - label: "Itinerary stops"
         name: "stops"
         widget: "list"
@@ -142,6 +174,39 @@ collections:
         fields:
           - { label: "English", name: "en", widget: "string" }
           - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Programme type"
+        name: "programmeType"
+        widget: "select"
+        required: false
+        default: "hotels"
+        options:
+          - { label: "Hotels — we represent individual partner properties (Maldives)", value: "hotels" }
+          - { label: "Destination — we represent the destination as a whole (Oman)", value: "destination" }
+          - { label: "Lodge collection — we represent a collection (Kenya)", value: "collection" }
+        hint: "Decides what this destination's page shows. Only \"Hotels\" renders a resort grid; the other two never will, so no empty grid appears."
+      - label: "Lodge collection"
+        name: "collection"
+        widget: "object"
+        required: false
+        hint: "Only for Programme type \"Lodge collection\". Leave the lodge list empty until the client supplies the roster; never invent lodge names."
+        fields:
+          - { label: "Collection name", name: "name", widget: "string", required: false }
+          - label: "Description"
+            name: "description"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "English", name: "en", widget: "text", required: false }
+              - { label: "Russian", name: "ru", widget: "text", required: false }
+          - label: "Lodges"
+            name: "lodges"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            hint: "Name only, plus an optional image. No logos are available for these, so there is no logo field."
+            fields:
+              - { label: "Lodge name", name: "name", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Hero image", name: "heroImage", widget: "image", required: false, hint: "Required before switching Status to Active." }
       - label: "Intro"
         name: "intro"
