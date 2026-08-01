@@ -4,6 +4,8 @@ import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { getTour, tours, hasDetailPage, groupByTier, t } from "@/lib/tours";
+import { availableProgrammePdfs } from "@/lib/programmePdf";
+import { ProgrammePdfGate } from "@/components/ProgrammePdfGate";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -29,6 +31,12 @@ export default async function TourDetailPage({
   if (!tour || !hasDetailPage(tour)) {
     notFound();
   }
+
+  // Localised on the server so the client gate ships plain strings.
+  const pdfOptions = availableProgrammePdfs(tour).map((entry) => ({
+    file: entry.file,
+    label: t(entry.label, locale),
+  }));
 
   return (
     <>
@@ -145,6 +153,20 @@ export default async function TourDetailPage({
           </div>
         </div>
       </section>
+      )}
+
+      {/* No PDF on disk, no block. A tour whose file has not arrived yet shows nothing
+          rather than a form that would take an email and then fail. */}
+      {pdfOptions.length > 0 && (
+        <section className="bg-lavender-mist px-6 py-20 lg:px-10">
+          <div className="mx-auto max-w-2xl">
+            <ProgrammePdfGate
+              locale={locale}
+              tourSlug={tour.slug}
+              options={pdfOptions}
+            />
+          </div>
+        </section>
       )}
 
       <section className="border-t border-amethyst/10 bg-ivory px-6 py-10 lg:px-10">

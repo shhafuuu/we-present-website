@@ -36,3 +36,8 @@ web/overflow.mjs
 web/sample.mjs
 web/waitshot.mjs
 web/statshot.mjs
+
+# Programme PDFs are client deliverables, served through the gated route.
+# Keep the directory and its README, never commit the PDFs themselves.
+web/private/programme-pdfs/*
+!web/private/programme-pdfs/README.md

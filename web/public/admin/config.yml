@@ -118,6 +118,27 @@ collections:
             fields:
               - { label: "English", name: "en", widget: "text", required: false }
               - { label: "Russian", name: "ru", widget: "text", required: false }
+      - label: "Programme PDF"
+        name: "programmePdf"
+        widget: "list"
+        required: false
+        summary: "{{fields.file}}"
+        hint: "Gated download: visitors give a name and email before the file is sent, so every download becomes a lead. Upload the file to private/programme-pdfs/ in the repo, then enter its exact filename here. Add one entry per language. A tour with no entry, or whose file is missing, shows no download block at all."
+        fields:
+          - { label: "Filename", name: "file", widget: "string", hint: "Exact filename as it appears in private/programme-pdfs/, e.g. cinnamon-maldives-ru.pdf. Not a path." }
+          - label: "Language"
+            name: "locale"
+            widget: "select"
+            options:
+              - { label: "Russian", value: "ru" }
+              - { label: "English", value: "en" }
+          - label: "Label"
+            name: "label"
+            widget: "object"
+            hint: "Shown in the version picker when a tour has more than one file."
+            fields:
+              - { label: "English", name: "en", widget: "string" }
+              - { label: "Russian", name: "ru", widget: "string" }
       - label: "Itinerary stops"
         name: "stops"
         widget: "list"

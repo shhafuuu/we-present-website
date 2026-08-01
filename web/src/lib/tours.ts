@@ -38,6 +38,10 @@ export type Tour = {
   stops: TourStop[];
   /** Named line-up for a tour whose dates are not confirmed. */
   properties?: TourProperty[];
+  /** Detailed itinerary and participant information, served only through the gated
+   *  route. A list rather than a single file so Russian and English versions can
+   *  coexist on the same tour. */
+  programmePdf?: { file: string; locale: "ru" | "en"; label: LocalizedString }[];
   ttmOverview?: LocalizedString;
 };
 
