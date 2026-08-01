@@ -6,15 +6,25 @@
   "stats": [
     {
       "value": "19,854",
-      "label": { "en": "room nights delivered", "ru": "ночей продано" }
+      "label": {
+        "en": "room nights delivered",
+        "ru": "ночей продано"
+      }
     },
     {
       "value": "15,000+",
-      "label": { "en": "agents in the network", "ru": "агентов в сети" }
+      "label": {
+        "en": "agents in the network",
+        "ru": "агентов в сети"
+      }
     },
     {
-      "value": "11",
-      "label": { "en": "years in market", "ru": "лет на рынке" }
+      "value": "2014",
+      "label": {
+        "en": "in market since",
+        "ru": "на рынке с"
+      },
+      "animate": false
     }
   ]
 }

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 
-type Stat = { value: string; label: string };
+type Stat = { value: string; label: string; animate?: boolean };
 
 /** Splits "19,854" / "15,000+" / "+98%" into the parts around the digits, so the
  *  count-up animates the number while any prefix or suffix stays put. */
@@ -34,7 +34,7 @@ function Figure({ stat, delay }: { stat: Stat; delay: number }) {
   useEffect(() => {
     // Reduced motion gets the final number immediately: the count-up is decoration,
     // and the figure itself is the content.
-    if (!parsed || reduced || !inView) return;
+    if (!parsed || reduced || !inView || stat.animate === false) return;
     let raf = 0;
     const duration = 1400;
     const start = performance.now() + delay * 1000;
@@ -53,7 +53,7 @@ function Figure({ stat, delay }: { stat: Stat; delay: number }) {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, parsed, reduced, delay]);
+  }, [inView, parsed, reduced, delay, stat.animate]);
 
   const shown =
     n !== null && parsed

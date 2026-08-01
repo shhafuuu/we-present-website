@@ -3,7 +3,10 @@
   "destinationSlug": "maldives",
   "order": 4,
   "name": "Madifushi Private Island",
-  "atoll": { "en": "Meemu Atoll", "ru": "Атолл Меему" },
+  "atoll": {
+    "en": "Meemu Atoll",
+    "ru": "Атолл Меему"
+  },
   "tagline": {
     "en": "A private-island retreat for the final, unhurried leg.",
     "ru": "Уединённый частный остров для финального, неспешного этапа тура."
@@ -33,20 +36,63 @@
       "en": "Meemu Atoll, Maldives · domestic flight + speedboat from Male",
       "ru": "Атолл Меему, Мальдивы · внутренний рейс и скоростной катер от Мале"
     },
-    "villas": { "en": "Serene Pool Villas", "ru": "Виллы Serene Pool Villa" },
+    "villas": {
+      "en": "Serene Pool Villas",
+      "ru": "Виллы Serene Pool Villa"
+    },
     "facilities": {
       "en": "Mandara Spa, Bella Six restaurant, Kokko Learning Studio, dolphin cruises",
       "ru": "Спа Mandara, ресторан Bella Six, учебная студия Kokko, круизы с дельфинами"
     }
   },
   "gallery": [
-    { "src": "/images/resorts/madifushi/hero.jpg", "alt": "Aerial view of Madifushi Private Island" },
-    { "src": "/images/resorts/madifushi/steps.jpg", "alt": "Stone steps leading to a pool through lush greenery at Madifushi Private Island" },
-    { "src": "/images/resorts/madifushi/villa.jpg", "alt": "Serene Pool Villa" },
-    { "src": "/images/resorts/madifushi/dining.jpg", "alt": "Bella Six restaurant" },
-    { "src": "/images/resorts/madifushi/spa.jpg", "alt": "Mandara Spa treatment room" },
-    { "src": "/images/resorts/madifushi/activity.jpg", "alt": "Dolphin cruise" },
-    { "src": "/images/resorts/madifushi/kids.jpg", "alt": "Kokko Learning Studio" },
-    { "src": "/images/resorts/madifushi/lifestyle.jpg", "alt": "Life at Madifushi Private Island" }
+    {
+      "src": "/images/resorts/madifushi/hero.jpg",
+      "alt": "Aerial view of Madifushi Private Island"
+    },
+    {
+      "src": "/images/resorts/madifushi/steps.jpg",
+      "alt": "Stone steps leading to a pool through lush greenery at Madifushi Private Island"
+    },
+    {
+      "src": "/images/resorts/madifushi/villa.jpg",
+      "alt": "Serene Pool Villa"
+    },
+    {
+      "src": "/images/resorts/madifushi/dining.jpg",
+      "alt": "Bella Six restaurant"
+    },
+    {
+      "src": "/images/resorts/madifushi/spa.jpg",
+      "alt": "Mandara Spa treatment room"
+    },
+    {
+      "src": "/images/resorts/madifushi/activity.jpg",
+      "alt": "Dolphin cruise"
+    },
+    {
+      "src": "/images/resorts/madifushi/kids.jpg",
+      "alt": "Kokko Learning Studio"
+    },
+    {
+      "src": "/images/resorts/madifushi/lifestyle.jpg",
+      "alt": "Life at Madifushi Private Island"
+    },
+    {
+      "src": "/images/resorts/madifushi/splash-bar.jpg",
+      "alt": "The Splash bar and pool looking out to the lagoon"
+    },
+    {
+      "src": "/images/resorts/madifushi/villa-terrace.jpg",
+      "alt": "A shaded villa terrace with a daybed"
+    },
+    {
+      "src": "/images/resorts/madifushi/sunset-reflection.jpg",
+      "alt": "Sunset palms reflected in a villa's glass frontage"
+    },
+    {
+      "src": "/images/resorts/madifushi/villa-pool.jpg",
+      "alt": "A two-storey villa opening onto its private pool"
+    }
   ]
 }

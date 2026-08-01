@@ -3,7 +3,10 @@
   "destinationSlug": "maldives",
   "order": 2,
   "name": "Fushifaru Maldives",
-  "atoll": { "en": "Lhaviyani Atoll", "ru": "Атолл Лавияни" },
+  "atoll": {
+    "en": "Lhaviyani Atoll",
+    "ru": "Атолл Лавияни"
+  },
   "tagline": {
     "en": "An intimate reef-fringed island built for slow mornings.",
     "ru": "Уединённый остров у рифа, созданный для неспешных утр."
@@ -45,13 +48,53 @@
     }
   },
   "gallery": [
-    { "src": "/images/resorts/fushifaru/lifestyle.jpg", "alt": "Fushifaru beach deck at sunset" },
-    { "src": "/images/resorts/fushifaru/villa.jpg", "alt": "Beach Villa Sunrise interior" },
-    { "src": "/images/resorts/fushifaru/dining.jpg", "alt": "Dining at Fushifaru" },
-    { "src": "/images/resorts/fushifaru/spa.jpg", "alt": "Heylhi Spa treatment room" },
-    { "src": "/images/resorts/fushifaru/sandbank.jpg", "alt": "Fushifaru sandbank" },
-    { "src": "/images/resorts/fushifaru/dive.jpg", "alt": "Diving with a sea turtle" },
-    { "src": "/images/resorts/fushifaru/island.jpg", "alt": "Aerial view around the island" },
-    { "src": "/images/resorts/fushifaru/yoga.jpg", "alt": "Yoga session at Fushifaru" }
+    {
+      "src": "/images/resorts/fushifaru/lifestyle.jpg",
+      "alt": "Fushifaru beach deck at sunset"
+    },
+    {
+      "src": "/images/resorts/fushifaru/villa.jpg",
+      "alt": "Beach Villa Sunrise interior"
+    },
+    {
+      "src": "/images/resorts/fushifaru/dining.jpg",
+      "alt": "Dining at Fushifaru"
+    },
+    {
+      "src": "/images/resorts/fushifaru/spa.jpg",
+      "alt": "Heylhi Spa treatment room"
+    },
+    {
+      "src": "/images/resorts/fushifaru/sandbank.jpg",
+      "alt": "Fushifaru sandbank"
+    },
+    {
+      "src": "/images/resorts/fushifaru/dive.jpg",
+      "alt": "Diving with a sea turtle"
+    },
+    {
+      "src": "/images/resorts/fushifaru/island.jpg",
+      "alt": "Aerial view around the island"
+    },
+    {
+      "src": "/images/resorts/fushifaru/yoga.jpg",
+      "alt": "Yoga session at Fushifaru"
+    },
+    {
+      "src": "/images/resorts/fushifaru/manta-quest.jpg",
+      "alt": "Snorkelling with manta rays on the Manta Quest"
+    },
+    {
+      "src": "/images/resorts/fushifaru/movie-under-stars.jpg",
+      "alt": "An open-air movie set up on the beach at dusk"
+    },
+    {
+      "src": "/images/resorts/fushifaru/eagle-ray.jpg",
+      "alt": "An eagle ray passing beneath snorkellers"
+    },
+    {
+      "src": "/images/resorts/fushifaru/chef-garden.jpg",
+      "alt": "The chef's garden, part of the island's Greenfushi programme"
+    }
   ]
 }

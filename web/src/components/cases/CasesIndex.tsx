@@ -86,7 +86,7 @@ export function CasesIndex({
         })}
       </div>
 
-      <div className="mt-14 grid gap-5 lg:grid-cols-3">
+      <div className="mt-14 grid auto-rows-fr grid-cols-1 gap-5 [grid-auto-flow:dense] sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((card, i) => {
             // One large feature card, then smaller tiles in mixed weights. Equal cards
@@ -96,7 +96,7 @@ export function CasesIndex({
 
             const body = (
               <div
-                className={`flex h-full flex-col justify-between rounded-2xl p-8 transition-all duration-500 ${
+                className={`flex h-full flex-col gap-5 rounded-2xl p-7 transition-all duration-500 ${
                   dark
                     ? "bg-aubergine text-ivory group-hover:shadow-lg"
                     : // Lilac, not ivory. The section ground is ivory, so an ivory card
@@ -109,7 +109,7 @@ export function CasesIndex({
                   {card.categoryLabel}
                 </p>
 
-                <div className={isFeature ? "mt-10" : "mt-8"}>
+                <div className="flex-1">
                   {card.metricValue ? (
                     <p
                       className={`font-display leading-none ${
@@ -139,9 +139,7 @@ export function CasesIndex({
                 </div>
 
                 <p
-                  className={`font-display mt-10 text-lg ${
-                    dark ? "text-ivory" : "text-aubergine"
-                  }`}
+                  className={`font-display text-lg ${dark ? "text-ivory" : "text-aubergine"}`}
                 >
                   {card.partner}
                 </p>
@@ -160,7 +158,7 @@ export function CasesIndex({
                     ? { duration: 0 }
                     : { duration: 0.5, delay: Math.min(i * 0.05, 0.3), ease: [0.22, 1, 0.36, 1] }
                 }
-                className={`group ${isFeature ? "lg:col-span-2 lg:row-span-2" : ""}`}
+                className={`group ${isFeature ? "sm:col-span-2" : ""}`}
               >
                 {card.hasDetail ? (
                   <Link href={card.detailHref} className="block h-full">

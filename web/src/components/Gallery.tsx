@@ -13,21 +13,28 @@ export function Gallery({
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+      {/* Every tile is square, including the feature. A 2x2 span in this grid is
+          exactly square, so the old 4/3 on the feature could not fill its own cells
+          and left a hole beside it.
+
+          The feature only spans from sm up, which is what makes the grid pack with no
+          trailing gap at either breakpoint: 12 images give 12 tiles over 2 columns on
+          mobile (6 rows), and 15 cells over 3 columns above it (5 rows). Dense flow
+          backfills anything a filtered or short gallery would otherwise leave behind. */}
+      <div className="grid grid-cols-2 gap-4 [grid-auto-flow:dense] sm:grid-cols-3">
         {images.map((image, i) => (
           <button
             key={image.src}
             onClick={() => setActive(i)}
-            className={`group relative overflow-hidden rounded-xl ${
-              i === 0 ? "col-span-2 row-span-2 sm:col-span-2" : ""
+            className={`group relative aspect-square overflow-hidden rounded-xl ${
+              i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
             }`}
-            style={{ aspectRatio: i === 0 ? "4 / 3" : "1 / 1" }}
           >
             <Image
               src={image.src}
               alt={image.alt}
               fill
-              sizes="(min-width: 640px) 33vw, 50vw"
+              sizes={i === 0 ? "(min-width: 640px) 66vw, 50vw" : "(min-width: 640px) 33vw, 50vw"}
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-aubergine/0 transition-colors duration-300 group-hover:bg-aubergine/10" />

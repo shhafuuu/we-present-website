@@ -33,7 +33,9 @@ export type CasesSettings = {
    *  We Present results, and the site must not present them as the latter. */
   attribution: LocalizedString;
   /** Exactly three. Beyond that each number loses impact, so the render caps it. */
-  stats: { value: string; label: LocalizedString }[];
+  /** `animate: false` shows the figure without counting up. A year counting from
+   *  zero reads as a clock, not a credential. */
+  stats: { value: string; label: LocalizedString; animate?: boolean }[];
 };
 
 const HOME_SETTINGS_FILE = path.join(process.cwd(), "content", "settings", "home.json");

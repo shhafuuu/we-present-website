@@ -29,6 +29,7 @@ export default async function AboutPage({
   const statRail = casesSettings.stats.map((s) => ({
     value: s.value,
     label: s.label[locale],
+    animate: s.animate,
   }));
 
   const caseCards: CaseCard[] = cases.map((c) => ({

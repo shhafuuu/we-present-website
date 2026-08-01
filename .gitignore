@@ -36,6 +36,7 @@ web/overflow.mjs
 web/sample.mjs
 web/waitshot.mjs
 web/statshot.mjs
+web/panelmeasure.mjs
 web/sweep.mjs
 web/rm.mjs
 

@@ -1,0 +1,32 @@
+{
+  "slug": "exclusive-buyouts",
+  "order": 7,
+  "category": "events",
+  "destination": "maldives",
+  "partner": { "en": "Oaga Art and Fushifaru", "ru": "Oaga Art и Fushifaru" },
+  "headlineMetric": {
+    "value": "150+",
+    "label": {
+      "en": "attendees across two full-resort buy-outs",
+      "ru": "участников на двух полных выкупах курортов"
+    }
+  },
+  "summary": {
+    "en": "Two Maldives resorts booked out in full for a major Russian media company, 2023 to 2024.",
+    "ru": "Два мальдивских курорта выкуплены целиком для крупной российской медиакомпании, 2023–2024."
+  },
+  "description": {
+    "en": "Buying out a resort in full is a different exercise to filling one. It needs a single client with the scale to take every room, a property willing to close to other guests, and a programme that justifies both. COATI arranged two, at Oaga Art and at Fushifaru Maldives, for the same Russian media company.",
+    "ru": "Выкупить курорт целиком — задача иного порядка, чем его заполнить. Нужен клиент такого масштаба, чтобы занять все номера, отель, готовый закрыться для других гостей, и программа, которая оправдывает и то и другое. COATI организовала два таких проекта, в Oaga Art и Fushifaru Maldives, для одной российской медиакомпании."
+  },
+  "results": [
+    {
+      "en": "Two full-resort buy-outs delivered between 2023 and 2024.",
+      "ru": "Два полных выкупа курортов реализованы в период с 2023 по 2024 год."
+    },
+    {
+      "en": "More than 150 attendees hosted.",
+      "ru": "Принято более 150 участников."
+    }
+  ]
+}

@@ -3,7 +3,10 @@
   "destinationSlug": "maldives",
   "order": 3,
   "name": "Meyyafushi Maldives",
-  "atoll": { "en": "Lhaviyani Atoll", "ru": "Атолл Лавияни" },
+  "atoll": {
+    "en": "Lhaviyani Atoll",
+    "ru": "Атолл Лавияни"
+  },
   "tagline": {
     "en": "Barefoot elegance on one of the Maldives' newest islands.",
     "ru": "Непринуждённая элегантность на одном из новейших островов Мальдив."
@@ -45,13 +48,53 @@
     }
   },
   "gallery": [
-    { "src": "/images/resorts/meyyafushi/hero.jpg", "alt": "Aerial view of Meyyafushi Maldives" },
-    { "src": "/images/resorts/meyyafushi/villa.jpg", "alt": "Beach Pool Villa bedroom" },
-    { "src": "/images/resorts/meyyafushi/dining.jpg", "alt": "Baa main bar" },
-    { "src": "/images/resorts/meyyafushi/spa.jpg", "alt": "Overwater fitness centre" },
-    { "src": "/images/resorts/meyyafushi/kids.jpg", "alt": "Kokko Kids Club" },
-    { "src": "/images/resorts/meyyafushi/lifestyle.jpg", "alt": "Overwater wine cellar" },
-    { "src": "/images/resorts/meyyafushi/sustainability.jpg", "alt": "Solar panels at Meyyafushi" },
-    { "src": "/images/resorts/meyyafushi/aerial2.jpg", "alt": "Island aerial view" }
+    {
+      "src": "/images/resorts/meyyafushi/hero.jpg",
+      "alt": "Aerial view of Meyyafushi Maldives"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/villa.jpg",
+      "alt": "Beach Pool Villa bedroom"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/dining.jpg",
+      "alt": "Baa main bar"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/spa.jpg",
+      "alt": "Overwater fitness centre"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/kids.jpg",
+      "alt": "Kokko Kids Club"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/lifestyle.jpg",
+      "alt": "Overwater wine cellar"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/sustainability.jpg",
+      "alt": "Solar panels at Meyyafushi"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/aerial2.jpg",
+      "alt": "Island aerial view"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/underwater-restaurant.jpg",
+      "alt": "The underwater restaurant, dining below the waterline"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/seaplane-journey.jpg",
+      "alt": "The seaplane journey in to the island"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/padel-tennis.jpg",
+      "alt": "An overwater padel tennis court seen from the air"
+    },
+    {
+      "src": "/images/resorts/meyyafushi/sky-lounge.jpg",
+      "alt": "The sky lounge above the island"
+    }
   ]
 }
