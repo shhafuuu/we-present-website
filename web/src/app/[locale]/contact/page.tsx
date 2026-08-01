@@ -4,6 +4,14 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactEnBlock } from "@/components/ContactEnBlock";
 import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import {
+  EMAIL,
+  PHONE,
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  INSTAGRAM_HREF,
+  LINKEDIN_HREF,
+} from "@/lib/contact";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export default async function ContactPage({
@@ -31,13 +39,34 @@ export default async function ContactPage({
             <h2 className="sr-only">{dict.contactPage.details.kicker}</h2>
             <Kicker>{dict.contactPage.details.kicker}</Kicker>
             <dl className="mt-6 space-y-6 text-sm">
-              <div>
-                <dt className="kicker text-amethyst">{dict.contactPage.details.email}</dt>
-                <dd className="mt-1 text-ink/70">hello@wepresent.org</dd>
-              </div>
+              {/* Email is shown only once a production address exists. The
+                  placeholder that used to sit here was never confirmed. */}
+              {EMAIL ? (
+                <div>
+                  <dt className="kicker text-amethyst">{dict.contactPage.details.email}</dt>
+                  <dd className="mt-1">
+                    <a href={`mailto:${EMAIL}`} className="text-amethyst underline">
+                      {EMAIL}
+                    </a>
+                  </dd>
+                </div>
+              ) : null}
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.phone}</dt>
-                <dd className="mt-1 text-ink/70">{dict.contactPage.details.phoneTbc}</dd>
+                <dd className="mt-1 text-ink/70">
+                  <a href={PHONE_HREF} className="text-amethyst underline">
+                    {PHONE}
+                  </a>
+                  <span className="mx-2 text-ink/40">·</span>
+                  <a
+                    href={WHATSAPP_HREF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-amethyst underline"
+                  >
+                    {dict.footer.whatsapp}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.office}</dt>
@@ -47,12 +76,25 @@ export default async function ContactPage({
                 <dt className="kicker text-amethyst">{dict.contactPage.details.instagram}</dt>
                 <dd className="mt-1">
                   <a
-                    href="https://www.instagram.com/wepresentproject"
+                    href={INSTAGRAM_HREF}
                     target="_blank"
                     rel="noreferrer"
                     className="text-amethyst underline"
                   >
                     {dict.contactPage.details.instagramHandle}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="kicker text-amethyst">{dict.footer.linkedinLabel}</dt>
+                <dd className="mt-1">
+                  <a
+                    href={LINKEDIN_HREF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-amethyst underline"
+                  >
+                    {dict.contactPage.details.linkedinHandle}
                   </a>
                 </dd>
               </div>

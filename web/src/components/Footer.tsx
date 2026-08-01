@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
+import {
+  PHONE,
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  INSTAGRAM_HREF,
+  LINKEDIN_HREF,
+} from "@/lib/contact";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -37,9 +44,25 @@ export function Footer({ locale }: { locale: Locale }) {
 
           <div>
             <Kicker tone="gold">{dict.footer.contact}</Kicker>
+            {/* No email until the production address exists (v2.1 section 6). The
+                placeholder was never confirmed, so it is not presented as final. */}
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
-              <li>{dict.footer.email}</li>
-              <li className="text-soft-lilac/70">{dict.footer.phoneTbc}</li>
+              <li>
+                <a href={PHONE_HREF} className="hover:text-ivory">
+                  {PHONE}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-ivory"
+                >
+                  {dict.footer.whatsapp}
+                </a>
+              </li>
+              <li className="text-soft-lilac/70">{dict.footer.emailTbc}</li>
               <li className="text-soft-lilac/70">{dict.footer.officeTbc}</li>
             </ul>
           </div>
@@ -49,12 +72,23 @@ export function Footer({ locale }: { locale: Locale }) {
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li>
                 <a
-                  href="https://www.instagram.com/wepresentproject"
+                  href={INSTAGRAM_HREF}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-ivory"
                 >
                   {dict.footer.instagramHandle}
+                </a>
+              </li>
+              {/* Added alongside Instagram, not replacing it. */}
+              <li>
+                <a
+                  href={LINKEDIN_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-ivory"
+                >
+                  {dict.footer.linkedinLabel}
                 </a>
               </li>
             </ul>
