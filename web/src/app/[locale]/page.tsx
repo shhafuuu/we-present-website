@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { IntroSection } from "@/components/home/IntroSection";
 import { ConceptSection } from "@/components/home/ConceptSection";
+import { DifferenceSection } from "@/components/home/DifferenceSection";
 import { ToursTimeline } from "@/components/home/ToursTimeline";
 import { ResortsGrid } from "@/components/home/ResortsGrid";
 import { PartnersStrip } from "@/components/home/PartnersStrip";
@@ -21,6 +22,7 @@ export default async function Home({
       <Hero locale={locale} />
       <IntroSection locale={locale} />
       <ConceptSection locale={locale} />
+      <DifferenceSection locale={locale} />
       <ToursTimeline locale={locale} />
       <ResortsGrid locale={locale} />
       <HowItWas locale={locale} />

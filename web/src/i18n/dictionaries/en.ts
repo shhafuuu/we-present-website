@@ -51,6 +51,12 @@ export const en = {
       body: "Participants are invited based on their agency's performance. Each edition brings together a group of professionals to experience the resorts in our collection first-hand and take part in key industry events. We Present isn't a one-off trip; it's an ongoing programme of professional development and partnership.",
       cta: "Explore the Programme",
     },
+    difference: {
+      kicker: "The Difference",
+      title: "Not a traditional FAM trip",
+      participantsCta: "What participants receive",
+      partnersCta: "What partners receive",
+    },
     tours: {
       kicker: "Tours Calendar",
       title: "The 2026 season, at a glance",
