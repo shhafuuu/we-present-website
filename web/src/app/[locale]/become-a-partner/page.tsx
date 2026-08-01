@@ -1,4 +1,4 @@
-import { Kicker } from "@/components/Kicker";
+import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { PartnerForm } from "@/components/PartnerForm";
 import { PartnerEnContactBlock } from "@/components/PartnerEnContactBlock";
@@ -19,17 +19,11 @@ export default async function BecomeAPartnerPage({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <Reveal trigger="mount">
-            <Kicker tone="ivory">{banner.kicker}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
-              {banner.title}
-            </h1>
-            <p className="mt-6 text-ivory/70">{banner.body}</p>
-          </Reveal>
-        </div>
-      </section>
+      <PageBanner
+        kicker={banner.kicker}
+        title={banner.title}
+        intro={banner.body}
+      />
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-2xl">

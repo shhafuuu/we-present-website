@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
+import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
 import { tours, t } from "@/lib/tours";
@@ -24,17 +25,12 @@ export default async function ToursPage({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
-        <div className="mx-auto max-w-5xl text-center">
-          <Reveal trigger="mount">
-            <Kicker tone="ivory">{dict.toursPage.banner.kicker}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
-              {dict.toursPage.banner.title}
-            </h1>
-            <p className="mt-6 text-ivory/70">{dict.toursPage.banner.body}</p>
-          </Reveal>
-        </div>
-      </section>
+      <PageBanner
+        kicker={dict.toursPage.banner.kicker}
+        title={dict.toursPage.banner.title}
+        intro={dict.toursPage.banner.body}
+        width="5xl"
+      />
 
       <section className="bg-lavender-mist px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-4xl space-y-16">

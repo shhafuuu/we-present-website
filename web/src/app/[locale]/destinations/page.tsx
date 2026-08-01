@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Kicker } from "@/components/Kicker";
+import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { Sparkle } from "@/components/Sparkle";
 import { destinations, t } from "@/lib/destinations";
@@ -18,17 +18,11 @@ export default async function DestinationsPage({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <Reveal trigger="mount">
-            <Kicker tone="ivory">{dict.destinationsPage.banner.kicker}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
-              {dict.destinationsPage.banner.title}
-            </h1>
-            <p className="mt-6 text-ivory/70">{dict.destinationsPage.banner.body}</p>
-          </Reveal>
-        </div>
-      </section>
+      <PageBanner
+        kicker={dict.destinationsPage.banner.kicker}
+        title={dict.destinationsPage.banner.title}
+        intro={dict.destinationsPage.banner.body}
+      />
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-6xl">

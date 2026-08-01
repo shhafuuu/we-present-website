@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
+import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { getTour, tours, t } from "@/lib/tours";
 import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
@@ -29,18 +30,13 @@ export default async function TourDetailPage({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
-        <div className="mx-auto max-w-4xl text-center">
-          <Reveal trigger="mount">
-            <Kicker tone="ivory">{t(tour.destination, locale)}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
-              {t(tour.name, locale)}
-            </h1>
-            <p className="mt-4 text-sm text-ivory/60">{t(tour.dates, locale)}</p>
-            <p className="mt-6 text-ivory/70">{t(tour.summary, locale)}</p>
-          </Reveal>
-        </div>
-      </section>
+      <PageBanner
+        kicker={t(tour.destination, locale)}
+        title={t(tour.name, locale)}
+        meta={t(tour.dates, locale)}
+        intro={t(tour.summary, locale)}
+        width="4xl"
+      />
 
       {tour.ttmOverview && (
         <section className="bg-soft-lilac/40 px-6 py-16 lg:px-10">

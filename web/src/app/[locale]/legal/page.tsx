@@ -1,4 +1,4 @@
-import { Kicker } from "@/components/Kicker";
+import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -14,16 +14,10 @@ export default async function LegalPage({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <Reveal trigger="mount">
-            <Kicker tone="ivory">{dict.legalPage.banner.kicker}</Kicker>
-            <h1 className="font-display mt-5 text-4xl text-ivory break-words sm:text-5xl">
-              {dict.legalPage.banner.title}
-            </h1>
-          </Reveal>
-        </div>
-      </section>
+      <PageBanner
+        kicker={dict.legalPage.banner.kicker}
+        title={dict.legalPage.banner.title}
+      />
 
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-3xl">
