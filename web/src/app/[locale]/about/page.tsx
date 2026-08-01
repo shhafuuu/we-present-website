@@ -68,6 +68,44 @@ export default async function AboutPage({
         />
       </section>
 
+      <section id="cases" className="scroll-mt-24 border-t border-amethyst/10 bg-ivory px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="text-center">
+            <Kicker>{dict.about.cases.kicker}</Kicker>
+            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
+              {dict.about.cases.title}
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
+              {dict.about.cases.intro}
+            </p>
+          </Reveal>
+
+          <div className="mt-16 border-y border-amethyst/15 py-14">
+            <StatRail stats={statRail} />
+          </div>
+
+          <div className="mt-16">
+            <CasesIndex
+              cards={caseCards}
+              filters={caseFilters}
+              emptyLabel={dict.about.cases.empty}
+            />
+          </div>
+
+          {/* These are COATI results, not We Present results, and the site must not
+              present them as the latter. */}
+          <Reveal delay={0.1}>
+            <p className="mt-14 text-center text-sm text-ink/70">{casesSettings.attribution[locale]}</p>
+          </Reveal>
+
+          <Reveal delay={0.2} className="mt-12 text-center">
+            <Button href={href(locale, "/how-it-was")} variant="ghost">
+              {dict.about.cases.cta}
+            </Button>
+          </Reveal>
+        </div>
+      </section>
+
       {/* v2.1 section 1: the differentiator leads, then the two audiences get a panel
           each. Previously both audiences were mixed into one value block, which is the
           client's central objection this round. */}
@@ -164,43 +202,6 @@ export default async function AboutPage({
           then the filterable index, then a full editorial page per case. Putting the
           description, activities and results on the cards instead is what would make
           this section text-heavy, which is precisely what was to be avoided. */}
-      <section id="cases" className="scroll-mt-24 border-t border-amethyst/10 bg-ivory px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          <Reveal className="text-center">
-            <Kicker>{dict.about.cases.kicker}</Kicker>
-            <h2 className="font-display mt-5 text-3xl text-aubergine sm:text-4xl">
-              {dict.about.cases.title}
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
-              {dict.about.cases.intro}
-            </p>
-          </Reveal>
-
-          <div className="mt-16 border-y border-amethyst/15 py-14">
-            <StatRail stats={statRail} />
-          </div>
-
-          <div className="mt-16">
-            <CasesIndex
-              cards={caseCards}
-              filters={caseFilters}
-              emptyLabel={dict.about.cases.empty}
-            />
-          </div>
-
-          {/* These are COATI results, not We Present results, and the site must not
-              present them as the latter. */}
-          <Reveal delay={0.1}>
-            <p className="mt-14 text-center text-sm text-ink/70">{casesSettings.attribution[locale]}</p>
-          </Reveal>
-
-          <Reveal delay={0.2} className="mt-12 text-center">
-            <Button href={href(locale, "/how-it-was")} variant="ghost">
-              {dict.about.cases.cta}
-            </Button>
-          </Reveal>
-        </div>
-      </section>
 
       <section className="relative overflow-hidden bg-aubergine px-6 py-24 lg:px-10">
         <Sparkle className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 text-ivory/[0.04]" />

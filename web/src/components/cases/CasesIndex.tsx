@@ -99,7 +99,10 @@ export function CasesIndex({
                 className={`flex h-full flex-col justify-between rounded-2xl p-8 transition-all duration-500 ${
                   dark
                     ? "bg-aubergine text-ivory group-hover:shadow-lg"
-                    : "border border-amethyst/15 bg-ivory group-hover:border-gold/50 group-hover:shadow-md"
+                    : // Lilac, not ivory. The section ground is ivory, so an ivory card
+                      // computed to exactly the same colour and only its hairline border
+                      // separated it: the light cards washed out entirely.
+                      "border border-amethyst/15 bg-soft-lilac/55 group-hover:border-gold/50 group-hover:shadow-md"
                 } ${isFeature ? "lg:p-10" : ""}`}
               >
                 <p className={`kicker ${dark ? "text-gold" : "text-amethyst"}`}>
