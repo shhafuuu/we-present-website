@@ -998,7 +998,7 @@ registration, with the business card attached; tour registrations are unchanged.
 
 ---
 
-### [ ] WO-86 — Rename the EN nav item to Programmes
+### [x] WO-86 — Rename the EN nav item to Programmes
 
 **Origin:** round 1 (RU label ПРОГРАММЫ), completed in round 5
 

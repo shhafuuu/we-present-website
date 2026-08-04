@@ -10,7 +10,7 @@ export const en = {
   },
   nav: {
     about: "About",
-    tours: "Tours",
+    tours: "Programmes",
     destinations: "Destinations",
     partners: "Partners",
     howItWas: "How It Was",
@@ -44,7 +44,7 @@ export const en = {
       title: "A front-row seat to the world’s finest hotels.",
       lead: "Curated familiarization tours for travel-agency partners: an intimate, first-hand look at the properties you sell, hosted by Coati across the 2026 season.",
       ctaPrimary: "Register Interest",
-      ctaSecondary: "View Tours Calendar",
+      ctaSecondary: "View Programme Calendar",
       nextTour: "Next tour · 17–23 August 2026 · Maldives",
     },
     concept: {
@@ -61,7 +61,7 @@ export const en = {
       partnersCta: "What partners receive",
     },
     tours: {
-      kicker: "Tours Calendar",
+      kicker: "Programme Calendar",
       title: "The 2026 season, at a glance",
       datesComingSoon: "Dates coming soon",
       ctaFull: "View Full Calendar",
@@ -251,9 +251,9 @@ export const en = {
   },
   toursPage: {
     banner: {
-      kicker: "Tours Calendar",
-      title: "The programme’s calendar of trips",
-      body: "We Present runs multiple curated tours per year. Each one links through to its full itinerary, resorts and, where relevant, its travel-trade event.",
+      kicker: "Programme Calendar",
+      title: "The programme calendar",
+      body: "We Present runs multiple curated programmes per year, from destination tours to partner events. Each one links through to its own page and the details confirmed so far.",
     },
     comingSoon2027: {
       title: "Coming Soon",
