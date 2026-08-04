@@ -14,19 +14,26 @@ Work one order at a time, in order, unless a phase says otherwise.
 **Status key.** `[x]` done. `[~]` partially done, see the order for what is left.
 `[ ]` outstanding.
 
-As of 4 August 2026, outstanding orders are:
+As of 5 August 2026, **round 5 is complete**: WO-80 through WO-86 are all built,
+verified and committed. Outstanding orders are:
 
-- **WO-80** — internal working notes are published on the live Tour 2 page. Do this first.
-- **WO-81 to WO-86** — round 5: Tour 2 dates and TTM, office contacts, maps, the Workshop.
 - **WO-52** — the systematic contrast pass. Individual pairings have been measured as they were touched.
 - **WO-63** — the production OAuth handler. Blocks the content portal.
 - **WO-04** — blocked on web-format partner logos.
 - **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
+- **WO-70** — the QA sweep, reopened. Five boxes remain, all of them things static
+  analysis cannot do.
+
+Two things carried out of round 5 that are not orders:
+
+- **Decap 3 cannot hide fields conditionally.** WO-84 step 7 asked for it and it does
+  not exist in the CMS. Tour-only fields are optional and hinted instead. See WO-84.
+- **The client should confirm the Workshop calendar wording.** The card shows
+  "November 2026" rather than spec Appendix A.4's "Dates to be confirmed". Reasoning
+  is recorded under WO-84; it is a one-line content change if they disagree.
 
 WO-10 is partial by decision: the Destinations restructure shipped, the URL nesting was
-judged not worth the churn. WO-70 is ticked but its nine checklist boxes are not; it did
-not catch the WO-80 leak, so re-run it properly before handover rather than trusting the
-tick.
+judged not worth the churn.
 
 For each work order:
 
@@ -1040,7 +1047,7 @@ Static checks re-run on 4 August and passing:
 
 Still outstanding, none of which can be done by static analysis:
 
-- [ ] `npm run build` on a machine with the platform's SWC binary. Not runnable in the Linux sandbox: `node_modules` holds the darwin build and the registry is unreachable, so `tsc --noEmit` is the substitute, not the equivalent
+- [x] `npm run build` on a machine with the platform's SWC binary. Run repeatedly through round 5 on macOS: compiles clean, 63 static pages, `/register` still SSG after the Suspense boundary was added
 - [ ] Every page, both locales, at 1440px, 1024px and 390px
 - [ ] Accessibility review skill run, findings addressed. Overlaps WO-52
 - [ ] Lighthouse on homepage, About and a tour detail page
