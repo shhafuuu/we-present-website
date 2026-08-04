@@ -17,7 +17,6 @@ Work one order at a time, in order, unless a phase says otherwise.
 As of 5 August 2026, **round 5 is complete**: WO-80 through WO-86 are all built,
 verified and committed. Outstanding orders are:
 
-- **WO-52** — the systematic contrast pass. Individual pairings have been measured as they were touched.
 - **WO-63** — the production OAuth handler. Blocks the content portal.
 - **WO-04** — blocked on web-format partner logos.
 - **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
@@ -676,9 +675,7 @@ Six equal ivory cards with the same gold sparkle and a uniform fade. The eye ski
 
 ---
 
-### [ ] WO-52 — Contrast pass
-
-**Origin:** round 1, recurring
+### [x] WO-52 — Contrast pass
 
 White against lilac was reported as too similar. Related: adjacent near-identical tints erase section seams.
 
@@ -691,6 +688,54 @@ White against lilac was reported as too similar. Related: adjacent near-identica
 **Accept:** every section boundary is visible without squinting; no muted text below `/70`; no small gold text.
 
 **Verify:** run the accessibility review skill; report contrast ratios for the flagged pairings.
+
+**Done 5 August 2026.** There is no accessibility review skill installed, so the
+verification is two repeatable scripts committed at `web/scripts/a11y/`. They measured
+2,464 text nodes across 38 page loads at 1440px and 2,230 at 390px, both locales, plus
+every section seam and card-on-ground pairing. Read that directory's README before
+re-running: three measurement traps produced 16 false failures out of the first 19, and
+they will produce them again for the next person.
+
+**Fixed, muted text below the `/70` floor**
+
+| Where | Was | Measured | Now |
+| --- | --- | --- | --- |
+| Contact, phone/WhatsApp separator | `text-ink/40` | 2.35:1 | `/70`, plus `aria-hidden` since it is decorative punctuation |
+| Workshop calendar label, home and /tours | `text-amethyst/70` | 3.18:1 | `text-amethyst` |
+| Comparison table, mobile-only column header | `text-ink/60` | 3.90:1 | `/70` |
+| Footer office and phone labels | `text-soft-lilac/60` | 3.97:1 | `/70` |
+| Cases filter, inactive tab | `text-ink/60` | 4.05:1 | `/70` |
+| What's Included fine print | `text-ink/60` | 4.05:1 | `/70` |
+| Map placeholder "Show map" | `text-amethyst` | 4.48:1 | `text-aubergine` |
+
+Three of those were shipped by round 5 itself, and two were visible only at 390px.
+
+**Fixed, the actual round-1 complaint.** "White against lilac was reported as too
+similar" traced to the shared banner gradient. The ivory kicker sat on the pale end and
+measured **2.54:1** on the home register band and **4.07:1** on the taller page banners.
+How pale depends on section height, so the same component passed on a short banner and
+failed on a long one, and any copy edit through the portal could flip it. Moving the
+amethyst stop from the default 50% to **20%** puts every banner's content on amethyst or
+darker regardless of height: 6.19:1, 6.89:1, 7.66:1. Palette, type, radius and card
+chrome are untouched; the two screenshots are near-indistinguishable.
+
+**Confirmed, no small gold text on a light ground.** Every gold text node on the site is
+12px or 16px on aubergine at **5.16:1**. Everything else using `text-gold` is a
+decorative `Sparkle` SVG, not text.
+
+**Result: zero text nodes below AA at either width, in either locale.**
+
+**Left alone, deliberately**
+
+- **Two "boundary" findings on the destination and resort heroes** are artifacts: the
+  analytical pass cannot see an `<img>`, so it compared two ivory grounds. Sampled at the
+  real seam they measure RGB distance 325 and 327.
+- **The About accent band running into the footer**, both aubergine, no rule. The home
+  page resolves its gradient into the footer the same way, so this is the established
+  treatment rather than a defect, and adding a rule to the footer would break the home
+  page's transition. Flagged rather than changed, per the standing instruction not to
+  alter the visual identity uninvited. If the client wants the footer separated
+  everywhere, it is one `border-t` on `Footer.tsx`.
 
 ---
 
@@ -1049,7 +1094,7 @@ Still outstanding, none of which can be done by static analysis:
 
 - [x] `npm run build` on a machine with the platform's SWC binary. Run repeatedly through round 5 on macOS: compiles clean, 63 static pages, `/register` still SSG after the Suspense boundary was added
 - [ ] Every page, both locales, at 1440px, 1024px and 390px
-- [ ] Accessibility review skill run, findings addressed. Overlaps WO-52
+- [x] Accessibility review skill run, findings addressed. Overlaps WO-52. No such skill is installed; done instead with the two scripts at `web/scripts/a11y/`, which found and fixed seven muted-text failures and the banner-gradient pairing behind the round-1 report
 - [ ] Lighthouse on homepage, About and a tour detail page
 - [ ] Every BLOCKED item still blocked is listed in the handover notes
 

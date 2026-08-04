@@ -51,7 +51,7 @@ export default async function ToursPage({
                         {/* Quiet differentiator so a workshop does not read as a
                             destination tour. A category label, not a NEW badge. */}
                         {isWorkshop(tour) ? (
-                          <p className="kicker mb-1 text-[0.6rem] text-amethyst/70">
+                          <p className="kicker mb-1 text-[0.6rem] text-amethyst">
                             {dict.tourDetail.workshopLabel}
                             {tour.location ? ` · ${t(tour.location, locale)}` : ""}
                           </p>
@@ -136,7 +136,7 @@ export default async function ToursPage({
             })}
           </div>
           <Reveal delay={0.3}>
-            <p className="mx-auto mt-10 max-w-2xl text-xs leading-relaxed text-ink/60">
+            <p className="mx-auto mt-10 max-w-2xl text-xs leading-relaxed text-ink/70">
               {t(toursSettings.included.notes, locale)}
             </p>
           </Reveal>

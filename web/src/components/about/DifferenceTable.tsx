@@ -52,7 +52,7 @@ export function DifferenceTable({
             </span>
 
             <span role="cell" className="text-sm leading-relaxed text-ink/70">
-              <span className="kicker mb-1 block text-ink/60 sm:hidden">
+              <span className="kicker mb-1 block text-ink/70 sm:hidden">
                 {columns.traditional}
               </span>
               {row.traditional}

@@ -71,7 +71,7 @@ export function OfficeMap({
                 <circle cx="12" cy="10" r="2.75" />
               </svg>
             </span>
-            <span className="kicker text-amethyst group-hover:text-aubergine">
+            <span className="kicker text-aubergine">
               {showMapLabel}
             </span>
           </button>

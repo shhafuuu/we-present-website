@@ -66,7 +66,7 @@ export function CasesIndex({
               aria-selected={isActive}
               onClick={() => setActive(f.key)}
               className={`relative -mb-px pb-2 font-display text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amethyst sm:text-lg ${
-                isActive ? "text-aubergine" : "text-ink/60 hover:text-amethyst"
+                isActive ? "text-aubergine" : "text-ink/70 hover:text-amethyst"
               }`}
             >
               {f.label}

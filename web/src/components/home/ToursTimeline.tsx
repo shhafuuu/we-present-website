@@ -35,7 +35,7 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
                   <div>
                     {/* Quiet differentiator: a category label, not an announcement. */}
                     {isWorkshop(tour) ? (
-                      <p className="kicker mb-1 text-[0.6rem] text-amethyst/70">
+                      <p className="kicker mb-1 text-[0.6rem] text-amethyst">
                         {dict.tourDetail.workshopLabel}
                       </p>
                     ) : null}

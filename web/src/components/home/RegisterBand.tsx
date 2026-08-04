@@ -8,9 +8,13 @@ export function RegisterBand({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
   return (
+    // Amethyst stop at 20% rather than the default 50% (WO-52). This band has less
+    // top padding than PageBanner, so its ivory kicker sat higher in the gradient
+    // and measured 2.54:1, the worst pairing on the site and the round-1 "white on
+    // lilac reads as too similar" report. Now 6.19:1.
     <section
       id="register"
-      className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 py-28 lg:px-10"
+      className="bg-gradient-to-b from-soft-lilac via-amethyst via-20% to-aubergine px-6 py-28 lg:px-10"
     >
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>

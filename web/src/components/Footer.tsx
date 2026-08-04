@@ -51,7 +51,7 @@ export function Footer({ locale }: { locale: Locale }) {
                 carries WhatsApp; the landline is a telephone link only. */}
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li>
-                <span className="block text-xs text-soft-lilac/60">
+                <span className="block text-xs text-soft-lilac/70">
                   {dict.footer.mobileLabel}
                 </span>
                 <a href={PHONE_HREF} className="hover:text-ivory">
@@ -69,7 +69,7 @@ export function Footer({ locale }: { locale: Locale }) {
                 </a>
               </li>
               <li>
-                <span className="block text-xs text-soft-lilac/60">
+                <span className="block text-xs text-soft-lilac/70">
                   {dict.footer.officePhoneLabel}
                 </span>
                 <a href={OFFICE_PHONE_HREF} className="hover:text-ivory">
@@ -79,7 +79,7 @@ export function Footer({ locale }: { locale: Locale }) {
               <li className="text-soft-lilac/70">{dict.footer.emailTbc}</li>
               {OFFICES.map((office) => (
                 <li key={office.id} className="text-soft-lilac/70">
-                  <span className="block text-xs text-soft-lilac/60">
+                  <span className="block text-xs text-soft-lilac/70">
                     {office.city[locale]}
                   </span>
                   {office.address[locale]}

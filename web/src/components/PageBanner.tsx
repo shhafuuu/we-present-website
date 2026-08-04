@@ -24,6 +24,13 @@ const WIDTHS = {
  *
  * `trigger="mount"` because the banner is always above the fold, where waiting on
  * an IntersectionObserver just delays the first paint of content already in view.
+ *
+ * The amethyst stop sits at 20%, not the default 50% (WO-52). With the default the
+ * ivory kicker landed on the pale end of the gradient and measured 4.07:1 on the
+ * taller banners, under the 4.5 AA floor for 12px text. How pale depends on section
+ * height, so the same component passed on a short banner and failed on a long one,
+ * and any copy edit through the portal could flip it. Moving the stop puts every
+ * banner's content on amethyst or darker regardless of height: 6.9 to 7.7:1.
  */
 export function PageBanner({
   kicker,
@@ -42,7 +49,7 @@ export function PageBanner({
   children?: ReactNode;
 }) {
   return (
-    <section className="bg-gradient-to-b from-soft-lilac via-amethyst to-aubergine px-6 pb-20 pt-40 lg:px-10">
+    <section className="bg-gradient-to-b from-soft-lilac via-amethyst via-20% to-aubergine px-6 pb-20 pt-40 lg:px-10">
       <div className={`mx-auto ${WIDTHS[width]} text-center`}>
         <Reveal trigger="mount">
           <Kicker tone="ivory">{kicker}</Kicker>

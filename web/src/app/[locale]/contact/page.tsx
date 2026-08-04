@@ -61,7 +61,11 @@ export default async function ContactPage({
                   <a href={PHONE_HREF} className="text-amethyst underline">
                     {PHONE}
                   </a>
-                  <span className="mx-2 text-ink/40">·</span>
+                  {/* Decorative separator: hidden from assistive tech so it is not
+                      read out between the two links, and kept at the /70 floor. */}
+                  <span aria-hidden="true" className="mx-2 text-ink/70">
+                    ·
+                  </span>
                   <a
                     href={WHATSAPP_HREF}
                     target="_blank"
