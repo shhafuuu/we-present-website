@@ -865,7 +865,7 @@ dates form one consistent story.
 
 ---
 
-### [ ] WO-82 — Office phone and addresses
+### [x] WO-82 — Office phone and addresses
 
 **Origin:** round 5
 

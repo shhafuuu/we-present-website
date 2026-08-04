@@ -3,6 +3,9 @@ import { Kicker } from "@/components/Kicker";
 import {
   PHONE,
   PHONE_HREF,
+  OFFICE_PHONE,
+  OFFICE_PHONE_HREF,
+  OFFICES,
   WHATSAPP_HREF,
   INSTAGRAM_HREF,
   LINKEDIN_HREF,
@@ -44,8 +47,13 @@ export function Footer({ locale }: { locale: Locale }) {
             <Kicker tone="gold">{dict.footer.contact}</Kicker>
             {/* No email until the production address exists (v2.1 section 6). The
                 placeholder was never confirmed, so it is not presented as final. */}
+            {/* Two numbers, labelled, so a visitor knows which is which. The mobile
+                carries WhatsApp; the landline is a telephone link only. */}
             <ul className="mt-5 space-y-3 text-sm text-soft-lilac">
               <li>
+                <span className="block text-xs text-soft-lilac/60">
+                  {dict.footer.mobileLabel}
+                </span>
                 <a href={PHONE_HREF} className="hover:text-ivory">
                   {PHONE}
                 </a>
@@ -60,8 +68,23 @@ export function Footer({ locale }: { locale: Locale }) {
                   {dict.footer.whatsapp}
                 </a>
               </li>
+              <li>
+                <span className="block text-xs text-soft-lilac/60">
+                  {dict.footer.officePhoneLabel}
+                </span>
+                <a href={OFFICE_PHONE_HREF} className="hover:text-ivory">
+                  {OFFICE_PHONE}
+                </a>
+              </li>
               <li className="text-soft-lilac/70">{dict.footer.emailTbc}</li>
-              <li className="text-soft-lilac/70">{dict.footer.officeTbc}</li>
+              {OFFICES.map((office) => (
+                <li key={office.id} className="text-soft-lilac/70">
+                  <span className="block text-xs text-soft-lilac/60">
+                    {office.city[locale]}
+                  </span>
+                  {office.address[locale]}
+                </li>
+              ))}
             </ul>
           </div>
 

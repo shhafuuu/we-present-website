@@ -8,6 +8,9 @@ import {
   EMAIL,
   PHONE,
   PHONE_HREF,
+  OFFICE_PHONE,
+  OFFICE_PHONE_HREF,
+  OFFICES,
   WHATSAPP_HREF,
   INSTAGRAM_HREF,
   LINKEDIN_HREF,
@@ -69,8 +72,25 @@ export default async function ContactPage({
                 </dd>
               </div>
               <div>
+                <dt className="kicker text-amethyst">
+                  {dict.contactPage.details.officePhone}
+                </dt>
+                <dd className="mt-1 text-ink/70">
+                  <a href={OFFICE_PHONE_HREF} className="text-amethyst underline">
+                    {OFFICE_PHONE}
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.office}</dt>
-                <dd className="mt-1 text-ink/70">{dict.contactPage.details.officeTbc}</dd>
+                <dd className="mt-1 space-y-4 text-ink/70">
+                  {OFFICES.map((office) => (
+                    <div key={office.id}>
+                      <p className="text-ink">{office.city[locale]}</p>
+                      <p className="mt-0.5">{office.address[locale]}</p>
+                    </div>
+                  ))}
+                </dd>
               </div>
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.instagram}</dt>
