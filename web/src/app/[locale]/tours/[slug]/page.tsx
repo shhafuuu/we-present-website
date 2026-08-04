@@ -147,7 +147,12 @@ export default async function TourDetailPage({
                     stop.label
                   )}
                 </h3>
-                <p className="mt-1 text-sm text-ink/70">{t(stop.note, locale)}</p>
+                {/* Guarded: a stop with no note renders nothing rather than an empty
+                    paragraph. Lets content leave a note blank instead of filling it
+                    with a placeholder, per the no-invented-content guardrail. */}
+                {t(stop.note, locale).trim() && (
+                  <p className="mt-1 text-sm text-ink/70">{t(stop.note, locale)}</p>
+                )}
               </Reveal>
             ))}
           </div>

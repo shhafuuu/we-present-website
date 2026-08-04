@@ -16,8 +16,8 @@
   },
   "status": "confirmed",
   "summary": {
-    "en": "A Maldives tour combining attendance at Travel Trade Maldives (TTM) 2026 with a partner-resort tour. End date revised to 3 September per the client's calendar.",
-    "ru": "Тур по Мальдивам, совмещающий участие в Travel Trade Maldives (TTM) 2026 с туром по курортам-партнёрам. Дата окончания перенесена на 3 сентября по календарю клиента."
+    "en": "A Maldives programme across partner resorts, with the option of attending Travel Trade Maldives (TTM) 2026 beforehand.",
+    "ru": "Программа по Мальдивам с посещением курортов-партнёров и возможностью принять участие в Travel Trade Maldives (TTM) 2026 до её начала."
   },
   "ttmOverview": {
     "en": "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
@@ -42,8 +42,8 @@
         "ru": "28–30 авг"
       },
       "note": {
-        "en": "Resort stop 1.",
-        "ru": "Остановка 1."
+        "en": "A reef-fringed island in Lhaviyani Atoll.",
+        "ru": "Остров в обрамлении рифа в атолле Лавияни."
       },
       "resortSlug": "fushifaru"
     },
@@ -54,8 +54,8 @@
         "ru": "30 авг–1 сен"
       },
       "note": {
-        "en": "Resort stop 2.",
-        "ru": "Остановка 2."
+        "en": "One of the newest islands in Lhaviyani Atoll.",
+        "ru": "Один из самых новых островов атолла Лавияни."
       },
       "resortSlug": "meyyafushi"
     },
@@ -66,8 +66,8 @@
         "ru": "1–3 сен"
       },
       "note": {
-        "en": "Resort stop 3; departure 3 Sep.",
-        "ru": "Остановка 3; вылет 3 сен."
+        "en": "South Male Atoll, one lagoon from the capital.",
+        "ru": "Южный Мале Атолл, в одной лагуне от столицы."
       },
       "resortSlug": "so-maldives"
     },
@@ -78,8 +78,8 @@
         "ru": "Уточняется"
       },
       "note": {
-        "en": "Inclusion within the shorter window is being confirmed with the client.",
-        "ru": "Включение в сокращённый график уточняется с клиентом."
+        "en": "",
+        "ru": ""
       },
       "resortSlug": "madifushi"
     }
