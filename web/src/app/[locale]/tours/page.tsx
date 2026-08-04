@@ -3,7 +3,7 @@ import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
-import { tours, hasDetailPage, t } from "@/lib/tours";
+import { tours, hasDetailPage, isWorkshop, t } from "@/lib/tours";
 import { getToursSettings } from "@/lib/settings";
 import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -48,6 +48,14 @@ export default async function ToursPage({
                       }`}
                     >
                       <div>
+                        {/* Quiet differentiator so a workshop does not read as a
+                            destination tour. A category label, not a NEW badge. */}
+                        {isWorkshop(tour) ? (
+                          <p className="kicker mb-1 text-[0.6rem] text-amethyst/70">
+                            {dict.tourDetail.workshopLabel}
+                            {tour.location ? ` · ${t(tour.location, locale)}` : ""}
+                          </p>
+                        ) : null}
                         <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                           {t(tour.name, locale)}
                         </h3>

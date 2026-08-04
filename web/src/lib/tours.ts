@@ -25,17 +25,42 @@ export type TourProperty = {
   description?: LocalizedString;
 };
 
+/**
+ * What kind of programme this is.
+ *
+ * The Workshop needs almost the whole tour surface (year, bilingual name and dates,
+ * status, summary, coming-soon state, registration CTA) and lacks only what a tour adds
+ * on top: a destination, a resort line-up, a dated itinerary. A strict subset that
+ * shares the same display surface is a variant, not a sibling, so it lives here rather
+ * than in a second collection. That also keeps the calendar one ordered list and gives
+ * an editor one place to add an event.
+ *
+ * If workshops later grow structure tours do not have (an hourly agenda, speakers, an
+ * exhibitor list), this field is the seam to split them out along.
+ */
+export type TourFormat = "tour" | "workshop";
+
 export type Tour = {
   slug: string;
   /** Display order in the calendar — lower first. Editable via the content portal. */
   order: number;
+  /** Absent means "tour", so every pre-existing content file keeps working untouched. */
+  format?: TourFormat;
   year: string;
   name: LocalizedString;
-  destination: LocalizedString;
+  /** Tours only. A workshop is held in a city, not at a destination. */
+  destination?: LocalizedString;
+  /** Workshops only. The city, which stands in for the resort line-up on the card. */
+  location?: LocalizedString;
   dates: LocalizedString;
   status: "confirmed" | "pending";
   summary: LocalizedString;
-  stops: TourStop[];
+  /** Workshops only: attendance terms for agents. */
+  agentsNote?: LocalizedString;
+  /** Workshops only: what is still to be announced. */
+  comingSoonNote?: LocalizedString;
+  /** Tours only. A workshop has no dated itinerary. */
+  stops?: TourStop[];
   /** Named line-up for a tour whose dates are not confirmed. */
   properties?: TourProperty[];
   /** Detailed itinerary and participant information, served only through the gated
@@ -76,7 +101,15 @@ export const getTour = (slug: string) => tours.find((tour) => tour.slug === slug
  * flag means a tour gets a page the moment its line-up is entered in the portal.
  */
 export const hasDetailPage = (tour: Tour) =>
-  tour.status === "confirmed" || (tour.properties?.length ?? 0) > 0;
+  tour.status === "confirmed" ||
+  (tour.properties?.length ?? 0) > 0 ||
+  // A workshop is announced before its dates are set, and its page is the only route
+  // to the registration form. Withholding it until "confirmed" would leave the client
+  // announcing an event a visitor cannot register for.
+  isWorkshop(tour);
+
+/** Absent format means "tour", so the five pre-existing content files need no edit. */
+export const isWorkshop = (tour: Tour) => tour.format === "workshop";
 
 /** Groups a property list into its tiers, preserving first-seen tier order so the
  *  content file controls which group leads. */

@@ -294,7 +294,9 @@ export const en = {
     onSiteKicker: "On-Site Programme",
     itineraryKicker: "Itinerary",
     itineraryTitle: "The full itinerary",
-    backToAll: "← All Tours",
+    workshopLabel: "Workshop",
+    workshopRegisterCta: "Register your interest",
+    backToAll: "← All Programmes",
   },
   destinationsPage: {
     banner: {

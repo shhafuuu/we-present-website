@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Button } from "@/components/Button";
 import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
@@ -40,13 +41,48 @@ export default async function TourDetailPage({
 
   return (
     <>
+      {/* A workshop is held in a city, so its kicker is the location where a tour's is
+          its destination. */}
       <PageBanner
-        kicker={t(tour.destination, locale)}
+        kicker={t(tour.location ?? tour.destination ?? tour.name, locale)}
         title={t(tour.name, locale)}
         meta={t(tour.dates, locale)}
         intro={t(tour.summary, locale)}
         width="4xl"
       />
+
+      {/* Workshop only. Everything below this block is tour structure (line-up,
+          itinerary, programme PDF) and is already guarded on content a workshop
+          does not have, so none of it renders here. */}
+      {(tour.agentsNote || tour.comingSoonNote) && (
+        <section className="bg-ivory px-6 py-24 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <Reveal>
+              <h2 className="sr-only">{dict.tourDetail.workshopLabel}</h2>
+              <Kicker>{dict.tourDetail.workshopLabel}</Kicker>
+            </Reveal>
+            {tour.agentsNote && (
+              <Reveal delay={0.08}>
+                <p className="font-display mt-6 text-2xl leading-snug text-aubergine sm:text-3xl">
+                  {t(tour.agentsNote, locale)}
+                </p>
+              </Reveal>
+            )}
+            {tour.comingSoonNote && (
+              <Reveal delay={0.16}>
+                <p className="mt-6 text-base leading-relaxed text-ink/70">
+                  {t(tour.comingSoonNote, locale)}
+                </p>
+              </Reveal>
+            )}
+            <Reveal delay={0.24}>
+              <Button href={href(locale, "/register")} variant="primary" className="mt-10">
+                {dict.tourDetail.workshopRegisterCta}
+              </Button>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* Deliberately outside the itinerary below. TTM is not part of the tour, and a
           row inside a dated sequence reads as included no matter what the copy says. */}
@@ -127,7 +163,7 @@ export default async function TourDetailPage({
         </section>
       ) : null}
 
-      {tour.stops.length > 0 && (
+      {(tour.stops?.length ?? 0) > 0 && (
       <section className="bg-ivory px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-3xl">
           <Reveal>
@@ -138,7 +174,7 @@ export default async function TourDetailPage({
           </Reveal>
 
           <div className="mt-14 space-y-10 border-l border-amethyst/15 pl-8">
-            {tour.stops.map((stop, i) => (
+            {tour.stops?.map((stop, i) => (
               <Reveal key={i} delay={i * 0.08} className="relative">
                 <span className="absolute -left-[2.55rem] top-1.5 h-3 w-3 rounded-full bg-gold" />
                 <p className="kicker text-amethyst">{t(stop.dates, locale)}</p>

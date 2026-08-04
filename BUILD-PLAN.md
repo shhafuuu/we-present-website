@@ -914,7 +914,7 @@ requests before the click.
 
 ---
 
-### [ ] WO-84 — Add the We Present Workshop to the calendar
+### [x] WO-84 — Add the We Present Workshop to the calendar
 
 **Origin:** round 5
 
@@ -951,6 +951,26 @@ both locales complete.
 
 **Verify:** `npm run build`; view the calendar and the workshop page in RU and EN; confirm
 the four existing tours are visually and functionally unchanged.
+
+**Two departures from the order text, 5 August 2026**
+
+1. **Step 7's conditional field groups are not built, because Decap 3 cannot do it.**
+   Conditional fields are a long-standing Decap feature request, not a supported config
+   option; the `condition` strings in the CDN bundle belong to ajv and the `warning`
+   package, not to the CMS schema. What shipped instead: a Format dropdown, every
+   tour-only field switched to `required: false` so a workshop can be saved without
+   them, and hints on each stating which format it applies to. An editor creating a
+   workshop still *sees* the itinerary builder; they are told to leave it empty rather
+   than prevented from filling it. Revisit if Decap adds the feature.
+
+2. **The calendar dates slot shows "November 2026", not "Dates to be confirmed"**
+   (step 4 and Appendix A.4). November 2026 is confirmed fact, and the asset table
+   records it as confirmed. Showing "to be confirmed" on the calendar above a detail
+   page whose banner reads "November 2026" would have the site contradict itself
+   between two clicks, which is the exact defect class WO-81 had just finished fixing.
+   Appendix A.3's "Exact dates, venue and programme will be announced" carries the
+   caveat on the detail page, which is what A.4's phrasing was protecting. The card
+   reads: `Workshop · Moscow` / `We Present Workshop` / summary / `November 2026`.
 
 ---
 

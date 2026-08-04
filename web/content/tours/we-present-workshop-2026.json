@@ -1,0 +1,31 @@
+{
+  "slug": "we-present-workshop-2026",
+  "format": "workshop",
+  "order": 4,
+  "year": "2026",
+  "name": {
+    "en": "We Present Workshop",
+    "ru": "We Present Workshop"
+  },
+  "location": {
+    "en": "Moscow",
+    "ru": "Москва"
+  },
+  "dates": {
+    "en": "November 2026",
+    "ru": "Ноябрь 2026"
+  },
+  "status": "pending",
+  "summary": {
+    "en": "The first We Present Workshop takes place in Moscow in November 2026. It brings together partners from the COATI collection, including hotels, resorts and destinations, for a professional networking and educational event: presentations, product updates, brainstorming sessions and business networking.",
+    "ru": "Первый We Present Workshop пройдёт в Москве в ноябре 2026 года. Он объединит партнёров коллекции COATI, включая отели, курорты и направления, в формате профессионального делового и образовательного мероприятия: презентации, обновления по продуктам, мозговые штурмы и деловой нетворкинг."
+  },
+  "agentsNote": {
+    "en": "Travel agents are invited to register and attend at no cost.",
+    "ru": "Travel-агенты приглашаются к участию. Участие бесплатное."
+  },
+  "comingSoonNote": {
+    "en": "Exact dates, venue and programme will be announced. Register your interest and we will be in touch as details are confirmed.",
+    "ru": "Точные даты, площадка и программа будут объявлены. Оставьте заявку, и мы свяжемся с вами по мере подтверждения деталей."
+  }
+}

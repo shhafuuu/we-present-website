@@ -86,6 +86,7 @@ export const showsResortGrid = (destination: Destination) =>
  * coupling ever causes a mismatch.
  */
 export const getToursForDestination = (destination: Destination): Tour[] =>
-  tours.filter((tour) => tour.destination.en === destination.name.en);
+  // A workshop has no destination, so it never matches and never appears under one.
+  tours.filter((tour) => tour.destination?.en === destination.name.en);
 
 export const t = (value: LocalizedString, locale: Locale) => value[locale];

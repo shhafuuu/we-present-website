@@ -294,7 +294,9 @@ export const ru: Dictionary = {
     onSiteKicker: "Программа на месте",
     itineraryKicker: "Маршрут",
     itineraryTitle: "Полный маршрут",
-    backToAll: "← Все туры",
+    workshopLabel: "Воркшоп",
+    workshopRegisterCta: "Оставить заявку",
+    backToAll: "← Все программы",
   },
   destinationsPage: {
     banner: {

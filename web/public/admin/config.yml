@@ -53,12 +53,31 @@ collections:
         fields:
           - { label: "English", name: "en", widget: "string" }
           - { label: "Russian", name: "ru", widget: "string" }
+      - label: "Format"
+        name: "format"
+        widget: "select"
+        required: false
+        default: "tour"
+        options:
+          - { label: "Tour — travels to a destination, has a resort line-up and an itinerary", value: "tour" }
+          - { label: "Workshop — a partner event held in one city, no destination or itinerary", value: "workshop" }
+        hint: "Leave as Tour unless you are adding an event like the We Present Workshop. A Workshop uses Location, Note for agents and Still to be announced below, and ignores Destination, Itinerary stops, Properties and Programme PDF. Decap cannot hide fields it does not need, so those stay visible: leave them empty."
       - label: "Destination"
         name: "destination"
         widget: "object"
+        required: false
+        hint: "Tours only. Leave blank for a Workshop, which is held in a city rather than at a destination."
         fields:
-          - { label: "English", name: "en", widget: "string" }
-          - { label: "Russian", name: "ru", widget: "string" }
+          - { label: "English", name: "en", widget: "string", required: false }
+          - { label: "Russian", name: "ru", widget: "string", required: false }
+      - label: "Location (city)"
+        name: "location"
+        widget: "object"
+        required: false
+        hint: "Workshops only. The city, e.g. Moscow. It takes the place of the resort line-up on the calendar card."
+        fields:
+          - { label: "English", name: "en", widget: "string", required: false }
+          - { label: "Russian", name: "ru", widget: "string", required: false }
       - label: "Dates (display text)"
         name: "dates"
         widget: "object"
@@ -78,6 +97,22 @@ collections:
         fields:
           - { label: "English", name: "en", widget: "text" }
           - { label: "Russian", name: "ru", widget: "text" }
+      - label: "Note for agents"
+        name: "agentsNote"
+        widget: "object"
+        required: false
+        hint: "Workshops only. Attendance terms for travel agents, e.g. that the event is complimentary. One line: it renders large, as the lead statement on the page."
+        fields:
+          - { label: "English", name: "en", widget: "text", required: false }
+          - { label: "Russian", name: "ru", widget: "text", required: false }
+      - label: "Still to be announced"
+        name: "comingSoonNote"
+        widget: "object"
+        required: false
+        hint: "Workshops only. What is not yet settled, e.g. exact dates, venue and programme. Say plainly what is coming rather than inventing a placeholder for it."
+        fields:
+          - { label: "English", name: "en", widget: "text", required: false }
+          - { label: "Russian", name: "ru", widget: "text", required: false }
       - label: "TTM overview"
         name: "ttmOverview"
         widget: "object"
@@ -143,7 +178,8 @@ collections:
         name: "stops"
         widget: "list"
         allow_add: true
-        hint: "Only shown for confirmed tours — leave empty for a pending/coming-soon tour."
+        required: false
+        hint: "Tours only. Leave empty for a pending/coming-soon tour, and for any Workshop: a workshop has no dated itinerary."
         fields:
           - { label: "Stop name", name: "label", widget: "string" }
           - label: "Dates"

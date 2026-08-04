@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Kicker } from "@/components/Kicker";
-import { tours, hasDetailPage, t } from "@/lib/tours";
+import { tours, hasDetailPage, isWorkshop, t } from "@/lib/tours";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -33,13 +33,23 @@ export function ToursTimeline({ locale }: { locale: Locale }) {
                   </span>
                   <div className="h-10 w-px bg-amethyst/15" />
                   <div>
+                    {/* Quiet differentiator: a category label, not an announcement. */}
+                    {isWorkshop(tour) ? (
+                      <p className="kicker mb-1 text-[0.6rem] text-amethyst/70">
+                        {dict.tourDetail.workshopLabel}
+                      </p>
+                    ) : null}
                     <h3 className="font-display text-xl text-aubergine sm:text-2xl">
                       {t(tour.name, locale)}
                     </h3>
+                    {/* A workshop carries its city where a tour carries its
+                        resort line-up. */}
                     <p className="mt-1 text-sm text-ink/70">
-                      {tour.stops.length > 0
-                        ? tour.stops.map((s) => s.label).join(" · ")
-                        : dict.home.tours.datesComingSoon}
+                      {isWorkshop(tour)
+                        ? t(tour.location ?? tour.name, locale)
+                        : tour.stops?.length
+                          ? tour.stops.map((s) => s.label).join(" · ")
+                          : dict.home.tours.datesComingSoon}
                     </p>
                   </div>
                 </div>
