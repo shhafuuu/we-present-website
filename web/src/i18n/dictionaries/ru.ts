@@ -519,6 +519,8 @@ export const ru: Dictionary = {
     },
     register: {
       title: "Регистрация агента",
+      event: "На какую программу вы подаёте заявку?",
+      eventGeneral: "Общий интерес, без конкретной программы",
       fullName: "Полное имя (имя и фамилия)",
       agency: "Название агентства / компании",
       phone: "Телефон (WhatsApp/Telegram)",

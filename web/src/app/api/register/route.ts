@@ -4,6 +4,7 @@ import { validateUpload, validateUploadBatch, toAttachment } from "@/lib/uploads
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 import { isSubmittedTooFast } from "@/lib/antiSpam";
 import { isValidEmail, isWithinLength } from "@/lib/validate";
+import { getTour, isWorkshop } from "@/lib/tours";
 
 export async function POST(request: Request) {
   const { allowed, retryAfterSeconds } = checkRateLimit(`register:${getClientIp(request)}`);
@@ -36,9 +37,15 @@ export async function POST(request: Request) {
   const phone = form.get("phone");
   const email = form.get("email");
   const comments = form.get("comments");
+  const event = form.get("event");
   const stats = form.get("stats");
   const businessCard = form.get("businessCard");
   const consent = form.get("consent");
+
+  // Resolved here rather than trusted from the client: the form sends a slug, and
+  // whether that slug is a workshop decides whether statistics are mandatory.
+  const programme = typeof event === "string" && event ? getTour(event) : undefined;
+  const workshop = programme ? isWorkshop(programme) : false;
 
   if (
     typeof name !== "string" || !name ||
@@ -66,25 +73,45 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "One or more fields are too long." }, { status: 400 });
   }
 
-  if (!(stats instanceof File) || !(businessCard instanceof File)) {
+  // The business card is always required. Statistics are not required for a workshop:
+  // attendance is complimentary and open to agents generally, so there is no agency
+  // performance to assess. Tour registrations are unchanged, and still require both.
+  if (!(businessCard instanceof File)) {
+    return NextResponse.json(
+      { ok: false, error: "A business card upload is required." },
+      { status: 400 }
+    );
+  }
+
+  if (!workshop && !(stats instanceof File)) {
     return NextResponse.json(
       { ok: false, error: "Statistics and business card uploads are required." },
       { status: 400 }
     );
   }
 
-  const batchError = validateUploadBatch([stats, businessCard]);
+  // A workshop submission may still carry statistics if the visitor changed their
+  // selection after attaching one, so validate whatever actually arrived.
+  const files = [businessCard, ...(stats instanceof File ? [stats] : [])];
+
+  const batchError = validateUploadBatch(files);
   if (batchError) return NextResponse.json({ ok: false, error: batchError }, { status: 400 });
 
-  for (const file of [stats, businessCard]) {
+  for (const file of files) {
     const error = await validateUpload(file);
     if (error) return NextResponse.json({ ok: false, error }, { status: 400 });
   }
 
+  // English name, deliberately: this is read by the team, not by the visitor.
+  const programmeName = programme ? programme.name.en : "No specific programme";
+  const kind = workshop ? "Workshop registration" : "Agent registration";
+
   const result = await sendSubmission({
-    subject: `We Present 2027 · Agent registration from ${agency}`,
+    subject: `${programmeName} · ${kind} from ${agency}`,
     replyTo: email,
     fields: {
+      Programme: programmeName,
+      "Registration type": kind,
       "Full Name": name,
       "Agency / Company": agency,
       Phone: phone,
@@ -92,7 +119,9 @@ export async function POST(request: Request) {
       Comments: typeof comments === "string" ? comments : "",
     },
     attachments: [
-      { ...(await toAttachment(stats)), filename: `statistics-${stats.name}` },
+      ...(stats instanceof File
+        ? [{ ...(await toAttachment(stats)), filename: `statistics-${stats.name}` }]
+        : []),
       { ...(await toAttachment(businessCard)), filename: `business-card-${businessCard.name}` },
     ],
   });

@@ -974,7 +974,7 @@ the four existing tours are visually and functionally unchanged.
 
 ---
 
-### [ ] WO-85 — Workshop registration path
+### [x] WO-85 — Workshop registration path
 
 **Origin:** round 5. Client asked for registration "similar to the existing tour registration process".
 

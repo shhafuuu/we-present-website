@@ -520,6 +520,8 @@ export const en = {
     },
     register: {
       title: "Agent Registration",
+      event: "Which programme are you registering for?",
+      eventGeneral: "General interest, no specific programme",
       fullName: "Full Name (First & Last)",
       agency: "Agency / Company Name",
       phone: "Phone (WhatsApp/Telegram)",

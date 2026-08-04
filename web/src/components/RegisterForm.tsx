@@ -2,16 +2,45 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { href, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { FileField } from "@/components/FileField";
 import { Sparkle } from "@/components/Sparkle";
 
-export function RegisterForm({ locale }: { locale: Locale }) {
+/** One selectable programme. Built on the server so the form stays a plain string list
+ *  rather than pulling the tours loader into the client bundle. */
+export type RegisterEventOption = {
+  slug: string;
+  label: string;
+  /** Drives whether agency performance statistics are asked for. */
+  isWorkshop: boolean;
+};
+
+export function RegisterForm({
+  locale,
+  events,
+}: {
+  locale: Locale;
+  events: RegisterEventOption[];
+}) {
   const dict = getDictionary(locale).forms.register;
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [loadedAt] = useState(() => Date.now());
+
+  // Prefilled when the visitor arrives from a programme page (/register?event=slug).
+  // Read on the client so this page stays statically generated; the Suspense boundary
+  // it needs lives in the page.
+  const params = useSearchParams();
+  const requested = params.get("event") ?? "";
+  const [event, setEvent] = useState(
+    events.some((e) => e.slug === requested) ? requested : ""
+  );
+
+  // A workshop registration should not demand agency performance statistics: the event
+  // is complimentary and open to agents generally, so there is nothing to assess.
+  const requiresStats = !events.find((e) => e.slug === event)?.isWorkshop;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -56,7 +85,25 @@ export function RegisterForm({ locale }: { locale: Locale }) {
       />
       <input type="hidden" name="formLoadedAt" value={loadedAt} readOnly />
       <h2 className="font-display text-xl text-aubergine">{dict.title}</h2>
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+
+      <label className="mt-6 block text-sm text-ink/70">
+        {dict.event}
+        <select
+          name="event"
+          value={event}
+          onChange={(e) => setEvent(e.target.value)}
+          className="mt-2 w-full rounded-lg border border-amethyst/20 bg-ivory px-4 py-2.5 outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
+        >
+          <option value="">{dict.eventGeneral}</option>
+          {events.map((option) => (
+            <option key={option.slug} value={option.slug}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
         <label className="text-sm text-ink/70">
           {dict.fullName}
           <input
@@ -105,8 +152,11 @@ export function RegisterForm({ locale }: { locale: Locale }) {
         />
       </label>
 
+      {/* The business card is always asked for. Statistics are not: see requiresStats. */}
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
-        <FileField name="stats" label={dict.statsUpload} hint={dict.statsUploadHint} required locale={locale} />
+        {requiresStats && (
+          <FileField name="stats" label={dict.statsUpload} hint={dict.statsUploadHint} required locale={locale} />
+        )}
         <FileField name="businessCard" label={dict.cardUpload} hint={dict.cardUploadHint} required locale={locale} />
       </div>
 

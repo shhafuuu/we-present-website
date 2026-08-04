@@ -76,7 +76,13 @@ export default async function TourDetailPage({
               </Reveal>
             )}
             <Reveal delay={0.24}>
-              <Button href={href(locale, "/register")} variant="primary" className="mt-10">
+              {/* Prefills the form's programme field, so a submission arriving by
+                  email says which event it is for without the visitor typing it. */}
+              <Button
+                href={`${href(locale, "/register")}?event=${tour.slug}`}
+                variant="primary"
+                className="mt-10"
+              >
                 {dict.tourDetail.workshopRegisterCta}
               </Button>
             </Reveal>
