@@ -48,12 +48,19 @@ export default async function TourDetailPage({
         width="4xl"
       />
 
+      {/* Deliberately outside the itinerary below. TTM is not part of the tour, and a
+          row inside a dated sequence reads as included no matter what the copy says. */}
       {tour.ttmOverview && (
         <section className="bg-soft-lilac/40 px-6 py-16 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <h2 className="sr-only">{dict.tourDetail.ttmKicker}</h2>
-              <Kicker>{dict.tourDetail.ttmKicker}</Kicker>
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+                <Kicker>{dict.tourDetail.ttmKicker}</Kicker>
+                <span className="kicker rounded-full bg-amethyst/10 px-3 py-1 text-[0.6rem] text-amethyst">
+                  {dict.tourDetail.ttmOptional}
+                </span>
+              </div>
               <p className="mt-5 text-base leading-relaxed text-ink/70">
                 {t(tour.ttmOverview, locale)}
               </p>

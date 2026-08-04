@@ -82,7 +82,7 @@ collections:
         name: "ttmOverview"
         widget: "object"
         required: false
-        hint: "Only fill this in for a tour that includes Travel Trade Maldives attendance — it renders as an extra section on that tour's detail page. Leave both fields blank for every other tour."
+        hint: "Only for a tour that Travel Trade Maldives runs alongside. It renders as its own section above the itinerary, labelled Optional, because TTM is not part of the tour and a row inside the dated itinerary would read as included. Leave both fields blank for every other tour."
         fields:
           - { label: "English", name: "en", widget: "text", required: false }
           - { label: "Russian", name: "ru", widget: "text", required: false }
@@ -162,7 +162,7 @@ collections:
             name: "resortSlug"
             widget: "string"
             required: false
-            hint: "Must exactly match a resort's Slug field (see the Resorts collection), e.g. fushifaru. Leave blank for a non-resort stop like TTM Maldives itself."
+            hint: "Must exactly match a resort's Slug field (see the Resorts collection), e.g. fushifaru. Leave blank for a stop that has no resort page. Do not add an optional event such as TTM as a stop: the itinerary is a dated sequence, so anything listed here reads as part of the tour. Use the TTM overview field instead."
   - name: "destinations"
     label: "Destinations"
     label_singular: "Destination"

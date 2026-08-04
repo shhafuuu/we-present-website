@@ -285,6 +285,9 @@ export const en = {
     propertiesTitle: "The resorts on this programme",
     tiers: { "5": "Five-star resorts", "4": "Four-star resorts" } as Record<string, string>,
     ttmKicker: "TTM Maldives 2026",
+    // Sits beside the TTM kicker. TTM is not part of the tour, and the block renders
+    // outside the dated itinerary so sequence never implies inclusion.
+    ttmOptional: "Optional",
     includedKicker: "Included",
     includedTitle: "What's Included",
     onSiteKicker: "On-Site Programme",
@@ -322,7 +325,7 @@ export const en = {
       kicker: "Associated Partners",
       title: "Travel Trade Maldives",
       badge: "TTM Maldives · 10th Edition",
-      body: "Travel Trade Maldives (TTM) is the destination’s leading trade event. Tour 2 combines TTM 2026 attendance, including the Awards & Gala Night, with the partner-resort tour that follows. TTM branding will appear here once the partnership’s visual assets are provided.",
+      body: "Travel Trade Maldives (TTM) is the destination’s leading trade event. TTM 2026 takes place on 26 and 27 August, including the Awards & Gala Night, before Tour 2 begins. Participants may attend if they wish, or join the tour without it. TTM branding will appear here once the partnership’s visual assets are provided.",
     },
     forHotels: {
       kicker: "For Hotels",

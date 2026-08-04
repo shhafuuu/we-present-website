@@ -1,6 +1,6 @@
 # WePresent by COATI — Build Plan
 
-Consolidated work orders for rounds 2, 3 and 4. Supersedes the loose backlog in specs v1.9, v2.0 and v2.1 as the *execution* document. The v2.1 .docx remains the client-facing record; this file is what Claude Code works from.
+Consolidated work orders for rounds 2, 3, 4 and 5. Supersedes the loose backlog in specs v1.9, v2.0, v2.1 and v2.2 as the *execution* document. The v2.2 .docx remains the client-facing record; this file is what Claude Code works from.
 
 **Repo:** `github.com/shhafuuu/we-present-website` · **App root:** `web/`
 **Companion docs in repo:** `DESIGN.md` (visual system), `PRODUCT.md` (product truth), `CLAUDE.md` (incl. Security section)
@@ -12,11 +12,21 @@ Consolidated work orders for rounds 2, 3 and 4. Supersedes the loose backlog in 
 Work one order at a time, in order, unless a phase says otherwise.
 
 **Status key.** `[x]` done. `[~]` partially done, see the order for what is left.
-`[ ]` outstanding. As of 1 August 2026 the only genuinely outstanding orders are
-WO-04 (blocked on web-format partner logos), WO-52 (a systematic contrast pass;
-individual pairings have been measured as they were touched) and WO-62 (the
-handover zip, which is best produced last). WO-10 is partial by decision: the
-Destinations restructure shipped, the URL nesting was judged not worth the churn.
+`[ ]` outstanding.
+
+As of 4 August 2026, outstanding orders are:
+
+- **WO-80** — internal working notes are published on the live Tour 2 page. Do this first.
+- **WO-81 to WO-86** — round 5: Tour 2 dates and TTM, office contacts, maps, the Workshop.
+- **WO-52** — the systematic contrast pass. Individual pairings have been measured as they were touched.
+- **WO-63** — the production OAuth handler. Blocks the content portal.
+- **WO-04** — blocked on web-format partner logos.
+- **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
+
+WO-10 is partial by decision: the Destinations restructure shipped, the URL nesting was
+judged not worth the churn. WO-70 is ticked but its nine checklist boxes are not; it did
+not catch the WO-80 leak, so re-run it properly before handover rather than trusting the
+tick.
 
 For each work order:
 
@@ -42,6 +52,7 @@ These apply to every order. Violating one is a defect even if the order itself w
 **Copy**
 
 - No em dashes anywhere in site copy. Use commas, colons or full stops. Em dashes appear in *this document* as structural separators in headings and labels. They are not part of any copy string and must not be carried into the site.
+- **Russian caveat on the above.** In Russian the тире is grammatically required in some constructions, for example between a subject and a nominal predicate. Do not strip one mechanically and leave ungrammatical Russian behind. Rewrite the sentence so the dash is not needed. The rule is a house-style rule about English typography, not a licence to break Russian grammar. The check is `grep -n "—" web/content/ web/src/i18n/dictionaries/`; every hit is a rewrite, not a deletion.
 - Destination-neutral positioning copy. Do not write as if the Maldives is the whole programme.
 - Never invent facts. If a date, roster, metric or contact detail is not in this plan or the CMS, leave the field empty and let the render guard hide the block.
 - RU and EN copy always ship together. A new string in one locale without the other is an incomplete order.
@@ -81,6 +92,9 @@ These apply to every order. Violating one is a defect even if the order itself w
 | Tour dates for Cinnamon, Oman, Kenya | **BLOCKED** — client confirming | WO-11, WO-12, WO-13 |
 | Production email address | **BLOCKED** — pending hosting | WO-27 |
 | Oman and Kenya rosters and imagery | **BLOCKED** | WO-12, WO-13 |
+| Tour 2 dates | Received round 5 — 28 Aug to 5 Sep 2026, TTM optional | WO-81 |
+| Office phone and both addresses | Received round 5 | WO-82, WO-83 |
+| Workshop dates, venue, programme | **BLOCKED** — client has confirmed only November 2026, Moscow | WO-84 |
 
 ---
 
@@ -713,64 +727,339 @@ Apply the `## Security` section to `web/CLAUDE.md` and close the gaps found: sec
 
 ---
 
-### [ ] WO-62 — Handover package
+### [ ] WO-62 — Handover package — **REVISED round 5**
 
-**Origin:** round 2, client is hosting
+**Origin:** round 2, revised round 5
 
-Client wants a zip on completion.
+**The zip is superseded.** The client asked whether a Git repository would do instead,
+and it would: the Decap portal only works if the host rebuilds on commit, which means the
+site must stay connected to a repo. A zip handover and a working content portal are
+mutually exclusive. Handover is therefore a repository transfer, not an archive.
+
+Full procedure, including the exact commands, is in
+`WePresent-Auth-and-Handover-Guide.md` (Cowork project folder). Summary:
 
 **Steps**
 
-1. Scrub secrets: no `.env.local`, no Gmail app password, no `.submissions/`.
-2. Verify `.gitignore` covers all of the above and that nothing sensitive is in git history.
-3. Include a README covering build, environment variables required, CMS access and deployment.
-4. Avoid Cloudflare in any recommended DNS or CDN configuration — the client's Russian users must reach the site without a VPN.
+1. Audit git history for secrets before anything else. Any hit gets rotated, not just removed: squashing hides a credential from the new repo, it does not un-expose one already pushed.
+2. Build a handover copy with `rsync`, excluding `.git`, `node_modules`, `.next`, `.claude`, `.submissions`, `.env*`, `*.pem`, `*.key`. Note that `rsync` copies gitignored files, so those exclusions are load-bearing.
+3. Remove `CLAUDE.md`, `web/CLAUDE.md`, `.mcp.json` and any `.claude/` directory, and add them to `.gitignore`.
+4. Fresh `git init`, single "Initial commit", so no Claude Code commit trailers survive.
+5. Verify: `npm ci && npm run build` clean; no `.env*`, `*.pem`, `*.key` present; no AI tooling references outside `.gitignore`.
+6. README covering build, required environment variables, CMS access and deployment.
+7. Push to a COATI GitHub organisation, not a personal account. Shaf added as maintainer. Transfer on final payment.
+8. Avoid Cloudflare in any recommended DNS or CDN configuration — the client's Russian users must reach the site without a VPN.
 
-**Accept:** the zip contains no credential of any kind; a clean clone builds from the README alone.
+**Accept:** a clean clone builds from the README alone; the repo contains no credential
+and no AI tooling artefact; `git log` is a single commit.
+
+---
+
+### [ ] WO-63 — CMS OAuth handler for production
+
+**Origin:** round 5. Blocks the content portal, which is the client's stated top priority.
+
+`web/public/admin/config.yml` currently relies on `local_backend: true`, which works only
+against `npx decap-server` on localhost. In production Decap authenticates against GitHub
+and needs a server-side token exchange. Netlify Identity and Git Gateway are both
+deprecated and must not be built on.
+
+Full implementation, including both route handlers and the GitHub OAuth App setup, is in
+`WePresent-Auth-and-Handover-Guide.md` Part 1.
+
+**Files:** new `web/src/app/api/auth/route.ts`, new `web/src/app/api/callback/route.ts`,
+`web/public/admin/config.yml`, environment variables
+
+**Steps**
+
+1. Register a GitHub OAuth App under the COATI organisation, callback `https://<site>/api/callback`. Register a second one for localhost.
+2. Add `GITHUB_OAUTH_CLIENT_ID`, `GITHUB_OAUTH_CLIENT_SECRET`, `SITE_URL` to the host's environment. Never commit them.
+3. Implement `/api/auth` (redirect to GitHub with a `state` CSRF cookie) and `/api/callback` (verify `state`, exchange the code, return the `postMessage` page).
+4. `postMessage` targets `SITE_URL` explicitly, never `"*"`. A wildcard leaks the token to any page that opened the popup.
+5. Add `base_url` and `auth_endpoint: api/auth` to `config.yml`. No leading slash on `auth_endpoint`.
+6. Use `public_repo` scope rather than `repo` if the repository is public.
+
+**Accept:** an admin who is a repo collaborator can log in at `/admin` on the deployed
+site, publish an edit, and see it rebuild and go live.
+
+**Verify:** complete the flow end to end on the deployed site. Separately, confirm
+github.com is reachable from a Russian network without a VPN — if it is not, this whole
+approach fails and the backend switches to GitLab (PKCE, no handler needed) or a
+self-hosted Gitea.
+
+---
+
+# Round 5 — Workshop, Tour 2 and contacts
+
+Origin: client feedback of 3 August 2026. Spec v2.2.
+
+**Out of scope, do not build:** the client asked for a registration management module in
+the admin panel with stored applications, status changes and automated status emails.
+This is a software system, not a website feature, and has been declined. The website's
+responsibility ends when the form submission is emailed. Do not add a database, an
+admin registrations screen, or status logic. If it resurfaces, the answer is a
+third-party platform connected to the existing forms.
+
+---
+
+### [x] WO-80 — Remove internal notes from published tour copy — **DONE 4 Aug 2026**
+
+**Origin:** round 5 review. Currently live on the client-facing site.
+
+Working notes were written into tour content as visitor-facing copy and are published.
+
+**Files:** `web/content/tours/maldives-ttm-tour-2.json`, then audit all of `web/content/`
+
+**Steps**
+
+1. In the Tour 2 summary, delete the sentence "End date revised to 3 September per the client's calendar." in both locales. It is an internal status note.
+2. Delete the Madifushi stop note "Inclusion within the shorter window is being confirmed with the client." in both locales. Replaced properly in WO-81.
+3. Replace the placeholder stop notes "Resort stop 1", "Resort stop 2", "Resort stop 3" with real one-line descriptions in both locales, or empty them and let the render guard hide the line. Do not ship the placeholders.
+4. Audit every file under `web/content/` for the same class of leak: any string addressed to Shaf or the client rather than to a visitor. Grep for "client", "confirm", "TBC", "placeholder", "to be revised".
+
+**Accept:** no string anywhere in `web/content/` refers to the client, to Shaf, or to the
+build process. Every visible note reads as copy written for a visitor.
+
+**Verify:** fetch the deployed Tour 2 page in both locales and read every sentence.
+
+**What was done, 4 August 2026**
+
+- Tour 2 summary: internal sentence removed, and the remaining copy rewritten so it no longer states TTM is combined with the tour. Now reads as the optional framing, both locales.
+- Tour 2 stop notes: `Resort stop 1/2/3` replaced with real one-line descriptions from spec v2.2 Appendix B, both locales.
+- Tour 2 Madifushi note: emptied. Its dates still read `To confirm` and are corrected in WO-81.
+- Tour 1 carried the same `Resort stop N` placeholders and was fixed in the same pass. It was not in the original order text; it should have been.
+- `tours/[slug]/page.tsx`: stop note wrapped in a render guard so an empty note produces no element rather than an empty paragraph. This is what makes leaving a note blank a legitimate content choice instead of a layout defect.
+- Full audit of `web/content/` for the same class of leak: clean. Remaining occurrences of the word "client" are visitor-facing copy about a media company and about agents' own clients.
+- `tsc --noEmit` clean.
+
+**Still needed:** redeploy, then read the rendered Tour 2 page in both locales. The fix is
+in content and one component; it is not live until the site rebuilds.
+
+---
+
+### [x] WO-81 — Tour 2: confirmed dates, TTM as optional, rename
+
+**Origin:** round 5. Client confirmed 28 August to 5 September 2026.
+
+TTM is explicitly **optional**: participants may attend if they wish, or join the tour
+without it. The current page contradicts itself, showing a 28 August start above an
+itinerary whose first row is TTM on 26 to 27 August.
+
+**Files:** `web/content/tours/maldives-ttm-tour-2.json`, `web/src/lib/tours.ts`,
+tour detail template, `web/public/admin/config.yml`
+
+**Steps**
+
+1. Set dates to "28 August to 5 September 2026" / "28 августа по 5 сентября 2026". No em dashes in the copy strings; use the client's own phrasing style.
+2. Rename the tour to `Maldives · Tour 2` / `Мальдивы · Тур 2`. Naming it after an optional element oversells it and breaks symmetry with Tour 1. **Slug stays `maldives-ttm-tour-2`** so the live URL does not break.
+3. Re-time the itinerary to the confirmed range, which restores the original four-resort plan: Fushifaru 28 to 30 Aug, Meyyafushi 30 Aug to 1 Sep, SO/ Maldives 1 to 3 Sep, Madifushi Private Island 3 to 5 Sep, departure 5 Sep. Madifushi is confirmed, not pending. Remove the "To confirm" stop entirely.
+4. Move TTM out of the itinerary into its own clearly-labelled optional block above it, dated 26 to 27 August, stating that it takes place before the tour begins and that attendance is at the participant's choice.
+5. Add an `optional?: boolean` flag to `TourStop`, or render the TTM block from the existing `ttmOverview` field, whichever is less invasive. Do not let an optional item render inside the dated itinerary sequence.
+6. Update `ttmOverview` copy in both locales to state the optionality plainly.
+
+**Accept:** header dates, itinerary and TTM block all agree; no visitor could conclude
+TTM is included; four resorts appear with confirmed dates; RU and EN match.
+
+**Verify:** `npm run build`; read the page in both locales end to end and confirm the
+dates form one consistent story.
+
+---
+
+### [ ] WO-82 — Office phone and addresses
+
+**Origin:** round 5
+
+Client confirmed: keep the mobile as the WhatsApp contact **and** add the office landline.
+Both offices to be listed.
+
+**Files:** `web/src/lib/contact.ts`, `web/src/i18n/dictionaries/en.ts` and `ru.ts`,
+footer, contact page
+
+**Steps**
+
+1. Add to `contact.ts`: `OFFICE_PHONE = "+7 (495) 150-11-03"` with a `tel:` href stripped of spaces, brackets and dashes.
+2. Add both offices as structured data, not free text, so the map order in WO-83 can key off them. Moscow: "White Stone, 4th Lesnoy Pereulok, 4". St Petersburg: "Regus Nevsky Plaza, Nevsky Prospect, 55". Russian versions required.
+3. Keep `PHONE` and `WHATSAPP_HREF` as they are, labelled as the WhatsApp contact. The landline is a separate line, not a replacement.
+4. Replace the footer's "Office address: to be confirmed" placeholder with the two offices.
+5. Leave `EMAIL` as `null`. Still pending hosting.
+
+**Accept:** footer and contact page show the landline, the WhatsApp mobile and both
+addresses in both locales; no "to be confirmed" placeholder for address remains.
+
+---
+
+### [ ] WO-83 — Interactive maps for both offices
+
+**Origin:** round 5. Client asked for interactive maps.
+
+**Use Yandex Maps, not Google.** Google Maps is unreliable for Russian visitors and the
+whole hosting brief is that the site must work without a VPN.
+
+**Files:** new map component, contact page, `web/src/app/[locale]/legal/page.tsx`,
+`next.config.ts` if a CSP is in place
+
+**Steps**
+
+1. Render each map as a **click-to-load placeholder**: a static styled block with the address and a "Show map" control, which swaps in the embed on interaction. Do not load a third-party iframe on every page view.
+2. Reason it matters beyond performance: an auto-loading embed sets third-party cookies before the visitor has done anything, which the privacy policy would then have to cover for every visitor rather than for those who opt in.
+3. Update the privacy policy page in both locales to disclose the Yandex Maps embed and that it loads only on interaction.
+4. Add the Yandex frame domain to `frame-src` in the CSP if one is configured. Do not widen the policy further than needed.
+5. Style the placeholder to the palette. A raw grey map tile against ivory and lilac will look like a bug.
+
+**Accept:** both offices show a map that loads only when asked; no third-party request
+fires on initial page load; privacy policy updated in RU and EN.
+
+**Verify:** load the contact page with a network panel open and confirm zero Yandex
+requests before the click.
+
+---
+
+### [ ] WO-84 — Add the We Present Workshop to the calendar
+
+**Origin:** round 5
+
+First We Present Workshop, **November 2026, Moscow**. Exact dates, venue, programme and
+partner count are all unconfirmed and must not be invented. It brings together COATI
+collection partners (hotels, resorts, destinations); travel agents are invited to attend
+**complimentary**. Standard We Present branding, no separate identity.
+
+**Modelling decision:** a `format` discriminator on the existing tours collection, not a
+separate collection. The Workshop needs almost the whole tour surface (year, bilingual
+name, bilingual dates, status, summary, hero, coming-soon state, registration CTA) and
+lacks only what a tour adds (destination, resorts, itinerary, inclusions, on-site
+programme). That is a variant, not a sibling. It also keeps the calendar as one ordered
+list and gives the client one place in the portal to add an event. If workshops later
+grow their own structure (agenda, speakers, exhibitors), `format` is the seam to split on.
+
+**Files:** `web/src/lib/tours.ts`, new `web/content/tours/we-present-workshop-2026.json`,
+tour detail template, calendar components, `web/public/admin/config.yml`,
+`web/src/i18n/dictionaries/en.ts` and `ru.ts`
+
+**Steps**
+
+1. Add `format: "tour" | "workshop"` to the `Tour` type, defaulting to `"tour"` so all five existing files keep working untouched.
+2. Make `destination` and `stops` optional on the type, since a workshop has neither. Guard every consumer.
+3. Create the workshop content file: `format: "workshop"`, `status: "pending"`, year 2026, dates "November 2026" / "Ноябрь 2026", location Moscow, order placing it after the Maldives tours.
+4. Calendar card: render workshops with a location line instead of a resort line-up, and "Dates to be confirmed" in the dates slot. Give the card a quiet visual differentiator so it does not read as a destination tour. Not a badge shouting NEW.
+5. Detail template branches on `format`. The workshop page renders: what the Workshop is, who attends, the complimentary note for agents, Moscow and November 2026, and a registration CTA. It must **not** render the resort grid, itinerary, What's Included or on-site programme blocks.
+6. Copy, both locales, from the client's own wording. It is a professional networking and educational event bringing together partners from the COATI collection, with presentations, product updates, brainstorming sessions and business networking. Say plainly that dates, venue and programme will be announced.
+7. Portal: add `format` as a dropdown to the tours collection, and make the tour-only field groups conditional on it so an editor creating a workshop is not shown an itinerary builder.
+
+**Accept:** the Workshop appears in the calendar alongside the tours; its page renders no
+empty tour blocks; a visitor can register; no invented date or venue appears anywhere;
+both locales complete.
+
+**Verify:** `npm run build`; view the calendar and the workshop page in RU and EN; confirm
+the four existing tours are visually and functionally unchanged.
+
+---
+
+### [ ] WO-85 — Workshop registration path
+
+**Origin:** round 5. Client asked for registration "similar to the existing tour registration process".
+
+The existing `/register` route and `api/register` already collect name, agency, phone,
+email and a business card upload, and already email the submission. Reuse it. **Do not
+build storage or status management** — see the scope note at the top of this section.
+
+**Files:** `web/src/components/RegisterForm.tsx`, `web/src/app/[locale]/register/page.tsx`,
+`web/src/app/api/register/route.ts`, `web/src/i18n/dictionaries/en.ts` and `ru.ts`
+
+**Steps**
+
+1. Add an `event` field to the form so a submission records what it is for. Prefill it when arriving from a specific programme page, otherwise let the visitor choose.
+2. Include the email subject line and body so the team can tell a workshop registration from a tour registration at a glance.
+3. Respect the deliberate RU/EN asymmetry: Russian carries the full form, English shows the contact block. Do not "fix" this for the workshop.
+4. Confirm the business card upload passes the existing `validateUploadBatch` and `validateUpload` checks and is attached to the notification email. Note the route currently *requires* both `stats` and `businessCard`; a workshop registration should not demand agency performance statistics, so make `stats` conditional on the event type rather than universally required.
+5. The workshop page CTA links to `/register` with the event preselected.
+
+**Accept:** a workshop registration arrives by email, clearly labelled as a workshop
+registration, with the business card attached; tour registrations are unchanged.
+
+---
+
+### [ ] WO-86 — Rename the EN nav item to Programmes
+
+**Origin:** round 1 (RU label ПРОГРАММЫ), completed in round 5
+
+Russian already says ПРОГРАММЫ, English still says Tours, so the two locales disagree.
+"Tours" also does not describe a Moscow workshop.
+
+**Files:** `web/src/i18n/dictionaries/en.ts`, any hardcoded nav label
+
+**Steps**
+
+1. EN nav label becomes "Programmes". Keep the RU label as it is.
+2. Update in-page headings that read "Tours Calendar" and "View Full Calendar" for consistency.
+3. **Route stays `/tours`.** Renaming it rewrites URLs already live in the review build for no visitor benefit, which is the same reasoning that declined WO-10's nesting.
+
+**Accept:** EN and RU nav labels express the same concept; no route changed; no broken
+internal links.
 
 ---
 
 # Phase 8 — Final verification
 
-### [x] WO-70 — Full QA sweep
+### [~] WO-70 — Full QA sweep — **REOPENED**
 
+**Reopened 4 August 2026.** This was ticked at the heading while every box below it was
+unticked, and it did not catch WO-80: internal working notes were published as
+visitor-facing copy on the live Tour 2 page. A tick at the heading is not evidence. Do
+not re-tick this order until every box below is ticked individually.
+
+Static checks re-run on 4 August and passing:
+
+- [x] `grep -rni "coati travel" web/src web/content` returns nothing
+- [x] `grep -n "—" web/src/i18n/dictionaries/*.ts` returns nothing, both locales
+- [x] `grep -rn "—" web/content/` returns nothing. One hit was found and rewritten in `cases/exclusive-buyouts.json`; see the Russian caveat in Guardrails, it was a rewrite rather than a deletion
+- [x] No internal or build-process language in `web/content/`. Audit pattern: `the client`, `being confirmed`, `to be revised`, `placeholder`, `TBC`, `resort stop N`, `Shaf`, `awaiting`
+- [x] All content JSON parses
+- [x] No `TODO`, `FIXME` or `lorem` in `web/src`
+- [x] `tsc --noEmit` clean, no type errors
+- [x] `prefers-reduced-motion` present in every animated component: `Reveal`, `ResortHeroMedia`, `CasesIndex`, `StatRail`, `ValueJourney`
+
+Still outstanding, none of which can be done by static analysis:
+
+- [ ] `npm run build` on a machine with the platform's SWC binary. Not runnable in the Linux sandbox: `node_modules` holds the darwin build and the registry is unreachable, so `tsc --noEmit` is the substitute, not the equivalent
 - [ ] Every page, both locales, at 1440px, 1024px and 390px
-- [ ] `rg -i "coati travel"` returns nothing
-- [ ] `rg` for em dashes in `web/src/i18n/dictionaries/` returns nothing
-- [ ] No fabricated dates, rosters, metrics or contact details anywhere
-- [ ] `prefers-reduced-motion` verified on every animated section
-- [ ] Accessibility review skill run, findings addressed
-- [ ] `npm run build` clean, no type errors
+- [ ] Accessibility review skill run, findings addressed. Overlaps WO-52
 - [ ] Lighthouse on homepage, About and a tour detail page
 - [ ] Every BLOCKED item still blocked is listed in the handover notes
+
+**New standing check, added because WO-80 slipped past every existing one:** read the
+*rendered* page as a visitor, in both locales, for any page whose content changed. Every
+check above inspects source. None of them would have caught a sentence that is valid
+JSON, correctly typed, free of banned characters, and addressed to the wrong reader.
 
 ---
 
 ## Where to pick this up
 
-State as of 1 August 2026, end of the round-4 session. Working tree clean, everything
-pushed to `main`.
+State as of 4 August 2026, start of the round-5 session.
 
 **Do this first.** Re-read the Guardrails above, then `docs/round-4-status.md` for what
-shipped and the nine open client questions. `docs/cases-source-extract.md` is the audit
-trail for every published case figure; the source decks are gitignored at 583MB and live
-only on local disk, so that file is all that survives a fresh clone.
+round 4 shipped. `docs/cases-source-extract.md` is the audit trail for every published
+case figure; the source decks are gitignored at 583MB and live only on local disk, so
+that file is all that survives a fresh clone.
 
-**Only three orders are genuinely outstanding**, and one of them is blocked:
+**Then WO-80, immediately.** Internal working notes are published on the live Tour 2
+page, including "End date revised to 3 September per the client's calendar" and
+"Inclusion within the shorter window is being confirmed with the client". The client is
+reading their own project status off their own website. Nothing else in round 5 matters
+until that is gone.
 
-1. **WO-52, contrast pass.** The only unblocked build work left. Individual pairings have
-   been measured as they were touched (gold on aubergine 5.16:1, the hero panel 6.29:1,
-   the lilac card fill 5.00:1 for `ink/70`), but the systematic sweep has not been run.
-2. **WO-04, partner logos.** Blocked: the client's files are still `.ai` and `.psd`.
-3. **WO-62, handover zip.** Best produced last, once the blocked items land.
+**Order of play after that:** WO-81 (Tour 2 is three weeks out), WO-82 and WO-83
+(contacts and maps, both self-contained), WO-84 to WO-86 (the Workshop), then WO-52,
+WO-63, and WO-62 last.
 
 **Do not reopen WO-10's URL nesting** without a new reason. Moving resort pages under
 `/destinations/[destination]/[resort]` was considered and declined: nothing is broken, no
-visitor sees a difference, and it rewrites URLs already live in the review build.
+visitor sees a difference, and it rewrites URLs already live in the review build. The
+same reasoning applies to WO-86: rename the label, keep the route.
 
-**The review build is stale.** `playful-cassata-3c1ccf.netlify.app` responds but does not
-reflect any round-4 work, so Netlify is not auto-deploying from `main`. Wiring that up
-also unblocks the CMS, which needs the same rebuild-on-publish webhook.
+**The review build is now current.** `playful-cassata-3c1ccf.netlify.app` reflects the
+round-4 work, so Netlify is deploying from `main` again. The CMS still needs WO-63 before
+an editor can publish through it on the deployed site.
 
 **Two facts on the site still want client confirmation before launch:** the Cases stat
 now reads "in market since 2014" (confirm the basis), and the eighth case, the
@@ -783,11 +1072,21 @@ approved Tier 1 table.
 
 Carry these into the next client summary. None of them block the orders above.
 
-1. **Inclusions** — the included and not-included split needs client fact-check. Included: accommodation, dining, transfers, exclusive programme. Not included: international flights, TTM entry, insurance, visa.
+1. **Inclusions** — the included and not-included split needs client fact-check. Included: accommodation, dining, transfers, exclusive programme. Not included: international flights, TTM entry, insurance, visa. TTM entry is now explicitly optional, so the wording must not imply it was ever bundled.
 2. **PDF language** — RU only, or RU and EN?
-3. **"TTM Tier 1 / Tier 2"** — naming for the two August tours, unconfirmed since round 1.
-4. **Partner logos** — SVG or transparent PNG needed. AI and PSD are not web formats.
+3. **"TTM Tier 1 / Tier 2"** — naming for the two August tours, unconfirmed since round 1. Largely moot now that Tour 2 is renamed and TTM is optional, but worth closing.
+4. **Partner logos** — SVG or transparent PNG needed. AI and PSD are not web formats. Longest-running blocker.
 5. **Tour dates** — Cinnamon, Oman, Kenya.
-6. **Oman and Kenya content** — itinerary, lodge roster, imagery, partner permissions.
-7. **Production email** — pending hosting decision.
-8. **Oman ministry representation** — confirm whether this can be published as a case and whether the ministry logo may be used.
+6. **Workshop details** — exact dates, venue and programme. Client confirmed November 2026 in Moscow and nothing further; the page ships in a coming-soon state until these arrive.
+7. **Oman and Kenya content** — itinerary, lodge roster, imagery, partner permissions.
+8. **Production email** — pending hosting decision.
+9. **Hosting** — confirm the Squarespace purchase was the domain only. A Squarespace website plan cannot host this site, and the content portal additionally requires a host that rebuilds on commit.
+10. **Oman ministry representation** — confirm whether this can be published as a case and whether the ministry logo may be used.
+
+---
+
+## Closed, do not reopen
+
+- **Registration management module.** The client asked for stored applications, admin status changes and automated status emails. Declined as a software project rather than a website feature. The website emails the submission and stops there. Recorded in spec v2.2.
+- **Zip handover.** Superseded by the repository transfer in WO-62. A zip and a working content portal are mutually exclusive.
+- **Madifushi's inclusion in Tour 2.** Settled by the confirmed 28 August to 5 September range, which restores the original four-resort itinerary. Do not re-ask the client.

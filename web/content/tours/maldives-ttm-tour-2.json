@@ -3,38 +3,27 @@
   "order": 2,
   "year": "2026",
   "name": {
-    "en": "Maldives + TTM · Tour 2",
-    "ru": "Мальдивы + TTM · Тур 2"
+    "en": "Maldives · Tour 2",
+    "ru": "Мальдивы · Тур 2"
   },
   "destination": {
     "en": "Maldives",
     "ru": "Мальдивы"
   },
   "dates": {
-    "en": "28 August – 3 September 2026",
-    "ru": "28 августа – 3 сентября 2026"
+    "en": "28 August – 5 September 2026",
+    "ru": "28 августа – 5 сентября 2026"
   },
   "status": "confirmed",
   "summary": {
-    "en": "A Maldives programme across partner resorts, with the option of attending Travel Trade Maldives (TTM) 2026 beforehand.",
-    "ru": "Программа по Мальдивам с посещением курортов-партнёров и возможностью принять участие в Travel Trade Maldives (TTM) 2026 до её начала."
+    "en": "A Maldives programme across four partner resorts, with the option of attending Travel Trade Maldives beforehand.",
+    "ru": "Программа по Мальдивам с посещением четырёх курортов-партнёров и возможностью принять участие в Travel Trade Maldives до её начала."
   },
   "ttmOverview": {
-    "en": "Travel Trade Maldives (TTM) 2026 is the destination's leading trade event, now in its 10th edition, with an Awards & Gala Night on 27 August. The We Present group attends TTM before moving on to the resort stops below.",
-    "ru": "Travel Trade Maldives (TTM) 2026 является ведущим торговым мероприятием направления, уже 10-й сезон, с гала-вечером и церемонией награждения 27 августа. Группа We Present посещает TTM перед тем, как отправиться по курортам, указанным ниже."
+    "en": "Travel Trade Maldives 2026 takes place on 26 and 27 August, before the tour begins. Attendance is optional. Participants may combine the tour with one of the leading trade events in the Maldives, or join the tour without attending TTM.",
+    "ru": "Travel Trade Maldives 2026 проходит 26 и 27 августа, до начала тура. Участие по желанию. Участники могут совместить тур с одним из ведущих отраслевых событий Мальдив или присоединиться к туру без посещения TTM."
   },
   "stops": [
-    {
-      "label": "TTM Maldives",
-      "dates": {
-        "en": "26–27 Aug",
-        "ru": "26–27 авг"
-      },
-      "note": {
-        "en": "Travel Trade Maldives 2026 (10th edition); Awards & Gala Night 27 Aug.",
-        "ru": "Travel Trade Maldives 2026 (10-й сезон); гала-вечер и награждение 27 авг."
-      }
-    },
     {
       "label": "Fushifaru Maldives",
       "dates": {
@@ -42,8 +31,8 @@
         "ru": "28–30 авг"
       },
       "note": {
-        "en": "A reef-fringed island in Lhaviyani Atoll.",
-        "ru": "Остров в обрамлении рифа в атолле Лавияни."
+        "en": "A reef-fringed island in Lhaviyani Atoll. The opening leg.",
+        "ru": "Остров в обрамлении рифа в атолле Лавияни. Первый этап программы."
       },
       "resortSlug": "fushifaru"
     },
@@ -74,12 +63,12 @@
     {
       "label": "Madifushi Private Island",
       "dates": {
-        "en": "To confirm",
-        "ru": "Уточняется"
+        "en": "3–5 Sep",
+        "ru": "3–5 сен"
       },
       "note": {
-        "en": "",
-        "ru": ""
+        "en": "A private-island retreat in Meemu Atoll for the closing leg. Departure 5 September.",
+        "ru": "Уединённый частный остров в атолле Меему на завершающем этапе. Вылет 5 сентября."
       },
       "resortSlug": "madifushi"
     }
