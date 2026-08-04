@@ -888,7 +888,7 @@ addresses in both locales; no "to be confirmed" placeholder for address remains.
 
 ---
 
-### [ ] WO-83 — Interactive maps for both offices
+### [x] WO-83 — Interactive maps for both offices
 
 **Origin:** round 5. Client asked for interactive maps.
 

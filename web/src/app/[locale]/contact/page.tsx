@@ -3,6 +3,7 @@ import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactEnBlock } from "@/components/ContactEnBlock";
+import { OfficeMap } from "@/components/OfficeMap";
 import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import {
   EMAIL,
@@ -81,6 +82,8 @@ export default async function ContactPage({
                   </a>
                 </dd>
               </div>
+              {/* The addresses are printed here and again on the map cards below.
+                  Both read from OFFICES, so they cannot disagree. */}
               <div>
                 <dt className="kicker text-amethyst">{dict.contactPage.details.office}</dt>
                 <dd className="mt-1 space-y-4 text-ink/70">
@@ -137,6 +140,30 @@ export default async function ContactPage({
           <Reveal delay={0.15}>
             {locale === "ru" ? <ContactForm locale={locale} /> : <ContactEnBlock locale={locale} />}
           </Reveal>
+        </div>
+      </section>
+
+      {/* Ivory ground, not a lilac one. The cards are lilac, and a lilac card on a
+          lilac section is the "card on a ground of its own colour" case DESIGN.md
+          rules out: measured at RGB distance 18 it read as one flat block. */}
+      <section className="border-t border-amethyst/10 bg-ivory px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-5xl">
+          <Reveal>
+            <h2 className="sr-only">{dict.contactPage.details.office}</h2>
+            <Kicker>{dict.contactPage.details.office}</Kicker>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {OFFICES.map((office, i) => (
+              <Reveal key={office.id} delay={i * 0.08}>
+                <OfficeMap
+                  city={office.city[locale]}
+                  address={office.address[locale]}
+                  mapQuery={office.mapQuery}
+                  showMapLabel={dict.contactPage.details.showMap}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

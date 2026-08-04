@@ -29,6 +29,10 @@ const csp = [
   "img-src 'self' data:",
   "font-src 'self'",
   `connect-src 'self'${isDev ? " http://localhost:8081" : ""}${__impeccableLiveDev}`,
+  // Yandex Maps, for the two office maps on /contact. Narrowed to the map host
+  // rather than opening frame-src generally; the embed loads only on interaction
+  // (see components/OfficeMap.tsx), but the policy has to allow it either way.
+  "frame-src 'self' https://yandex.ru https://*.yandex.ru https://*.yandex.net",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

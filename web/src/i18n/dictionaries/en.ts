@@ -443,6 +443,10 @@ export const en = {
         body: "This site does not currently set non-essential cookies or run analytics. When analytics tools such as Yandex.Metrica or Google Analytics are added, this policy will be updated and a cookie consent notice will be shown before any non-essential cookie is set.",
       },
       {
+        title: "Maps",
+        body: "Our Contact page can show a Yandex Maps view of each of our offices. The map is not loaded when the page opens: it loads only if you select Show map, and until you do, no request is made to Yandex and no third-party cookie is set. Once you load a map, Yandex receives your IP address and may set its own cookies, governed by Yandex's own privacy policy rather than this one.",
+      },
+      {
         title: "Contact Us",
         body: "Questions about this policy or your data can be raised through the contact details on our Contact page.",
       },
