@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
@@ -27,7 +28,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, `/tours/${slug}`) };
+  const tour = getTour(slug);
+  if (!tour) return { alternates: localeAlternates(locale, `/tours/${slug}`) };
+  return pageMetadata(locale, `/tours/${slug}`, {
+    title: t(tour.name, locale),
+    description: t(tour.summary, locale),
+  });
 }
 
 export default async function TourDetailPage({

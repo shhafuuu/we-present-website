@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
@@ -25,7 +26,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, `/cases/${slug}`) };
+  const item = getCase(slug);
+  if (!item) return { alternates: localeAlternates(locale, `/cases/${slug}`) };
+  return pageMetadata(locale, `/cases/${slug}`, {
+    title: t(item.partner, locale),
+    description: t(item.summary, locale),
+  });
 }
 
 export default async function CasePage({

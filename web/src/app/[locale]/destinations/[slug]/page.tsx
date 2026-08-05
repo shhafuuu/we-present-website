@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -32,7 +33,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, `/destinations/${slug}`) };
+  const destination = getDestination(slug);
+  if (!destination) return { alternates: localeAlternates(locale, `/destinations/${slug}`) };
+  return pageMetadata(locale, `/destinations/${slug}`, {
+    title: td(destination.name, locale),
+    description: destination.intro ? td(destination.intro.body, locale) : undefined,
+  });
 }
 
 export default async function DestinationPage({

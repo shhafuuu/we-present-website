@@ -22,10 +22,9 @@ verified and committed. Outstanding orders are:
   client's to do.
 - **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
 
-WO-04 and WO-70 were both closed on 5 August 2026. Two follow-ups surfaced by WO-70 are
-not yet orders: per-page `<title>`/meta description (every page currently shares the root
-layout's), and the hero LCP question (the `<h1>` cannot paint until its mount animation
-runs). Both are written up in WO-70.
+WO-04 and WO-70 were closed on 5 August 2026, and the two follow-ups WO-70 raised —
+per-page titles/descriptions and the hero LCP — were both closed on 6 August 2026. See
+WO-70 for the numbers.
 
 Two things carried out of round 5 that are not orders:
 
@@ -881,6 +880,10 @@ browser against a listener copied from Decap's own code: the token arrives intac
 `postMessage` target was tested, not merely written. Build clean, 65 pages, every page
 route still SSG.
 
+**The client-facing setup steps are written up in `docs/cms-oauth-setup.md`** — OAuth App
+registration, the three environment variables, the separate localhost app, and what each
+failure message means.
+
 **Two things to check on the deployed site**, neither testable from here: the full login
 against the real OAuth App, and whether github.com is reachable from a Russian network
 without a VPN. If it is not, this approach fails outright and the backend has to move to
@@ -1195,9 +1198,23 @@ waits on JavaScript. Rendering the hero heading immediately and animating only t
 sub-elements would move Performance into the 90s. It changes the feel of the entrance,
 which is a design call, so it is flagged rather than done.
 
-*Also worth raising:* every page shares one `<title>` and one meta description, inherited
-from the root layout. Lighthouse cannot see this — it audits one page at a time — but it
-materially hurts search. Per-page titles are a small, separate piece of work.
+*Both follow-ups were closed on 6 August 2026:*
+
+**Per-page titles and descriptions** — every page had been inheriting one `<title>` and
+one meta description from the root layout, so fourteen routes in two languages presented
+as the same document. `src/lib/pageMeta.ts` now builds them per page. **No new copy was
+written:** titles and descriptions are drawn from each page's own banner heading and
+body, or from the entity's own name and tagline, so the meta matches what a visitor
+actually lands on and no unapproved marketing text was added. Descriptions truncate at a
+word boundary at 160 characters.
+
+**The hero LCP** — fixed by adding `fade={false}` to `Reveal` and using it on the home
+`<h1>`. The heading still slides in; it just starts opaque, so the browser paints it on
+first render instead of waiting for hydration. **Element render delay 1209ms → 166ms,
+LCP 4.7s → 3.7s, Performance 83 → 89.** Verified that the animation still runs, and that
+reduced-motion and JavaScript-disabled visitors still get the heading. The remaining LCP
+is network, not markup: the hero already ships as a 90KB WebP through Next's optimizer,
+and what is left is framework JavaScript, which is not worth fighting.
 
 **Measurement note.** The sweep's first three runs produced ~300 findings, all false: it
 counted `sr-only` text as clipped (it is deliberately clipped to 1px), counted every

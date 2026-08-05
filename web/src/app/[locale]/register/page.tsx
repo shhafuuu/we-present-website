@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import { Suspense } from "react";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { RegisterForm } from "@/components/RegisterForm";
 import { RegisterEnContactBlock } from "@/components/RegisterEnContactBlock";
-import { isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
+import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { tours, isWorkshop, t } from "@/lib/tours";
 
@@ -15,7 +16,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, "/register") };
+  const dict = getDictionary(locale);
+  return pageMetadata(locale, "/register", {
+    title: dict.registerPage.banner.title,
+    description: dict.registerPage.banner.body,
+  });
 }
 
 export default async function RegisterPage({

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
@@ -25,7 +26,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, `/resorts/${slug}`) };
+  const resort = getResort(slug);
+  if (!resort) return { alternates: localeAlternates(locale, `/resorts/${slug}`) };
+  return pageMetadata(locale, `/resorts/${slug}`, {
+    title: resort.name,
+    description: t(resort.tagline, locale),
+  });
 }
 
 export default async function ResortPage({

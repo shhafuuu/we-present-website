@@ -63,7 +63,10 @@ export function Hero({ locale }: { locale: Locale }) {
             {dict.home.hero.kicker}
           </p>
         </Reveal>
-        <Reveal trigger="mount" delay={0.1}>
+        {/* fade={false} because this heading is the page's Largest Contentful Paint.
+            It still slides in; it just starts opaque, so the browser can paint it on
+            first render instead of waiting for hydration and the fade to run. */}
+        <Reveal trigger="mount" delay={0.1} fade={false}>
           {/* Text-shadow rather than a scrim: with the violet wash gone, contrast is
               fixed at the text that needs it. See the note on the Image above. */}
           <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">

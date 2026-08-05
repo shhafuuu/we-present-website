@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
-import { isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
+import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateMetadata({
@@ -11,7 +12,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, "/how-it-was") };
+  const dict = getDictionary(locale);
+  return pageMetadata(locale, "/how-it-was", {
+    title: dict.howItWasPage.banner.title,
+    description: dict.howItWasPage.banner.body,
+  });
 }
 
 export default async function HowItWasPage({

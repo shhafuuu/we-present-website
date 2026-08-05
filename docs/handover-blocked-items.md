@@ -84,9 +84,10 @@ handover — and set three environment variables on the host:
 | `GITHUB_OAUTH_CLIENT_SECRET` | from the OAuth App — **a credential, host environment only** |
 | `SITE_URL` | the site's own origin, no trailing slash, matching `base_url` in config.yml |
 
-OAuth App settings: Homepage `https://<site>`, Authorization callback
-`https://<site>/api/callback`. Register a *second* app for localhost rather than adding
-localhost to the production one.
+**Step-by-step instructions, including the failure modes, are in
+[cms-oauth-setup.md](cms-oauth-setup.md).** In short: Homepage `https://<site>`,
+Authorization callback `https://<site>/api/callback`, registered under the COATI org,
+with a *second* app for localhost rather than adding localhost to the production one.
 
 **Meanwhile:** `/admin` loads and sign-in returns a plain message naming whichever
 variables are missing, rather than failing obscurely.

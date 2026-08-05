@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
@@ -6,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { INCLUDED_ICONS, TicketIcon } from "@/components/IncludedIcons";
 import { tours, hasDetailPage, isWorkshop, t } from "@/lib/tours";
 import { getToursSettings } from "@/lib/settings";
-import { href, isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 const byYear = tours.reduce<Record<string, typeof tours>>((acc, tour) => {
@@ -21,7 +22,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, "/tours") };
+  const dict = getDictionary(locale);
+  return pageMetadata(locale, "/tours", {
+    title: dict.toursPage.banner.title,
+    description: dict.toursPage.banner.body,
+  });
 }
 
 export default async function ToursPage({

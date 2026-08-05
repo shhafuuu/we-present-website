@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/pageMeta";
 import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactEnBlock } from "@/components/ContactEnBlock";
 import { OfficeMap } from "@/components/OfficeMap";
-import { isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
+import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
 import {
   EMAIL,
   PHONE,
@@ -26,7 +27,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
-  return { alternates: localeAlternates(locale, "/contact") };
+  const dict = getDictionary(locale);
+  return pageMetadata(locale, "/contact", {
+    title: dict.contactPage.banner.title,
+    description: dict.contactPage.banner.body,
+  });
 }
 
 export default async function ContactPage({
