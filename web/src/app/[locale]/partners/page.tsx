@@ -44,7 +44,7 @@ export default async function PartnersPage({
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 [--logo-base:72px] sm:grid-cols-2 sm:[--logo-base:88px]">
+          <div className="mt-14 grid gap-8 [--logo-base:72px] [--logo-max-w:240px] sm:grid-cols-2 sm:[--logo-base:88px] sm:[--logo-max-w:200px]">
             {resorts.map((resort, i) => {
               // Stacks on mobile: SO/ Maldives is a 9.4:1 wordmark, and beside it in a
               // row at 390px there is no usable width left for the card's text.
@@ -52,7 +52,12 @@ export default async function PartnersPage({
                 "flex h-full min-h-[240px] flex-col items-start gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-card transition-transform duration-500 sm:min-h-0 sm:flex-row";
               const content = (
                 <>
-                  <PartnerLogo resort={resort} />
+                  {/* Fixed-width, fixed-height column. The logos range from a stacked
+                      emblem to a 9.4:1 wordmark, and sizing each to its own width made
+                      every card's text start at a different x. */}
+                  <div className="flex w-full shrink-0 items-center sm:h-[88px] sm:w-[200px]">
+                    <PartnerLogo resort={resort} />
+                  </div>
                   <div>
                     <h3 className="font-display text-lg text-aubergine">
                       {resort.name}

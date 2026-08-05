@@ -40,13 +40,20 @@ export function PartnerLogo({
   alt?: string;
 }) {
   const scale = opticalScale(resort.logoAspect);
-  const height = `calc(var(--logo-base) * ${scale.toFixed(3)})`;
-  const width = `calc(var(--logo-base) * ${(scale * resort.logoAspect).toFixed(3)})`;
+
+  // Width is capped by --logo-max-w where the caller sets one (the partners cards give
+  // the logo a fixed-width column so every card's text starts at the same x). Height is
+  // derived from the capped width rather than set independently, so a logo that hits
+  // the cap shrinks rather than sitting letterboxed inside an oversized box.
+  // The fallback must be a length, not 100%: on the homepage strip the logo's parent is
+  // sized by the logo itself, so a percentage resolves circularly and collapses to zero.
+  const width = `min(calc(var(--logo-base) * ${(scale * resort.logoAspect).toFixed(3)}), var(--logo-max-w, 9999px))`;
+  const height = `calc(${width} / ${resort.logoAspect})`;
 
   return (
     <div
       style={{ height, width }}
-      className={`relative max-w-full shrink-0 ${
+      className={`relative shrink-0 ${
         resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
       } ${className}`}
     >
