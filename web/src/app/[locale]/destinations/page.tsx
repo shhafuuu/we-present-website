@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { Sparkle } from "@/components/Sparkle";
 import { destinations, t } from "@/lib/destinations";
-import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, "/destinations") };
+}
 
 export default async function DestinationsPage({
   params,

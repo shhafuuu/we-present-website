@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
 import { Kicker } from "@/components/Kicker";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { resorts, t } from "@/lib/resorts";
-import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, "/partners") };
+}
 
 export default async function PartnersPage({
   params,

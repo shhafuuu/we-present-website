@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
@@ -6,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { casesWithDetail, getCase, t } from "@/lib/cases";
 import { getCasesSettings } from "@/lib/settings";
-import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, locales, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 /** Only cases carrying detail copy get a page. The index does not link the others, so
@@ -15,6 +16,16 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     casesWithDetail.map((c) => ({ locale, slug: c.slug }))
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, `/cases/${slug}`) };
 }
 
 export default async function CasePage({

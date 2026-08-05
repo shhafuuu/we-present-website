@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { PartnerForm } from "@/components/PartnerForm";
 import { PartnerEnContactBlock } from "@/components/PartnerEnContactBlock";
-import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, "/become-a-partner") };
+}
 
 export default async function BecomeAPartnerPage({
   params,

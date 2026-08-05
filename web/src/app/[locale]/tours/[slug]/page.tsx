@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
@@ -7,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { getTour, tours, hasDetailPage, groupByTier, t } from "@/lib/tours";
 import { availableProgrammePdfs } from "@/lib/programmePdf";
 import { ProgrammePdfGate } from "@/components/ProgrammePdfGate";
-import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, locales, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export function generateStaticParams() {
@@ -17,6 +18,16 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     withPages.map((tour) => ({ locale, slug: tour.slug }))
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, `/tours/${slug}`) };
 }
 
 export default async function TourDetailPage({

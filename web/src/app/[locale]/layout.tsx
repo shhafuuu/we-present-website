@@ -34,14 +34,15 @@ export async function generateMetadata({
   const dict = getDictionary(locale);
 
   return {
+    // Absolute URLs are required for hreflang and Open Graph. SITE_URL is the same
+    // variable the CMS OAuth handler will read (WO-63); the fallback is the domain
+    // the client has already purchased.
+    metadataBase: new URL(process.env.SITE_URL ?? "https://wepresent.org"),
     title: dict.meta.title,
     description: dict.meta.description,
-    alternates: {
-      languages: {
-        ru: "/ru",
-        en: "/en",
-      },
-    },
+    // Deliberately no `alternates` here: a layout cannot know the current path, and
+    // inheriting one set of alternates pointed every page at the locale root. Each
+    // page declares its own via localeAlternates().
   };
 }
 

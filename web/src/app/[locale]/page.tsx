@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { IntroSection } from "@/components/home/IntroSection";
 import { ConceptSection } from "@/components/home/ConceptSection";
@@ -7,7 +8,17 @@ import { ResortsGrid } from "@/components/home/ResortsGrid";
 import { PartnersStrip } from "@/components/home/PartnersStrip";
 import { HowItWas } from "@/components/home/HowItWas";
 import { RegisterBand } from "@/components/home/RegisterBand";
-import { isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, "/") };
+}
 
 export default async function Home({
   params,

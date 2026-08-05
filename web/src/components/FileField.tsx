@@ -25,11 +25,14 @@ export function FileField({
   return (
     <label className="block text-sm text-ink/70">
       {label}
-      <div className="mt-2 flex items-center gap-3 rounded-lg border border-dashed border-amethyst/30 bg-ivory px-4 py-3 has-[:focus-visible]:border-gold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-gold/30">
+      {/* Wraps rather than truncating: at 390px the Russian placeholder ("Файл не
+          выбран") is wider than the space left beside the button and rendered clipped.
+          The truncate below is still wanted for real filenames, which can be any length. */}
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-lg border border-dashed border-amethyst/30 bg-ivory px-4 py-3 has-[:focus-visible]:border-gold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-gold/30">
         <span className="kicker shrink-0 rounded-full bg-amethyst/10 px-3 py-1 text-[0.65rem] text-amethyst">
           {common.chooseFile}
         </span>
-        <span className="truncate text-xs text-ink/70">
+        <span className="min-w-0 max-w-full truncate text-xs text-ink/70">
           {fileNames.length ? fileNames.join(", ") : common.noFileSelected}
         </span>
         <input

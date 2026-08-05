@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Kicker } from "@/components/Kicker";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
@@ -11,8 +12,18 @@ import { CasesIndex, type CaseCard } from "@/components/cases/CasesIndex";
 import { StatRail } from "@/components/cases/StatRail";
 import { cases, activeCategories, hasDetail, t as tc } from "@/lib/cases";
 import { getCasesSettings } from "@/lib/settings";
-import { href, isLocale, defaultLocale, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, "/about") };
+}
 
 export default async function AboutPage({
   params,

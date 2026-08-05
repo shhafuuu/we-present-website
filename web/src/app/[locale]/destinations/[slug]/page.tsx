@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,7 +15,7 @@ import {
 } from "@/lib/destinations";
 import { t as tr } from "@/lib/resorts";
 import { hasDetailPage, t as tt } from "@/lib/tours";
-import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, locales, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export function generateStaticParams() {
@@ -22,6 +23,16 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     activeDestinations.map((destination) => ({ locale, slug: destination.slug }))
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, `/destinations/${slug}`) };
 }
 
 export default async function DestinationPage({

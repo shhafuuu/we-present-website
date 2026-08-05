@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/Kicker";
@@ -7,7 +8,7 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { ResortHeroMedia } from "@/components/ResortHeroMedia";
 import { Sparkle } from "@/components/Sparkle";
 import { getResort, resorts, t, tl } from "@/lib/resorts";
-import { href, isLocale, defaultLocale, locales, type Locale } from "@/i18n/config";
+import { href, isLocale, defaultLocale, locales, localeAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export function generateStaticParams() {
@@ -15,6 +16,16 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     builtResorts.map((resort) => ({ locale, slug: resort.slug }))
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  return { alternates: localeAlternates(locale, `/resorts/${slug}`) };
 }
 
 export default async function ResortPage({

@@ -17,10 +17,15 @@ Work one order at a time, in order, unless a phase says otherwise.
 As of 5 August 2026, **round 5 is complete**: WO-80 through WO-86 are all built,
 verified and committed. Outstanding orders are:
 
-- **WO-63** — the production OAuth handler. Blocks the content portal.
+- **WO-63** — the production OAuth handler. Blocks the content portal. Cannot be finished
+  in the repo alone: registering the GitHub OAuth App under the COATI organisation is the
+  client's to do.
 - **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
-- **WO-70** — the QA sweep, reopened. Three boxes remain, all of them things static
-  analysis cannot do.
+
+WO-04 and WO-70 were both closed on 5 August 2026. Two follow-ups surfaced by WO-70 are
+not yet orders: per-page `<title>`/meta description (every page currently shares the root
+layout's), and the hero LCP question (the `<h1>` cannot paint until its mount animation
+runs). Both are written up in WO-70.
 
 Two things carried out of round 5 that are not orders:
 
@@ -1106,7 +1111,7 @@ internal links.
 
 # Phase 8 — Final verification
 
-### [~] WO-70 — Full QA sweep — **REOPENED**
+### [x] WO-70 — Full QA sweep — **CLOSED 5 August 2026**
 
 **Reopened 4 August 2026.** This was ticked at the heading while every box below it was
 unticked, and it did not catch WO-80: internal working notes were published as
@@ -1127,10 +1132,45 @@ Static checks re-run on 4 August and passing:
 Still outstanding, none of which can be done by static analysis:
 
 - [x] `npm run build` on a machine with the platform's SWC binary. Run repeatedly through round 5 on macOS: compiles clean, 63 static pages, `/register` still SSG after the Suspense boundary was added
-- [ ] Every page, both locales, at 1440px, 1024px and 390px
+- [x] Every page, both locales, at 1440px, 1024px and 390px. Done 5 Aug with `web/scripts/responsive-sweep.mjs`: 52 reachable paths x 3 widths, 0 broken routes, 0 horizontal page scroll, 0 elements overflowing an unclipped container, 0 crowded tap targets. One real defect found and fixed — see below
 - [x] Accessibility review skill run, findings addressed. Overlaps WO-52. No such skill is installed; done instead with the two scripts at `web/scripts/a11y/`, which found and fixed seven muted-text failures and the banner-gradient pairing behind the round-1 report
-- [ ] Lighthouse on homepage, About and a tour detail page
-- [ ] Every BLOCKED item still blocked is listed in the handover notes
+- [x] Lighthouse on homepage, About and a tour detail page. Done 5 Aug against a production build. Accessibility 100, best practices 100, SEO 100 on all three after the hreflang fix below. Performance 83–87, all of it LCP
+- [x] Every BLOCKED item still blocked is listed in the handover notes — `docs/handover-blocked-items.md`. WO-62 folds it into the handover README
+
+**What the sweep found.**
+
+*Fixed:* the file-upload field clipped its own Russian placeholder at 390px. "Файл не
+выбран" needs 90px in an 86px box, so it rendered mid-word. The `truncate` is wanted for
+real filenames, which can be any length, so the row now wraps instead. `/ru/register` and
+`/ru/become-a-partner`, both locales checked.
+
+*Fixed, found by Lighthouse:* **hreflang was wrong on every page except the two locale
+roots.** The root layout declared `alternates.languages` as the literal strings `/ru` and
+`/en`, and every page inherited it — so `/ru/about` told search engines its English
+equivalent was the English *homepage*, in relative URLs Google will not accept. Each page
+now declares its own via `localeAlternates()` in `src/i18n/config.ts`, with `canonical`
+and `x-default`, made absolute by a new `metadataBase`. SEO 90/91 → 100.
+
+*Not fixed, needs a decision:* **LCP is 4.1–4.7s and the cause is not an image.** The LCP
+element is the hero `<h1>`, which sits inside `<Reveal trigger="mount" delay={0.1}>`.
+Time to first byte is 14ms; element render delay is 1209ms. The heading starts at opacity
+0 and cannot paint until hydration plus the fade-in finish, so the site's largest text
+waits on JavaScript. Rendering the hero heading immediately and animating only the
+sub-elements would move Performance into the 90s. It changes the feel of the entrance,
+which is a design call, so it is flagged rather than done.
+
+*Also worth raising:* every page shares one `<title>` and one meta description, inherited
+from the root layout. Lighthouse cannot see this — it audits one page at a time — but it
+materially hurts search. Per-page titles are a small, separate piece of work.
+
+**Measurement note.** The sweep's first three runs produced ~300 findings, all false: it
+counted `sr-only` text as clipped (it is deliberately clipped to 1px), counted every
+ordinary footer link as an undersized tap target (WCAG 2.5.8 exempts targets with 24px of
+clearance), and counted a transform-scaled hero image inside an `overflow-hidden` frame as
+overflowing. It also could not crawl the resort pages at all, because their autoplaying
+hero video means `networkidle` never fires — the crawl now uses plain HTTP against the
+static HTML, and the checks abort video requests. Same lesson as the WO-52 contrast pass:
+confirm a finding against real pixels before believing it.
 
 **New standing check, added because WO-80 slipped past every existing one:** read the
 *rendered* page as a visitor, in both locales, for any page whose content changed. Every
