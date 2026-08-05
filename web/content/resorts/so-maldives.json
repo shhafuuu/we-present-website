@@ -16,7 +16,7 @@
     }
   },
   "cardImage": "/images/resorts/so-maldives/channel.jpg",
-  "logo": "/images/logos/so-maldives.png",
+  "logo": "/images/logos/so-maldives.svg",
   "name": "SO/ Maldives",
   "slug": "so-maldives",
   "destinationSlug": "maldives",
@@ -30,6 +30,7 @@
   },
   "order": 1,
   "logoBg": "none",
+  "logoAspect": 9.396,
   "gallery": [
     {
       "src": "/images/resorts/so-maldives/hero.jpg",

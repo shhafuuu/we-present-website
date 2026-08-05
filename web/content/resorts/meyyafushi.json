@@ -17,6 +17,7 @@
   "heroVideo": "/videos/meyyafushi-hero.mp4",
   "logo": "/images/logos/meyyafushi.png",
   "logoBg": "none",
+  "logoAspect": 0.703,
   "built": true,
   "website": "https://www.meyyafushi.com/",
   "stayDates": {

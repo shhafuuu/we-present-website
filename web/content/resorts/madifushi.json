@@ -17,6 +17,7 @@
   "heroVideo": "/videos/madifushi-hero.mp4",
   "logo": "/images/logos/madifushi.svg",
   "logoBg": "none",
+  "logoAspect": 1.502,
   "built": true,
   "website": "https://www.madifushiprivateisland.com/",
   "stayDates": {

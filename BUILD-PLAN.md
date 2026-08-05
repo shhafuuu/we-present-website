@@ -18,9 +18,8 @@ As of 5 August 2026, **round 5 is complete**: WO-80 through WO-86 are all built,
 verified and committed. Outstanding orders are:
 
 - **WO-63** — the production OAuth handler. Blocks the content portal.
-- **WO-04** — blocked on web-format partner logos.
 - **WO-62** — handover, revised from a zip to a repository transfer. Best produced last.
-- **WO-70** — the QA sweep, reopened. Five boxes remain, all of them things static
+- **WO-70** — the QA sweep, reopened. Three boxes remain, all of them things static
   analysis cannot do.
 
 Two things carried out of round 5 that are not orders:
@@ -93,7 +92,7 @@ These apply to every order. Violating one is a defect even if the order itself w
 | `We Present Logo.svg` | Received (842x595, black WP + sparkle) | WO-02 |
 | Destination-neutral hero image | Received (aerial ocean, cyan/white foam) | WO-30 |
 | COATI source decks x3 | Received | WO-20 to WO-24 |
-| Partner logos as SVG or transparent PNG | **BLOCKED** — AI and PSD only | WO-04 |
+| Partner logos as SVG or transparent PNG | **RESOLVED** — supplied 24 July, shipped 5 Aug. True vector for Meyyafushi still wanted (cosmetic) | WO-04 |
 | Per-tour programme PDFs | **BLOCKED** — client producing | WO-26 |
 | Tour dates for Cinnamon, Oman, Kenya | **BLOCKED** — client confirming | WO-11, WO-12, WO-13 |
 | Production email address | **BLOCKED** — pending hosting | WO-27 |
@@ -168,15 +167,50 @@ v2.0 asked for the gradient to be restored on eight page banners. Doing it inlin
 
 ---
 
-### [ ] WO-04 — Standardise partner logos — **BLOCKED**
+### [x] WO-04 — Standardise partner logos — **DONE 5 August 2026**
 
-**Origin:** round 2
+**Origin:** round 2. Was the longest-running blocker; it should not have been. The client
+supplied web-format vectors on 24 July and the BLOCKED label was never re-checked
+against the disk. Two of the four (Fushifaru, Madifushi) had in fact been converted in
+July while the order still read BLOCKED.
 
-Client supplied Meyyafushi and Fushifaru as `.ai` and Madifushi as `.psd`. Not web formats.
+**Assets.** All four partner logos are now transparent, cropped to their ink and
+clickable through to the partner's site:
 
-**When unblocked:** export to SVG or transparent PNG; strip coloured backdrops (no black or purple plates); normalise to a single optical height rather than a single pixel height; make each logo a link to the partner's official site; increase display size per round 1 feedback.
+| Partner | Asset | Note |
+|---|---|---|
+| Fushifaru | `fushifaru.svg` | true vector, white plate stripped |
+| Madifushi | `madifushi.svg` | true vector, white plate stripped |
+| Meyyafushi | `meyyafushi.png` | see below — no true vector exists |
+| SO Maldives | `so-maldives.svg` | true vector, from `SO- MALDIVES LOGO HORIZONTAL-01.svg` |
 
-**Accept:** all partner logos transparent, optically aligned on one baseline, clickable, and visually consistent in weight.
+**Meyyafushi has no vector.** The supplied `Meyyafushi Logo.svg` is a single base64 PNG
+in an SVG wrapper: one `<image>` element, no paths, white background baked into the
+raster. Converting it gains nothing, so the transparent 780x1109 PNG remains the live
+asset. Asking the client for a true vector export stays on the pending-assets list; it
+is cosmetic, not blocking.
+
+**Every logo arrived on an export canvas with 40–60% empty margin** — SO Maldives'
+artwork occupied 8% of its canvas height. Because the site sizes logos with
+`object-contain` inside a fixed box, that margin was being scaled as if it were artwork,
+which is the actual cause of the round-1 "logos are too small" note. All four are now
+cropped to their visible ink (`web/scripts/logo-bbox.mjs` measures the bounds).
+
+**Optical normalisation.** `src/components/PartnerLogo.tsx` replaces the fixed
+`h-20 w-32` box on both call sites. Height scales as `1/sqrt(aspect)` — equal
+bounding-box area — off a new `logoAspect` field on the resort JSON, normalised against
+a square reference so adding a fifth partner does not resize the existing four. Equal
+box height gave the SO Maldives wordmark ~12x the ink area of the emblem logos; an
+intermediate exponent of 0.35 was tried and still left it at ~2.6x on the rendered page.
+
+Base size raised from 80px to 112px on the homepage strip (round-1 "too small"), and the
+partners-page card stacks the logo above the text below `sm` — at 390px a 9.4:1 wordmark
+beside the text left no usable width for the copy.
+
+**Accept:** met. All four transparent, optically balanced, clickable, larger than before.
+
+**Verified:** homepage strip and partners page screenshotted at 1440px and 390px in both
+locales; `tsc --noEmit` clean.
 
 ---
 

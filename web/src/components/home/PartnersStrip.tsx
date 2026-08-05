@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Kicker } from "@/components/Kicker";
+import { PartnerLogo } from "@/components/PartnerLogo";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { resorts } from "@/lib/resorts";
@@ -20,22 +20,17 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-14 gap-y-10 [--logo-base:76px] sm:[--logo-base:112px]">
             {resorts.map((resort) => {
               const logo = (
-                <div
-                  className={`relative h-16 w-36 shrink-0 transition-transform duration-500 group-hover:-translate-y-1 sm:h-20 sm:w-44 ${
-                    resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
-                  }`}
-                >
-                  <Image
-                    src={resort.logo}
-                    alt={resort.name}
-                    fill
-                    sizes="176px"
-                    className={`object-contain ${resort.logoBg === "none" ? "opacity-80 group-hover:opacity-100" : ""}`}
-                  />
-                </div>
+                <PartnerLogo
+                  resort={resort}
+                  className="transition-transform duration-500 group-hover:-translate-y-1"
+                  imageClassName={
+                    resort.logoBg === "none" ? "opacity-80 group-hover:opacity-100" : ""
+                  }
+                  alt={resort.website ? "" : resort.name}
+                />
               );
 
               return resort.website ? (

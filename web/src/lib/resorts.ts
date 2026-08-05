@@ -23,6 +23,14 @@ export type Resort = {
   website?: string;
   /** "none" = logo is self-contained (transparent art or its own baked-in background) and renders with no wrapper. "dark" = logo needs a dark backdrop to be visible (light-on-transparent art). */
   logoBg: "none" | "dark";
+  /**
+   * Width ÷ height of the logo's *visible ink*, with transparent margins cropped off.
+   * Drives optical normalisation in `PartnerLogo` so a wide wordmark and a stacked
+   * emblem read at the same weight. Measure it with `scripts/logo-bbox.mjs` rather
+   * than reading the file's declared dimensions — every logo supplied so far arrived
+   * on an export canvas with 40–60% empty margin.
+   */
+  logoAspect: number;
   built: boolean;
   stayDates: LocalizedString;
   story: LocalizedList;

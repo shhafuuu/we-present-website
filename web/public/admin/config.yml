@@ -336,6 +336,7 @@ collections:
         options:
           - { label: "None — logo already looks right on a light background", value: "none" }
           - { label: "Dark — logo is light-colored and needs a dark chip behind it to be visible", value: "dark" }
+      - { label: "Logo shape (width ÷ height)", name: "logoAspect", widget: "number", value_type: "float", default: 1, hint: "How wide the logo is compared to how tall, ignoring any empty margin around it — 1 for a square, 0.75 for a tall stacked logo, 9.4 for a long single-line wordmark. Used to size logos so a wide one and a tall one look equally prominent side by side. Ask the developer to measure it if you're unsure." }
       - { label: "Published (uncheck to hide from the site without deleting it)", name: "built", widget: "boolean", default: true }
       - label: "Stay dates (display text)"
         name: "stayDates"

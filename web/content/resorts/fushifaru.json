@@ -17,6 +17,7 @@
   "heroVideo": "/videos/fushifaru-hero.mp4",
   "logo": "/images/logos/fushifaru.svg",
   "logoBg": "none",
+  "logoAspect": 0.754,
   "built": true,
   "website": "https://www.fushifaru.com/",
   "stayDates": {

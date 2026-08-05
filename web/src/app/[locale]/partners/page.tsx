@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Kicker } from "@/components/Kicker";
+import { PartnerLogo } from "@/components/PartnerLogo";
 import { PageBanner } from "@/components/PageBanner";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
@@ -33,25 +33,15 @@ export default async function PartnersPage({
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2">
+          <div className="mt-14 grid gap-8 [--logo-base:72px] sm:grid-cols-2 sm:[--logo-base:88px]">
             {resorts.map((resort, i) => {
+              // Stacks on mobile: SO/ Maldives is a 9.4:1 wordmark, and beside it in a
+              // row at 390px there is no usable width left for the card's text.
               const cardClassName =
-                "flex h-full min-h-[240px] gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-card transition-transform duration-500 sm:min-h-0";
+                "flex h-full min-h-[240px] flex-col items-start gap-6 rounded-2xl border border-amethyst/10 bg-soft-lilac/50 p-6 shadow-card transition-transform duration-500 sm:min-h-0 sm:flex-row";
               const content = (
                 <>
-                  <div
-                    className={`relative h-20 w-32 shrink-0 ${
-                      resort.logoBg === "dark" ? "rounded-xl bg-aubergine p-3" : ""
-                    }`}
-                  >
-                    <Image
-                      src={resort.logo}
-                      alt=""
-                      fill
-                      sizes="128px"
-                      className="object-contain"
-                    />
-                  </div>
+                  <PartnerLogo resort={resort} />
                   <div>
                     <h3 className="font-display text-lg text-aubergine">
                       {resort.name}
