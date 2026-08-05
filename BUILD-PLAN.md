@@ -846,9 +846,45 @@ and no AI tooling artefact; `git log` is a single commit.
 
 ---
 
-### [ ] WO-63 — CMS OAuth handler for production
+### [~] WO-63 — CMS OAuth handler for production — **CODE COMPLETE 6 August 2026, awaiting the client's OAuth App**
 
 **Origin:** round 5. Blocks the content portal, which is the client's stated top priority.
+
+**Built and verified locally 6 August 2026.** `src/lib/cmsAuth.ts`,
+`src/app/api/auth/route.ts` and `src/app/api/callback/route.ts` are in, `config.yml`
+carries `base_url` + `auth_endpoint`, and `.env.local.example` documents the three
+variables. What remains is not code: **someone with COATI organisation access must
+register the GitHub OAuth App** and put its client ID and secret into the host's
+environment. Until then `/admin` loads and sign-in returns a plain-text message naming
+the missing variables.
+
+**The message protocol was read out of the Decap 3 bundle, not assumed** — see
+`handshakeCallback` / `authorizeCallback` in decap-cms.js. It is a three-step handshake:
+the popup posts `authorizing:github`, the opener echoes it back, and only then does the
+popup post `authorization:github:success:{token,provider}`. The opener discards any
+message whose `event.origin` is not exactly its configured `base_url`, which is why
+`SITE_URL` must be a bare origin with no trailing slash.
+
+Also confirmed from the bundle: **`local_backend: true` is inert in production.** Decap
+only contacts the local proxy when
+`["localhost","127.0.0.1",...allowed_hosts].includes(location.hostname)`, so the line
+stays and local editing keeps working.
+
+**Verified locally:** `/api/auth` redirects with the right `client_id`, `redirect_uri`,
+`scope` and `state`, and sets the state cookie `HttpOnly; SameSite=Lax; Path=/api`; a
+request for `scope=delete_repo` is downgraded to `repo` by the allowlist; a non-GitHub
+provider is rejected 400; a missing or mismatched `state` returns the error page with a
+single undifferentiated message; the callback clears the state cookie and sends
+`Cache-Control: no-store`. The handshake itself was driven end to end in a headless
+browser against a listener copied from Decap's own code: the token arrives intact, and
+**it is not delivered when the page targets a different origin** — the wildcard-free
+`postMessage` target was tested, not merely written. Build clean, 65 pages, every page
+route still SSG.
+
+**Two things to check on the deployed site**, neither testable from here: the full login
+against the real OAuth App, and whether github.com is reachable from a Russian network
+without a VPN. If it is not, this approach fails outright and the backend has to move to
+GitLab (PKCE, no handler needed) or a self-hosted Gitea.
 
 `web/public/admin/config.yml` currently relies on `local_backend: true`, which works only
 against `npx decap-server` on localhost. In production Decap authenticates against GitHub

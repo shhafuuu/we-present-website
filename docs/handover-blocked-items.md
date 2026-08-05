@@ -70,16 +70,37 @@ correct. Only worth chasing for print-grade sharpness.
 
 ## Blocked on the hosting and repository decision
 
-### 9. CMS production login — WO-63 · *blocks the client's stated top priority*
-`public/admin/config.yml` still carries `local_backend: true`, which works only against
-`npx decap-server` on localhost. Production needs a GitHub OAuth App **registered under
-the COATI organisation** (not a personal account, since the client owns this at
-handover), its client ID and secret in the host's environment, and the two route
-handlers at `/api/auth` and `/api/callback`.
-**Client action required:** only the org owner can register the OAuth App.
+### 9. CMS production login — WO-63 · *code complete, needs one client action*
+The handlers are built and tested: `/api/auth`, `/api/callback` and `src/lib/cmsAuth.ts`,
+with `base_url` and `auth_endpoint` set in `public/admin/config.yml`.
+
+**What is still needed, and only the client can do it:** register a GitHub OAuth App
+**under the COATI organisation** — not a personal account, since the client owns this at
+handover — and set three environment variables on the host:
+
+| Variable | Value |
+|---|---|
+| `GITHUB_OAUTH_CLIENT_ID` | from the OAuth App |
+| `GITHUB_OAUTH_CLIENT_SECRET` | from the OAuth App — **a credential, host environment only** |
+| `SITE_URL` | the site's own origin, no trailing slash, matching `base_url` in config.yml |
+
+OAuth App settings: Homepage `https://<site>`, Authorization callback
+`https://<site>/api/callback`. Register a *second* app for localhost rather than adding
+localhost to the production one.
+
+**Meanwhile:** `/admin` loads and sign-in returns a plain message naming whichever
+variables are missing, rather than failing obscurely.
+
+`local_backend: true` stays in the config and is inert in production — verified against
+the Decap bundle, it only activates on `localhost`/`127.0.0.1`.
+
 **Do not build on Netlify Identity or Git Gateway** — both are deprecated.
-`backend.repo` currently reads `shhafuuu/we-present-website` and must be repointed at
-the COATI repository.
+`backend.repo` currently reads `shhafuuu/we-present-website` and `base_url` reads
+`https://wepresent.org`; both must be repointed at handover.
+
+**Unverified until deployed:** whether github.com is reachable from a Russian network
+without a VPN. If it is not, this whole approach fails and the backend must move to
+GitLab or a self-hosted Gitea.
 
 ### 10. Rebuild-on-publish webhook
 Pages are statically generated per build, so a CMS publish does not reach the live site

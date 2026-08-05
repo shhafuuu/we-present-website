@@ -10,12 +10,23 @@ backend:
   name: github
   repo: shhafuuu/we-present-website
   branch: main
+  # Where Decap sends editors to sign in. It opens `<base_url>/<auth_endpoint>` in a
+  # popup and then accepts the access token only from a message whose origin matches
+  # base_url *exactly* — so this must be the site's own origin, no trailing slash and
+  # no path. The endpoint itself is WO-63's handler at src/app/api/auth/route.ts.
+  #
+  # CHANGE THIS to the production domain at handover, and repoint `repo` at the COATI
+  # organisation's repository at the same time.
+  base_url: https://wepresent.org
+  auth_endpoint: api/auth
 
 # Lets the CMS run fully locally against the real repo files with no OAuth setup,
-# via `npx decap-server` run from the repo root alongside `npm run dev`. Decap
-# detects it's on localhost and talks to that proxy instead of the GitHub API.
-# Harmless to leave in for production too — it's simply unused unless the proxy
-# is actually running.
+# via `npx decap-server` run from the repo root alongside `npm run dev`.
+#
+# Safe to leave on in production, and this was verified against the Decap 3 bundle
+# rather than assumed: the proxy is only ever contacted when
+# `["localhost", "127.0.0.1", ...allowed_hosts].includes(location.hostname)`, so on
+# the real domain this line does nothing at all.
 local_backend: true
 
 publish_mode: simple
