@@ -1234,31 +1234,42 @@ JSON, correctly typed, free of banned characters, and addressed to the wrong rea
 
 ## Where to pick this up
 
-State as of 4 August 2026, start of the round-5 session.
+State as of the end of 6 August 2026. Everything is committed and pushed to `main`.
 
-**Do this first.** Re-read the Guardrails above, then `docs/round-4-status.md` for what
-round 4 shipped. `docs/cases-source-extract.md` is the audit trail for every published
-case figure; the source decks are gitignored at 583MB and live only on local disk, so
-that file is all that survives a fresh clone.
+**Do this first.** Re-read the Guardrails above. `docs/cases-source-extract.md` is the
+audit trail for every published case figure; the source decks are gitignored at 583MB and
+live only on local disk, so that file is all that survives a fresh clone.
+`docs/handover-blocked-items.md` is the current list of everything still blocked.
 
-**Then WO-80, immediately.** Internal working notes are published on the live Tour 2
-page, including "End date revised to 3 September per the client's calendar" and
-"Inclusion within the shorter window is being confirmed with the client". The client is
-reading their own project status off their own website. Nothing else in round 5 matters
-until that is gone.
+**Only two orders remain, and one of them is not code.**
 
-**Order of play after that:** WO-81 (Tour 2 is three weeks out), WO-82 and WO-83
-(contacts and maps, both self-contained), WO-84 to WO-86 (the Workshop), then WO-52,
-WO-63, and WO-62 last.
+**WO-63 — finish the content portal login.** The handlers are built, tested and pushed;
+what is left is the client registering a GitHub OAuth App under the COATI organisation
+and setting `GITHUB_OAUTH_CLIENT_ID`, `GITHUB_OAUTH_CLIENT_SECRET` and `SITE_URL` on the
+host. The steps to hand them are in `docs/cms-oauth-setup.md`. Once those exist, complete
+a real login on the deployed site — that is the only part never exercised end to end.
+Before relying on any of it, **check that github.com is reachable from a Russian network
+without a VPN**; if it is not, the backend has to move to GitLab or a self-hosted Gitea
+and this order is rewritten.
+
+**WO-62 — handover.** Do it last, and not before WO-63 is confirmed working on the
+deployed site: the README has to document the portal login. Start with the secret scan of
+git history — anything found gets **rotated**, not merely removed.
+
+**Closed on 5–6 August 2026:** WO-52 (contrast), WO-04 (partner logos — the BLOCKED label
+was stale, the assets had been supplied on 24 July), WO-70 (QA sweep, every box ticked
+individually), and the two follow-ups WO-70 raised (per-page titles/descriptions, and the
+hero LCP). WO-63 is code-complete.
 
 **Do not reopen WO-10's URL nesting** without a new reason. Moving resort pages under
 `/destinations/[destination]/[resort]` was considered and declined: nothing is broken, no
 visitor sees a difference, and it rewrites URLs already live in the review build. The
 same reasoning applies to WO-86: rename the label, keep the route.
 
-**The review build is now current.** `playful-cassata-3c1ccf.netlify.app` reflects the
-round-4 work, so Netlify is deploying from `main` again. The CMS still needs WO-63 before
-an editor can publish through it on the deployed site.
+**The review build.** `playful-cassata-3c1ccf.netlify.app` deploys from `main`. It has
+not been re-checked since the 5–6 August work landed — worth a look before showing it to
+the client. An editor still cannot publish through the CMS there until WO-63's
+environment variables are set.
 
 **Two facts on the site still want client confirmation before launch:** the Cases stat
 now reads "in market since 2014" (confirm the basis), and the eighth case, the
